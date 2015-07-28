@@ -111,4 +111,10 @@ class IndexController extends Controller
         $id = Database::store($book);       
         Debug::show(R::findAll('book'));
     }
+    
+    public function cookie()
+    {
+        Cookie::set('hello', 'world');
+        echo Cookie::get('hello');
+    }
 }
