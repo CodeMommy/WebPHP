@@ -14,8 +14,12 @@ class View
         $smarty->setCompileDir(APPLICATION_ROOT. "/Runtime/SmaryTemplate/"); // 设置编译目录 
         $smarty->setCacheDir(APPLICATION_ROOT."/Runtime/SmaryCache/"); // 缓存目录 
         $smarty->debugging = false; // 缓存方式 
-		foreach($data as $key => $value){
-			$smarty->assign($key, $value);
+		$smarty->left_delimiter = '{% ';
+		$smarty->right_delimiter = ' %}';
+		if($data){
+			foreach($data as $key => $value){
+				$smarty->assign($key, $value);
+			}
 		}
 		$smarty->display($view);
 	}

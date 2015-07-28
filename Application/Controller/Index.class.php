@@ -4,7 +4,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        echo "Hello LuckyPHP";
+        View::showPage('Index/index.html');
     }
     
     public function redirect()
