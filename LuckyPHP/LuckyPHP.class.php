@@ -21,20 +21,20 @@
 
 define('FRAMEWORK_ROOT', dirname(__FILE__));
 
-require_once(FRAMEWORK_ROOT . '/Core/Router.php');
-require_once(FRAMEWORK_ROOT . '/Core/Session.php');
-require_once(FRAMEWORK_ROOT . '/Core/Cookie.php');
-require_once(FRAMEWORK_ROOT . '/Core/Controller.php');
-require_once(FRAMEWORK_ROOT . '/Core/View.php');
-require_once(FRAMEWORK_ROOT . '/Core/Input.php');
-require_once(FRAMEWORK_ROOT . '/Core/Debug.php');
-require_once(FRAMEWORK_ROOT . '/Core/Configure.php');
-require_once(FRAMEWORK_ROOT . '/Core/Client.php');
-require_once(FRAMEWORK_ROOT . '/Core/Validate.php');
-require_once(FRAMEWORK_ROOT . '/Core/Convert.php');
-require_once(FRAMEWORK_ROOT . '/Core/Image.php');
-require_once(FRAMEWORK_ROOT . '/Core/Weixin.php');
-require_once(FRAMEWORK_ROOT . '/Core/Log.php');
+require_once(FRAMEWORK_ROOT . '/Core/Router.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Session.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Cookie.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Controller.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/View.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Input.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Debug.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Configure.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Client.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Validate.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Convert.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Image.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Weixin.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Log.class.php');
 
 require_once(FRAMEWORK_ROOT . '/Library/Smarty/Smarty.class.php');
 

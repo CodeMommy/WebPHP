@@ -16,9 +16,8 @@ class Router
         $fileName = end($filePathArray);
         $fileDes = strpos($fileURL, $fileName);
         if ($fileDes === false) {
-            $s1 = substr($fileURL, 0, $fileDes);
-            $s2 = substr($fileURL, $fileDes + strlen($fileName));
-            $urlFull = $s1 . $s2;
+            $s1 = substr($filePath, 0, strlen($filePath)-strlen($fileName)-1);
+            $urlFull = substr($fileURL, strlen($s1));
         } else {
             $urlFull = substr($fileURL, strlen($filePath));
         }
@@ -50,7 +49,7 @@ class Router
             }
         }
         // Do
-        require_once(ROOT . '/Controller/' . $controllerName . '.php');
+        require_once(APPLICATION_ROOT . '/Controller/' . $controllerName . '.class.php');
         $controller = $controllerName . 'Controller';
         $urlArray = new $controller();
         $urlArray->$actionName();

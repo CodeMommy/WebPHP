@@ -9,7 +9,7 @@ class Configure
 {
     public static function get($key, $default = null)
 	{
-		$configure = require_once(ROOT . '/Configure/configure.php');
+		$configure = require_once(APPLICATION_ROOT . '/Configure/configure.php');
 		if(isset($configure[$key])){
 			return $configure[$key];
 		}else{
