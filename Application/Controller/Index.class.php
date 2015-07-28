@@ -102,4 +102,13 @@ class IndexController extends Controller
     {
         // Weixin::compression();
     }
+    
+    public function mysql()
+    {
+        Database::init();
+        $book = Database::dispense('book');
+        $book->title = 'Hello';
+        $id = Database::store($book);       
+        Debug::show(R::findAll('book'));
+    }
 }

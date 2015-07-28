@@ -8,6 +8,5 @@ Upload
 File
 Log
 Cache
-MySQL
 Redis
 Mongodb

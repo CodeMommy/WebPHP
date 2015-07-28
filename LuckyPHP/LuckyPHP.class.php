@@ -21,6 +21,9 @@
 
 define('FRAMEWORK_ROOT', dirname(__FILE__));
 
+require_once(FRAMEWORK_ROOT . '/Library/Smarty/Smarty.class.php');
+require_once(FRAMEWORK_ROOT . '/Library/RedBeanPHP/rb.php');
+
 require_once(FRAMEWORK_ROOT . '/Core/Router.class.php');
 require_once(FRAMEWORK_ROOT . '/Core/Session.class.php');
 require_once(FRAMEWORK_ROOT . '/Core/Cookie.class.php');
@@ -35,7 +38,6 @@ require_once(FRAMEWORK_ROOT . '/Core/Convert.class.php');
 require_once(FRAMEWORK_ROOT . '/Core/Image.class.php');
 require_once(FRAMEWORK_ROOT . '/Core/Weixin.class.php');
 require_once(FRAMEWORK_ROOT . '/Core/Log.class.php');
-
-require_once(FRAMEWORK_ROOT . '/Library/Smarty/Smarty.class.php');
+require_once(FRAMEWORK_ROOT . '/Core/Database.class.php');
 
 Router::init();
