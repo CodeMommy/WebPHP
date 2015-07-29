@@ -1,2 +1,2 @@
-Application/Runtime/SmaryTemplate/*.php
+Application/Runtime/SmartyTemplate/*.php
 Application/Runtime/SmartyCache/*.php
