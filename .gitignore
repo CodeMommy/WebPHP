@@ -1,2 +1,3 @@
 Application/Runtime/SmartyTemplate/*.php
 Application/Runtime/SmartyCache/*.php
+.idea/

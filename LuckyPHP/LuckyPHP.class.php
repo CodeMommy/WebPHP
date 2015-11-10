@@ -5,39 +5,27 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
-// function __autoload($className)
-// {
-//     $frameworkRoot = dirname(__FILE__);
-//     $classNames = array();
-//     array_push($classNames, $frameworkRoot . '/Core/' . $className . '.php');
-//     array_push($classNames, $frameworkRoot . '/Library/' . $className . '/'.$className.'.class.php');
-//     foreach ($classNames as $class) {
-//         $require = @require_once($class);
-//         if (!empty($require)) {
-//             break;
-//         }
-//     }
-// }
-
+// Path
 define('FRAMEWORK_ROOT', dirname(__FILE__));
 
-require_once(FRAMEWORK_ROOT . '/Library/Smarty/Smarty.class.php');
-require_once(FRAMEWORK_ROOT . '/Library/RedBeanPHP/rb.php');
+// Autoload
+function autoload($className)
+{
+    $library = array();
+    $library['Smarty'] = FRAMEWORK_ROOT . '/Library/Smarty/Smarty.class.php';
+    $library['R'] = FRAMEWORK_ROOT . '/Library/RedBeanPHP/rb.php';
+    if (isset($library[$className])) {
+        require_once($library[$className]);
+    }
+    $classNames = array();
+    array_push($classNames, FRAMEWORK_ROOT . '/Core/' . $className . '.class.php');
+    foreach ($classNames as $class) {
+        if (is_file($class)) {
+            require_once($class);
+        }
+    }
+}
+spl_autoload_register('autoload');
 
-require_once(FRAMEWORK_ROOT . '/Core/Router.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Session.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Cookie.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Controller.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/View.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Input.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Debug.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Configure.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Client.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Validate.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Convert.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Image.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Weixin.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Log.class.php');
-require_once(FRAMEWORK_ROOT . '/Core/Database.class.php');
-
+// Init
 Router::init();
