@@ -17,7 +17,10 @@ class IndexController extends Controller
 {
     public function index()
     {
-        View::showPage('Index/index.html');
+        $data = array();
+        $data['hello'] = 'Hello';
+        $data['world'] = 'LuckyPHP';
+        View::showPage('Index/index.html', $data);
     }
 
     public function redirect()
