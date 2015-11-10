@@ -1,5 +1,10 @@
 <?php
 
+// +----------------------------------------------------------------------
+// | @author    Candison November (www.kandisheng.com)
+// | @location  Nanjing China
+// +----------------------------------------------------------------------
+
 use LuckyPHP\Core\Controller;
 use LuckyPHP\Core\View;
 use LuckyPHP\Core\Router;
