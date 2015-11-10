@@ -1,5 +1,18 @@
 <?php
 
+use LuckyPHP\Core\Controller;
+use LuckyPHP\Core\View;
+use LuckyPHP\Core\Router;
+use LuckyPHP\Core\Session;
+use LuckyPHP\Core\Input;
+use LuckyPHP\Core\Debug;
+use LuckyPHP\Core\Client;
+use LuckyPHP\Core\Configure;
+use LuckyPHP\Core\Convert;
+use LuckyPHP\Core\Validate;
+use LuckyPHP\Core\Database;
+use LuckyPHP\Core\Cookie;
+
 class IndexController extends Controller
 {
     public function index()

@@ -5,6 +5,8 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
+namespace LuckyPHP\Core;
+
 class Session
 {
     private static function init()

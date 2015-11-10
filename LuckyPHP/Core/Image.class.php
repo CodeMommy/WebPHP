@@ -5,6 +5,8 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
+namespace LuckyPHP\Core;
+
 class Image
 {
     public static function compression($imageOldPath, $imageNewPrefix, $maxWidth, $maxHeight)

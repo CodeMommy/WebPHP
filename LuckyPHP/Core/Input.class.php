@@ -5,6 +5,8 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
+namespace LuckyPHP\Core;
+
 class Input
 {
     public static function get($key, $default=null)

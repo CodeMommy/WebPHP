@@ -5,6 +5,10 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
+namespace LuckyPHP\Core;
+
+use R;
+
 class Database extends R
 {
     public static function init()

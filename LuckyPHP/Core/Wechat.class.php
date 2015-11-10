@@ -5,7 +5,7 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
-class Weixin
+class Wechat
 {
     public function get_access_token($app_id , $app_secret)
     {

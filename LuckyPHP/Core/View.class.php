@@ -5,6 +5,10 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
+namespace LuckyPHP\Core;
+
+use Smarty;
+
 class View
 {
 	public static function showPage($view, $data=null)
