@@ -2,9 +2,7 @@
 
 /**
  * Smarty Extension Append
- *
  * getStreamVariable() method
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -15,11 +13,12 @@ class Smarty_Internal_Extension_Append
      * appends values to template variables
      *
      * @param  array|string $tpl_var the template variable name(s)
-     * @param  mixed        $value   the value to append
-     * @param  boolean      $merge   flag if array elements shall be merged
-     * @param  boolean      $nocache if true any output of this variable will be not cached
+     * @param  mixed $value          the value to append
+     * @param  boolean $merge        flag if array elements shall be merged
+     * @param  boolean $nocache      if true any output of this variable will be not cached
      *
-     * @return Smarty_Internal_Data current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining
+     * @return Smarty_Internal_Data current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for
+     *                              chaining
      */
     public static function append($obj, $tpl_var, $value, $merge, $nocache)
     {
@@ -76,11 +75,12 @@ class Smarty_Internal_Extension_Append
     /**
      * appends values to template variables by reference
      *
-     * @param  string  $tpl_var the template variable name
-     * @param  mixed   &$value  the referenced value to append
-     * @param  boolean $merge   flag if array elements shall be merged
+     * @param  string $tpl_var the template variable name
+     * @param  mixed &$value   the referenced value to append
+     * @param  boolean $merge  flag if array elements shall be merged
      *
-     * @return Smarty_Internal_Data current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining
+     * @return Smarty_Internal_Data current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for
+     *                              chaining
      */
     public static function appendByRef($obj, $tpl_var, &$value, $merge)
     {

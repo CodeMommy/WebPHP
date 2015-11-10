@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Smarty Template  Base
  * This file contains the basic shared methods for template handling
- *
  * @package    Smarty
  * @subpackage Template
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Class with shared template methods
- *
  * @package    Smarty
  * @subpackage Template
  */
@@ -19,7 +17,6 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Set this if you want different sets of cache files for the same
      * templates.
-     *
      * @var string
      */
     public $cache_id = null;
@@ -27,21 +24,18 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Set this if you want different sets of compiled files for the same
      * templates.
-     *
      * @var string
      */
     public $compile_id = null;
 
     /**
      * caching enabled
-     *
      * @var boolean
      */
     public $caching = false;
 
     /**
      * cache lifetime in seconds
-     *
      * @var integer
      */
     public $cache_lifetime = 3600;
@@ -49,10 +43,10 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * test if cache is valid
      *
-     * @param  string|\Smarty_Internal_Template $template   the resource handle of the template file or template object
-     * @param  mixed                            $cache_id   cache id to be used with this template
-     * @param  mixed                            $compile_id compile id to be used with this template
-     * @param  object                           $parent     next higher level of Smarty variables
+     * @param  string|\Smarty_Internal_Template $template the resource handle of the template file or template object
+     * @param  mixed $cache_id                            cache id to be used with this template
+     * @param  mixed $compile_id                          compile id to be used with this template
+     * @param  object $parent                             next higher level of Smarty variables
      *
      * @return boolean       cache status
      */
@@ -96,7 +90,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Get unique template id
      *
-     * @param string     $template_name
+     * @param string $template_name
      * @param null|mixed $cache_id
      * @param null|mixed $compile_id
      *
@@ -121,11 +115,11 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Registers plugin to be used in templates
      *
-     * @param  string   $type       plugin type
-     * @param  string   $tag        name of template tag
-     * @param  callback $callback   PHP callback to register
-     * @param  boolean  $cacheable  if true (default) this function is cache able
-     * @param  array    $cache_attr caching attributes if any
+     * @param  string $type       plugin type
+     * @param  string $tag        name of template tag
+     * @param  callback $callback PHP callback to register
+     * @param  boolean $cacheable if true (default) this function is cache able
+     * @param  array $cache_attr  caching attributes if any
      *
      * @return Smarty_Internal_Templatebase current Smarty_Internal_Templatebase (or Smarty or
      *                                      Smarty_Internal_Template) instance for chaining
@@ -139,7 +133,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
         } elseif (!is_callable($callback)) {
             throw new SmartyException("Plugin \"{$tag}\" not callable");
         } else {
-            $smarty->registered_plugins[$type][$tag] = array($callback, (bool) $cacheable, (array) $cache_attr);
+            $smarty->registered_plugins[$type][$tag] = array($callback, (bool)$cacheable, (array)$cache_attr);
         }
 
         return $this;
@@ -167,7 +161,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Registers a resource to fetch a template
      *
-     * @param  string                $type     name of resource type
+     * @param  string $type                    name of resource type
      * @param  Smarty_Resource|array $callback or instance of Smarty_Resource, or array of callbacks to handle resource
      *                                         (deprecated)
      *
@@ -204,7 +198,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Registers a cache resource to cache a template's output
      *
-     * @param  string               $type     name of cache resource type
+     * @param  string $type                   name of cache resource type
      * @param  Smarty_CacheResource $callback instance of Smarty_CacheResource to handle output caching
      *
      * @return Smarty_Internal_Templatebase current Smarty_Internal_Templatebase (or Smarty or
@@ -240,10 +234,10 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
      * Registers object to be used in templates
      *
      * @param          $object_name
-     * @param  object  $object_impl   the referenced PHP object to register
-     * @param  array   $allowed       list of allowed methods (empty = all)
-     * @param  boolean $smarty_args   smarty argument format, else traditional
-     * @param  array   $block_methods list of block-methods
+     * @param  object $object_impl  the referenced PHP object to register
+     * @param  array $allowed       list of allowed methods (empty = all)
+     * @param  boolean $smarty_args smarty argument format, else traditional
+     * @param  array $block_methods list of block-methods
      *
      * @throws SmartyException
      * @return Smarty_Internal_Templatebase current Smarty_Internal_Templatebase (or Smarty or
@@ -352,8 +346,8 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Registers a filter function
      *
-     * @param  string     $type filter type
-     * @param  callback   $callback
+     * @param  string $type     filter type
+     * @param  callback $callback
      * @param null|string $name option filter name
      *
      * @return \Smarty_Internal_TemplateBase current Smarty_Internal_Templatebase (or Smarty or
@@ -369,7 +363,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * Unregisters a filter function
      *
-     * @param  string          $type filter type
+     * @param  string $type filter type
      * @param  callback|string $callback
      *
      * @return Smarty_Internal_Templatebase current Smarty_Internal_Templatebase (or Smarty or
@@ -426,7 +420,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
      * Handle unknown class methods
      *
      * @param string $name unknown method-name
-     * @param array  $args argument array
+     * @param array $args  argument array
      *
      * @throws SmartyException
      */

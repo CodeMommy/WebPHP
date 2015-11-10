@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Templateparser Parse Tree
  * These are classes to build parse tree in the template parser
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Thue Kristensen
@@ -11,7 +10,6 @@
 
 /**
  * Template element
- *
  * @package    Smarty
  * @subpackage Compiler
  * @ignore
@@ -21,7 +19,6 @@ class Smarty_Internal_ParseTree_Template extends Smarty_Internal_ParseTree
 
     /**
      * Array of template elements
-     *
      * @var array
      */
     public $subtrees = Array();
@@ -54,17 +51,16 @@ class Smarty_Internal_ParseTree_Template extends Smarty_Internal_ParseTree
 
     /**
      * Sanitize and merge subtree buffers together
-     *
      * @return string template code content
      */
     public function to_smarty_php()
     {
         $code = '';
-        for ($key = 0, $cnt = count($this->subtrees); $key < $cnt; $key ++) {
+        for ($key = 0, $cnt = count($this->subtrees); $key < $cnt; $key++) {
             if ($this->subtrees[$key] instanceof Smarty_Internal_ParseTree_Text) {
                 $subtree = $this->subtrees[$key]->to_smarty_php();
                 while ($key + 1 < $cnt && ($this->subtrees[$key + 1] instanceof Smarty_Internal_ParseTree_Text || $this->subtrees[$key + 1]->data == '')) {
-                    $key ++;
+                    $key++;
                     if ($this->subtrees[$key]->data == '') {
                         continue;
                     }
@@ -79,7 +75,7 @@ class Smarty_Internal_ParseTree_Template extends Smarty_Internal_ParseTree
             if ($this->subtrees[$key] instanceof Smarty_Internal_ParseTree_Tag) {
                 $subtree = $this->subtrees[$key]->to_smarty_php();
                 while ($key + 1 < $cnt && ($this->subtrees[$key + 1] instanceof Smarty_Internal_ParseTree_Tag || $this->subtrees[$key + 1]->data == '')) {
-                    $key ++;
+                    $key++;
                     if ($this->subtrees[$key]->data == '') {
                         continue;
                     }

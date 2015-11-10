@@ -2,7 +2,6 @@
 
 /**
  * Double quoted string inside a tag.
- *
  * @package    Smarty
  * @subpackage Compiler
  * @ignore
@@ -10,7 +9,6 @@
 
 /**
  * Double quoted string inside a tag.
- *
  * @package    Smarty
  * @subpackage Compiler
  * @ignore
@@ -20,7 +18,7 @@ class Smarty_Internal_ParseTree_Dq extends Smarty_Internal_ParseTree
     /**
      * Create parse tree buffer for double quoted string subtrees
      *
-     * @param object                    $parser  parser object
+     * @param object $parser                     parser object
      * @param Smarty_Internal_ParseTree $subtree parse tree buffer
      */
     public function __construct($parser, Smarty_Internal_ParseTree $subtree)
@@ -58,7 +56,6 @@ class Smarty_Internal_ParseTree_Dq extends Smarty_Internal_ParseTree
 
     /**
      * Merge subtree buffer content together
-     *
      * @return string compiled template code
      */
     public function to_smarty_php()

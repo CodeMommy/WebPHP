@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty Resource Plugin
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Rodney Rehm
@@ -10,7 +9,6 @@
 /**
  * Smarty Resource Plugin
  * Base implementation for resource plugins that don't use the compiler
- *
  * @package    Smarty
  * @subpackage TemplateResources
  */
@@ -18,7 +16,6 @@ abstract class Smarty_Resource_Uncompiled extends Smarty_Resource
 {
     /**
      * Flag that it's an uncompiled resource
-     *
      * @var bool
      */
     public $uncompiled = true;
@@ -26,7 +23,7 @@ abstract class Smarty_Resource_Uncompiled extends Smarty_Resource
     /**
      * Render and output the template (without using the compiler)
      *
-     * @param  Smarty_Template_Source   $source    source object
+     * @param  Smarty_Template_Source $source      source object
      * @param  Smarty_Internal_Template $_template template object
      *
      * @throws SmartyException          on failure
@@ -61,8 +58,7 @@ abstract class Smarty_Resource_Uncompiled extends Smarty_Resource
         try {
             $this->renderUncompiled($_template->source, $_template);
             return ob_get_clean();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             while (ob_get_level() > $level) {
                 ob_end_clean();
             }

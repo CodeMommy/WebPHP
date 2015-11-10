@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsFunction
  */
@@ -38,7 +37,6 @@ require_once(SMARTY_PLUGINS_DIR . 'shared.make_timestamp.php');
  *            - 2.0 complete rewrite for performance,
  *              added attributes month_names, *_id
  * </pre>
- *
  * @link     http://www.smarty.net/manual/en/language.function.html.select.date.php {html_select_date}
  *           (Smarty online manual)
  * @version  2.0
@@ -58,7 +56,7 @@ function smarty_function_html_select_date($params)
     if ($_month_timestamps === null) {
         $_current_year = date('Y');
         $_month_timestamps = array();
-        for ($i = 1; $i <= 12; $i ++) {
+        for ($i = 1; $i <= 12; $i++) {
             $_month_timestamps[$i] = mktime(0, 0, 0, $i, 1, 2000);
         }
     }
@@ -154,7 +152,7 @@ function smarty_function_html_select_date($params)
             case 'month_id':
             case 'day_id':
             case 'year_id':
-                $$_key = (string) $_value;
+                $$_key = (string)$_value;
                 break;
 
             case 'display_days':
@@ -162,7 +160,7 @@ function smarty_function_html_select_date($params)
             case 'display_years':
             case 'year_as_text':
             case 'reverse_years':
-                $$_key = (bool) $_value;
+                $$_key = (bool)$_value;
                 break;
 
             default:
@@ -214,13 +212,13 @@ function smarty_function_html_select_date($params)
         $key .= '_year';
         $t = $$key;
         if ($t === null) {
-            $$key = (int) $_current_year;
+            $$key = (int)$_current_year;
         } elseif ($t[0] == '+') {
-            $$key = (int) ($_current_year + (int)trim(substr($t, 1)));
+            $$key = (int)($_current_year + (int)trim(substr($t, 1)));
         } elseif ($t[0] == '-') {
-            $$key = (int) ($_current_year - (int)trim(substr($t, 1)));
+            $$key = (int)($_current_year - (int)trim(substr($t, 1)));
         } else {
-            $$key = (int) $$key;
+            $$key = (int)$$key;
         }
     }
 
@@ -260,7 +258,7 @@ function smarty_function_html_select_date($params)
                 $_html_years .= '<option value="">' . (isset($year_empty) ? $year_empty : $all_empty) . '</option>' . $option_separator;
             }
 
-            $op = $start_year > $end_year ? - 1 : 1;
+            $op = $start_year > $end_year ? -1 : 1;
             for ($i = $start_year; $op > 0 ? $i <= $end_year : $i >= $end_year; $i += $op) {
                 $_html_years .= '<option value="' . $i . '"'
                     . ($_year == $i ? ' selected="selected"' : '')
@@ -297,7 +295,7 @@ function smarty_function_html_select_date($params)
             $_html_months .= '<option value="">' . (isset($month_empty) ? $month_empty : $all_empty) . '</option>' . $option_separator;
         }
 
-        for ($i = 1; $i <= 12; $i ++) {
+        for ($i = 1; $i <= 12; $i++) {
             $_val = sprintf('%02d', $i);
             $_text = isset($month_names) ? smarty_function_escape_special_chars($month_names[$i]) : ($month_format == "%m" ? $_val : strftime($month_format, $_month_timestamps[$i]));
             $_value = $month_value_format == "%m" ? $_val : strftime($month_value_format, $_month_timestamps[$i]);
@@ -335,7 +333,7 @@ function smarty_function_html_select_date($params)
             $_html_days .= '<option value="">' . (isset($day_empty) ? $day_empty : $all_empty) . '</option>' . $option_separator;
         }
 
-        for ($i = 1; $i <= 31; $i ++) {
+        for ($i = 1; $i <= 31; $i++) {
             $_val = sprintf('%02d', $i);
             $_text = $day_format == '%02d' ? $_val : sprintf($day_format, $i);
             $_value = $day_value_format == '%02d' ? $_val : sprintf($day_value_format, $i);
@@ -349,7 +347,7 @@ function smarty_function_html_select_date($params)
 
     // order the fields for output
     $_html = '';
-    for ($i = 0; $i <= 2; $i ++) {
+    for ($i = 0; $i <= 2; $i++) {
         switch ($field_order[$i]) {
             case 'Y':
             case 'y':

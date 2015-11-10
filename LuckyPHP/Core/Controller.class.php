@@ -10,7 +10,7 @@ namespace LuckyPHP\Core;
 class Controller
 {
     public function __construct()
-	{
+    {
 
-	}
+    }
 }

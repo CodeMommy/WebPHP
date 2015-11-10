@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Registered Block
  * Compiles code for the execution of a registered block function
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile Registered Block Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -18,7 +16,6 @@ class Smarty_Internal_Compile_Private_Registered_Block extends Smarty_Internal_C
 {
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -27,16 +24,16 @@ class Smarty_Internal_Compile_Private_Registered_Block extends Smarty_Internal_C
     /**
      * Compiles code for the execution of a block function
      *
-     * @param  array  $args      array with attributes from parser
-     * @param  object $compiler  compiler object
-     * @param  array  $parameter array with compilation parameter
-     * @param  string $tag       name of block function
+     * @param  array $args      array with attributes from parser
+     * @param  object $compiler compiler object
+     * @param  array $parameter array with compilation parameter
+     * @param  string $tag      name of block function
      *
      * @return string compiled code
      */
     public function compile($args, $compiler, $parameter, $tag)
     {
-        if (!isset($tag[5]) || substr($tag, - 5) != 'close') {
+        if (!isset($tag[5]) || substr($tag, -5) != 'close') {
             // opening tag of block plugin
             // check and get attributes
             $_attr = $this->getAttributes($compiler, $args);
@@ -80,7 +77,7 @@ class Smarty_Internal_Compile_Private_Registered_Block extends Smarty_Internal_C
             if ($compiler->nocache) {
                 $compiler->tag_nocache = true;
             }
-            $base_tag = substr($tag, 0, - 5);
+            $base_tag = substr($tag, 0, -5);
             // closing tag of block plugin, restore nocache
             list($_params, $compiler->nocache) = $this->closeTag($compiler, $base_tag);
             // This tag does create output

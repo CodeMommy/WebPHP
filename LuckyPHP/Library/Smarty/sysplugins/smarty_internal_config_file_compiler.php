@@ -3,7 +3,6 @@
  * Smarty Internal Plugin Config File Compiler
  * This is the config file compiler class. It calls the lexer and parser to
  * perform the compiling.
- *
  * @package    Smarty
  * @subpackage Config
  * @author     Uwe Tews
@@ -11,7 +10,6 @@
 
 /**
  * Main config file compiler class
- *
  * @package    Smarty
  * @subpackage Config
  */
@@ -19,56 +17,48 @@ class Smarty_Internal_Config_File_Compiler
 {
     /**
      * Lexer class name
-     *
      * @var string
      */
     public $lexer_class;
 
     /**
      * Parser class name
-     *
      * @var string
      */
     public $parser_class;
 
     /**
      * Lexer object
-     *
      * @var object
      */
     public $lex;
 
     /**
      * Parser object
-     *
      * @var object
      */
     public $parser;
 
     /**
      * Smarty object
-     *
      * @var Smarty object
      */
     public $smarty;
 
     /**
      * Smarty object
-     *
      * @var Smarty_Internal_Template object
      */
     public $template;
 
     /**
      * Compiled config data sections and variables
-     *
      * @var array
      */
     public $config_data = array();
 
     /**
      * compiled config data must always be written
-     *
      * @var bool
      */
     public $write_compiled_code = true;
@@ -102,17 +92,17 @@ class Smarty_Internal_Config_File_Compiler
     {
         $this->template = $template;
         $this->template->properties['file_dependency'][$this->template->source->uid] = array($this->template->source->filepath,
-                                                                                             $this->template->source->getTimeStamp(),
-                                                                                             $this->template->source->type);
+            $this->template->source->getTimeStamp(),
+            $this->template->source->type);
         if ($this->smarty->debugging) {
             Smarty_Internal_Debug::start_compile($this->template);
         }
         // init the lexer/parser to compile the config file
         $lex = new $this->lexer_class(str_replace(array("\r\n", "\r"), "\n", $template->source->getContent()) .
-                                      "\n", $this);
+            "\n", $this);
         $parser = new $this->parser_class($lex, $this);
 
-        if (function_exists('mb_internal_encoding') && ((int) ini_get('mbstring.func_overload')) & 2) {
+        if (function_exists('mb_internal_encoding') && ((int)ini_get('mbstring.func_overload')) & 2) {
             $mbEncoding = mb_internal_encoding();
             mb_internal_encoding('ASCII');
         } else {

@@ -21,19 +21,15 @@ class Image
         $imageNewName = $imageNewPrefix . $fileName . "." . $fileExtension;
         $imageNewPath = $filePath . "/" . $imageNewName;
 
-        if($fileExtension == 'jpg'){
+        if ($fileExtension == 'jpg') {
             $imageOld = imageCreateFromJpeg($imageOldPath);
-        }
-        else if($fileExtension == 'jpeg'){
+        } else if ($fileExtension == 'jpeg') {
             $imageOld = imageCreateFromJpeg($imageOldPath);
-        }
-        else if($fileExtension == 'png'){
+        } else if ($fileExtension == 'png') {
             $imageOld = imageCreateFromPng($imageOldPath);
-        }
-        else if($fileExtension == 'gif'){
+        } else if ($fileExtension == 'gif') {
             $imageOld = imageCreateFromGif($imageOldPath);
-        }
-        else{
+        } else {
             $imageOld = imageCreateFromJpeg($imageOldPath);
         }
         $imageOldWidth = imagesx($imageOld);
@@ -77,36 +73,28 @@ class Image
                 imagecopyresized($imageNew, $imageOld, 0, 0, 0, 0, $newwidth, $newheight, $imageOldWidth, $imageOldHeight);
             }
 
-            if($fileExtension == 'jpg'){
+            if ($fileExtension == 'jpg') {
                 imagejpeg($imageNew, $imageNewPath);
-            }
-            else if($fileExtension == 'jpeg'){
+            } else if ($fileExtension == 'jpeg') {
                 imagejpeg($imageNew, $imageNewPath);
-            }
-            else if($fileExtension == 'png'){
+            } else if ($fileExtension == 'png') {
                 imagepng($imageNew, $imageNewPath);
-            }
-            else if($fileExtension == 'gif'){
+            } else if ($fileExtension == 'gif') {
                 imagegif($imageNew, $imageNewPath);
-            }
-            else{
+            } else {
                 imagejpeg($imageNew, $imageNewPath);
             }
             imagedestroy($imageNew);
         } else {
-            if($fileExtension == 'jpg'){
+            if ($fileExtension == 'jpg') {
                 imagejpeg($imageOld, $imageNewPath);
-            }
-            else if($fileExtension == 'jpeg'){
+            } else if ($fileExtension == 'jpeg') {
                 imagejpeg($imageOld, $imageNewPath);
-            }
-            else if($fileExtension == 'png'){
+            } else if ($fileExtension == 'png') {
                 imagepng($imageOld, $imageNewPath);
-            }
-            else if($fileExtension == 'gif'){
+            } else if ($fileExtension == 'gif') {
                 imagegif($imageOld, $imageNewPath);
-            }
-            else{
+            } else {
                 imagejpeg($imageOld, $imageNewPath);
             }
         }

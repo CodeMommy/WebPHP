@@ -17,7 +17,6 @@
  * For questions, help, comments, discussion, etc., please join the
  * Smarty mailing list. Send a blank e-mail to
  * smarty-discussion-subscribe@googlegroups.com
- *
  * @link       http://www.smarty.net/
  * @copyright  2008 New Digital Group, Inc.
  * @author     Monte Ohrt <monte at ohrt dot com>
@@ -29,7 +28,6 @@
 
 /**
  * Utility class
- *
  * @package    Smarty
  * @subpackage Security
  */
@@ -46,11 +44,11 @@ class Smarty_Internal_Utility
     /**
      * Compile all template files
      *
-     * @param  string $extension     template file name extension
-     * @param  bool   $force_compile force all to recompile
-     * @param  int    $time_limit    set maximum execution time
-     * @param  int    $max_errors    set maximum allowed errors
-     * @param  Smarty $smarty        Smarty instance
+     * @param  string $extension   template file name extension
+     * @param  bool $force_compile force all to recompile
+     * @param  int $time_limit     set maximum execution time
+     * @param  int $max_errors     set maximum allowed errors
+     * @param  Smarty $smarty      Smarty instance
      *
      * @return integer number of template files compiled
      */
@@ -72,10 +70,10 @@ class Smarty_Internal_Utility
                 if (substr(basename($_fileinfo->getPathname()), 0, 1) == '.' || strpos($_file, '.svn') !== false) {
                     continue;
                 }
-                if (!substr_compare($_file, $extension, - strlen($extension)) == 0) {
+                if (!substr_compare($_file, $extension, -strlen($extension)) == 0) {
                     continue;
                 }
-                if ($_fileinfo->getPath() == substr($_dir, 0, - 1)) {
+                if ($_fileinfo->getPath() == substr($_dir, 0, -1)) {
                     $_template_file = $_file;
                 } else {
                     $_template_file = substr($_fileinfo->getPath(), strlen($_dir)) . DS . $_file;
@@ -87,17 +85,16 @@ class Smarty_Internal_Utility
                     $_tpl = $smarty->createTemplate($_template_file, null, null, null, false);
                     if ($_tpl->mustCompile()) {
                         $_tpl->compileTemplateSource();
-                        $_count ++;
+                        $_count++;
                         echo ' compiled in  ', microtime(true) - $_start_time, ' seconds';
                         flush();
                     } else {
                         echo ' is up to date';
                         flush();
                     }
-                }
-                catch (Exception $e) {
+                } catch (Exception $e) {
                     echo 'Error: ', $e->getMessage(), "<br><br>";
-                    $_error_count ++;
+                    $_error_count++;
                 }
                 // free memory
                 $smarty->template_objects = array();
@@ -116,11 +113,11 @@ class Smarty_Internal_Utility
     /**
      * Compile all config files
      *
-     * @param  string $extension     config file name extension
-     * @param  bool   $force_compile force all to recompile
-     * @param  int    $time_limit    set maximum execution time
-     * @param  int    $max_errors    set maximum allowed errors
-     * @param  Smarty $smarty        Smarty instance
+     * @param  string $extension   config file name extension
+     * @param  bool $force_compile force all to recompile
+     * @param  int $time_limit     set maximum execution time
+     * @param  int $max_errors     set maximum allowed errors
+     * @param  Smarty $smarty      Smarty instance
      *
      * @return integer number of config files compiled
      */
@@ -142,10 +139,10 @@ class Smarty_Internal_Utility
                 if (substr(basename($_fileinfo->getPathname()), 0, 1) == '.' || strpos($_file, '.svn') !== false) {
                     continue;
                 }
-                if (!substr_compare($_file, $extension, - strlen($extension)) == 0) {
+                if (!substr_compare($_file, $extension, -strlen($extension)) == 0) {
                     continue;
                 }
-                if ($_fileinfo->getPath() == substr($_dir, 0, - 1)) {
+                if ($_fileinfo->getPath() == substr($_dir, 0, -1)) {
                     $_config_file = $_file;
                 } else {
                     $_config_file = substr($_fileinfo->getPath(), strlen($_dir)) . DS . $_file;
@@ -157,17 +154,16 @@ class Smarty_Internal_Utility
                     $_config = new Smarty_Internal_Config($_config_file, $smarty);
                     if ($_config->mustCompile()) {
                         $_config->compileConfigSource();
-                        $_count ++;
+                        $_count++;
                         echo ' compiled in  ', microtime(true) - $_start_time, ' seconds';
                         flush();
                     } else {
                         echo ' is up to date';
                         flush();
                     }
-                }
-                catch (Exception $e) {
+                } catch (Exception $e) {
                     echo 'Error: ', $e->getMessage(), "<br><br>";
-                    $_error_count ++;
+                    $_error_count++;
                 }
                 if ($max_errors !== null && $_error_count == $max_errors) {
                     echo '<br><br>too many errors';

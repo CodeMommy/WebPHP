@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty Resource Plugin
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Rodney Rehm
@@ -10,7 +9,6 @@
 /**
  * Smarty Resource Plugin
  * Base implementation for resource plugins
- *
  * @package    Smarty
  * @subpackage TemplateResources
  */
@@ -18,38 +16,32 @@ abstract class Smarty_Resource
 {
     /**
      * Source is bypassing compiler
-     *
      * @var boolean
      */
     public $uncompiled = false;
 
     /**
      * Source must be recompiled on every occasion
-     *
      * @var boolean
      */
     public $recompiled = false;
     /**
      * resource handler object
-     *
      * @var Smarty_Resource
      */
     public $handler = null;
     /**
      * cache for Smarty_Template_Source instances
-     *
      * @var array
      */
     public static $sources = array();
     /**
      * cache for Smarty_Template_Compiled instances
-     *
      * @var array
      */
     public static $compileds = array();
     /**
      * resource types provided by the core
-     *
      * @var array
      */
     protected static $sysplugins = array(
@@ -63,21 +55,18 @@ abstract class Smarty_Resource
 
     /**
      * Name of the Class to compile this resource's contents with
-     *
      * @var string
      */
     public $compiler_class = 'Smarty_Internal_SmartyTemplateCompiler';
 
     /**
      * Name of the Class to tokenize this resource's contents with
-     *
      * @var string
      */
     public $template_lexer_class = 'Smarty_Internal_Templatelexer';
 
     /**
      * Name of the Class to parse this resource's contents with
-     *
      * @var string
      */
     public $template_parser_class = 'Smarty_Internal_Templateparser';
@@ -95,7 +84,7 @@ abstract class Smarty_Resource
     /**
      * populate Source Object with meta data from Resource
      *
-     * @param Smarty_Template_Source   $source    source object
+     * @param Smarty_Template_Source $source      source object
      * @param Smarty_Internal_Template $_template template object
      */
     abstract public function populate(Smarty_Template_Source $source, Smarty_Internal_Template $_template = null);
@@ -113,9 +102,9 @@ abstract class Smarty_Resource
     /**
      * modify resource_name according to resource handlers specifications
      *
-     * @param  Smarty  $smarty        Smarty instance
-     * @param  string  $resource_name resource_name to make unique
-     * @param  boolean $isConfig      flag for config resource
+     * @param  Smarty $smarty        Smarty instance
+     * @param  string $resource_name resource_name to make unique
+     * @param  boolean $isConfig     flag for config resource
      *
      * @return string unique resource name
      */
@@ -220,7 +209,7 @@ abstract class Smarty_Resource
      */
     public static function parseResourceName($resource_name, $default_resource)
     {
-         if (preg_match('/^([A-Za-z0-9_\-]{2,})[:]/', $resource_name, $match)) {
+        if (preg_match('/^([A-Za-z0-9_\-]{2,})[:]/', $resource_name, $match)) {
             $type = $match[1];
             $name = substr($resource_name, strlen($match[0]));
         } else {
@@ -245,8 +234,8 @@ abstract class Smarty_Resource
     /**
      * modify template_resource according to resource handlers specifications
      *
-     * @param  Smarty_Internal_template $template          Smarty instance
-     * @param  string                   $template_resource template_resource to extract resource handler and name of
+     * @param  Smarty_Internal_template $template Smarty instance
+     * @param  string $template_resource          template_resource to extract resource handler and name of
      *
      * @return string unique resource name
      */
@@ -269,9 +258,9 @@ abstract class Smarty_Resource
      * wrapper for backward compatibility to versions < 3.1.22
      * Either [$_template] or [$smarty, $template_resource] must be specified
      *
-     * @param  Smarty_Internal_Template $_template         template object
-     * @param  Smarty                   $smarty            smarty object
-     * @param  string                   $template_resource resource identifier
+     * @param  Smarty_Internal_Template $_template template object
+     * @param  Smarty $smarty                      smarty object
+     * @param  string $template_resource           resource identifier
      *
      * @return Smarty_Template_Source   Source Object
      */

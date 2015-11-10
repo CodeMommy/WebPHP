@@ -2,10 +2,8 @@
 
 /**
  * Smarty Extension Hhvm
- *
  * include patch for modified compiled or cached templates
  * HHVM does not check if file was modified when including same file multiple times
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -14,7 +12,7 @@ class Smarty_Internal_Extension_Hhvm
 {
     /**
      * @param \Smarty_Internal_Template $_template
-     * @param string                    $file file name
+     * @param string $file file name
      *
      * @return mixed
      */

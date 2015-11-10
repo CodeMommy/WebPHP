@@ -10,7 +10,7 @@ namespace LuckyPHP\Core;
 class Convert
 {
     public static function arrayToJSON($array)
-	{
-		return json_encode($array);
-	}
+    {
+        return json_encode($array);
+    }
 }

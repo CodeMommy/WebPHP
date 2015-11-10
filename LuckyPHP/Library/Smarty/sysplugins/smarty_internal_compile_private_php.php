@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile PHP Expression
  * Compiles any tag which will output an expression or variable
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile PHP Expression Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -19,7 +17,6 @@ class Smarty_Internal_Compile_Private_Php extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -28,9 +25,9 @@ class Smarty_Internal_Compile_Private_Php extends Smarty_Internal_CompileBase
     /**
      * Compiles code for generating output from any expression
      *
-     * @param array                                 $args      array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
-     * @param array                                 $parameter array with compilation parameter
+     * @param array $args                                     array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler compiler object
+     * @param array $parameter                                array with compilation parameter
      *
      * @return string
      * @throws \SmartyException
@@ -88,13 +85,12 @@ class Smarty_Internal_Compile_Private_Php extends Smarty_Internal_CompileBase
                 }
             }
             return preg_replace(array("#^{$ldel}\\s*php\\s*(.)*?{$rdel}#",
-                                    "#{$ldel}\\s*/\\s*php\\s*{$rdel}$#"), array('<?php ', '?>'), $_attr['code']);
+                "#{$ldel}\\s*/\\s*php\\s*{$rdel}$#"), array('<?php ', '?>'), $_attr['code']);
         }
     }
 
     /**
      * Lexer code for PHP tags
-     *
      * This code has been moved from lexer here fo easier debugging and maintenance
      *
      * @param $lex

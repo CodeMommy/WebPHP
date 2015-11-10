@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsFunction
  */
@@ -35,7 +34,6 @@
  * {table loop=$data cols=4 tr_attr='"bgcolor=red"'}
  * {table loop=$data cols="first,second,third" tr_attr=$colors}
  * </pre>
- *
  * @author   Monte Ohrt <monte at ohrt dot com>
  * @author   credit to Messju Mohr <messju at lammfellpuschen dot de>
  * @author   credit to boots <boots dot smarty at yahoo dot com>
@@ -71,7 +69,7 @@ function smarty_function_html_table($params)
     foreach ($params as $_key => $_value) {
         switch ($_key) {
             case 'loop':
-                $$_key = (array) $_value;
+                $$_key = (array)$_value;
                 break;
 
             case 'cols':
@@ -82,14 +80,14 @@ function smarty_function_html_table($params)
                     $cols = explode(',', $_value);
                     $cols_count = count($cols);
                 } elseif (!empty($_value)) {
-                    $cols_count = (int) $_value;
+                    $cols_count = (int)$_value;
                 } else {
                     $cols_count = $cols;
                 }
                 break;
 
             case 'rows':
-                $$_key = (int) $_value;
+                $$_key = (int)$_value;
                 break;
 
             case 'table_attr':
@@ -98,7 +96,7 @@ function smarty_function_html_table($params)
             case 'vdir':
             case 'inner':
             case 'caption':
-                $$_key = (string) $_value;
+                $$_key = (string)$_value;
                 break;
 
             case 'tr_attr':
@@ -130,7 +128,7 @@ function smarty_function_html_table($params)
         $cols = ($hdir == 'right') ? $cols : array_reverse($cols);
         $output .= "<thead><tr>\n";
 
-        for ($r = 0; $r < $cols_count; $r ++) {
+        for ($r = 0; $r < $cols_count; $r++) {
             $output .= '<th' . smarty_function_html_table_cycle('th', $th_attr, $r) . '>';
             $output .= $cols[$r];
             $output .= "</th>\n";
@@ -139,11 +137,11 @@ function smarty_function_html_table($params)
     }
 
     $output .= "<tbody>\n";
-    for ($r = 0; $r < $rows; $r ++) {
+    for ($r = 0; $r < $rows; $r++) {
         $output .= "<tr" . smarty_function_html_table_cycle('tr', $tr_attr, $r) . ">\n";
         $rx = ($vdir == 'down') ? $r * $cols_count : ($rows - 1 - $r) * $cols_count;
 
-        for ($c = 0; $c < $cols_count; $c ++) {
+        for ($c = 0; $c < $cols_count; $c++) {
             $x = ($hdir == 'right') ? $rx + $c : $rx + $cols_count - 1 - $c;
             if ($inner != 'cols') {
                 /* shuffle x to loop over rows*/

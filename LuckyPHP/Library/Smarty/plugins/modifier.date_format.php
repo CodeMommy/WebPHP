@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifier
  */
@@ -15,7 +14,6 @@
  *          - string: input date string
  *          - format: strftime format for output
  *          - default_date: default date if $string is empty
- *
  * @link   http://www.smarty.net/manual/en/language.modifier.date.format.php date_format (Smarty online manual)
  * @author Monte Ohrt <monte at ohrt dot com>
  *

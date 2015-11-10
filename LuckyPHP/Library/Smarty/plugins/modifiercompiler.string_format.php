@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -11,7 +10,6 @@
  * Type:     modifier<br>
  * Name:     string_format<br>
  * Purpose:  format strings via sprintf
- *
  * @link   http://www.smarty.net/manual/en/language.modifier.string.format.php string_format (Smarty online manual)
  * @author Uwe Tews
  *

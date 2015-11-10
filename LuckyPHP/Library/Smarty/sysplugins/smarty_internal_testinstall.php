@@ -2,14 +2,13 @@
 /**
  * Smarty Internal TestInstall
  * Test Smarty installation
- *
  * @package    Smarty
  * @subpackage Utilities
  * @author     Uwe Tews
  */
+
 /**
  * TestInstall class
- *
  * @package    Smarty
  * @subpackage Utilities
  */
@@ -20,7 +19,7 @@ class Smarty_Internal_TestInstall
      * If $errors is secified, the diagnostic report will be appended to the array, rather than being output.
      *
      * @param  Smarty $smarty Smarty instance to test
-     * @param  array  $errors array to push results into rather than outputting them
+     * @param  array $errors  array to push results into rather than outputting them
      *
      * @return bool   status, true if everything is fine, false else
      */

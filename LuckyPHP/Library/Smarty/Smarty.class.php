@@ -2,24 +2,20 @@
 /**
  * Project:     Smarty: the PHP compiling template engine
  * File:        Smarty.class.php
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  * For questions, help, comments, discussion, etc., please join the
  * Smarty mailing list. Send a blank e-mail to
  * smarty-discussion-subscribe@googlegroups.com
- *
  * @link      http://www.smarty.net/
  * @copyright 2015 New Digital Group, Inc.
  * @copyright 2015 Uwe Tews
@@ -99,7 +95,6 @@ require_once SMARTY_SYSPLUGINS_DIR . 'smarty_template_source.php';
 
 /**
  * This is the main Smarty class
- *
  * @package Smarty
  */
 class Smarty extends Smarty_Internal_TemplateBase
@@ -136,7 +131,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * define constant for clearing cache files be saved expiration dates
      */
-    const CLEAR_EXPIRED = - 1;
+    const CLEAR_EXPIRED = -1;
 
     /**
      * define compile check modes
@@ -240,154 +235,132 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * auto literal on delimiters with whitspace
-     *
      * @var boolean
      */
     public $auto_literal = true;
 
     /**
      * display error on not assigned variables
-     *
      * @var boolean
      */
     public $error_unassigned = false;
 
     /**
      * look up relative filepaths in include_path
-     *
      * @var boolean
      */
     public $use_include_path = false;
 
     /**
      * template directory
-     *
      * @var array
      */
     private $template_dir = array('./templates/');
 
     /**
      * joined template directory string used in cache keys
-     *
      * @var string
      */
     public $joined_template_dir = '';
 
     /**
      * joined config directory string used in cache keys
-     *
      * @var string
      */
     public $joined_config_dir = '';
 
     /**
      * default template handler
-     *
      * @var callable
      */
     public $default_template_handler_func = null;
 
     /**
      * default config handler
-     *
      * @var callable
      */
     public $default_config_handler_func = null;
 
     /**
      * default plugin handler
-     *
      * @var callable
      */
     public $default_plugin_handler_func = null;
 
     /**
      * compile directory
-     *
      * @var string
      */
     private $compile_dir = './templates_c/';
 
     /**
      * plugins directory
-     *
      * @var array
      */
     private $plugins_dir = null;
 
     /**
      * cache directory
-     *
      * @var string
      */
     private $cache_dir = './cache/';
 
     /**
      * config directory
-     *
      * @var array
      */
     private $config_dir = array('./configs/');
 
     /**
      * force template compiling?
-     *
      * @var boolean
      */
     public $force_compile = false;
 
     /**
      * check template for modifications?
-     *
      * @var boolean
      */
     public $compile_check = true;
 
     /**
      * use sub dirs for compiled/cached files?
-     *
      * @var boolean
      */
     public $use_sub_dirs = false;
 
     /**
      * allow ambiguous resources (that are made unique by the resource handler)
-     *
      * @var boolean
      */
     public $allow_ambiguous_resources = false;
 
     /**
      * merge compiled includes
-     *
      * @var boolean
      */
     public $merge_compiled_includes = false;
 
     /**
      * template inheritance merge compiled includes
-     *
      * @var boolean
      */
     public $inheritance_merge_compiled_includes = true;
 
     /**
      * force cache file creation
-     *
      * @var boolean
      */
     public $force_cache = false;
 
     /**
      * template left-delimiter
-     *
      * @var string
      */
     public $left_delimiter = "{";
 
     /**
      * template right-delimiter
-     *
      * @var string
      */
     public $right_delimiter = "}";
@@ -398,7 +371,6 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * class name
      * This should be instance of Smarty_Security.
-     *
      * @var string
      * @see Smarty_Security
      */
@@ -406,21 +378,18 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * implementation of security class
-     *
      * @var Smarty_Security
      */
     public $security_policy = null;
 
     /**
      * controls handling of PHP-blocks
-     *
      * @var integer
      */
     public $php_handling = self::PHP_PASSTHRU;
 
     /**
      * controls if the php template file resource is allowed
-     *
      * @var bool
      */
     public $allow_php_templates = false;
@@ -430,7 +399,6 @@ class Smarty extends Smarty_Internal_TemplateBase
      * {@internal
      * Currently used by Smarty_Internal_Template only.
      * }}
-     *
      * @var boolean
      */
     public $direct_access_security = true;
@@ -439,7 +407,6 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * debug mode
      * Setting this to true enables the debug-console.
-     *
      * @var boolean
      */
     public $debugging = false;
@@ -450,7 +417,6 @@ class Smarty extends Smarty_Internal_TemplateBase
      *  <li>NONE => no debugging control allowed</li>
      *  <li>URL => enable debugging when SMARTY_DEBUG is found in the URL.</li>
      * </ul>
-     *
      * @var string
      */
     public $debugging_ctrl = 'NONE';
@@ -459,28 +425,24 @@ class Smarty extends Smarty_Internal_TemplateBase
      * Name of debugging URL-param.
      * Only used when $debugging_ctrl is set to 'URL'.
      * The name of the URL-parameter that activates debugging.
-     *
      * @var string
      */
     public $smarty_debug_id = 'SMARTY_DEBUG';
 
     /**
      * Path of debug template.
-     *
      * @var string
      */
     public $debug_tpl = null;
 
     /**
      * When set, smarty uses this value as error_reporting-level.
-     *
      * @var int
      */
     public $error_reporting = null;
 
     /**
      * Internal flag for getTags()
-     *
      * @var boolean
      */
     public $get_used_tags = false;
@@ -491,21 +453,18 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Controls whether variables with the same name overwrite each other.
-     *
      * @var boolean
      */
     public $config_overwrite = true;
 
     /**
      * Controls whether config values of on/true/yes and off/false/no get converted to boolean.
-     *
      * @var boolean
      */
     public $config_booleanize = true;
 
     /**
      * Controls whether hidden config sections/vars are read from the file.
-     *
      * @var boolean
      */
     public $config_read_hidden = false;
@@ -518,21 +477,18 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * locking concurrent compiles
-     *
      * @var boolean
      */
     public $compile_locking = true;
 
     /**
      * Controls whether cache resources should use locking mechanism
-     *
      * @var boolean
      */
     public $cache_locking = false;
 
     /**
      * seconds to wait for acquiring a lock before ignoring the write lock
-     *
      * @var float
      */
     public $locking_timeout = 10;
@@ -542,7 +498,6 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * resource type used if none given
      * Must be an valid key of $registered_resources.
-     *
      * @var string
      */
     public $default_resource_type = 'file';
@@ -550,189 +505,162 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * caching type
      * Must be an element of $cache_resource_types.
-     *
      * @var string
      */
     public $caching_type = 'file';
 
     /**
      * internal config properties
-     *
      * @var array
      */
     public $properties = array();
 
     /**
      * config type
-     *
      * @var string
      */
     public $default_config_type = 'file';
 
     /**
      * cached template objects
-     *
      * @var array
      */
     public $source_objects = array();
 
     /**
      * cached template objects
-     *
      * @var array
      */
     public $template_objects = array();
 
     /**
      * enable resource caching
-     *
      * @var bool
      */
     public $resource_caching = false;
 
     /**
      * enable template resource caching
-     *
      * @var bool
      */
     public $template_resource_caching = true;
 
     /**
      * check If-Modified-Since headers
-     *
      * @var boolean
      */
     public $cache_modified_check = false;
 
     /**
      * registered plugins
-     *
      * @var array
      */
     public $registered_plugins = array();
 
     /**
      * plugin search order
-     *
      * @var array
      */
     public $plugin_search_order = array('function', 'block', 'compiler', 'class');
 
     /**
      * registered objects
-     *
      * @var array
      */
     public $registered_objects = array();
 
     /**
      * registered classes
-     *
      * @var array
      */
     public $registered_classes = array();
 
     /**
      * registered filters
-     *
      * @var array
      */
     public $registered_filters = array();
 
     /**
      * registered resources
-     *
      * @var array
      */
     public $registered_resources = array();
 
     /**
      * resource handler cache
-     *
      * @var array
      */
     public $_resource_handlers = array();
 
     /**
      * registered cache resources
-     *
      * @var array
      */
     public $registered_cache_resources = array();
 
     /**
      * cache resource handler cache
-     *
      * @var array
      */
     public $_cacheresource_handlers = array();
 
     /**
      * autoload filter
-     *
      * @var array
      */
     public $autoload_filters = array();
 
     /**
      * default modifier
-     *
      * @var array
      */
     public $default_modifiers = array();
 
     /**
      * autoescape variable output
-     *
      * @var boolean
      */
     public $escape_html = false;
 
     /**
      * global internal smarty vars
-     *
      * @var array
      */
     public static $_smarty_vars = array();
 
     /**
      * start time for execution time calculation
-     *
      * @var int
      */
     public $start_time = 0;
 
     /**
      * default file permissions
-     *
      * @var int
      */
     public $_file_perms = 0644;
 
     /**
      * default dir permissions
-     *
      * @var int
      */
     public $_dir_perms = 0771;
 
     /**
      * block tag hierarchy
-     *
      * @var array
      */
     public $_tag_stack = array();
 
     /**
      * required by the compiler for BC
-     *
      * @var string
      */
     public $_current_file = null;
 
     /**
      * internal flag to enable parser debugging
-     *
      * @var bool
      */
     public $_parserdebug = false;
@@ -765,13 +693,13 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * fetches a rendered Smarty template
      *
-     * @param  string $template         the resource handle of the template file or template object
-     * @param  mixed  $cache_id         cache id to be used with this template
-     * @param  mixed  $compile_id       compile id to be used with this template
-     * @param  object $parent           next higher level of Smarty variables
-     * @param  bool   $display          true: display, false: fetch
-     * @param  bool   $merge_tpl_vars   not used - left for BC
-     * @param  bool   $no_output_filter not used - left for BC
+     * @param  string $template       the resource handle of the template file or template object
+     * @param  mixed $cache_id        cache id to be used with this template
+     * @param  mixed $compile_id      compile id to be used with this template
+     * @param  object $parent         next higher level of Smarty variables
+     * @param  bool $display          true: display, false: fetch
+     * @param  bool $merge_tpl_vars   not used - left for BC
+     * @param  bool $no_output_filter not used - left for BC
      *
      * @throws Exception
      * @throws SmartyException
@@ -798,10 +726,10 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * displays a Smarty template
      *
-     * @param string $template   the resource handle of the template file or template object
-     * @param mixed  $cache_id   cache id to be used with this template
-     * @param mixed  $compile_id compile id to be used with this template
-     * @param object $parent     next higher level of Smarty variables
+     * @param string $template  the resource handle of the template file or template object
+     * @param mixed $cache_id   cache id to be used with this template
+     * @param mixed $compile_id compile id to be used with this template
+     * @param object $parent    next higher level of Smarty variables
      */
     public function display($template, $cache_id = null, $compile_id = null, $parent = null)
     {
@@ -857,7 +785,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      * Empty cache folder
      *
      * @param  integer $exp_time expiration time
-     * @param  string  $type     resource type
+     * @param  string $type      resource type
      *
      * @return integer number of cache files deleted
      */
@@ -873,11 +801,11 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Empty cache for a specific template
      *
-     * @param  string  $template_name template name
-     * @param  string  $cache_id      cache id
-     * @param  string  $compile_id    compile id
-     * @param  integer $exp_time      expiration time
-     * @param  string  $type          resource type
+     * @param  string $template_name template name
+     * @param  string $cache_id      cache id
+     * @param  string $compile_id    compile id
+     * @param  integer $exp_time     expiration time
+     * @param  string $type          resource type
      *
      * @return integer number of cache files deleted
      */
@@ -906,7 +834,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Disable security
-     *
      * @return Smarty current Smarty instance for chaining
      */
     public function disableSecurity()
@@ -920,7 +847,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      * Set template directory
      *
      * @param  string|array $template_dir directory(s) of template sources
-     * @param bool          $isConfig     true for config_dir
+     * @param bool $isConfig              true for config_dir
      *
      * @return \Smarty current Smarty instance for chaining
      */
@@ -928,7 +855,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     {
         $type = $isConfig ? 'config_dir' : 'template_dir';
         $joined = 'joined_' . $type;
-        $this->{$type} = (array) $template_dir;
+        $this->{$type} = (array)$template_dir;
         $this->{$joined} = join(' # ', $this->{$type});
         $this->_cache[$type . '_new'] = true;
         $this->_cache[$type] = false;
@@ -939,8 +866,8 @@ class Smarty extends Smarty_Internal_TemplateBase
      * Add template directory(s)
      *
      * @param  string|array $template_dir directory(s) of template sources
-     * @param  string       $key          of the array element to assign the template dir to
-     * @param bool          $isConfig     true for config_dir
+     * @param  string $key                of the array element to assign the template dir to
+     * @param bool $isConfig              true for config_dir
      *
      * @return Smarty          current Smarty instance for chaining
      */
@@ -949,12 +876,12 @@ class Smarty extends Smarty_Internal_TemplateBase
         $type = $isConfig ? 'config_dir' : 'template_dir';
         $joined = 'joined_' . $type;
         if (!isset($this->_cache[$type])) {
-            $this->{$type} = (array) $this->{$type};
+            $this->{$type} = (array)$this->{$type};
             $this->{$joined} = join(' # ', $this->{$type});
             $this->_cache[$type . '_new'] = true;
             $this->_cache[$type] = false;
         }
-        $this->{$joined} .= ' # ' . join(' # ', (array) $template_dir);
+        $this->{$joined} .= ' # ' . join(' # ', (array)$template_dir);
         $this->_addDir($type, $template_dir, $key);
         return $this;
     }
@@ -962,8 +889,8 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Get template directories
      *
-     * @param mixed $index    index of directory to get, null to get all
-     * @param bool  $isConfig true for config_dir
+     * @param mixed $index   index of directory to get, null to get all
+     * @param bool $isConfig true for config_dir
      *
      * @return array list of template directories, or directory of $index
      */
@@ -972,7 +899,7 @@ class Smarty extends Smarty_Internal_TemplateBase
         $type = $isConfig ? 'config_dir' : 'template_dir';
         if (!isset($this->_cache[$type])) {
             $joined = 'joined_' . $type;
-            $this->{$type} = (array) $this->{$type};
+            $this->{$type} = (array)$this->{$type};
             $this->{$joined} = join(' # ', $this->{$type});
             $this->_cache[$type] = false;
         }
@@ -1005,7 +932,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      * Add config directory(s)
      *
      * @param string|array $config_dir directory(s) of config sources
-     * @param mixed        $key        key of the array element to assign the config dir to
+     * @param mixed $key               key of the array element to assign the config dir to
      *
      * @return Smarty current Smarty instance for chaining
      */
@@ -1035,7 +962,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      */
     public function setPluginsDir($plugins_dir)
     {
-        $this->plugins_dir = (array) $plugins_dir;
+        $this->plugins_dir = (array)$plugins_dir;
         if (isset($this->_cache['plugins_dir'])) {
             unset($this->_cache['plugins_dir']);
         }
@@ -1054,7 +981,7 @@ class Smarty extends Smarty_Internal_TemplateBase
         if (!isset($this->plugins_dir)) {
             $this->plugins_dir = array(SMARTY_PLUGINS_DIR);
         }
-        $this->plugins_dir = array_merge((array) $this->plugins_dir, (array) $plugins_dir);
+        $this->plugins_dir = array_merge((array)$this->plugins_dir, (array)$plugins_dir);
         if (isset($this->_cache['plugins_dir'])) {
             unset($this->_cache['plugins_dir']);
         }
@@ -1063,7 +990,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Get plugin directories
-     *
      * @return array list of plugin directories
      */
     public function getPluginsDir()
@@ -1072,7 +998,7 @@ class Smarty extends Smarty_Internal_TemplateBase
             if (!isset($this->plugins_dir)) {
                 $this->plugins_dir = array(SMARTY_PLUGINS_DIR);
             } else {
-                $plugins_dir = (array) $this->plugins_dir;
+                $plugins_dir = (array)$this->plugins_dir;
                 $this->plugins_dir = array();
                 foreach ($plugins_dir as $v) {
                     $this->plugins_dir[] = $this->_realpath($v . DS, true);
@@ -1104,7 +1030,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Get compiled directory
-     *
      * @return string path to compiled templates
      */
     public function getCompileDir()
@@ -1138,7 +1063,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Get cache directory
-     *
      * @return string path of cache directory
      */
     public function getCacheDir()
@@ -1156,9 +1080,9 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * add directories to given property name
      *
-     * @param string       $dirName directory property name
-     * @param string|array $dir     directory string or array of strings
-     * @param mixed        $key     optional key
+     * @param string $dirName   directory property name
+     * @param string|array $dir directory string or array of strings
+     * @param mixed $key        optional key
      */
     private function _addDir($dirName, $dir, $key = null)
     {
@@ -1195,7 +1119,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      */
     public function setDefaultModifiers($modifiers)
     {
-        $this->default_modifiers = (array) $modifiers;
+        $this->default_modifiers = (array)$modifiers;
 
         return $this;
     }
@@ -1220,7 +1144,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Get default modifiers
-     *
      * @return array list of default modifiers
      */
     public function getDefaultModifiers()
@@ -1231,7 +1154,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Set autoload filters
      *
-     * @param  array  $filters filters to load automatically
+     * @param  array $filters  filters to load automatically
      * @param  string $type    "pre", "output", … specify the filter type to set. Defaults to none treating $filters'
      *                         keys as the appropriate types
      *
@@ -1246,7 +1169,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Add autoload filters
      *
-     * @param  array  $filters filters to load automatically
+     * @param  array $filters  filters to load automatically
      * @param  string $type    "pre", "output", … specify the filter type to set. Defaults to none treating $filters'
      *                         keys as the appropriate types
      *
@@ -1273,7 +1196,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * return name of debugging template
-     *
      * @return string
      */
     public function getDebugTemplate()
@@ -1302,11 +1224,11 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * creates a template object
      *
-     * @param  string  $template   the resource handle of the template file
-     * @param  mixed   $cache_id   cache id to be used with this template
-     * @param  mixed   $compile_id compile id to be used with this template
-     * @param  object  $parent     next higher level of Smarty variables
-     * @param  boolean $do_clone   flag is Smarty object shall be cloned
+     * @param  string $template  the resource handle of the template file
+     * @param  mixed $cache_id   cache id to be used with this template
+     * @param  mixed $compile_id compile id to be used with this template
+     * @param  object $parent    next higher level of Smarty variables
+     * @param  boolean $do_clone flag is Smarty object shall be cloned
      *
      * @return object  template object
      */
@@ -1359,7 +1281,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      * plugin filename format: plugintype.pluginname.php
      *
      * @param  string $plugin_name class plugin name to load
-     * @param  bool   $check       check if already loaded
+     * @param  bool $check         check if already loaded
      *
      * @throws SmartyException
      * @return string |boolean filepath of loaded file or false
@@ -1374,8 +1296,8 @@ class Smarty extends Smarty_Internal_TemplateBase
      *  - remove /./ and /../
      *  - make it absolute if required
      *
-     * @param string $path     file path
-     * @param bool   $realpath leave $path relative
+     * @param string $path   file path
+     * @param bool $realpath leave $path relative
      *
      * @return string
      */
@@ -1403,10 +1325,10 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Compile all template files
      *
-     * @param  string $extension     file extension
-     * @param  bool   $force_compile force all to recompile
-     * @param  int    $time_limit
-     * @param  int    $max_errors
+     * @param  string $extension   file extension
+     * @param  bool $force_compile force all to recompile
+     * @param  int $time_limit
+     * @param  int $max_errors
      *
      * @return integer number of template files recompiled
      */
@@ -1418,10 +1340,10 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Compile all config files
      *
-     * @param  string $extension     file extension
-     * @param  bool   $force_compile force all to recompile<
-     * @param  int    $time_limit
-     * @param  int    $max_errors
+     * @param  string $extension   file extension
+     * @param  bool $force_compile force all to recompile<
+     * @param  int $time_limit
+     * @param  int $max_errors
      *
      * @return integer number of template files recompiled
      */
@@ -1433,9 +1355,9 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Delete compiled template file
      *
-     * @param  string  $resource_name template name
-     * @param  string  $compile_id    compile id
-     * @param  integer $exp_time      expiration time
+     * @param  string $resource_name template name
+     * @param  string $compile_id    compile id
+     * @param  integer $exp_time     expiration time
      *
      * @return integer number of template files deleted
      */
@@ -1647,8 +1569,8 @@ class Smarty extends Smarty_Internal_TemplateBase
      * Calls the appropriate setter function.
      * Issues an E_USER_NOTICE if no valid setter is found.
      *
-     * @param string $name  property name
-     * @param mixed  $value parameter passed to setter
+     * @param string $name property name
+     * @param mixed $value parameter passed to setter
      */
     public function __set($name, $value)
     {
@@ -1665,7 +1587,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Error Handler to mute expected messages
-     *
      * @link http://php.net/set_error_handler
      *
      * @param  integer $errno Error level
@@ -1720,7 +1641,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Enable error handler to mute expected messages
-     *
      * @return void
      */
     public static function muteExpectedErrors()
@@ -1752,7 +1672,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * Disable error handler muting expected messages
-     *
      * @return void
      */
     public static function unmuteExpectedErrors()

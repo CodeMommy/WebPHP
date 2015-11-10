@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifier
  */
@@ -11,7 +10,6 @@
  * Type:     modifier<br>
  * Name:     replace<br>
  * Purpose:  simple search/replace
- *
  * @link   http://smarty.php.net/manual/en/language.modifier.replace.php replace (Smarty online manual)
  * @author Monte Ohrt <monte at ohrt dot com>
  * @author Uwe Tews

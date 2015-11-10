@@ -18,7 +18,7 @@ class Router
         $fileName = end($filePathArray);
         $fileDes = strpos($fileURL, $fileName);
         if ($fileDes === false) {
-            $s1 = substr($filePath, 0, strlen($filePath)-strlen($fileName)-1);
+            $s1 = substr($filePath, 0, strlen($filePath) - strlen($fileName) - 1);
             $urlFull = substr($fileURL, strlen($s1));
         } else {
             $urlFull = substr($fileURL, strlen($filePath));

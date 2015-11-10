@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty Internal Plugin CompileBase
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -9,7 +8,6 @@
 
 /**
  * This class does extend all internal compile plugins
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -17,26 +15,22 @@ abstract class Smarty_Internal_CompileBase
 {
     /**
      * Array of names of required attribute required by tag
-     *
      * @var array
      */
     public $required_attributes = array();
     /**
      * Array of names of optional attribute required by tag
      * use array('_any') if there is no restriction of attributes names
-     *
      * @var array
      */
     public $optional_attributes = array();
     /**
      * Shorttag attribute order defined by its names
-     *
      * @var array
      */
     public $shorttag_order = array();
     /**
      * Array of names of valid option flags
-     *
      * @var array
      */
     public $option_flags = array('nocache');
@@ -48,8 +42,8 @@ abstract class Smarty_Internal_CompileBase
      * the corresponding list. The keyword '_any' specifies that any attribute will be accepted
      * as valid
      *
-     * @param  object $compiler   compiler object
-     * @param  array  $attributes attributes applied to the tag
+     * @param  object $compiler  compiler object
+     * @param  array $attributes attributes applied to the tag
      *
      * @return array  of mapped attributes for further processing
      */
@@ -130,7 +124,7 @@ abstract class Smarty_Internal_CompileBase
      *
      * @param object $compiler compiler object
      * @param string $openTag  the opening tag's name
-     * @param mixed  $data     optional data saved
+     * @param mixed $data      optional data saved
      */
     public function openTag($compiler, $openTag, $data = null)
     {
@@ -141,7 +135,7 @@ abstract class Smarty_Internal_CompileBase
      * Pop closing tag
      * Raise an error if this stack-top doesn't match with expected opening tags
      *
-     * @param  object       $compiler    compiler object
+     * @param  object $compiler          compiler object
      * @param  array|string $expectedTag the expected opening tag names
      *
      * @return mixed        any type the opening tag's name or saved data
@@ -152,7 +146,7 @@ abstract class Smarty_Internal_CompileBase
             // get stacked info
             list($_openTag, $_data) = array_pop($compiler->_tag_stack);
             // open tag must match with the expected ones
-            if (in_array($_openTag, (array) $expectedTag)) {
+            if (in_array($_openTag, (array)$expectedTag)) {
                 if (is_null($_data)) {
                     // return opening tag
                     return $_openTag;

@@ -2,9 +2,7 @@
 
 /**
  * Smarty Extension Clear
- *
  * $smarty->clear() method file cache file resource
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -14,11 +12,11 @@ class Smarty_Internal_Extension_Clear
     /**
      * Empty cache for a specific template
      *
-     * @param Smarty  $smarty
-     * @param string  $resource_name template name
-     * @param string  $cache_id      cache id
-     * @param string  $compile_id    compile id
-     * @param integer $exp_time      expiration time (number of seconds, not timestamp)
+     * @param Smarty $smarty
+     * @param string $resource_name template name
+     * @param string $cache_id      cache id
+     * @param string $compile_id    compile id
+     * @param integer $exp_time     expiration time (number of seconds, not timestamp)
      *
      * @return integer number of cache files deleted
      */
@@ -82,7 +80,7 @@ class Smarty_Internal_Extension_Clear
                         @rmdir($_file->getPathname());
                     }
                 } else {
-                    $_parts = explode($_dir_sep, str_replace('\\', '/', substr((string) $_file, $_dir_length)));
+                    $_parts = explode($_dir_sep, str_replace('\\', '/', substr((string)$_file, $_dir_length)));
                     $_parts_count = count($_parts);
                     // check name
                     if (isset($resource_name)) {
@@ -101,7 +99,7 @@ class Smarty_Internal_Extension_Clear
                         if ($_parts_count < $_cache_id_parts_count) {
                             continue;
                         }
-                        for ($i = 0; $i < $_cache_id_parts_count; $i ++) {
+                        for ($i = 0; $i < $_cache_id_parts_count; $i++) {
                             if ($_parts[$i] != $_cache_id_parts[$i]) {
                                 continue 2;
                             }
@@ -120,7 +118,7 @@ class Smarty_Internal_Extension_Clear
                             }
                         }
                     }
-                    $_count += @unlink((string) $_file) ? 1 : 0;
+                    $_count += @unlink((string)$_file) ? 1 : 0;
                 }
             }
         }

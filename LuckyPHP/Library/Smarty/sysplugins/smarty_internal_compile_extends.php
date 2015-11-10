@@ -3,7 +3,6 @@
 /**
  * Smarty Internal Plugin Compile extend
  * Compiles the {extends} tag
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -11,7 +10,6 @@
 
 /**
  * Smarty Internal Plugin Compile extend Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -19,7 +17,6 @@ class Smarty_Internal_Compile_Extends extends Smarty_Internal_CompileBase
 {
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -27,7 +24,6 @@ class Smarty_Internal_Compile_Extends extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -36,7 +32,7 @@ class Smarty_Internal_Compile_Extends extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {extends} tag
      *
-     * @param array  $args     array with attributes from parser
+     * @param array $args      array with attributes from parser
      * @param object $compiler compiler object
      *
      * @return string compiled code
@@ -70,7 +66,7 @@ class Smarty_Internal_Compile_Extends extends Smarty_Internal_CompileBase
         $uid = $_source->uid;
         if (isset($compiler->extends_uid[$uid])) {
             $compiler->trigger_template_error("illegal recursive call of \"{$_source->filepath}\"", $compiler->lex->line -
-                                                                                                  1);
+                1);
         }
         $compiler->extends_uid[$uid] = true;
         if (empty($_source->components)) {
@@ -81,7 +77,7 @@ class Smarty_Internal_Compile_Extends extends Smarty_Internal_CompileBase
                 $uid = $source->uid;
                 if (isset($compiler->extends_uid[$uid])) {
                     $compiler->trigger_template_error("illegal recursive call of \"{$source->filepath}\"", $compiler->lex->line -
-                                                                                                         1);
+                        1);
                 }
                 $compiler->extends_uid[$uid] = true;
             }

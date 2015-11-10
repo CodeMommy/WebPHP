@@ -3,7 +3,6 @@
 /**
  * Smarty Internal Plugin Resource PHP
  * Implements the file system as resource for PHP templates
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Uwe Tews
@@ -13,13 +12,11 @@ class Smarty_Internal_Resource_Php extends Smarty_Internal_Resource_File
 {
     /**
      * Flag that it's an uncompiled resource
-     *
      * @var bool
      */
     public $uncompiled = true;
     /**
      * container for short_open_tag directive's value before executing PHP templates
-     *
      * @var string
      */
     protected $short_open_tag;
@@ -52,7 +49,7 @@ class Smarty_Internal_Resource_Php extends Smarty_Internal_Resource_File
     /**
      * Render and output the template (without using the compiler)
      *
-     * @param  Smarty_Template_Source   $source    source object
+     * @param  Smarty_Template_Source $source      source object
      * @param  Smarty_Internal_Template $_template template object
      *
      * @return void

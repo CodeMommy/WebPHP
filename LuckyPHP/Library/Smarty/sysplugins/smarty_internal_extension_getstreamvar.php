@@ -2,9 +2,7 @@
 
 /**
  * Smarty Extension GetStreamVar
- *
  * getStreamVariable() method
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews

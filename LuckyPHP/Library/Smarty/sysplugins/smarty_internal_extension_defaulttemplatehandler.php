@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty Resource Extension
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 /**
  * Smarty Resource Extension
  * Default template and config file handling
- *
  * @package    Smarty
  * @subpackage TemplateResources
  */
@@ -20,7 +18,7 @@ class Smarty_Internal_Extension_DefaultTemplateHandler
     /**
      * get default content from template of config resource handler
      *
-     * @param Smarty_Internal_Template        $_template
+     * @param Smarty_Internal_Template $_template
      * @param Smarty_Template_Source $source
      */
     static function _getDefault(Smarty_Internal_Template $_template, $source)
@@ -32,7 +30,7 @@ class Smarty_Internal_Extension_DefaultTemplateHandler
         }
         $_content = $_timestamp = null;
         $_return = call_user_func_array($default_handler,
-                                        array($source->type, $source->name, &$_content, &$_timestamp, $source->smarty));
+            array($source->type, $source->name, &$_content, &$_timestamp, $source->smarty));
         if (is_string($_return)) {
             $source->exists = is_file($_return);
             if ($source->exists) {
@@ -52,7 +50,7 @@ class Smarty_Internal_Extension_DefaultTemplateHandler
      * register template default handler
      *
      * @param Smarty $smarty
-     * @param mixed  $callback
+     * @param mixed $callback
      *
      * @throws SmartyException
      */
@@ -69,7 +67,7 @@ class Smarty_Internal_Extension_DefaultTemplateHandler
      * register config default handler
      *
      * @param Smarty $smarty
-     * @param mixed  $callback
+     * @param mixed $callback
      *
      * @throws SmartyException
      */

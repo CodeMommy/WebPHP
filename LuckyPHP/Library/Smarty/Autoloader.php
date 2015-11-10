@@ -1,13 +1,11 @@
 <?php
 /**
  * Smarty Autoloader
- *
  * @package    Smarty
  */
 
 /**
  * Smarty Autoloader
- *
  * @package    Smarty
  * @author     Uwe Tews
  *             Usage:
@@ -21,35 +19,30 @@ class Smarty_Autoloader
 {
     /**
      * Filepath to Smarty root
-     *
      * @var string
      */
     public static $SMARTY_DIR = '';
 
     /**
      * Filepath to Smarty internal plugins
-     *
      * @var string
      */
     public static $SMARTY_SYSPLUGINS_DIR = '';
 
     /**
      * Array of not existing classes to avoid is_file calls for  already tested classes
-     *
      * @var array
      */
     public static $unknown = array();
 
     /**
      * Array with Smarty core classes and their filename
-     *
      * @var array
      */
     public static $rootClasses = array('smarty' => 'Smarty.class.php', 'smartybc' => 'SmartyBC.class.php',);
 
     /**
      * Array of often auto loaded classes which may skip is_file() test
-     *
      * @var array
      */
     private static $classes = array('smarty_config_source'                  => true, 'smarty_security' => true,

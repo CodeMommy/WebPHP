@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsFunction
  */
@@ -11,12 +10,11 @@
  * Type:     function<br>
  * Name:     counter<br>
  * Purpose:  print out a counter value
- *
  * @author Monte Ohrt <monte at ohrt dot com>
  * @link   http://www.smarty.net/manual/en/language.function.counter.php {counter}
  *         (Smarty online manual)
  *
- * @param array                    $params   parameters
+ * @param array $params                      parameters
  * @param Smarty_Internal_Template $template template object
  *
  * @return string|null
@@ -37,7 +35,7 @@ function smarty_function_counter($params, $template)
     $counter =& $counters[$name];
 
     if (isset($params['start'])) {
-        $counter['start'] = $counter['count'] = (int) $params['start'];
+        $counter['start'] = $counter['count'] = (int)$params['start'];
     }
 
     if (!empty($params['assign'])) {
@@ -49,7 +47,7 @@ function smarty_function_counter($params, $template)
     }
 
     if (isset($params['print'])) {
-        $print = (bool) $params['print'];
+        $print = (bool)$params['print'];
     } else {
         $print = empty($counter['assign']);
     }

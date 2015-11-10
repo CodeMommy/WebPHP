@@ -9,7 +9,6 @@
 /**
  * Smarty Resource Data Object
  * Cache Data Container for Template Files
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Rodney Rehm
@@ -18,84 +17,72 @@ class Smarty_Template_Cached
 {
     /**
      * Source Filepath
-     *
      * @var string
      */
     public $filepath = false;
 
     /**
      * Source Content
-     *
      * @var string
      */
     public $content = null;
 
     /**
      * Source Timestamp
-     *
      * @var integer
      */
     public $timestamp = false;
 
     /**
      * Source Existence
-     *
      * @var boolean
      */
     public $exists = false;
 
     /**
      * Cache Is Valid
-     *
      * @var boolean
      */
     public $valid = null;
 
     /**
      * Cache was processed
-     *
      * @var boolean
      */
     public $processed = false;
 
     /**
      * CacheResource Handler
-     *
      * @var Smarty_CacheResource
      */
     public $handler = null;
 
     /**
      * Template Compile Id (Smarty_Internal_Template::$compile_id)
-     *
      * @var string
      */
     public $compile_id = null;
 
     /**
      * Template Cache Id (Smarty_Internal_Template::$cache_id)
-     *
      * @var string
      */
     public $cache_id = null;
 
     /**
      * Id for cache locking
-     *
      * @var string
      */
     public $lock_id = null;
 
     /**
      * flag that cache is locked by this instance
-     *
      * @var bool
      */
     public $is_locked = false;
 
     /**
      * Source Object
-     *
      * @var Smarty_Template_Source
      */
     public $source = null;
@@ -149,7 +136,7 @@ class Smarty_Template_Cached
         }
         while (true) {
             while (true) {
-                 if ($this->exists === false || $_template->smarty->force_compile || $_template->smarty->force_cache) {
+                if ($this->exists === false || $_template->smarty->force_compile || $_template->smarty->force_cache) {
                     $this->valid = false;
                 } else {
                     $this->valid = true;
@@ -210,7 +197,7 @@ class Smarty_Template_Cached
      * Process cached template
      *
      * @param Smarty_Internal_Template $_template template object
-     * @param bool                     $update flag if called because cache update
+     * @param bool $update                        flag if called because cache update
      */
     public function process(Smarty_Internal_Template $_template, $update = false)
     {
@@ -244,7 +231,7 @@ class Smarty_Template_Cached
      * Write this cache object to handler
      *
      * @param Smarty_Internal_Template $_template template object
-     * @param string                   $content   content to cache
+     * @param string $content                     content to cache
      *
      * @return boolean success
      */
@@ -292,8 +279,8 @@ class Smarty_Template_Cached
      * Sanitize content and write it to cache resource
      *
      * @param Smarty_Internal_Template $_template
-     * @param string                   $content
-     * @param bool                     $no_output_filter
+     * @param string $content
+     * @param bool $no_output_filter
      *
      * @throws SmartyException
      */
@@ -325,7 +312,7 @@ class Smarty_Template_Cached
      * Writes the content to cache resource
      *
      * @param Smarty_Internal_Template $_template
-     * @param string                   $content
+     * @param string $content
      *
      * @return bool
      */
@@ -358,7 +345,7 @@ class Smarty_Template_Cached
      * check client side cache
      *
      * @param Smarty_Internal_Template $_template
-     * @param  string                  $content
+     * @param  string $content
      */
     public function cacheModifiedCheck(Smarty_Internal_Template $_template, $content)
     {

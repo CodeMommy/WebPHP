@@ -2,9 +2,7 @@
 
 /**
  * Smarty Extension GetVars
- *
  * getTemplateVars() and getVariable() methods
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -15,8 +13,8 @@ class Smarty_Internal_Extension_GetVars
      * Returns a single or all template variables
      *
      * @param          $obj
-     * @param  string  $varname        variable name or null
-     * @param  object  $_ptr           optional pointer to data object
+     * @param  string $varname         variable name or null
+     * @param  object $_ptr            optional pointer to data object
      * @param  boolean $search_parents include parent templates?
      *
      * @return string variable value or or array of variables
@@ -64,10 +62,10 @@ class Smarty_Internal_Extension_GetVars
      * gets the object of a Smarty variable
      *
      * @param          $obj
-     * @param  string  $variable       the name of the Smarty variable
-     * @param  object  $_ptr           optional pointer to data object
+     * @param  string $variable        the name of the Smarty variable
+     * @param  object $_ptr            optional pointer to data object
      * @param  boolean $search_parents search also in parent data
-     * @param bool     $error_enable
+     * @param bool $error_enable
      *
      * @return object the object of the variable
      */

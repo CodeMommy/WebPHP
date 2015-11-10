@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsFunction
  */
@@ -20,7 +19,6 @@ require_once(SMARTY_PLUGINS_DIR . 'shared.make_timestamp.php');
  * Type:     function<br>
  * Name:     html_select_time<br>
  * Purpose:  Prints the dropdowns for time selection
- *
  * @link     http://www.smarty.net/manual/en/language.function.html.select.time.php {html_select_time}
  *           (Smarty online manual)
  * @author   Roberto Berto <roberto@berto.net>
@@ -117,7 +115,7 @@ function smarty_function_html_select_time($params)
             case 'minute_value_format':
             case 'second_format':
             case 'second_value_format':
-                $$_key = (string) $_value;
+                $$_key = (string)$_value;
                 break;
 
             case 'display_hours':
@@ -125,7 +123,7 @@ function smarty_function_html_select_time($params)
             case 'display_seconds':
             case 'display_meridian':
             case 'use_24_hours':
-                $$_key = (bool) $_value;
+                $$_key = (bool)$_value;
                 break;
 
             case 'minute_interval':
@@ -135,7 +133,7 @@ function smarty_function_html_select_time($params)
             case 'minute_size':
             case 'second_size':
             case 'meridian_size':
-                $$_key = (int) $_value;
+                $$_key = (int)$_value;
                 break;
 
             default:
@@ -218,7 +216,7 @@ function smarty_function_html_select_time($params)
 
         $start = $use_24_hours ? 0 : 1;
         $end = $use_24_hours ? 23 : 12;
-        for ($i = $start; $i <= $end; $i ++) {
+        for ($i = $start; $i <= $end; $i++) {
             $_val = sprintf('%02d', $i);
             $_text = $hour_format == '%02d' ? $_val : sprintf($hour_format, $i);
             $_value = $hour_value_format == '%02d' ? $_val : sprintf($hour_value_format, $i);

@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Include PHP
  * Compiles the {include_php} tag
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile Insert Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -18,7 +16,6 @@ class Smarty_Internal_Compile_Include_Php extends Smarty_Internal_CompileBase
 {
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -26,7 +23,6 @@ class Smarty_Internal_Compile_Include_Php extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -34,7 +30,6 @@ class Smarty_Internal_Compile_Include_Php extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -43,7 +38,7 @@ class Smarty_Internal_Compile_Include_Php extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {include_php} tag
      *
-     * @param  array  $args     array with attributes from parser
+     * @param  array $args      array with attributes from parser
      * @param  object $compiler compiler object
      *
      * @throws SmartyException
@@ -73,7 +68,7 @@ class Smarty_Internal_Compile_Include_Php extends Smarty_Internal_CompileBase
                 $_dir = $compiler->smarty->trusted_dir;
             }
             if (!empty($_dir)) {
-                foreach ((array) $_dir as $_script_dir) {
+                foreach ((array)$_dir as $_script_dir) {
                     $_path = $compiler->smarty->_realpath($_script_dir . DS . $_file, true);
                     if (file_exists($_path)) {
                         $_filepath = $_path;

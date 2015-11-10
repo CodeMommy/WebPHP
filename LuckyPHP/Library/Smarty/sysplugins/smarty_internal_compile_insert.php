@@ -3,7 +3,6 @@
 /**
  * Smarty Internal Plugin Compile Insert
  * Compiles the {insert} tag
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -11,7 +10,6 @@
 
 /**
  * Smarty Internal Plugin Compile Insert Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -19,21 +17,18 @@ class Smarty_Internal_Compile_Insert extends Smarty_Internal_CompileBase
 {
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
     public $required_attributes = array('name');
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
     public $shorttag_order = array('name');
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -42,7 +37,7 @@ class Smarty_Internal_Compile_Insert extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {insert} tag
      *
-     * @param  array  $args     array with attributes from parser
+     * @param  array $args      array with attributes from parser
      * @param  object $compiler compiler object
      *
      * @return string compiled code
@@ -90,7 +85,7 @@ class Smarty_Internal_Compile_Insert extends Smarty_Internal_CompileBase
                     $_dir = $compiler->smarty->trusted_dir;
                 }
                 if (!empty($_dir)) {
-                    foreach ((array) $_dir as $_script_dir) {
+                    foreach ((array)$_dir as $_script_dir) {
                         $_script_dir = rtrim($_script_dir, '/\\') . DS;
                         if (file_exists($_script_dir . $_script)) {
                             $_filepath = $_script_dir . $_script;
@@ -124,7 +119,7 @@ class Smarty_Internal_Compile_Insert extends Smarty_Internal_CompileBase
         // convert attributes into parameter array string
         $_paramsArray = array();
         foreach ($_attr as $_key => $_value) {
-                $_paramsArray[] = "'$_key' => $_value";
+            $_paramsArray[] = "'$_key' => $_value";
         }
         $_params = 'array(' . implode(", ", $_paramsArray) . ')';
         // call insert

@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty Internal Plugin Function Call Handler
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -12,7 +11,6 @@
  * It can happen when the template function was called with the nocache option or within a nocache section.
  * The template function will be loaded from it's compiled template file, executed and added to the cache file
  * for later use.
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  */
@@ -22,11 +20,11 @@ class Smarty_Internal_Function_Call_Handler
      * This function handles calls to template functions defined by {function}
      * It does create a PHP function at the first call
      *
-     * @param string                   $_name     template function name
+     * @param string $_name     template function name
      * @param Smarty_Internal_Template $_smarty_tpl
-     * @param string                   $_function PHP function name
-     * @param array                    $_params   Smarty variables passed as call parameter
-     * @param bool                     $_nocache  nocache flag
+     * @param string $_function PHP function name
+     * @param array $_params    Smarty variables passed as call parameter
+     * @param bool $_nocache    nocache flag
      *
      * @return bool
      */

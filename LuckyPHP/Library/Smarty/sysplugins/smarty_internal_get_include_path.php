@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty read include path plugin
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Monte Ohrt
@@ -9,7 +8,6 @@
 
 /**
  * Smarty Internal Read Include Path Class
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  */
@@ -17,72 +15,61 @@ class Smarty_Internal_Get_Include_Path
 {
     /**
      * include path cache
-     *
      * @var string
      */
     static $_include_path = '';
 
     /**
      * include path directory cache
-     *
      * @var array
      */
     static $_include_dirs = array();
 
     /**
      * include path directory cache
-     *
      * @var array
      */
     static $_user_dirs = array();
 
     /**
      * stream cache
-     *
      * @var array
      */
     static $stream = array();
 
     /**
      * stream cache
-     *
      * @var array
      */
     static $isFile = array();
 
     /**
      * stream cache
-     *
      * @var array
      */
     static $isPath = array();
 
     /**
      * stream cache
-     *
      * @var array
      */
     static $number = array();
 
     /**
      * status cache
-     *
      * @var null
      */
     static $_has_stream_include = null;
 
     /**
      * Numger for array index
-     *
      * @var int
      */
     static $counter = 0;
 
     /**
      * Check if include path was updated
-     *
      * @return bool
-     *
      */
     public static function isNewIncludePath(Smarty $smarty)
     {
@@ -94,7 +81,7 @@ class Smarty_Internal_Get_Include_Path
         if (self::$_include_path != $_i_path) {
             self::$_include_dirs = array();
             self::$_include_path = $_i_path;
-            $_dirs = (array) explode(PATH_SEPARATOR, $_i_path);
+            $_dirs = (array)explode(PATH_SEPARATOR, $_i_path);
             foreach ($_dirs as $_path) {
                 if ($_path[0] != '/' && isset($dir[1]) && $dir[1] != ':') {
                     $_path = $smarty->_realpath($_path . DS, true);
@@ -110,7 +97,6 @@ class Smarty_Internal_Get_Include_Path
 
     /**
      * return array with include path directories
-     *
      * @return array
      */
     public static function getIncludePathDirs(Smarty $smarty)
@@ -123,18 +109,17 @@ class Smarty_Internal_Get_Include_Path
      * Return full file path from PHP include_path
      *
      * @param  string[] $dirs
-     * @param  string   $file
-     * @param \Smarty   $smarty
+     * @param  string $file
+     * @param \Smarty $smarty
      *
      * @return bool|string full filepath or false
-     *
      */
     public static function getIncludePath($dirs, $file, Smarty $smarty)
     {
         self::isNewIncludePath($smarty);
         // try PHP include_path
         foreach ($dirs as $dir) {
-            $dir_n = isset(self::$number[$dir]) ? self::$number[$dir] : self::$number[$dir] = self::$counter ++;
+            $dir_n = isset(self::$number[$dir]) ? self::$number[$dir] : self::$number[$dir] = self::$counter++;
             if (isset(self::$isFile[$dir_n][$file])) {
                 if (self::$isFile[$dir_n][$file]) {
                     return self::$isFile[$dir_n][$file];
@@ -170,7 +155,7 @@ class Smarty_Internal_Get_Include_Path
             }
             foreach (self::$_include_dirs as $key => $_i_path) {
                 $path = self::$isPath[$key][$dir_n] = isset(self::$isPath[$key][$dir_n]) ? self::$isPath[$key][$dir_n] : is_dir($_i_path .
-                                                                                                                                $_u_dir) ? $_i_path .
+                    $_u_dir) ? $_i_path .
                     substr($_u_dir, 2) : false;
                 $_file = self::$isFile[$dir_n][$file] = ($path && is_file($path . $file)) ? $path . $file : false;
                 if ($_file) {

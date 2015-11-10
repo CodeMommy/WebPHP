@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -11,7 +10,6 @@
  * Type:     modifier<br>
  * Name:     noprint<br>
  * Purpose:  return an empty string
- *
  * @author   Uwe Tews
  * @return string with compiled code
  */

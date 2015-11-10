@@ -9,7 +9,7 @@ class Smarty_Internal_Extension_Config
     /**
      * @param        $obj
      * @param        $config_file
-     * @param null   $sections
+     * @param null $sections
      * @param string $scope
      */
     static function configLoad($obj, $config_file, $sections = null, $scope = 'local')
@@ -36,8 +36,8 @@ class Smarty_Internal_Extension_Config
     /**
      * load config variables
      *
-     * @param mixed  $sections array of section names, single section or null
-     * @param string $scope    global,parent or local
+     * @param mixed $sections array of section names, single section or null
+     * @param string $scope   global,parent or local
      *
      * @throws Exception
      */
@@ -60,19 +60,19 @@ class Smarty_Internal_Extension_Config
             if ($_template->smarty->config_overwrite || !isset($scope_ptr->config_vars[$variable])) {
                 $scope_ptr->config_vars[$variable] = $value;
             } else {
-                $scope_ptr->config_vars[$variable] = array_merge((array) $scope_ptr->config_vars[$variable], (array) $value);
+                $scope_ptr->config_vars[$variable] = array_merge((array)$scope_ptr->config_vars[$variable], (array)$value);
             }
         }
         // scan sections
         $sections = $_template->source->config_sections;
         if (!empty($sections)) {
-            foreach ((array) $sections as $_template_section) {
+            foreach ((array)$sections as $_template_section) {
                 if (isset($_config_vars['sections'][$_template_section])) {
                     foreach ($_config_vars['sections'][$_template_section]['vars'] as $variable => $value) {
                         if ($_template->smarty->config_overwrite || !isset($scope_ptr->config_vars[$variable])) {
                             $scope_ptr->config_vars[$variable] = $value;
                         } else {
-                            $scope_ptr->config_vars[$variable] = array_merge((array) $scope_ptr->config_vars[$variable], (array) $value);
+                            $scope_ptr->config_vars[$variable] = array_merge((array)$scope_ptr->config_vars[$variable], (array)$value);
                         }
                     }
                 }
@@ -84,7 +84,7 @@ class Smarty_Internal_Extension_Config
      * Returns a single or all config variables
      *
      * @param  string $varname variable name or null
-     * @param bool    $search_parents
+     * @param bool $search_parents
      *
      * @return string variable value or or array of variables
      */
@@ -118,7 +118,7 @@ class Smarty_Internal_Extension_Config
      * gets  a config variable
      *
      * @param  string $variable the name of the config variable
-     * @param bool    $error_enable
+     * @param bool $error_enable
      *
      * @return mixed  the value of the config variable
      */
@@ -146,7 +146,8 @@ class Smarty_Internal_Extension_Config
      *
      * @param  string $name variable name or null
      *
-     * @return Smarty_Internal_Data current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining
+     * @return Smarty_Internal_Data current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for
+     *                              chaining
      */
     static function clearConfig($obj, $name = null)
     {

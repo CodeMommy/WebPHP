@@ -17,7 +17,6 @@
  * For questions, help, comments, discussion, etc., please join the
  * Smarty mailing list. Send a blank e-mail to
  * smarty-discussion-subscribe@googlegroups.com
- *
  * @link      http://www.smarty.net/
  * @copyright 2008 New Digital Group, Inc.
  * @author    Monte Ohrt <monte at ohrt dot com>
@@ -32,14 +31,12 @@ require_once(dirname(__FILE__) . '/Smarty.class.php');
 
 /**
  * Smarty Backward Compatability Wrapper Class
- *
  * @package Smarty
  */
 class SmartyBC extends Smarty
 {
     /**
      * Smarty 2 BC
-     *
      * @var string
      */
     public $_version = self::SMARTY_VERSION;
@@ -58,7 +55,7 @@ class SmartyBC extends Smarty
      * wrapper for assign_by_ref
      *
      * @param string $tpl_var the template variable name
-     * @param mixed  &$value  the referenced value to assign
+     * @param mixed &$value   the referenced value to assign
      */
     public function assign_by_ref($tpl_var, &$value)
     {
@@ -68,9 +65,9 @@ class SmartyBC extends Smarty
     /**
      * wrapper for append_by_ref
      *
-     * @param string  $tpl_var the template variable name
-     * @param mixed   &$value  the referenced value to append
-     * @param boolean $merge   flag if array elements shall be merged
+     * @param string $tpl_var the template variable name
+     * @param mixed &$value   the referenced value to append
+     * @param boolean $merge  flag if array elements shall be merged
      */
     public function append_by_ref($tpl_var, &$value, $merge = false)
     {
@@ -92,8 +89,8 @@ class SmartyBC extends Smarty
      *
      * @param string $function      the name of the template function
      * @param string $function_impl the name of the PHP function to register
-     * @param bool   $cacheable
-     * @param mixed  $cache_attrs
+     * @param bool $cacheable
+     * @param mixed $cache_attrs
      */
     public function register_function($function, $function_impl, $cacheable = true, $cache_attrs = null)
     {
@@ -113,11 +110,11 @@ class SmartyBC extends Smarty
     /**
      * Registers object to be used in templates
      *
-     * @param string  $object        name of template object
-     * @param object  $object_impl   the referenced PHP object to register
-     * @param array   $allowed       list of allowed methods (empty = all)
-     * @param boolean $smarty_args   smarty argument format, else traditional
-     * @param array   $block_methods list of methods that are block format
+     * @param string $object       name of template object
+     * @param object $object_impl  the referenced PHP object to register
+     * @param array $allowed       list of allowed methods (empty = all)
+     * @param boolean $smarty_args smarty argument format, else traditional
+     * @param array $block_methods list of methods that are block format
      *
      * @throws SmartyException
      * @internal param array $block_functs list of methods that are block format
@@ -144,8 +141,8 @@ class SmartyBC extends Smarty
      *
      * @param string $block      name of template block
      * @param string $block_impl PHP function to register
-     * @param bool   $cacheable
-     * @param mixed  $cache_attrs
+     * @param bool $cacheable
+     * @param mixed $cache_attrs
      */
     public function register_block($block, $block_impl, $cacheable = true, $cache_attrs = null)
     {
@@ -167,7 +164,7 @@ class SmartyBC extends Smarty
      *
      * @param string $function      name of template function
      * @param string $function_impl name of PHP function to register
-     * @param bool   $cacheable
+     * @param bool $cacheable
      */
     public function register_compiler_function($function, $function_impl, $cacheable = true)
     {
@@ -208,8 +205,8 @@ class SmartyBC extends Smarty
     /**
      * Registers a resource to fetch a template
      *
-     * @param string $type      name of resource
-     * @param array  $functions array of functions to handle resource
+     * @param string $type     name of resource
+     * @param array $functions array of functions to handle resource
      */
     public function register_resource($type, $functions)
     {
@@ -438,7 +435,7 @@ class SmartyBC extends Smarty
     /**
      * trigger Smarty error
      *
-     * @param string  $error_msg
+     * @param string $error_msg
      * @param integer $error_type
      */
     public function trigger_error($error_msg, $error_type = E_USER_WARNING)

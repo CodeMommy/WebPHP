@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -11,7 +10,6 @@
  * Type:     modifier<br>
  * Name:     unescape<br>
  * Purpose:  unescape html entities
- *
  * @author Rodney Rehm
  *
  * @param array $params parameters

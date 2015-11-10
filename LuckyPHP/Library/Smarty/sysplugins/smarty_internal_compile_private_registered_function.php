@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Registered Function
  * Compiles code for the execution of a registered function
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile Registered Function Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -18,7 +16,6 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
 {
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -27,10 +24,10 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
     /**
      * Compiles code for the execution of a registered function
      *
-     * @param  array  $args      array with attributes from parser
-     * @param  object $compiler  compiler object
-     * @param  array  $parameter array with compilation parameter
-     * @param  string $tag       name of function
+     * @param  array $args      array with attributes from parser
+     * @param  object $compiler compiler object
+     * @param  array $parameter array with compilation parameter
+     * @param  string $tag      name of function
      *
      * @return string compiled code
      */

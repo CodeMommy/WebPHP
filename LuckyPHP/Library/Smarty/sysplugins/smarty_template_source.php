@@ -3,7 +3,6 @@
 /**
  * Smarty Resource Data Object
  * Meta Data Container for Template Files
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Rodney Rehm
@@ -16,140 +15,120 @@ class Smarty_Template_Source
 {
     /**
      * Name of the Class to compile this resource's contents with
-     *
      * @var string
      */
     public $compiler_class = null;
 
     /**
      * Name of the Class to tokenize this resource's contents with
-     *
      * @var string
      */
     public $template_lexer_class = null;
 
     /**
      * Name of the Class to parse this resource's contents with
-     *
      * @var string
      */
     public $template_parser_class = null;
 
     /**
      * Unique Template ID
-     *
      * @var string
      */
     public $uid = null;
 
     /**
      * Template Resource (Smarty_Internal_Template::$template_resource)
-     *
      * @var string
      */
     public $resource = null;
 
     /**
      * Resource Type
-     *
      * @var string
      */
     public $type = null;
 
     /**
      * Resource Name
-     *
      * @var string
      */
     public $name = null;
 
     /**
      * Unique Resource Name
-     *
      * @var string
      */
     public $unique_resource = null;
 
     /**
      * Source Filepath
-     *
      * @var string
      */
     public $filepath = null;
 
     /**
      * Source Timestamp
-     *
      * @var integer
      */
     public $timestamp = null;
 
     /**
      * Source Existence
-     *
      * @var boolean
      */
     public $exists = false;
 
     /**
      * Source File Base name
-     *
      * @var string
      */
     public $basename = null;
 
     /**
      * The Components an extended template is made of
-     *
      * @var array
      */
     public $components = null;
 
     /**
      * Resource Handler
-     *
      * @var Smarty_Resource
      */
     public $handler = null;
 
     /**
      * Smarty instance
-     *
      * @var Smarty
      */
     public $smarty = null;
 
     /**
      * Resource is source
-     *
      * @var bool
      */
     public $isConfig = false;
 
     /**
      * Source is bypassing compiler
-     *
      * @var boolean
      */
     public $uncompiled = false;
 
     /**
      * Source must be recompiled on every occasion
-     *
      * @var boolean
      */
     public $recompiled = false;
 
     /**
      * cache for Smarty_Template_Compiled instances
-     *
      * @var array
      */
     public $compileds = array();
 
     /**
      * Template source content eventually set by default handler
-     *
      * @var string
      */
     public $content = null;
@@ -157,11 +136,11 @@ class Smarty_Template_Source
     /**
      * create Source Object container
      *
-     * @param Smarty_Resource $handler  Resource Handler this source object communicates with
-     * @param Smarty          $smarty   Smarty instance this source object belongs to
-     * @param string          $resource full template_resource
-     * @param string          $type     type of resource
-     * @param string          $name     resource name
+     * @param Smarty_Resource $handler Resource Handler this source object communicates with
+     * @param Smarty $smarty           Smarty instance this source object belongs to
+     * @param string $resource         full template_resource
+     * @param string $type             type of resource
+     * @param string $name             resource name
      *
      * @internal param string $unique_resource unique resource name
      */
@@ -185,9 +164,9 @@ class Smarty_Template_Source
      * initialize Source Object for given resource
      * Either [$_template] or [$smarty, $template_resource] must be specified
      *
-     * @param  Smarty_Internal_Template $_template         template object
-     * @param  Smarty                   $smarty            smarty object
-     * @param  string                   $template_resource resource identifier
+     * @param  Smarty_Internal_Template $_template template object
+     * @param  Smarty $smarty                      smarty object
+     * @param  string $template_resource           resource identifier
      *
      * @return Smarty_Template_Source Source Object
      * @throws SmartyException
@@ -251,8 +230,7 @@ class Smarty_Template_Source
         try {
             $this->handler->renderUncompiled($_template->source, $_template);
             return ob_get_clean();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             while (ob_get_level() > $level) {
                 ob_end_clean();
             }
@@ -262,7 +240,6 @@ class Smarty_Template_Source
 
     /**
      * Get source time stamp
-     *
      * @return int
      */
     public function getTimeStamp()
@@ -275,7 +252,6 @@ class Smarty_Template_Source
 
     /**
      * Get source content
-     *
      * @return string
      */
     public function getContent()

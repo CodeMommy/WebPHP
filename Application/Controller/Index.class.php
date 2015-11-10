@@ -19,7 +19,7 @@ class IndexController extends Controller
     {
         View::showPage('Index/index.html');
     }
-    
+
     public function redirect()
     {
         Router::redirect('http://www.microsoft.com');
@@ -44,7 +44,7 @@ class IndexController extends Controller
     {
         echo Session::clear();
     }
-    
+
     public function showPage()
     {
         $data = array();
@@ -52,7 +52,7 @@ class IndexController extends Controller
         $data['world'] = 'World';
         View::showPage('Index/showPage.html', $data);
     }
-    
+
     public function showJSON()
     {
         $data = array();
@@ -60,12 +60,12 @@ class IndexController extends Controller
         $data['world'] = 'World';
         View::showJSON($data);
     }
-    
+
     public function input()
     {
         echo Input::get('hello', 'default');;
     }
-    
+
     public function debug()
     {
         Debug::show('hello');
@@ -74,12 +74,12 @@ class IndexController extends Controller
         $data['world'] = 'World';
         Debug::show($data);
     }
-    
+
     public function configure()
     {
         echo Configure::get('hello');
     }
-    
+
     public function client()
     {
         Debug::show(Client::system());
@@ -89,7 +89,7 @@ class IndexController extends Controller
         Debug::show(Client::language());
         Debug::show(Client::isWeixin());
     }
-    
+
     public function validate()
     {
         Debug::show(Validate::email('demo@demo.com'));
@@ -97,7 +97,7 @@ class IndexController extends Controller
         Debug::show(Validate::mobilephone('15555555555'));
         Debug::show(Validate::mobilephone('1555555555'));
     }
-    
+
     public function convert()
     {
         $data = array();
@@ -105,29 +105,34 @@ class IndexController extends Controller
         $data['world'] = 'World';
         echo Convert::arrayToJSON($data);
     }
-    
+
     public function image()
     {
         // Image::compression();
     }
-    
+
     public function weixin()
     {
         // Weixin::compression();
     }
-    
+
     public function mysql()
     {
         Database::init();
         $book = Database::dispense('book');
         $book->title = 'Hello';
-        $id = Database::store($book);       
+        $id = Database::store($book);
         Debug::show(R::findAll('book'));
     }
-    
+
     public function cookie()
     {
         Cookie::set('hello', 'world');
         echo Cookie::get('hello');
+    }
+
+    public function vendor()
+    {
+        new HelloWorld();
     }
 }

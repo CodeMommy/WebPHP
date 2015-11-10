@@ -31,6 +31,7 @@
                 padding: 2px;
                 border-top: 1px solid black;
             }
+
             h3 {
                 text-align: left;
                 font-weight: bold;
@@ -84,13 +85,16 @@
                 color: black;
                 font-weight: bold;
             }
+
             #blue h3 {
                 color: blue;
             }
+
             #normal div {
                 color: black;
                 font-weight: normal;
             }
+
             #table_assigned_vars th {
                 color: blue;
                 font-weight: bold;
@@ -113,8 +117,12 @@
         <div>
             {foreach $template_data as $template}
                 <font color=brown>{$template.name}</font>
-                <br>&nbsp;&nbsp;<span class="exectime">
-                (compile {$template['compile_time']|string_format:"%.5f"}) (render {$template['render_time']|string_format:"%.5f"}) (cache {$template['cache_time']|string_format:"%.5f"})
+                <br>
+                &nbsp;&nbsp;
+                <span class="exectime">
+                (compile {$template['compile_time']|string_format:"%.5f"}
+                    ) (render {$template['render_time']|string_format:"%.5f"}
+                    ) (cache {$template['cache_time']|string_format:"%.5f"})
                  </span>
                 <br>
             {/foreach}
@@ -125,14 +133,15 @@
 
     <table id="table_assigned_vars">
         {foreach $assigned_vars as $vars}
-            <tr class="{if $vars@iteration % 2 eq 0}odd{else}even{/if}">
-                <td><h3><font color=blue>${$vars@key}</font></h3>
-                    {if isset($vars['nocache'])}<b>Nocache</b></br>{/if}
-                    {if isset($vars['scope'])}<b>Origin:</b> {$vars['scope']|debug_print_var nofilter}{/if}
-                </td>
-                <td><h3>Value</h3>{$vars['value']|debug_print_var:10:80 nofilter}</td>
-                <td>{if isset($vars['attributes'])}<h3>Attributes</h3>{$vars['attributes']|debug_print_var nofilter} {/if}</td>
-         {/foreach}
+        <tr class="{if $vars@iteration % 2 eq 0}odd{else}even{/if}">
+            <td><h3><font color=blue>${$vars@key}</font></h3>
+                {if isset($vars['nocache'])}<b>Nocache</b></br>{/if}
+                {if isset($vars['scope'])}<b>Origin:</b>{$vars['scope']|debug_print_var nofilter}{/if}
+            </td>
+            <td><h3>Value</h3>{$vars['value']|debug_print_var:10:80 nofilter}</td>
+            <td>{if isset($vars['attributes'])}<h3>Attributes</h3>{$vars['attributes']|debug_print_var nofilter} {/if}
+            </td>
+            {/foreach}
     </table>
 
     <h2>assigned config file variables</h2>
@@ -141,7 +150,7 @@
         {foreach $config_vars as $vars}
             <tr class="{if $vars@iteration % 2 eq 0}odd{else}even{/if}">
                 <td><h3><font color=blue>#{$vars@key}#</font></h3>
-                    {if isset($vars['scope'])}<b>Origin:</b> {$vars['scope']|debug_print_var nofilter}{/if}
+                    {if isset($vars['scope'])}<b>Origin:</b>{$vars['scope']|debug_print_var nofilter}{/if}
                 </td>
                 <td>{$vars['value']|debug_print_var:10:80 nofilter}</td>
             </tr>

@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -11,7 +10,6 @@
  * Type:     modifier<br>
  * Name:     from_charset<br>
  * Purpose:  convert character encoding from $charset to internal encoding
- *
  * @author Rodney Rehm
  *
  * @param array $params parameters

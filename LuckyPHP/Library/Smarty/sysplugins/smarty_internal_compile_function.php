@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Function
  * Compiles the {function} {/function} tags
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile Function Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -19,7 +17,6 @@ class Smarty_Internal_Compile_Function extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -27,7 +24,6 @@ class Smarty_Internal_Compile_Function extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -35,7 +31,6 @@ class Smarty_Internal_Compile_Function extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -44,9 +39,9 @@ class Smarty_Internal_Compile_Function extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {function} tag
      *
-     * @param  array  $args      array with attributes from parser
-     * @param  object $compiler  compiler object
-     * @param  array  $parameter array with compilation parameter
+     * @param  array $args      array with attributes from parser
+     * @param  object $compiler compiler object
+     * @param  array $parameter array with compilation parameter
      *
      * @return boolean true
      */
@@ -76,7 +71,6 @@ class Smarty_Internal_Compile_Function extends Smarty_Internal_CompileBase
 
 /**
  * Smarty Internal Plugin Compile Functionclose Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -85,7 +79,6 @@ class Smarty_Internal_Compile_Functionclose extends Smarty_Internal_CompileBase
 
     /**
      * Compiler object
-     *
      * @var object
      */
     private $compiler = null;
@@ -93,9 +86,9 @@ class Smarty_Internal_Compile_Functionclose extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {/function} tag
      *
-     * @param  array                                       $args      array with attributes from parser
-     * @param object|\Smarty_Internal_TemplateCompilerBase $compiler  compiler object
-     * @param  array                                       $parameter array with compilation parameter
+     * @param  array $args                                           array with attributes from parser
+     * @param object|\Smarty_Internal_TemplateCompilerBase $compiler compiler object
+     * @param  array $parameter                                      array with compilation parameter
      *
      * @return bool true
      */

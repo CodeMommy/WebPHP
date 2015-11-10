@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Block Plugin
  * Compiles code for the execution of block plugin
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile Block Plugin Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -18,7 +16,6 @@ class Smarty_Internal_Compile_Private_Block_Plugin extends Smarty_Internal_Compi
 {
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -27,17 +24,17 @@ class Smarty_Internal_Compile_Private_Block_Plugin extends Smarty_Internal_Compi
     /**
      * Compiles code for the execution of block plugin
      *
-     * @param  array  $args      array with attributes from parser
-     * @param  object $compiler  compiler object
-     * @param  array  $parameter array with compilation parameter
-     * @param  string $tag       name of block plugin
-     * @param  string $function  PHP function name
+     * @param  array $args      array with attributes from parser
+     * @param  object $compiler compiler object
+     * @param  array $parameter array with compilation parameter
+     * @param  string $tag      name of block plugin
+     * @param  string $function PHP function name
      *
      * @return string compiled code
      */
     public function compile($args, $compiler, $parameter, $tag, $function)
     {
-        if (!isset($tag[5]) || substr($tag, - 5) != 'close') {
+        if (!isset($tag[5]) || substr($tag, -5) != 'close') {
             // opening tag of block plugin
             // check and get attributes
             $_attr = $this->getAttributes($compiler, $args);
@@ -67,7 +64,7 @@ class Smarty_Internal_Compile_Private_Block_Plugin extends Smarty_Internal_Compi
                 $compiler->tag_nocache = true;
             }
             // closing tag of block plugin, restore nocache
-            list($_params, $compiler->nocache) = $this->closeTag($compiler, substr($tag, 0, - 5));
+            list($_params, $compiler->nocache) = $this->closeTag($compiler, substr($tag, 0, -5));
             // This tag does create output
             $compiler->has_output = true;
             // compile code

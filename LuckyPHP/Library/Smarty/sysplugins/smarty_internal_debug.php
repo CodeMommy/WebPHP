@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Debug
  * Class to collect data for the Smarty Debugging Console
- *
  * @package    Smarty
  * @subpackage Debug
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Debug Class
- *
  * @package    Smarty
  * @subpackage Debug
  */
@@ -18,28 +16,24 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
 {
     /**
      * template data
-     *
      * @var array
      */
     public static $template_data = array();
 
     /**
      * List of uid's which shall be ignored
-     *
      * @var array
      */
     public static $ignore_uid = array();
 
     /**
      * Index of display() and fetch() calls
-     *
      * @var int
      */
     public static $index = 0;
 
     /**
      * Counter for window offset
-     *
      * @var int
      */
     public static $offset = 0;
@@ -48,13 +42,13 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
      * Start logging template
      *
      * @param \Smarty_Internal_Template $template template
-     * @param null                                $mode true: display   false: fetch  null: subtemolate
+     * @param null $mode                          true: display   false: fetch  null: subtemolate
      */
     public static function start_template(Smarty_Internal_Template $template, $mode = null)
     {
         if (isset($mode)) {
-            self::$index ++;
-            self::$offset ++;
+            self::$index++;
+            self::$offset++;
             self::$template_data[self::$index] = null;
         }
         $key = self::get_key($template);
@@ -187,12 +181,12 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
      * Opens a window for the Smarty Debugging Console and display the data
      *
      * @param Smarty_Internal_Template|Smarty $obj object to debug
-     * @param bool                            $full
+     * @param bool $full
      */
     public static function display_debug($obj, $full = false)
     {
         if (!$full) {
-            self::$offset ++;
+            self::$offset++;
             $savedIndex = self::$index;
             self::$index = 9999;
         }
@@ -250,7 +244,7 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         $_template->assign('offset', self::$offset * 50);
         echo $_template->fetch();
         if (isset($full)) {
-            self::$index --;
+            self::$index--;
         }
         if (!$full) {
             self::$index = $savedIndex;
@@ -341,7 +335,7 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
             }
         }
 
-        return (object) array('tpl_vars' => $tpl_vars, 'config_vars' => $config_vars);
+        return (object)array('tpl_vars' => $tpl_vars, 'config_vars' => $config_vars);
     }
 
     /**

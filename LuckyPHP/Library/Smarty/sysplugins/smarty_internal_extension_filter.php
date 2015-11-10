@@ -2,10 +2,8 @@
 
 /**
  * Smarty Extension Filter
- *
  * Register filter methods
  * Load filter method
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -14,7 +12,6 @@ class Smarty_Internal_Extension_Filter
 {
     /**
      * Valid filter types
-     *
      * @var array
      */
     static $filterTypes = array('pre' => true, 'post' => true, 'output' => true, 'variable' => true);
@@ -23,9 +20,9 @@ class Smarty_Internal_Extension_Filter
      * Registers a filter function
      *
      * @param  \Smarty_Internal_Template|\Smarty $obj
-     * @param  string                            $type filter type
-     * @param  callback                          $callback
-     * @param  string|null                       $name optional filter name
+     * @param  string $type      filter type
+     * @param  callback $callback
+     * @param  string|null $name optional filter name
      *
      * @throws \SmartyException
      */
@@ -44,9 +41,8 @@ class Smarty_Internal_Extension_Filter
      * Unregisters a filter function
      *
      * @param  \Smarty_Internal_Template|\Smarty $obj
-     * @param  string                            $type filter type
-     * @param  callback|string                   $callback
-     *
+     * @param  string $type filter type
+     * @param  callback|string $callback
      */
     static function unregisterFilter($obj, $type, $callback)
     {
@@ -67,8 +63,8 @@ class Smarty_Internal_Extension_Filter
      * load a filter of specified type and name
      *
      * @param  \Smarty_Internal_Template|\Smarty $obj
-     * @param  string                            $type filter type
-     * @param  string                            $name filter name
+     * @param  string $type filter type
+     * @param  string $name filter name
      *
      * @return bool
      * @throws SmartyException if filter could not be loaded
@@ -95,9 +91,8 @@ class Smarty_Internal_Extension_Filter
      * unload a filter of specified type and name
      *
      * @param  \Smarty_Internal_Template|\Smarty $obj
-     * @param  string                            $type filter type
-     * @param  string                            $name filter name
-     *
+     * @param  string $type filter type
+     * @param  string $name filter name
      */
     static function unloadFilter($obj, $type, $name)
     {

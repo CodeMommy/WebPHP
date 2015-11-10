@@ -20,13 +20,13 @@ class Cookie
 
     public static function set($key, $value)
     {
-		setcookie($key, $value);
+        setcookie($key, $value);
         return true;
     }
 
     public static function delete($key)
     {
-		setcookie($key, '', time()-3600);
+        setcookie($key, '', time() - 3600);
         return true;
     }
 
@@ -42,11 +42,11 @@ class Cookie
 
     public static function clear()
     {
-		if($_COOKIE){
-			foreach($_COOKIE as $key => $value){
-				self::delete($key);
-			}
-		}
+        if ($_COOKIE) {
+            foreach ($_COOKIE as $key => $value) {
+                self::delete($key);
+            }
+        }
         return true;
     }
 }

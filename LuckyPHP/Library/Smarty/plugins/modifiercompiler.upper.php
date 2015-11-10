@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -11,7 +10,6 @@
  * Type:     modifier<br>
  * Name:     lower<br>
  * Purpose:  convert string to uppercase
- *
  * @link   http://smarty.php.net/manual/en/language.modifier.upper.php lower (Smarty online manual)
  * @author Uwe Tews
  *

@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -16,7 +15,6 @@ require_once(SMARTY_PLUGINS_DIR . 'shared.literal_compiler_param.php');
  * Type:     modifier<br>
  * Name:     escape<br>
  * Purpose:  escape string for output
- *
  * @link   http://www.smarty.net/docsv2/en/language.modifier.escape count_characters (Smarty online manual)
  * @author Rodney Rehm
  *
@@ -108,8 +106,7 @@ function smarty_modifiercompiler_escape($params, $compiler)
                 // escape quotes and backslashes, newlines, etc.
                 return 'strtr(' . $params[0] . ', array("\\\\" => "\\\\\\\\", "\'" => "\\\\\'", "\"" => "\\\\\"", "\\r" => "\\\\r", "\\n" => "\\\n", "</" => "<\/" ))';
         }
-    }
-    catch (SmartyException $e) {
+    } catch (SmartyException $e) {
         // pass through to regular plugin fallback
     }
 

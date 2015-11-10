@@ -10,13 +10,12 @@ namespace LuckyPHP\Core;
 class Debug
 {
     public static function show($data, $isExit = false)
-	{
-		echo '<pre>';
-		var_dump($data);
-		echo '</pre>';
-		if($isExit)
-		{
-			exit();
-		}
-	}
+    {
+        echo '<pre>';
+        var_dump($data);
+        echo '</pre>';
+        if ($isExit) {
+            exit();
+        }
+    }
 }

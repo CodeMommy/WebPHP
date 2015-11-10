@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Foreach
  * Compiles the {foreach} {foreachelse} {/foreach} tags
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile Foreach Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -18,7 +16,6 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
 {
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -26,7 +23,6 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -34,7 +30,6 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
 
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -42,7 +37,6 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
 
     /**
      * Foreach counter
-     *
      * @var int
      */
     public $foreach_number = 0;
@@ -50,9 +44,9 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {foreach} tag
      *
-     * @param  array                                $args      array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
-     * @param  array                                $parameter array with compilation parameter
+     * @param  array $args                                    array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler compiler object
+     * @param  array $parameter                               array with compilation parameter
      *
      * @return string compiled code
      * @throws \SmartyCompilerException
@@ -90,7 +84,7 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
                 }
             }
         }
-        $attributes['no'] = $this->foreach_number ++ . '_' . (isset($attributes['name']) ? $attributes['name'] : $attributes['item']);
+        $attributes['no'] = $this->foreach_number++ . '_' . (isset($attributes['name']) ? $attributes['name'] : $attributes['item']);
         $this->openTag($compiler, 'foreach', array('foreach', $compiler->nocache, $attributes, true));
         // maybe nocache because of nocache variables
         $compiler->nocache = $compiler->nocache | $compiler->tag_nocache;
@@ -301,9 +295,9 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {$smarty.foreach} tag
      *
-     * @param  array                                $args      array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
-     * @param  array                                $parameter array with compilation parameter
+     * @param  array $args                                    array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler compiler object
+     * @param  array $parameter                               array with compilation parameter
      *
      * @return string compiled code
      * @throws \SmartyCompilerException
@@ -324,7 +318,6 @@ class Smarty_Internal_Compile_Foreach extends Smarty_Internal_CompileBase
 
 /**
  * Smarty Internal Plugin Compile Foreachelse Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -333,9 +326,9 @@ class Smarty_Internal_Compile_Foreachelse extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {foreachelse} tag
      *
-     * @param  array                                $args      array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
-     * @param  array                                $parameter array with compilation parameter
+     * @param  array $args                                    array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler compiler object
+     * @param  array $parameter                               array with compilation parameter
      *
      * @return string compiled code
      */
@@ -356,7 +349,6 @@ class Smarty_Internal_Compile_Foreachelse extends Smarty_Internal_CompileBase
 
 /**
  * Smarty Internal Plugin Compile Foreachclose Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -365,9 +357,9 @@ class Smarty_Internal_Compile_Foreachclose extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {/foreach} tag
      *
-     * @param  array                                $args      array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
-     * @param  array                                $parameter array with compilation parameter
+     * @param  array $args                                    array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler compiler object
+     * @param  array $parameter                               array with compilation parameter
      *
      * @return string compiled code
      */

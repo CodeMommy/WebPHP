@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Extension
  * This file contains the Smarty template extension to create a code frame
- *
  * @package    Smarty
  * @subpackage Template
  * @author     Uwe Tews
@@ -18,8 +17,8 @@ class Smarty_Internal_Extension_CodeFrame
      * Create code frame for compiled and cached templates
      *
      * @param Smarty_Internal_Template $_template
-     * @param  string                  $content optional template content
-     * @param  bool                    $cache   flag for cache file
+     * @param  string $content optional template content
+     * @param  bool $cache     flag for cache file
      *
      * @return string
      */
@@ -86,7 +85,7 @@ class Smarty_Internal_Extension_CodeFrame
      * Create code frame of compiled template function
      *
      * @param \Smarty_Internal_Template $_template
-     * @param string                    $content
+     * @param string $content
      *
      * @return string
      */

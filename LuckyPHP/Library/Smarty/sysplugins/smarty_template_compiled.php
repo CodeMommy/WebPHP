@@ -3,7 +3,6 @@
 /**
  * Smarty Resource Data Object
  * Meta Data Container for Template Files
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Rodney Rehm
@@ -13,35 +12,30 @@ class Smarty_Template_Compiled
 {
     /**
      * Compiled Filepath
-     *
      * @var string
      */
     public $filepath = null;
 
     /**
      * Compiled Timestamp
-     *
      * @var integer
      */
     public $timestamp = null;
 
     /**
      * Compiled Existence
-     *
      * @var boolean
      */
     public $exists = false;
 
     /**
      * Compiled Content Loaded
-     *
      * @var boolean
      */
     public $processed = false;
 
     /**
      * Code of recompiled template resource
-     *
      * @var string|null
      */
     public $code = null;
@@ -101,11 +95,11 @@ class Smarty_Template_Compiled
         $_compile_id = isset($_template->compile_id) ? preg_replace('![^\w\|]+!', '_', $_template->compile_id) : null;
         if ($_template->source->isConfig) {
             $_flag = '_' .
-                ((int) $_template->smarty->config_read_hidden + (int) $_template->smarty->config_booleanize * 2 +
-                    (int) $_template->smarty->config_overwrite * 4);
+                ((int)$_template->smarty->config_read_hidden + (int)$_template->smarty->config_booleanize * 2 +
+                    (int)$_template->smarty->config_overwrite * 4);
         } else {
             $_flag = '_' .
-                ((int) $_template->smarty->merge_compiled_includes + (int) $_template->smarty->escape_html * 2);
+                ((int)$_template->smarty->merge_compiled_includes + (int)$_template->smarty->escape_html * 2);
         }
         $_filepath = $_template->source->uid . $_flag;
         // if use_sub_dirs, break file into directories
@@ -163,8 +157,7 @@ class Smarty_Template_Compiled
                 ob_start();
                 try {
                     eval("?>" . $this->code);
-                }
-                catch (Exception $e) {
+                } catch (Exception $e) {
                     while (ob_get_level() > $level) {
                         ob_end_clean();
                     }
@@ -245,8 +238,7 @@ class Smarty_Template_Compiled
         try {
             $_template->loadCompiler();
             $code = $_template->compiler->compileTemplate($_template);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             // restore old timestamp in case of error
             if (!$_template->source->recompiled && $saved_timestamp) {
                 touch($_template->compiled->filepath, $saved_timestamp);
@@ -268,7 +260,7 @@ class Smarty_Template_Compiled
      * Write compiled code by handler
      *
      * @param Smarty_Internal_Template $_template template object
-     * @param string                   $code      compiled code
+     * @param string $code                        compiled code
      *
      * @return boolean success
      */
@@ -309,7 +301,6 @@ class Smarty_Template_Compiled
 
     /**
      * Get compiled time stamp
-     *
      * @return int
      */
     public function getTimeStamp()

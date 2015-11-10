@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Special Smarty Variable
  * Compiles the special $smarty variables
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile special Smarty Variable Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -19,7 +17,7 @@ class Smarty_Internal_Compile_Private_Special_Variable extends Smarty_Internal_C
     /**
      * Compiles code for the special $smarty variables
      *
-     * @param  array  $args     array with attributes from parser
+     * @param  array $args      array with attributes from parser
      * @param  object $compiler compiler object
      * @param         $parameter
      *
@@ -32,9 +30,9 @@ class Smarty_Internal_Compile_Private_Special_Variable extends Smarty_Internal_C
         $variable = $compiler->getId($_index[0]);
         if ($variable === false) {
             $compiler->trigger_template_error("special \$Smarty variable name index can not be variable", $compiler->lex->taglineno);
-         }
+        }
         if (!isset($compiler->smarty->security_policy) || $compiler->smarty->security_policy->isTrustedSpecialSmartyVar($variable, $compiler)) {
-             switch ($variable) {
+            switch ($variable) {
                 case 'foreach':
                     return Smarty_Internal_Compile_Foreach::compileSpecialVariable(array(), $compiler, $_index);
                 case 'section':
@@ -83,7 +81,7 @@ class Smarty_Internal_Compile_Private_Special_Variable extends Smarty_Internal_C
                         $compiler->trigger_template_error("(secure mode) constants not permitted");
                         break;
                     }
-                    if (strpos($_index[1], '$') === false && strpos($_index[1], '\'') === false ) {
+                    if (strpos($_index[1], '$') === false && strpos($_index[1], '\'') === false) {
                         return "@constant('{$_index[1]}')";
                     } else {
                         return "@constant({$_index[1]})";

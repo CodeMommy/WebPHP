@@ -2,7 +2,6 @@
 /**
  * Smarty Internal Plugin Compile Include
  * Compiles the {include} tag
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -10,7 +9,6 @@
 
 /**
  * Smarty Internal Plugin Compile Include Class
- *
  * @package    Smarty
  * @subpackage Compiler
  */
@@ -22,28 +20,24 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase
     const CACHING_NOCACHE_CODE = 9999;
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
     public $required_attributes = array('file');
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
     public $shorttag_order = array('file');
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
     public $option_flags = array('nocache', 'inline', 'caching');
     /**
      * Attribute definition: Overwrites base class.
-     *
      * @var array
      * @see Smarty_Internal_CompileBase
      */
@@ -52,9 +46,9 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {include} tag
      *
-     * @param  array                                  $args      array with attributes from parser
-     * @param  Smarty_Internal_SmartyTemplateCompiler $compiler  compiler object
-     * @param  array                                  $parameter array with compilation parameter
+     * @param  array $args                                      array with attributes from parser
+     * @param  Smarty_Internal_SmartyTemplateCompiler $compiler compiler object
+     * @param  array $parameter                                 array with compilation parameter
      *
      * @throws SmartyCompilerException
      * @return string compiled code
@@ -135,7 +129,7 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase
         *
         */
         if ($_attr['nocache'] !== true && $_attr['caching']) {
-            $_caching = $_new_caching = (int) $_attr['caching'];
+            $_caching = $_new_caching = (int)$_attr['caching'];
             $call_nocache = true;
         } else {
             $_new_caching = Smarty::CACHING_LIFETIME_CURRENT;
@@ -260,7 +254,7 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase
             }
             if (!empty($_vars_nc) && $_caching == 9999 && $_smarty_tpl->caching) {
                 //$compiler->suppressNocacheProcessing = false;
-                $_output .= substr($compiler->processNocacheCode('<?php ' . $_vars_nc . "?>\n", true), 6, - 3);
+                $_output .= substr($compiler->processNocacheCode('<?php ' . $_vars_nc . "?>\n", true), 6, -3);
                 //$compiler->suppressNocacheProcessing = true;
             }
             if (isset($_assign)) {

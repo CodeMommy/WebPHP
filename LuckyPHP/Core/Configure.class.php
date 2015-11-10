@@ -10,12 +10,12 @@ namespace LuckyPHP\Core;
 class Configure
 {
     public static function get($key, $default = null)
-	{
-		$configure = require_once(APPLICATION_ROOT . '/Configure/configure.php');
-		if(isset($configure[$key])){
-			return $configure[$key];
-		}else{
-			return $default;
-		}
-	}
+    {
+        $configure = require_once(APPLICATION_ROOT . '/Configure/configure.php');
+        if (isset($configure[$key])) {
+            return $configure[$key];
+        } else {
+            return $default;
+        }
+    }
 }

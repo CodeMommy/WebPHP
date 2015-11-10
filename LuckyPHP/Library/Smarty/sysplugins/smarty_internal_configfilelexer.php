@@ -1,9 +1,7 @@
 <?php
 /**
  * Smarty Internal Plugin Configfilelexer
- *
  * This is the lexer to break the config file source into tokens
- *
  * @package    Smarty
  * @subpackage Config
  * @author     Uwe Tews
@@ -11,10 +9,8 @@
 
 /**
  * Smarty_Internal_Configfilelexer
- *
  * This is the config file lexer.
  * It is generated from the smarty_internal_configfilelexer.plex file
- *
  * @package    Smarty
  * @subpackage Compiler
  * @author     Uwe Tews
@@ -23,84 +19,72 @@ class Smarty_Internal_Configfilelexer
 {
     /**
      * Source
-     *
      * @var string
      */
     public $data;
 
     /**
      * byte counter
-     *
      * @var int
      */
     public $counter;
 
     /**
      * token number
-     *
      * @var int
      */
     public $token;
 
     /**
      * token value
-     *
      * @var string
      */
     public $value;
 
     /**
      * current line
-     *
      * @var int
      */
     public $line;
 
     /**
      * state number
-     *
      * @var int
      */
     public $state = 1;
 
     /**
      * Smarty object
-     *
      * @var Smarty
      */
     public $smarty = null;
 
     /**
      * compiler object
-     *
      * @var Smarty_Internal_Config_File_Compiler
      */
     private $compiler = null;
 
     /**
      * copy of config_booleanize
-     *
      * @var bool
      */
     private $configBooleanize = false;
 
     /**
      * trace file
-     *
      * @var resource
      */
     public $yyTraceFILE;
 
     /**
      * trace prompt
-     *
      * @var string
      */
     public $yyTracePrompt;
 
     /**
      * state names
-     *
      * @var array
      */
     public $state_name = array(1 => 'START', 2 => 'VALUE', 3 => 'NAKED_STRING_VALUE', 4 => 'COMMENT', 5 => 'SECTION',
@@ -108,7 +92,6 @@ class Smarty_Internal_Configfilelexer
 
     /**
      * storage for assembled token patterns
-     *
      * @var sring
      */
     private $yy_global_pattern1 = null;
@@ -125,7 +108,6 @@ class Smarty_Internal_Configfilelexer
 
     /**
      * token names
-     *
      * @var array
      */
     public $smarty_token_names = array(        // Text for parser error messages
@@ -134,7 +116,7 @@ class Smarty_Internal_Configfilelexer
     /**
      * constructor
      *
-     * @param   string                             $data template source
+     * @param   string $data template source
      * @param Smarty_Internal_Config_File_Compiler $compiler
      */
     function __construct($data, Smarty_Internal_Config_File_Compiler $compiler)

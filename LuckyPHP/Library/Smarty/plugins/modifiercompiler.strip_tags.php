@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -11,7 +10,6 @@
  * Type:     modifier<br>
  * Name:     strip_tags<br>
  * Purpose:  strip html tags from text
- *
  * @link   http://www.smarty.net/manual/en/language.modifier.strip.tags.php strip_tags (Smarty online manual)
  * @author Uwe Tews
  *

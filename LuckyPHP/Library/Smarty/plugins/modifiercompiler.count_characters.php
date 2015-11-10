@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
@@ -11,8 +10,8 @@
  * Type:     modifier<br>
  * Name:     count_characteres<br>
  * Purpose:  count the number of characters in a text
- *
- * @link   http://www.smarty.net/manual/en/language.modifier.count.characters.php count_characters (Smarty online manual)
+ * @link   http://www.smarty.net/manual/en/language.modifier.count.characters.php count_characters (Smarty online
+ *         manual)
  * @author Uwe Tews
  *
  * @param array $params parameters

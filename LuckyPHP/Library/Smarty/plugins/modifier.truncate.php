@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsModifier
  */
@@ -13,13 +12,12 @@
  * Purpose:  Truncate a string to a certain length if necessary,
  *               optionally splitting in the middle of a word, and
  *               appending the $etc string or inserting $etc into the middle.
- *
  * @link   http://smarty.php.net/manual/en/language.modifier.truncate.php truncate (Smarty online manual)
  * @author Monte Ohrt <monte at ohrt dot com>
  *
- * @param string  $string      input string
+ * @param string $string       input string
  * @param integer $length      length of truncated text
- * @param string  $etc         end string
+ * @param string $etc          end string
  * @param boolean $break_words truncate at word boundary
  * @param boolean $middle      truncate in the middle of text
  *
@@ -41,7 +39,7 @@ function smarty_modifier_truncate($string, $length = 80, $etc = '...', $break_wo
                 return mb_substr($string, 0, $length, Smarty::$_CHARSET) . $etc;
             }
 
-            return mb_substr($string, 0, $length / 2, Smarty::$_CHARSET) . $etc . mb_substr($string, - $length / 2, $length, Smarty::$_CHARSET);
+            return mb_substr($string, 0, $length / 2, Smarty::$_CHARSET) . $etc . mb_substr($string, -$length / 2, $length, Smarty::$_CHARSET);
         }
 
         return $string;
@@ -57,7 +55,7 @@ function smarty_modifier_truncate($string, $length = 80, $etc = '...', $break_wo
             return substr($string, 0, $length) . $etc;
         }
 
-        return substr($string, 0, $length / 2) . $etc . substr($string, - $length / 2);
+        return substr($string, 0, $length / 2) . $etc . substr($string, -$length / 2);
     }
 
     return $string;

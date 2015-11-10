@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty Internal Plugin Resource Extends
- *
  * @package    Smarty
  * @subpackage TemplateResources
  * @author     Uwe Tews
@@ -11,7 +10,6 @@
 /**
  * Smarty Internal Plugin Resource Extends
  * Implements the file system as resource for Smarty which {extend}s a chain of template files templates
- *
  * @package    Smarty
  * @subpackage TemplateResources
  */
@@ -19,7 +17,6 @@ class Smarty_Internal_Resource_Extends extends Smarty_Resource
 {
     /**
      * mbstring.overload flag
-     *
      * @var int
      */
     public $mbstring_overload = 0;
@@ -27,7 +24,7 @@ class Smarty_Internal_Resource_Extends extends Smarty_Resource
     /**
      * populate Source Object with meta data from Resource
      *
-     * @param Smarty_Template_Source   $source    source object
+     * @param Smarty_Template_Source $source      source object
      * @param Smarty_Internal_Template $_template template object
      *
      * @throws SmartyException

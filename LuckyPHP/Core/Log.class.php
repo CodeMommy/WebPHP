@@ -9,5 +9,5 @@ namespace LuckyPHP\Core;
 
 class Log
 {
-    
+
 }

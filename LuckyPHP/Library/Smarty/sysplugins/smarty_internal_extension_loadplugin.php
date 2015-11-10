@@ -2,9 +2,7 @@
 
 /**
  * Smarty Extension Loadplugin
- *
  * $smarty->loadPlugin() method
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -18,7 +16,7 @@ class Smarty_Internal_Extension_LoadPlugin
      *
      * @param \Smarty $smarty
      * @param  string $plugin_name class plugin name to load
-     * @param  bool   $check       check if already loaded
+     * @param  bool $check         check if already loaded
      *
      * @return bool|string
      * @throws \SmartyException

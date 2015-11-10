@@ -1,7 +1,6 @@
 <?php
 /**
  * Smarty plugin
- *
  * @package    Smarty
  * @subpackage PluginsFunction
  */
@@ -11,12 +10,11 @@
  * Type:     function<br>
  * Name:     fetch<br>
  * Purpose:  fetch file, web or ftp data and display results
- *
  * @link   http://www.smarty.net/manual/en/language.function.fetch.php {fetch}
  *         (Smarty online manual)
  * @author Monte Ohrt <monte at ohrt dot com>
  *
- * @param array                    $params   parameters
+ * @param array $params                      parameters
  * @param Smarty_Internal_Template $template template object
  *
  * @throws SmartyException
@@ -118,7 +116,7 @@ function smarty_function_fetch($params, $template)
                         break;
                     case "proxy_port":
                         if (!preg_match('!\D!', $param_value)) {
-                            $proxy_port = (int) $param_value;
+                            $proxy_port = (int)$param_value;
                         } else {
                             trigger_error("[plugin] invalid value for attribute '" . $param_key . "'", E_USER_NOTICE);
 
@@ -137,7 +135,7 @@ function smarty_function_fetch($params, $template)
                         break;
                     case "timeout":
                         if (!preg_match('!\D!', $param_value)) {
-                            $timeout = (int) $param_value;
+                            $timeout = (int)$param_value;
                         } else {
                             trigger_error("[plugin] invalid value for attribute '" . $param_key . "'", E_USER_NOTICE);
 

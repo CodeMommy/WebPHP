@@ -2,9 +2,7 @@
 
 /**
  * Smarty Extension ClearCompiled
- *
  * $smarty->clearCompiledTemplate() method
- *
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Uwe Tews
@@ -14,10 +12,10 @@ class Smarty_Internal_Extension_ClearCompiled
     /**
      * Delete compiled template file
      *
-     * @param  Smarty  $smarty        Smarty instance
-     * @param  string  $resource_name template name
-     * @param  string  $compile_id    compile id
-     * @param  integer $exp_time      expiration time
+     * @param  Smarty $smarty        Smarty instance
+     * @param  string $resource_name template name
+     * @param  string $compile_id    compile id
+     * @param  integer $exp_time     expiration time
      *
      * @return integer number of template files deleted
      */
@@ -62,8 +60,7 @@ class Smarty_Internal_Extension_ClearCompiled
         try {
             $_compileDirs = new RecursiveDirectoryIterator($_dir);
             // NOTE: UnexpectedValueException thrown for PHP >= 5.3
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             return 0;
         }
         $_compile = new RecursiveIteratorIterator($_compileDirs, RecursiveIteratorIterator::CHILD_FIRST);
@@ -72,7 +69,7 @@ class Smarty_Internal_Extension_ClearCompiled
                 continue;
             }
 
-            $_filepath = (string) $_file;
+            $_filepath = (string)$_file;
 
             if ($_file->isDir()) {
                 if (!$_compile->isDot()) {
@@ -84,9 +81,9 @@ class Smarty_Internal_Extension_ClearCompiled
                 if ((!isset($_compile_id) || (isset($_filepath[$_compile_id_part_length]) && $a = !strncmp($_filepath, $_compile_id_part, $_compile_id_part_length)))
                     && (!isset($resource_name)
                         || (isset($_filepath[$_resource_part_1_length])
-                            && substr_compare($_filepath, $_resource_part_1, - $_resource_part_1_length, $_resource_part_1_length) == 0)
+                            && substr_compare($_filepath, $_resource_part_1, -$_resource_part_1_length, $_resource_part_1_length) == 0)
                         || (isset($_filepath[$_resource_part_2_length])
-                            && substr_compare($_filepath, $_resource_part_2, - $_resource_part_2_length, $_resource_part_2_length) == 0))
+                            && substr_compare($_filepath, $_resource_part_2, -$_resource_part_2_length, $_resource_part_2_length) == 0))
                 ) {
                     if (isset($exp_time)) {
                         if (time() - @filemtime($_filepath) >= $exp_time) {
@@ -98,7 +95,7 @@ class Smarty_Internal_Extension_ClearCompiled
                 }
 
                 if ($unlink && @unlink($_filepath)) {
-                    $_count ++;
+                    $_count++;
                 }
             }
         }
