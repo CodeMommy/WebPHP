@@ -1,47 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello LuckyPHP</title>
+    <title>LuckyPHP - a light and fast PHP framework</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
     <meta name="author" content="LuckyPHP.com">
     <meta name="keywords" content="LuckyPHP,light,fast,framework">
     <meta name="description" content="LuckyPHP is a light and fast PHP framework.">
+    <link rel="stylesheet" href="http://www.bootcss.com/p/buttons/css/buttons.css">
     <style>
-        *:focus {
-            outline: none;
-        }
-
-        * {
-            -webkit-tap-highlight-color: transparent;
-            font-family: "Microsoft YaHei";
-        }
-
-        body {
-            margin: 0px;
-            background-color: #f6f6f6;
-        }
-
-        h1 {
-            font-size: 30px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 640px;
-            margin: auto;
-        }
+        *:focus { outline: none; }
+        *{-webkit-tap-highlight-color:transparent; font-family: "Microsoft YaHei";}
+        body {margin: 0px; background-color: #f6f6f6; }
+        .container{width:100%; max-width: 640px; margin:auto;}
+        h1{font-size: 30px; text-align: center; font-weight: bold;}
+        .text{text-align: center;font-size: 14px;}
+        .download{text-align: center;margin: 20px 0;}
+        .github{text-align: center;margin: 20px 0;}
     </style>
 </head>
 <body>
 <div class="container">
     <div>
-        <h1>{% $hello %} {% $world %}</h1>
+        <h1>{% $world %}</h1>
+    </div>
+    <div class="text">LuckyPHP is a light and fast PHP framework.</div>
+    <div class="download"><a href="https://github.com/ShareAny/LuckyPHP/blob/master/Document/Download.md" target="_blank" class="button button-primary button-pill" title="Download">Download</a></div>
+    <div class="github">
+        <div class="github-card" data-github="ShareAny/LuckyPHP" data-width="400" data-height="" data-theme="default"></div>
+        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
     </div>
 </div>
-</body>
-</html>
+</body></html>

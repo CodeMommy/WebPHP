@@ -25,6 +25,7 @@ function vendorList()
 
 function autoload($className)
 {
+    $className = str_replace('\\', '/', $className);
     // Core
     $coreFile = dirname(FRAMEWORK_ROOT) . '/' . $className . '.class.php';
     if (is_file($coreFile)) {
