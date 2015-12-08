@@ -1,4 +1,6 @@
-Application/Runtime/SmartyTemplate/*.php
-Application/Runtime/SmartyCache/*.php
 .idea/
+
 vendor/
+
+runtime/SmartyTemplate/*.php
+runtime/SmartyCache/*.php
