@@ -51,7 +51,7 @@ class Router
             }
         }
         // Do
-        require_once(APPLICATION_ROOT . '/controller/' . $controllerName . '.php');
+        require_once(APPLICATION_ROOT . '/controller/' . strtolower($controllerName) . '.php');
         $controller = $controllerName . 'Controller';
         $urlArray = new $controller();
         $urlArray->$actionName();

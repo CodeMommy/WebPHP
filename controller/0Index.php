@@ -58,7 +58,7 @@ class IndexController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        View::showPage('Index/showPage.html', $data);
+        View::showPage('index/showPage.html', $data);
     }
 
     public function showJSON()
