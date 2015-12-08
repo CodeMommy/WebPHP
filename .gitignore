@@ -1,6 +1,6 @@
 .idea/
 
-vendor/
+#vendor/
 
 runtime/SmartyTemplate/*.php
 runtime/SmartyCache/*.php
