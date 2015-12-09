@@ -7,7 +7,7 @@
 
 use LuckyPHP\Controller;
 use LuckyPHP\View;
-use LuckyPHP\Router;
+use LuckyPHP\Route;
 use LuckyPHP\Session;
 use LuckyPHP\Input;
 use LuckyPHP\Debug;
@@ -30,7 +30,7 @@ class TestController extends Controller
 
     public function redirect()
     {
-        Router::redirect('http://www.microsoft.com');
+        Route::redirect('http://www.microsoft.com');
     }
 
     public function setSession()

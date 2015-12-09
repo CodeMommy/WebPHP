@@ -9,7 +9,7 @@
     <meta name="author" content="LuckyPHP.com">
     <meta name="keywords" content="LuckyPHP,light,fast,framework">
     <meta name="description" content="LuckyPHP is a light and fast PHP framework.">
-    <link rel="stylesheet" href="http://www.bootcss.com/p/buttons/css/buttons.css">
+    <link rel="stylesheet" href="http://cdn.staticfile.shareany.com/Buttons/2.0.0/buttons.css">
     <style>
         *:focus {
             outline: none;
@@ -17,12 +17,23 @@
 
         * {
             -webkit-tap-highlight-color: transparent;
-            font-family: "Microsoft YaHei";
+            font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            height: 100%;
+            background: #5e4ba2; /* Old browsers */
+            background: -moz-linear-gradient(top, #5e4ba2 30%, #084778 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #5e4ba2), color-stop(100%, #084778)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #5e4ba2 30%, #084778 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #5e4ba2 30%, #084778 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #5e4ba2 30%, #084778 100%); /* IE10+ */
+            background: linear-gradient(225deg, #5e4ba2 30%, #084778 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e4ba2', endColorstr='#084778', GradientType=0); /* IE6-9 */
         }
 
         body {
-            margin: 0px;
-            background-color: #f6f6f6;
+            margin: 0;
         }
 
         .container {
@@ -32,40 +43,73 @@
         }
 
         h1 {
-            font-size: 30px;
+            font-size: 60px;
             text-align: center;
             font-weight: bold;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 0, 0, .075);
         }
 
         .text {
             text-align: center;
-            font-size: 14px;
+            font-size: 18px;
+            color: #fff;
         }
 
         .download {
             text-align: center;
-            margin: 20px 0;
         }
 
         .github {
             text-align: center;
-            margin: 20px 0;
+        }
+
+        .menu {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #ccc;
+            margin-right: 20px;
+        }
+
+        .menu a:last-child {
+            margin-right: 0;
+        }
+
+        .menu a:hover {
+            color: #fff;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div>
-        <h1>LuckyPHP</h1>
+<div class="menu">
+    <div class="container">
+        <a href="http://www.luckyphp.com/" title="LuckyPHP">Home</a>
+        <a href="https://github.com/ShareAny/LuckyPHP#download" target="_blank" title="Download">Download</a>
+        <a href="https://github.com/ShareAny/LuckyPHP" target="_blank" title="Github">Github</a>
+        <a href="https://github.com/ShareAny/LuckyPHP#luckyphp" target="_blank" title="Document">Document</a>
+        <a href="https://github.com/ShareAny/LuckyPHP" target="_blank" title="Demo">Demo</a>
+        <a href="https://github.com/ShareAny/LuckyPHP/#overview" target="_blank" title="About">About</a>
     </div>
-    <div class="text">LuckyPHP is a light and fast PHP framework.</div>
+</div>
+<div class="container">
+    <div><h1>LuckyPHP</h1></div>
+    <div class="text">PHP framework of Light and Fast</div>
+    <br><br>
     <div class="download"><a href="https://github.com/ShareAny/LuckyPHP" target="_blank"
                              class="button button-primary button-pill" title="Download">Download</a></div>
-    <div class="github">
-        <div class="github-card" data-github="ShareAny/LuckyPHP" data-width="400" data-height=""
-             data-theme="default"></div>
-        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-    </div>
+    <br><br>
+    <!--<div class="github">-->
+        <!--<div class="github-card" data-github="ShareAny/LuckyPHP" data-width="400" data-height=""-->
+             <!--data-theme="default"></div>-->
+        <!--<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>-->
+    <!--</div>-->
+    <!--<br><br>-->
 </div>
 </body>
 </html>
