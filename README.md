@@ -10,9 +10,9 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 
 ## Download
 
-| Version     | Update Time              |
-| :--------- | :-------------------- |
-| [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip)  | Now |
+| Version | Update Time |
+| :------ | :---------- |
+| [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip) | Now |
 
 ## URL Rewrite
 
@@ -46,22 +46,22 @@ location ~ \.php {
 
 ## Folder
 
-| Folder     | Function              |
-| :--------- | :-------------------- |
-| configure  | Application Configure |
-| controller | Application Controller|
-| framework  | LuckyPHP Framework    |
-| library    | Library               |
-| runtime    | Application Runtime   |
-| static     | Static Files          |
-| vendor     | Vendor by Composer    |
-| view       | Application View      |
+| Folder     | Function               |
+| :--------- | :--------------------- |
+| configure  | Application Configure  |
+| controller | Application Controller |
+| framework  | LuckyPHP Framework     |
+| library    | Library                |
+| runtime    | Application Runtime    |
+| static     | Static Files           |
+| vendor     | Vendor by Composer     |
+| view       | Application View       |
 
 ## Author
 
-| Author            | Identity  | Social |
-| :---------------- | :-------- | :----- |
-| Candison November | Creator   |[Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng)|
+| Author            | Identity | Social |
+| :---------------- | :------- | :----- |
+| Candison November | Creator  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
 
 ## Plan
 
