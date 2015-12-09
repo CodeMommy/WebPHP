@@ -1,5 +1,7 @@
 # LuckyPHP
 
+## Overview
+
 LuckyPHP is a light and fast PHP framework. It helps you to build a website easily.
 
 You can use Composer to update the vendor. Take it easy if do not know about Composer. It still work best without Composer. We normally provide the base vendor. Just download it.
@@ -26,7 +28,6 @@ RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 ### Nginx
 
 ```Nginx
-
 location / {
     index index.html index.htm index.php;
     if (!-e $request_filename){
@@ -42,7 +43,6 @@ location ~ \.php {
     include fastcgi_params;
 }
 ```
-
 
 ## Folder
 
@@ -74,4 +74,3 @@ location ~ \.php {
 * Cache
 * Redis
 * Mongodb
-
