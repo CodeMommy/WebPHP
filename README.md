@@ -61,7 +61,7 @@ location ~ \.php {
 
 | Author            | Identity  | Social |
 | :---------------- | :-------- | :----- |
-| Candison November | Creator   |[Website](http://www.kandisheng.com/){:target="_blank"} [Github](https://github.com/KanDisheng)|
+| Candison November | Creator   |[Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng)|
 
 ## Plan
 
