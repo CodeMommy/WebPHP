@@ -5,17 +5,14 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
-// Autoload
-function autoloadFramework($className)
+function autoloadLibrary($className)
 {
     $className = str_replace('\\', '/', $className);
-    $className = str_replace('LuckyPHP', 'core', $className);
-    $className = strtolower($className);
-    $file = dirname(__FILE__) . '/' . $className . '.php';
-    if (is_file($file)) {
-        require_once($file);
+    $library = require_once(dirname(__FILE__) . '/configure.php');
+    if (isset($library[$className])) {
+        require_once(dirname(__FILE__) . '/' . $library[$className]);
         return;
     }
 }
 
-spl_autoload_register('autoloadFramework');
+spl_autoload_register('autoloadLibrary');

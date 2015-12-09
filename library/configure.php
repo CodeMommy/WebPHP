@@ -5,6 +5,6 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
-$vendor = array();
-$vendor['HelloWorld'] = 'hello/hello.php';
-return $vendor;
+$library = array();
+$library['HelloWorld'] = 'hello/hello.php';
+return $library;

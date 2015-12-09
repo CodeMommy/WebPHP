@@ -139,7 +139,7 @@ class TestController extends Controller
         echo Cookie::get('hello');
     }
 
-    public function vendor()
+    public function library()
     {
         new HelloWorld();
     }
