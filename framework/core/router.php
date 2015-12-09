@@ -9,7 +9,7 @@ namespace LuckyPHP;
 
 class Router
 {
-    public static function init()
+    private static function pathInfo()
     {
         $filePath = strtolower($_SERVER['SCRIPT_NAME']);
         $fileURL = strtolower($_SERVER['REQUEST_URI']);
@@ -51,11 +51,21 @@ class Router
             }
         }
         // Do
-        require_once(APPLICATION_ROOT . '/controller/' . strtolower($controllerName) . '.php');
-        $controller = $controllerName . 'Controller';
-        $urlArray = new $controller();
-        $urlArray->$actionName();
-        return true;
+        $file = APPLICATION_ROOT . '/controller/' . strtolower($controllerName) . '.php';
+        if (is_file($file)) {
+            require_once($file);
+            $controller = $controllerName . 'Controller';
+            $urlArray = new $controller();
+            $urlArray->$actionName();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function init()
+    {
+        self::pathInfo();
     }
 
     public static function redirect($url)

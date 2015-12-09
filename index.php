@@ -1,6 +1,6 @@
 <?php
 // Define
-define('APPLICATION_ROOT', dirname(__FILE__));
+define('APPLICATION_ROOT', __DIR__);
 
 // Autoload
 require_once(APPLICATION_ROOT . '/vendor/autoload.php');
