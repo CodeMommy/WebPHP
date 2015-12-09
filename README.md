@@ -8,7 +8,9 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 
 ## Download
 
-* [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip)
+| Version     | Update Time              |
+| :--------- | :-------------------- |
+| [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip)  | Now |
 
 ## URL Rewrite
 
