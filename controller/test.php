@@ -143,4 +143,9 @@ class TestController extends Controller
     {
         new HelloWorld();
     }
+
+    public function test()
+    {
+        echo Configure::get('database.type');
+    }
 }

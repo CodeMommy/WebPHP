@@ -11,9 +11,19 @@ class Configure
 {
     public static function get($key, $default = null)
     {
-        $configure = require_once(APPLICATION_ROOT . '/configure/configure.php');
-        if (isset($configure[$key])) {
-            return $configure[$key];
+        $keys = explode('.', $key);
+        $keyNew = array_pop($keys);
+        if ($keys) {
+            $path = '';
+            foreach ($keys as $value) {
+                $path = $path . '/' . $value;
+            }
+        } else {
+            $path = '/application';
+        }
+        $configure = require(APPLICATION_ROOT . '/configure' . $path . '.php');
+        if (isset($configure[$keyNew])) {
+            return $configure[$keyNew];
         } else {
             return $default;
         }

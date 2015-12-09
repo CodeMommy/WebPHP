@@ -1,15 +1,15 @@
 {
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packagist.phpcomposer.com"
-        },
-        {
-            "packagist": false
-        }
-    ],
-    "require": {
-        "smarty/smarty": "3.1.27",
-        "gabordemooij/redbean": "4.2.1"
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packagist.phpcomposer.com"
+    },
+    {
+      "packagist": false
     }
+  ],
+  "require": {
+    "smarty/smarty": "3.1.27",
+    "gabordemooij/redbean": "4.2.1"
+  }
 }
