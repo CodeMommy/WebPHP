@@ -14,6 +14,29 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 | :------ | :---------- |
 | [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip) | Now |
 
+## Composer Install
+
+```Composer
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:ShareAny/LuckyPHP.git"
+        },
+        {
+            "type": "composer",
+            "url": "http://packagist.phpcomposer.com"
+        },
+        {
+            "packagist": false
+        }
+    ],
+    "require": {
+        "shareany/luckyphp": "dev-master"
+    }
+}
+```
+
 ## URL Rewrite
 
 ### Apache
