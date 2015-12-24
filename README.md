@@ -49,8 +49,8 @@ location ~ \.php {
 | Folder      | Function           |
 | :---------- | :----------------- |
 | application | Application        |
-| system      | LuckyPHP Framework |
 | public      | Public File        |
+| system      | LuckyPHP Framework |
 | vendor      | Vendor by Composer |
 
 ## Author
