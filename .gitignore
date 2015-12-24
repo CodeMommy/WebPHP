@@ -2,5 +2,5 @@
 
 #vendor/
 
-runtime/SmartyTemplate/*.php
-runtime/SmartyCache/*.php
+application/runtime/SmartyTemplate/*.php
+application/runtime/SmartyCache/*.php
