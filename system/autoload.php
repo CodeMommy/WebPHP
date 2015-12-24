@@ -10,7 +10,7 @@ function autoloadFramework($className)
 {
     $className = str_replace('\\', '/', $className);
     $className = str_replace('LuckyPHP', 'core', $className);
-    $className = strtolower($className);
+//    $className = strtolower($className);
     $file = __DIR__ . '/' . $className . '.php';
     if (is_file($file)) {
         require_once($file);

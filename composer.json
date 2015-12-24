@@ -1,6 +1,9 @@
 {
+  "name": "shareany/luckyphp",
   "autoload": {
-    "psr-4": {"LuckyPHP\\": "system/core/"}
+    "psr-4": {
+      "LuckyPHP\\": "system/core/"
+    }
   },
   "repositories": [
     {
