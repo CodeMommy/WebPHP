@@ -46,16 +46,12 @@ location ~ \.php {
 
 ## Folder
 
-| Folder     | Function               |
-| :--------- | :--------------------- |
-| configure  | Application Configure  |
-| controller | Application Controller |
-| framework  | LuckyPHP Framework     |
-| library    | Library                |
-| runtime    | Application Runtime    |
-| static     | Static Files           |
-| vendor     | Vendor by Composer     |
-| view       | Application View       |
+| Folder      | Function           |
+| :---------- | :----------------- |
+| application | Application        |
+| framework   | LuckyPHP Framework |
+| public      | Public File        |
+| vendor      | Vendor by Composer |
 
 ## Author
 
