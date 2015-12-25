@@ -1,6 +1,7 @@
 .idea/
 
-#vendor/
+vendor/
+composer.lock
 
 application/runtime/SmartyTemplate/*.php
 application/runtime/SmartyCache/*.php
