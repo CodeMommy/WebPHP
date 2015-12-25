@@ -1,7 +1,10 @@
+#IDE
 .idea/
 
+#Composer
 vendor/
 composer.lock
 
+#Cache
 application/runtime/SmartyTemplate/*.php
 application/runtime/SmartyCache/*.php
