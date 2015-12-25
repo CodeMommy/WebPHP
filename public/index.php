@@ -1,10 +1,16 @@
 <?php
-// Define
-define('APPLICATION_ROOT', '../application');
+// Application
+$applicationPath = '../application';
 // Autoload
-@include_once('../system/autoload.php');
-require_once('../vendor/autoload.php');
-require_once(APPLICATION_ROOT . '/library/autoload.php');
+$autoloadFile = array();
+array_push($autoloadFile, '../system/autoload.php');
+array_push($autoloadFile, '../vendor/autoload.php');
+array_push($autoloadFile, $applicationPath . '/library/autoload.php');
+foreach ($autoloadFile as $file) {
+    if (is_file($file)) {
+        require_once($file);
+    }
+}
 // Server Start
 use LuckyPHP\Server;
-Server::start();
+Server::start($applicationPath);
