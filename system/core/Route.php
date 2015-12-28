@@ -89,7 +89,15 @@ class Route
         if (substr($urlFull, -1, 1) == '/') {
             $urlFull = substr($urlFull, 0, strlen($urlFull) - 1);
         }
-        $routeConfigure = Configure::get('route', 'route');
+        $routeConfigure = array();
+        $routeConfigureAny = Configure::get('route', 'route.any');
+        if($routeConfigureAny){
+            $routeConfigure = array_merge($routeConfigure, $routeConfigureAny);
+        }
+        $routeConfigureCustom = Configure::get('route', 'route.'.strtolower($_SERVER['REQUEST_METHOD']));
+        if($routeConfigureCustom){
+            $routeConfigure = array_merge($routeConfigure, $routeConfigureCustom);
+        }
         $route = null;
         $route = isset($routeConfigure[$urlFull]) ? $routeConfigure[$urlFull] : $route;
         $route = isset($routeConfigure['/' . $urlFull]) ? $routeConfigure['/' . $urlFull] : $route;
