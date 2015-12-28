@@ -151,6 +151,6 @@ class TestController extends Controller
 
     public function blog()
     {
-        echo $_GET['id'];
+        echo Input::get('id', '0');
     }
 }

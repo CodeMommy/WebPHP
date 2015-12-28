@@ -8,12 +8,12 @@
 namespace LuckyPHP;
 
 use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\Route as Routes;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\HttpFoundation\Request;
 
-class Router
+class Route
 {
     private static function pathInfo()
     {
@@ -129,6 +129,7 @@ class Router
                 return false;
             }
         }
+        return false;
     }
 
     public static function symfony()
@@ -144,11 +145,12 @@ class Router
         }
         $routes = new RouteCollection();
         foreach ($routeConfigure as $key => $value) {
-            $keyName = str_replace('/', '', $key);
-            $keyName = str_replace('{', '', $keyName);
-            $keyName = str_replace('}', '', $keyName);
-            $routeConfigure['route' . $keyName] = $value;
-            $routes->add('route' . $keyName, new Route($key));
+            $keyName = str_replace('/', 'love', $key);
+            $keyName = str_replace('{', 'love', $keyName);
+            $keyName = str_replace('}', 'love', $keyName);
+            $keyName = 'route' . $keyName;
+            $routeConfigure[$keyName] = $value;
+            $routes->add($keyName, new Routes($key));
         }
         $request = Request::createFromGlobals();
         $context = new RequestContext();
@@ -183,7 +185,7 @@ class Router
                 return false;
             }
         }
-
+        return false;
     }
 
     public static function init()
