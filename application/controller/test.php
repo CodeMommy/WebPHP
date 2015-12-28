@@ -17,6 +17,7 @@ use LuckyPHP\Convert;
 use LuckyPHP\Validate;
 use LuckyPHP\Database;
 use LuckyPHP\Cookie;
+use LuckyPHP\URL;
 
 class TestController extends Controller
 {
@@ -152,5 +153,6 @@ class TestController extends Controller
     public function blog()
     {
         echo Input::get('id', '0');
+        echo URL::root();
     }
 }
