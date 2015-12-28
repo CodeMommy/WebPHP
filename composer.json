@@ -1,5 +1,25 @@
 {
   "name": "shareany/luckyphp",
+  "version": "1.0.0",
+  "description": "PHP Framework of Light and Fast, Free and Open Source.",
+  "keywords": [
+    "framework",
+    "luckyphp",
+    "fast"
+  ],
+  "license": "Apache",
+  "homepage": "http://www.luckyphp.com",
+  "support": {
+    "issues": "https://github.com/ShareAny/LuckyPHP/issues",
+    "source": "https://github.com/ShareAny/LuckyPHP"
+  },
+  "authors": [
+    {
+      "name": "Candison November",
+      "email": "kandisheng@163.com",
+      "homepage": "http://www.kandisheng.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "LuckyPHP\\": "system/core/"
@@ -15,7 +35,8 @@
     }
   ],
   "require": {
-    "smarty/smarty": "3.1.27",
-    "gabordemooij/redbean": "4.2.1"
+    "php": ">=5.3.0",
+    "smarty/smarty": "3.1.*",
+    "gabordemooij/redbean": "4.3.*"
   }
 }

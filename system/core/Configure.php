@@ -9,23 +9,17 @@ namespace LuckyPHP;
 
 class Configure
 {
-    public static function get($key, $default = null)
+    public static function get($file, $key, $default = null)
     {
+        $configure = require(APPLICATION_ROOT . '/configure/' . $file . '.php');
         $keys = explode('.', $key);
-        $keyNew = array_pop($keys);
-        if ($keys) {
-            $path = '';
-            foreach ($keys as $value) {
-                $path = $path . '/' . $value;
+        foreach ($keys as $value) {
+            if (isset($configure[$value])) {
+                $configure = $configure[$value];
+            } else {
+                return $default;
             }
-        } else {
-            $path = '/application';
         }
-        $configure = require(APPLICATION_ROOT . '/configure' . $path . '.php');
-        if (isset($configure[$keyNew])) {
-            return $configure[$keyNew];
-        } else {
-            return $default;
-        }
+        return $configure;
     }
 }

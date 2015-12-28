@@ -85,7 +85,7 @@ class TestController extends Controller
 
     public function configure()
     {
-        echo Configure::get('hello');
+        echo Configure::get('application','hello');
     }
 
     public function client()
@@ -146,6 +146,6 @@ class TestController extends Controller
 
     public function test()
     {
-        echo Configure::get('database.type');
+        echo Configure::get('database','mysql.host');
     }
 }
