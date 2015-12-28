@@ -7,7 +7,13 @@
 
 namespace LuckyPHP;
 
-class Route
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\HttpFoundation\Request;
+
+class Router
 {
     private static function pathInfo()
     {
@@ -91,11 +97,11 @@ class Route
         }
         $routeConfigure = array();
         $routeConfigureAny = Configure::get('route', 'route.any');
-        if($routeConfigureAny){
+        if ($routeConfigureAny) {
             $routeConfigure = array_merge($routeConfigure, $routeConfigureAny);
         }
-        $routeConfigureCustom = Configure::get('route', 'route.'.strtolower($_SERVER['REQUEST_METHOD']));
-        if($routeConfigureCustom){
+        $routeConfigureCustom = Configure::get('route', 'route.' . strtolower($_SERVER['REQUEST_METHOD']));
+        if ($routeConfigureCustom) {
             $routeConfigure = array_merge($routeConfigure, $routeConfigureCustom);
         }
         $route = null;
@@ -125,11 +131,68 @@ class Route
         }
     }
 
+    public static function symfony()
+    {
+        $routeConfigure = array();
+        $routeConfigureAny = Configure::get('route', 'route.any');
+        if ($routeConfigureAny) {
+            $routeConfigure = array_merge($routeConfigure, $routeConfigureAny);
+        }
+        $routeConfigureCustom = Configure::get('route', 'route.' . strtolower($_SERVER['REQUEST_METHOD']));
+        if ($routeConfigureCustom) {
+            $routeConfigure = array_merge($routeConfigure, $routeConfigureCustom);
+        }
+        $routes = new RouteCollection();
+        foreach ($routeConfigure as $key => $value) {
+            $keyName = str_replace('/', '', $key);
+            $keyName = str_replace('{', '', $keyName);
+            $keyName = str_replace('}', '', $keyName);
+            $routeConfigure['route' . $keyName] = $value;
+            $routes->add('route' . $keyName, new Route($key));
+        }
+        $request = Request::createFromGlobals();
+        $context = new RequestContext();
+        $context->fromRequest($request);
+        $matcher = new UrlMatcher($routes, $context);
+        $pathInfo = $request->getPathInfo();
+        $attributes = $matcher->match($pathInfo);
+        foreach ($attributes as $key => $value) {
+            if ($key != '_route') {
+                $_GET[$key] = $value;
+            }
+        }
+        $route = $attributes['_route'];
+        $route = $routeConfigure[$route];
+        if ($route) {
+            $path = explode('.', $route);
+            $actionName = array_pop($path);
+            $controllerName = array_pop($path);
+            $controllerFileName = substr($controllerName, 0, strlen($controllerName) - 10);
+            $controllerFileName = strtolower($controllerFileName);
+            $pathNew = '';
+            foreach ($path as $value) {
+                $pathNew = $pathNew . $value . '/';
+            }
+            $file = APPLICATION_ROOT . '/controller/' . $pathNew . $controllerFileName . '.php';
+            if (is_file($file)) {
+                require_once($file);
+                $urlArray = new $controllerName();
+                $urlArray->$actionName();
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    }
+
     public static function init()
     {
         $routeType = Configure::get('route', 'type');
         if ($routeType == 'custom') {
             self::custom();
+        } else if ($routeType == 'symfony') {
+            self::symfony();
         } else {
             self::pathInfo();
         }

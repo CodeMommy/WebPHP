@@ -7,7 +7,7 @@
 
 namespace LuckyPHP;
 
-use LuckyPHP\Route;
+use LuckyPHP\Router;
 
 class Server
 {
@@ -19,6 +19,6 @@ class Server
     public static function start($path)
     {
         define('APPLICATION_ROOT', $path);
-        Route::init();
+        Router::init();
     }
 }

@@ -148,4 +148,9 @@ class TestController extends Controller
     {
         echo Configure::get('database','mysql.host');
     }
+
+    public function blog()
+    {
+        echo $_GET['id'];
+    }
 }
