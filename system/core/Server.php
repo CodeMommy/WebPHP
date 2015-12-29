@@ -11,10 +11,6 @@ use LuckyPHP\Route;
 
 class Server
 {
-    public function __construct()
-    {
-
-    }
 
     public static function start($path)
     {
