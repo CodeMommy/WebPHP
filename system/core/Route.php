@@ -47,11 +47,11 @@ class Route
     private static function routeConfigure()
     {
         $routeConfigure = array();
-        $routeConfigureAny = Configure::get('route', 'route.any');
+        $routeConfigureAny = Configure::get('route', 'any');
         if ($routeConfigureAny) {
             $routeConfigure = array_merge($routeConfigure, $routeConfigureAny);
         }
-        $routeConfigureCustom = Configure::get('route', 'route.' . strtolower($_SERVER['REQUEST_METHOD']));
+        $routeConfigureCustom = Configure::get('route', strtolower($_SERVER['REQUEST_METHOD']));
         if ($routeConfigureCustom) {
             $routeConfigure = array_merge($routeConfigure, $routeConfigureCustom);
         }
@@ -113,7 +113,7 @@ class Route
         self::route($route);
     }
 
-    private static function custom()
+    private static function map()
     {
         $urlFull = self::urlFull();
         $routeConfigure = self::routeConfigure();
@@ -161,8 +161,8 @@ class Route
         $routeType = Configure::get('route', 'type');
         if ($routeType == 'symfony') {
             self::symfony();
-        } else if ($routeType == 'custom') {
-            self::custom();
+        } else if ($routeType == 'map') {
+            self::map();
         } else {
             self::pathInfo();
         }

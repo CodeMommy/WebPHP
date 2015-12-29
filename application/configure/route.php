@@ -2,10 +2,12 @@
 
 $configure = array();
 
-$configure['type'] = 'symfony'; // pathinfo or custom or symfony
+// Route Type: pathinfo, map or symfony
+$configure['type'] = 'symfony';
 
-$configure['route']['any']['/'] = 'IndexController.index';
-$configure['route']['get']['test'] = 'TestController.test';
-$configure['route']['get']['blog/{id}'] = 'TestController.blog';
+// Route Configure
+$configure['any']['/'] = 'IndexController.index';
+$configure['get']['test'] = 'TestController.test';
+$configure['get']['blog/{id}'] = 'TestController.blog';
 
 return $configure;

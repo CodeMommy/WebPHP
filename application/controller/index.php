@@ -7,6 +7,7 @@
 
 use LuckyPHP\Controller;
 use LuckyPHP\View;
+use LuckyPHP\URL;
 
 class IndexController extends Controller
 {
@@ -18,6 +19,9 @@ class IndexController extends Controller
         $domain = $_SERVER['SERVER_NAME'];
         if (in_array($domain, $domainHome)) {
             $data = array();
+            $root = URL::root();
+            $static = $root . '/static';
+            $data['static'] = $static;
             View::showPage('index/index.html', $data);
         } else {
             $data = array();
