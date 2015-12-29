@@ -19,6 +19,7 @@ use LuckyPHP\Database;
 use LuckyPHP\Cookie;
 use LuckyPHP\DateTime;
 use LuckyPHP\Me;
+use LuckyPHP\Log;
 
 use Model\Book;
 
@@ -153,5 +154,11 @@ class TestController extends Controller
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
         echo Convert::arrayToJSON($data);
+    }
+
+    protected function log()
+    {
+        $log = new Log('Demo',APPLICATION_ROOT.'/cache/log/log.log');
+        $log->debug('Yes');
     }
 }

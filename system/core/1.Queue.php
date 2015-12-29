@@ -7,7 +7,7 @@
 
 namespace LuckyPHP;
 
-class Log
+class Queue
 {
 
 }
