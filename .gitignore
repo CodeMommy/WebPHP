@@ -1,10 +1,10 @@
 #IDE
-.idea/
+/.idea/
 
 #Composer
-vendor/
-composer.lock
+/vendor/
+/composer.lock
 
 #Cache
-application/runtime/SmartyTemplate/*.php
-application/runtime/SmartyCache/*.php
+/application/runtime/SmartyTemplate/*.php
+/application/runtime/SmartyCache/*.php
