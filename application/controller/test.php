@@ -20,6 +20,7 @@ use LuckyPHP\Cookie;
 use LuckyPHP\DateTime;
 use LuckyPHP\Me;
 use LuckyPHP\Log;
+use LuckyPHP\Mail;
 
 use Model\Book;
 
@@ -160,5 +161,12 @@ class TestController extends Controller
     {
         $log = new Log('Demo',APPLICATION_ROOT.'/cache/log/log.log');
         $log->debug('Yes');
+    }
+
+    protected function mail()
+    {
+        $mail = new Mail('', 25, '', '');
+        $result = $mail->send('', '', '', '', '','');
+        Debug::show($result);
     }
 }

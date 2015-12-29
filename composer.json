@@ -42,6 +42,7 @@
     "illuminate/database":"5.2.*",
     "illuminate/pagination":"5.2.*",
     "nesbot/carbon": "^1.21",
-    "monolog/monolog": "^1.17"
+    "monolog/monolog": "^1.17",
+    "swiftmailer/swiftmailer": "^5.4"
   }
 }
