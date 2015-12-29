@@ -6,8 +6,8 @@ $configure = array();
 $configure['type'] = 'symfony';
 
 // Route Configure
-$configure['any']['/'] = 'IndexController.index';
-$configure['get']['test'] = 'TestController.test';
-$configure['get']['blog/{id}'] = 'TestController.blog';
+// any, get, post...
+$configure['get']['/'] = 'IndexController.index';
+$configure['get']['test/{action}'] = 'TestController.index';
 
 return $configure;

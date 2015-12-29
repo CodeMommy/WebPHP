@@ -21,7 +21,17 @@ use LuckyPHP\URL;
 
 class TestController extends Controller
 {
+
     public function index()
+    {
+        $action = Input::get('action', '');
+        $string = sprintf('This is a LuckyPHP test: %s', $action);
+        echo sprintf('<title>%s</title>', $string);
+        echo sprintf('<h3>%s</h3>', $string);
+        $this->$action();
+    }
+
+    protected function show()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -29,32 +39,32 @@ class TestController extends Controller
         View::showPage('index/index.html', $data);
     }
 
-    public function redirect()
+    protected function redirect()
     {
         Route::redirect('http://www.microsoft.com');
     }
 
-    public function setSession()
+    protected function setSession()
     {
         echo Session::set('hello', 'world');
     }
 
-    public function getSession()
+    protected function getSession()
     {
         echo Session::get('hello');
     }
 
-    public function isExistSession()
+    protected function isExistSession()
     {
         echo Session::isExist('hello');
     }
 
-    public function clearSession()
+    protected function clearSession()
     {
         echo Session::clear();
     }
 
-    public function showPage()
+    protected function showPage()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -62,7 +72,7 @@ class TestController extends Controller
         View::showPage('index/showPage.html', $data);
     }
 
-    public function showJSON()
+    protected function showJSON()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -70,12 +80,12 @@ class TestController extends Controller
         View::showJSON($data);
     }
 
-    public function input()
+    protected function input()
     {
         echo Input::get('hello', 'default');;
     }
 
-    public function debug()
+    protected function debug()
     {
         Debug::show('hello');
         $data = array();
@@ -84,12 +94,12 @@ class TestController extends Controller
         Debug::show($data);
     }
 
-    public function configure()
+    protected function configure()
     {
-        echo Configure::get('application','hello');
+        echo Configure::get('database', 'mysql.host');
     }
 
-    public function client()
+    protected function client()
     {
         Debug::show(Client::system());
         Debug::show(Client::browser());
@@ -99,7 +109,7 @@ class TestController extends Controller
         Debug::show(Client::isWeixin());
     }
 
-    public function validate()
+    protected function validate()
     {
         Debug::show(Validate::email('demo@demo.com'));
         Debug::show(Validate::email('demo'));
@@ -107,7 +117,7 @@ class TestController extends Controller
         Debug::show(Validate::mobilephone('1555555555'));
     }
 
-    public function convert()
+    protected function convert()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -115,44 +125,34 @@ class TestController extends Controller
         echo Convert::arrayToJSON($data);
     }
 
-    public function image()
+    protected function image()
     {
         // Image::compression();
     }
 
-    public function weixin()
+    protected function weixin()
     {
         // Weixin::compression();
     }
 
-    public function mysql()
+    protected function mysql()
     {
         Database::init();
         $book = Database::dispense('book');
         $book->title = 'Hello';
         $id = Database::store($book);
-        Debug::show(R::findAll('book'));
+        Debug::show(Database::findAll('book'));
     }
 
-    public function cookie()
+    protected function cookie()
     {
         Cookie::set('hello', 'world');
         echo Cookie::get('hello');
     }
 
-    public function library()
+    protected function library()
     {
         new HelloWorld();
     }
 
-    public function test()
-    {
-        echo Configure::get('database','mysql.host');
-    }
-
-    public function blog()
-    {
-        echo Input::get('id', '0');
-        echo URL::root();
-    }
 }
