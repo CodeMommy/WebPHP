@@ -5,6 +5,8 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
+namespace Controller;
+
 use LuckyPHP\Controller;
 use LuckyPHP\View;
 use LuckyPHP\URL;

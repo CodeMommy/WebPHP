@@ -5,16 +5,11 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
-namespace LuckyPHP;
+namespace Model;
 
-use LuckyPHP\Route;
+use LuckyPHP\Model;
 
-class Server
+class Book extends Model
 {
-    
-    public static function start($path)
-    {
-        define('APPLICATION_ROOT', $path);
-        Route::init();
-    }
+    protected $table = 'book';
 }

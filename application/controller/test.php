@@ -5,6 +5,8 @@
 // | @location  Nanjing China
 // +----------------------------------------------------------------------
 
+namespace Controller;
+
 use LuckyPHP\Controller;
 use LuckyPHP\View;
 use LuckyPHP\Route;
@@ -19,6 +21,8 @@ use LuckyPHP\Database;
 use LuckyPHP\Cookie;
 use LuckyPHP\DateTime;
 use LuckyPHP\URL;
+
+use Model\Book;
 
 class TestController extends Controller
 {
@@ -165,10 +169,4 @@ class TestController extends Controller
         Debug::show($result);
     }
 
-}
-use LuckyPHP\Model;
-
-class Book extends Model
-{
-    protected $table = 'book';
 }

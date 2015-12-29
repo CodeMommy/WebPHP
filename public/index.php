@@ -5,7 +5,7 @@ $applicationPath = '../application';
 $autoloadFile = array();
 array_push($autoloadFile, '../system/autoload.php');
 array_push($autoloadFile, '../vendor/autoload.php');
-array_push($autoloadFile, $applicationPath . '/library/autoload.php');
+array_push($autoloadFile, $applicationPath . '/autoload/autoload.php');
 foreach ($autoloadFile as $file) {
     if (is_file($file)) {
         require_once($file);
