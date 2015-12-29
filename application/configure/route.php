@@ -8,6 +8,6 @@ $configure['type'] = 'symfony';
 // Route Configure
 // any, get, post...
 $configure['get']['/'] = 'IndexController.index';
-$configure['get']['test/{action}'] = 'TestController.index';
+$configure['any']['test/{action}'] = 'TestController.index';
 
 return $configure;

@@ -23,6 +23,7 @@ use LuckyPHP\Log;
 use LuckyPHP\Mail;
 use LuckyPHP\Cache;
 use LuckyPHP\Redis;
+use LuckyPHP\File;
 
 use Model\Book;
 
@@ -183,5 +184,17 @@ class TestController extends Controller
         $redis = new Redis();
         $redis->set('cache', 'test', 10);
         echo $redis->get('cache');
+    }
+
+    protected function upload()
+    {
+        $data = array();
+        $data['root'] = Me::root();
+        return View::html('test/upload.html', $data);
+    }
+
+    protected function uploadNow()
+    {
+        File::upload('file', 'static/upload/');
     }
 }
