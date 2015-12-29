@@ -36,13 +36,14 @@
   ],
   "require": {
     "php": ">=5.3.0",
-    "smarty/smarty": "3.1.*",
     "symfony/http-foundation": "3.0.*",
     "symfony/routing": "3.0.*",
     "illuminate/database":"5.2.*",
     "illuminate/pagination":"5.2.*",
+    "smarty/smarty": "3.1.*",
     "nesbot/carbon": "^1.21",
     "monolog/monolog": "^1.17",
-    "swiftmailer/swiftmailer": "^5.4"
+    "swiftmailer/swiftmailer": "^5.4",
+    "doctrine/cache": "^1.5"
   }
 }

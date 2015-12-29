@@ -21,6 +21,7 @@ use LuckyPHP\DateTime;
 use LuckyPHP\Me;
 use LuckyPHP\Log;
 use LuckyPHP\Mail;
+use LuckyPHP\Cache;
 
 use Model\Book;
 
@@ -168,5 +169,11 @@ class TestController extends Controller
         $mail = new Mail('', 25, '', '');
         $result = $mail->send('', '', '', '', '','');
         Debug::show($result);
+    }
+
+    protected function cache()
+    {
+        Cache::set('cache', 'test', 10);
+        echo Cache::get('cache');
     }
 }
