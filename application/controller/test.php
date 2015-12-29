@@ -22,6 +22,7 @@ use LuckyPHP\Me;
 use LuckyPHP\Log;
 use LuckyPHP\Mail;
 use LuckyPHP\Cache;
+use LuckyPHP\Redis;
 
 use Model\Book;
 
@@ -175,5 +176,12 @@ class TestController extends Controller
     {
         Cache::set('cache', 'test', 10);
         echo Cache::get('cache');
+    }
+
+    protected function redis()
+    {
+        $redis = new Redis();
+        $redis->set('cache', 'test', 10);
+        echo $redis->get('cache');
     }
 }
