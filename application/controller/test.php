@@ -18,7 +18,7 @@ use LuckyPHP\Validate;
 use LuckyPHP\Database;
 use LuckyPHP\Cookie;
 use LuckyPHP\DateTime;
-use LuckyPHP\URL;
+use LuckyPHP\Me;
 
 use Model\Book;
 
@@ -34,28 +34,63 @@ class TestController extends Controller
         $this->$action();
     }
 
+    protected function library()
+    {
+        new HelloWorld();
+    }
+
+    protected function me()
+    {
+        echo 'Root: ' . Me::root() . '<br>';
+        echo 'URL: ' . Me::url() . '<br>';
+        echo 'Domain: ' . Me::domain() . '<br>';
+        echo 'Scheme: ' . Me::scheme() . '<br>';
+        echo 'Path: ' . Me::path() . '<br>';
+        echo 'Query: ' . Me::query() . '<br>';
+    }
+
+    protected function time()
+    {
+        $result = DateTime::now()->toDateTimeString();
+        Debug::show($result);
+    }
+
+    protected function database()
+    {
+        $database = new Database();
+        $result = $database::table('book')->get();
+        Debug::show($result);
+    }
+
+    protected function databasePaginate()
+    {
+        $database = new Database();
+        $result = $database::table('book')->paginate(2);
+        echo $result->render();
+    }
+
+    protected function model()
+    {
+        $result = Book::all();
+        Debug::show($result);
+    }
+
     protected function redirect()
     {
         return Route::redirect('http://www.microsoft.com');
     }
 
-    protected function setSession()
+    protected function cookie()
+    {
+        Cookie::set('hello', 'world');
+        echo Cookie::get('hello');
+    }
+
+    protected function session()
     {
         echo Session::set('hello', 'world');
-    }
-
-    protected function getSession()
-    {
         echo Session::get('hello');
-    }
-
-    protected function isExistSession()
-    {
         echo Session::isExist('hello');
-    }
-
-    protected function clearSession()
-    {
         echo Session::clear();
     }
 
@@ -119,52 +154,4 @@ class TestController extends Controller
         $data['world'] = 'World';
         echo Convert::arrayToJSON($data);
     }
-
-    protected function image()
-    {
-        // Image::compression();
-    }
-
-    protected function weixin()
-    {
-        // Weixin::compression();
-    }
-
-    protected function cookie()
-    {
-        Cookie::set('hello', 'world');
-        echo Cookie::get('hello');
-    }
-
-    protected function library()
-    {
-        new HelloWorld();
-    }
-
-    protected function time()
-    {
-        $result = DateTime::now()->toDateTimeString();
-        Debug::show($result);
-    }
-
-    protected function mysql()
-    {
-        $database = new Database();
-        $result = $database::table('book')->get();
-        Debug::show($result);
-    }
-
-    protected function paginate()
-    {
-        $database = new Database();
-        $result = $database::table('book')->paginate(2);
-        echo $result->render();
-    }
-
-    protected function model()
-    {
-        $result = Book::all();
-        Debug::show($result);
-    }
-
 }

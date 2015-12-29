@@ -127,9 +127,6 @@ class Route
 
     public static function symfony()
     {
-        $urlFull = self::urlFull();
-        $urlFull = '/' . $urlFull;
-        $_SERVER['REQUEST_URI'] = $urlFull;
         $routeConfigure = self::routeConfigure();
         $routes = new RouteCollection();
         foreach ($routeConfigure as $key => $value) {
@@ -140,7 +137,10 @@ class Route
             $routeConfigure[$keyName] = $value;
             $routes->add($keyName, new Routes($key));
         }
+        $requestURI = $_SERVER['REQUEST_URI'];
+        $_SERVER['REQUEST_URI'] = '/' . self::urlFull();
         $request = Request::createFromGlobals();
+        $_SERVER['REQUEST_URI'] = $requestURI;
         $context = new RequestContext();
         $context->fromRequest($request);
         $matcher = new UrlMatcher($routes, $context);
