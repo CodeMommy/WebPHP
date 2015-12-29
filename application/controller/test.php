@@ -135,15 +135,6 @@ class TestController extends Controller
         // Weixin::compression();
     }
 
-    protected function mysql()
-    {
-        Database::init();
-        $book = Database::dispense('book');
-        $book->title = 'Hello';
-        $id = Database::store($book);
-        Debug::show(Database::findAll('book'));
-    }
-
     protected function cookie()
     {
         Cookie::set('hello', 'world');
@@ -155,4 +146,23 @@ class TestController extends Controller
         new HelloWorld();
     }
 
+    protected function mysql()
+    {
+        $database = new Database();
+        $result = $database::table('book')->get();
+        Debug::show($result);
+    }
+
+    protected function model()
+    {
+        $result = Book::all();
+        Debug::show($result);
+    }
+
+}
+use LuckyPHP\Model;
+
+class Book extends Model
+{
+    protected $table = 'book';
 }
