@@ -32,14 +32,6 @@ class TestController extends Controller
         $this->$action();
     }
 
-    protected function show()
-    {
-        $data = array();
-        $data['hello'] = 'Hello';
-        $data['world'] = 'LuckyPHP';
-        View::showPage('index/index.html', $data);
-    }
-
     protected function redirect()
     {
         return Route::redirect('http://www.microsoft.com');
