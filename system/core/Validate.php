@@ -11,7 +11,7 @@ class Validate
 {
     public static function email($email)
     {
-        if (ereg("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+", $email)) {
+        if (preg_match("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+", $email)) {
             return true;
         } else {
             return false;

@@ -81,15 +81,3 @@ location ~ \.php {
 | Author            | Identity | Social |
 | :---------------- | :------- | :----- |
 | Candison November | Creator  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
-
-## Plan
-
-* Http::Get
-* Http::Post
-* Mail
-* Upload
-* File
-* Log
-* Cache
-* Redis
-* Mongodb
