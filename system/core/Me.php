@@ -15,6 +15,7 @@ class Me
         $filePathArray = explode('/', $filePath);
         $fileName = end($filePathArray);
         $urlFull = substr($filePath, 0, strlen($filePath) - strlen($fileName) - 1);
+        $urlFull = $urlFull . '/';
         return $urlFull;
     }
 

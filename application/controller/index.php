@@ -20,7 +20,7 @@ class IndexController extends Controller
         if (in_array($domain, $domainHome)) {
             $data = array();
             $root = Me::root();
-            $static = $root . '/static';
+            $static = $root . 'static';
             $data['static'] = $static;
             return View::html('index/index.html', $data);
         } else {
