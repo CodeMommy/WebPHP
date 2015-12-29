@@ -11,7 +11,7 @@ use Smarty;
 
 class View
 {
-    public static function showPage($view, $data = null)
+    public static function html($view, $data = null)
     {
         $smarty = new Smarty(); // 建立smarty实例对象$smarty
         $smarty->setTemplateDir(APPLICATION_ROOT . "/view/"); // 设置模板目录
@@ -26,10 +26,12 @@ class View
             }
         }
         $smarty->display($view);
+        return true;
     }
 
-    public static function showJSON($data)
+    public static function json($data)
     {
         echo json_encode($data);
+        return true;
     }
 }

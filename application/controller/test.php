@@ -42,7 +42,7 @@ class TestController extends Controller
 
     protected function redirect()
     {
-        Route::redirect('http://www.microsoft.com');
+        return Route::redirect('http://www.microsoft.com');
     }
 
     protected function setSession()
@@ -70,7 +70,7 @@ class TestController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        View::showPage('index/showPage.html', $data);
+        return View::html('index/showPage.html', $data);
     }
 
     protected function showJSON()
@@ -78,7 +78,7 @@ class TestController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        View::showJSON($data);
+        return View::json($data);
     }
 
     protected function input()

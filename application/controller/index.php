@@ -22,10 +22,10 @@ class IndexController extends Controller
             $root = URL::root();
             $static = $root . '/static';
             $data['static'] = $static;
-            View::showPage('index/index.html', $data);
+            return View::html('index/index.html', $data);
         } else {
             $data = array();
-            View::showPage('index/start.html', $data);
+            return View::html('index/start.html', $data);
         }
     }
 
