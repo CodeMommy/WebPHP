@@ -17,6 +17,7 @@ use LuckyPHP\Convert;
 use LuckyPHP\Validate;
 use LuckyPHP\Database;
 use LuckyPHP\Cookie;
+use LuckyPHP\DateTime;
 use LuckyPHP\URL;
 
 class TestController extends Controller
@@ -146,11 +147,24 @@ class TestController extends Controller
         new HelloWorld();
     }
 
+    protected function time()
+    {
+        $result = DateTime::now()->toDateTimeString();
+        Debug::show($result);
+    }
+
     protected function mysql()
     {
         $database = new Database();
         $result = $database::table('book')->get();
         Debug::show($result);
+    }
+
+    protected function paginate()
+    {
+        $database = new Database();
+        $result = $database::table('book')->paginate(2);
+        echo $result->render();
     }
 
     protected function model()
