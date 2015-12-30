@@ -8,21 +8,15 @@ You can use Composer to update the vendor. Take it easy if do not know about Com
 
 Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information or QA on the forum.
 
-## Download
+## Download & Documentation
 
-| Version | Update Time |
+| Version | Update Time | Documentation |
 | :------ | :---------- |
-| [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip) | Now        |
-| [V1](https://github.com/ShareAny/LuckyPHP/releases/tag/v1.0.0)    | 2016-01-01 |
+| [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip) | Now        |  |
+| [V1](https://github.com/ShareAny/LuckyPHP/releases/tag/v1.0.0)    | 2016-01-01 | [简体中文](documentation/1/SimplifiedChinese.md) |
 
 ## Author
 
 | Author            | Identity | Social |
 | :---------------- | :------- | :----- |
 | Candison November | Creator  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
-
-## Documentation
-
-| Version | Language |
-| :------ | :------- |
-| V1      | [简体中文](documentation/1/SimplifiedChinese.md) |
