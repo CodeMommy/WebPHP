@@ -1,4 +1,4 @@
-# LuckyPHP
+# LuckyPHP V1
 
 ## Overview
 
@@ -81,3 +81,9 @@ location ~ \.php {
 | Author            | Identity | Social |
 | :---------------- | :------- | :----- |
 | Candison November | Creator  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
+
+## Documentation
+
+### V1
+
+[简体中文](Documentation_V1_SimplifiedChinese.md)
