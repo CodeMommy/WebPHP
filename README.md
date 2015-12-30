@@ -18,3 +18,7 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 | Author            | Identity | Social |
 | :---------------- | :------- | :----- |
 | Candison November | Creator  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
+
+## Link
+
+[Website](http://www.luckyphp.com) [GitHub](https://github.com/ShareAny/LuckyPHP) [Packagist](https://packagist.org/packages/shareany/luckyphp) [OSChina](http://www.oschina.net/p/luckyphp)
