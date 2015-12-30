@@ -12,7 +12,8 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 
 | Version | Update Time |
 | :------ | :---------- |
-| [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip) | Now |
+| [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip) | Now        |
+| [V1](https://github.com/ShareAny/LuckyPHP/releases/tag/v1.0.0)    | 2015-12-30 |
 
 ## Author
 
