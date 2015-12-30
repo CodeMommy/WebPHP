@@ -7,43 +7,41 @@
 
 namespace LuckyPHP;
 
+use LuckyPHP\Http;
+use LuckyPHP\Me;
+
 class Wechat
 {
-    public function get_access_token($app_id, $app_secret)
+    public static function getAccessToken($app_id, $app_secret)
     {
         $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" . $app_id . "&secret=" . $app_secret;
-        //$result = file_get_contents($url);
-        $Functions = new Functions();
-        $result = $Functions->http_get($url);
+        $result = Http::get($url);
         $result_json = json_decode($result, true);
         $token = $result_json["access_token"];
         return $token;
     }
 
-    public function get_jsapi_ticket($access_token)
+    public static function getJsapiTicket($access_token)
     {
         $url = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=" . $access_token . "&type=jsapi";
-        //$result = file_get_contents($url);
-        $Functions = new Functions();
-        $result = $Functions->http_get($url);
+        $result = Http::get($url);
         $result_json = json_decode($result, true);
         $ticket = $result_json["ticket"];
         return $ticket;
     }
 
-    public function get_js_config($app_id, $jsapi_ticket)
+    public static function getJsConfig($app_id, $jsapi_ticket)
     {
         $return = array();
         $return["appId"] = $app_id;
         $return["timestamp"] = time();
-        $return["nonceStr"] = "AnyString";
-        $Functions = new Functions();
-        $return["url"] = $Functions->get_url();
+        $return["nonceStr"] = "AnyString";;
+        $return["url"] = Me::url();
         $return["signature"] = sha1(sprintf("jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s", $jsapi_ticket, $return["nonceStr"], $return["timestamp"], $return["url"]));
         return $return;
     }
 
-    public function save_media($access_token, $media_id, $save_path)
+    public static function saveMedia($access_token, $media_id, $save_path)
     {
         if (!is_dir($save_path)) {
             mkdir($save_path, 0777, true);
@@ -73,7 +71,7 @@ class Wechat
         }
     }
 
-    public function get_oauth2_url($app_id, $redirect_uri, $is_get_information)
+    public static function getOauth2Url($app_id, $redirect_uri, $is_get_information)
     {
         $redirect_uri = urlencode($redirect_uri);
         $scope = "";
@@ -86,21 +84,18 @@ class Wechat
         return $url;
     }
 
-    public function get_oauth2_access_token($appid, $secret, $code)
+    public static function getOauth2AccessToken($appid, $secret, $code)
     {
         $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $appid . "&secret=" . $secret . "&code=" . $code . "&grant_type=authorization_code";
-        //$result = file_get_contents($url);
-        $Functions = new Functions();
-        $result = $Functions->http_get($url);
+        $result = Http::get($url);
         $return = json_decode($result, true);
         return $return;
     }
 
-    public function get_oauth2_information($access_token, $openid)
+    public static function getOauth2Information($access_token, $openid)
     {
         $url = "https://api.weixin.qq.com/sns/userinfo?access_token=" . $access_token . "&openid=" . $openid . "&lang=zh_CN";
-        $Functions = new Functions();
-        $result = $Functions->http_get($url);
+        $result = Http::get($url);
         $return = json_decode($result, true);
         return $return;
     }
