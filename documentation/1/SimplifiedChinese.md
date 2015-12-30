@@ -1,4 +1,4 @@
-# LuckyPHP V1 开发手册（简体中文）
+# LuckyPHP V1 开发手册
 
 ## Composer Install
 
