@@ -4,6 +4,8 @@
 
 LuckyPHP is a light and fast PHP framework. It helps you to build a website easily.
 
+LuckyPHP is under [Apache License](LICENSE).
+
 You can use Composer to update the vendor. Take it easy if do not know about Composer. It still work best without Composer. We normally provide the base vendor. Just download it.
 
 Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information or QA on the forum.
