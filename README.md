@@ -13,7 +13,7 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 | Version | Update Time |
 | :------ | :---------- |
 | [Latest](https://github.com/ShareAny/LuckyPHP/archive/master.zip) | Now        |
-| [V1](https://github.com/ShareAny/LuckyPHP/releases/tag/v1.0.0)    | 2015-12-30 |
+| [V1](https://github.com/ShareAny/LuckyPHP/releases/tag/v1.0.0)    | 2016-01-01 |
 
 ## Author
 
@@ -23,6 +23,6 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 
 ## Documentation
 
-### V1
-
-[简体中文](documentation/1/SimplifiedChinese.md)
+| Version | Language |
+| :------ | :------- |
+| V1      | [简体中文](documentation/1/SimplifiedChinese.md) |
