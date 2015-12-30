@@ -24,4 +24,4 @@ Visit the [Project Homepage](http://www.LuckyPHP.com/) to get more information o
 
 ### V1
 
-[简体中文](documentation/V1/SimplifiedChinese.md)
+[简体中文](documentation/1/SimplifiedChinese.md)
