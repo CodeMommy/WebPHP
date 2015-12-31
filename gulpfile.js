@@ -1,5 +1,5 @@
 // Config
-const version = '1.0.10';
+const version = '1.0.11';
 
 // Require
 const del = require('del');
@@ -63,14 +63,10 @@ gulp.task('git-new-tag', function (cb) {
 });
 
 // Task Default
-gulp.task('default', gulp.series(
-    'clear',
-    'version',
-    gulp.parallel(
-        'publish',
-        gulp.series('git-add', 'git-commit', 'git-push', 'git-new-tag')
-    )
-));
+var taskGit = gulp.series('git-add', 'git-commit', 'git-push', 'git-new-tag');
+var taskPublish = 'publish';
+var taskDefault = gulp.series('clear', 'version', gulp.parallel(taskPublish, taskGit));
+gulp.task('default', taskDefault);
 
 //const fs = require('fs');
 //// Function
