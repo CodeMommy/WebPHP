@@ -2,7 +2,7 @@
 
 ## 一、安装
 
-安装LuckyPHP有两种方式：
+在PHP5.3版本以上的环境下，安装LuckyPHP有两种方式：
 
 ### Composer安装方式（推荐）
 
@@ -25,7 +25,7 @@ composer create-project shareany/luckyphp
 | system      | LuckyPHP的目录，您不需要对此目录里的文件做任何更改         |
 | vendor      | Composer生成的包目录，您依然不需要手工更改此目录里的任何文件 |
 
-在PHP的环境下，访问项目public目录，您将看到“Hello World”字样，这说明LuckyPHP安装成功。
+访问项目public目录，您将看到“Hello World”字样，这说明LuckyPHP安装成功。
 
 ## 二、服务器配置
 
