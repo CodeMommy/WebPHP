@@ -1,12 +1,12 @@
 // Config
-const version = '1.0.11';
+const version = '1.0.10';
 
 // Require
 const del = require('del');
 const gulp = require('gulp');
 const zip = require('gulp-zip');
-const bump = require('gulp-bump');
 const git = require('gulp-git');
+const bump = require('gulp-bump');
 
 // Task Clear
 gulp.task('clear', function (cb) {
@@ -37,21 +37,18 @@ gulp.task('publish_pack', function (cb) {
 });
 gulp.task('publish', gulp.series('publish_clear', 'publish_pack'));
 
-
+// Task Git
 gulp.task('git-add', function () {
     return gulp.src('.')
         .pipe(git.add());
 });
-
 gulp.task('git-commit', function () {
     return gulp.src('.')
         .pipe(git.commit('Bumped version number to v' + version));
 });
-
 gulp.task('git-push', function (cb) {
     return git.push('origin', 'master', cb);
 });
-
 gulp.task('git-new-tag', function (cb) {
     return git.tag('v' + version, 'v' + version, function (error) {
         if (error) {
@@ -59,7 +56,6 @@ gulp.task('git-new-tag', function (cb) {
         }
         return git.push('origin', 'master', {args: '--tags'}, cb);
     });
-
 });
 
 // Task Default
