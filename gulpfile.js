@@ -63,7 +63,14 @@ gulp.task('git-new-tag', function (cb) {
 });
 
 // Task Default
-gulp.task('default', gulp.series('clear', 'version', 'git-add', 'git-commit', 'git-push', 'git-new-tag', gulp.parallel('publish')));
+gulp.task('default', gulp.series(
+    'clear',
+    'version',
+    gulp.parallel(
+        'publish',
+        gulp.series('git-add', 'git-commit', 'git-push', 'git-new-tag')
+    )
+));
 
 //const fs = require('fs');
 //// Function
