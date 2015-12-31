@@ -1,11 +1,12 @@
 // Config
-const version = '1.0.0';
+const version = '1.0.1';
 
 // Require
 const del = require('del');
 const gulp = require('gulp');
 const zip = require('gulp-zip');
 const bump = require('gulp-bump');
+const git = require('gulp-git');
 
 // Task Clear
 gulp.task('clear', function (cb) {
@@ -36,8 +37,28 @@ gulp.task('publish_pack', function (cb) {
 });
 gulp.task('publish', gulp.series('publish_clear', 'publish_pack'));
 
+
+gulp.task('git-commit', function () {
+    return gulp.src('.')
+        .pipe(git.commit('Bumped version number'));
+});
+
+gulp.task('git-push', function (cb) {
+    return git.push('origin', 'master', cb);
+});
+
+gulp.task('git-new-tag', function (cb) {
+    return git.tag(version, 'Created Tag for version: ' + version, function (error) {
+        if (error) {
+            return cb(error);
+        }
+        return git.push('origin', 'master', {args: '--tags'}, cb);
+    });
+
+});
+
 // Task Default
-gulp.task('default', gulp.series('clear', 'version', gulp.parallel('publish')));
+gulp.task('default', gulp.series('clear', 'version', 'git-commit','git-push','git-new-tag',gulp.parallel('publish')));
 
 //const fs = require('fs');
 //// Function
