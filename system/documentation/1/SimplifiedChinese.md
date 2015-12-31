@@ -22,7 +22,7 @@ composer create-project shareany/luckyphp
 
 ## 三、服务器配置
 
-默认情况下，您可以通过访问“http://www.domain.com/public/index.php/hello”这样的网址访问，如果您想去掉中间的public和index.php，那么您需要对服务器进行配置。
+默认情况下，您可以通过访问“[http://www.domain.com/public/index.php/hello](http://www.domain.com/public/index.php/hello)”这样的网址访问，如果您想去掉中间的public和index.php，那么您需要对服务器进行配置。
 
 ### Apache
 
