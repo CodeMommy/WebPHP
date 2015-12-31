@@ -1,5 +1,5 @@
 // Config
-const version = '1.0.1';
+const version = 'v1.0.2';
 
 // Require
 const del = require('del');
@@ -26,7 +26,7 @@ gulp.task('version', function () {
 });
 
 // Task Publish
-var filename = 'LuckyPHP-V' + version + '.zip';
+var filename = 'LuckyPHP-' + version + '.zip';
 gulp.task('publish_clear', function (cb) {
     return del(['./publish/' + filename], cb);
 });
@@ -37,6 +37,11 @@ gulp.task('publish_pack', function (cb) {
 });
 gulp.task('publish', gulp.series('publish_clear', 'publish_pack'));
 
+
+gulp.task('git-add', function () {
+    return gulp.src('.')
+        .pipe(git.add());
+});
 
 gulp.task('git-commit', function () {
     return gulp.src('.')
@@ -58,7 +63,7 @@ gulp.task('git-new-tag', function (cb) {
 });
 
 // Task Default
-gulp.task('default', gulp.series('clear', 'version', 'git-commit','git-push','git-new-tag',gulp.parallel('publish')));
+gulp.task('default', gulp.series('clear', 'version', 'git-add', 'git-commit', 'git-push', 'git-new-tag', gulp.parallel('publish')));
 
 //const fs = require('fs');
 //// Function

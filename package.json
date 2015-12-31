@@ -1,6 +1,6 @@
 {
   "name": "LuckyPHP",
-  "version": "1.0.0",
+  "version": "v1.0.2",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "dependencies": {
     "del": "^2.2.0",
