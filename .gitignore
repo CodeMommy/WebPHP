@@ -8,6 +8,10 @@
 #Cache
 /application/cache/smarty_template/*.php
 /application/cache/smarty_cache/*.php
-
 /public/static/upload/*
 *.log
+
+#Node.js
+/node_modules/
+
+/publish/
