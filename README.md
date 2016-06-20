@@ -2,10 +2,10 @@
 
 ## Overview
 
-[![License](https://poser.pugx.org/shareany/luckyphp/license.svg)](https://packagist.org/packages/shareany/luckyphp)
-[![Downloads](https://poser.pugx.org/shareany/luckyphp/downloads.svg)](https://packagist.org/packages/shareany/luckyphp)
-[![Stable](https://poser.pugx.org/shareany/luckyphp/v/stable.svg)](https://packagist.org/packages/shareany/luckyphp)
-[![Unstable](https://poser.pugx.org/shareany/luckyphp/v/unstable.svg)](https://packagist.org/packages/shareany/luckyphp)
+[![License](https://poser.pugx.org/shareany/luckyphp/license.svg?format=flat-square)](https://packagist.org/packages/shareany/luckyphp)
+[![Downloads](https://poser.pugx.org/shareany/luckyphp/downloads.svg?format=flat-square)](https://packagist.org/packages/shareany/luckyphp)
+[![Stable](https://poser.pugx.org/shareany/luckyphp/v/stable.svg?format=flat-square)](https://packagist.org/packages/shareany/luckyphp)
+[![Unstable](https://poser.pugx.org/shareany/luckyphp/v/unstable.svg?format=flat-square)](https://packagist.org/packages/shareany/luckyphp)
 
 LuckyPHP is a light, fast, free and open source PHP framework under [Apache License](LICENSE). It helps you to build a website easily.
 
