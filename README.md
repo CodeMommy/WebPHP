@@ -4,6 +4,8 @@
 
 ![License](https://poser.pugx.org/shareany/luckyphp/license.svg)
 ![Downloads](https://poser.pugx.org/shareany/luckyphp/downloads.svg)
+![Stable](https://poser.pugx.org/shareany/luckyphp/v/stable.svg)
+![Unstable](https://poser.pugx.org/shareany/luckyphp/v/unstable.svg)
 
 LuckyPHP is a light, fast, free and open source PHP framework under [Apache License](LICENSE). It helps you to build a website easily.
 
