@@ -1,9 +1,9 @@
 <?php
 
-// +----------------------------------------------------------------------
-// | @author    Candison November (www.kandisheng.com)
-// | @location  Nanjing China
-// +----------------------------------------------------------------------
+/*
+ * @author   Candison November (www.kandisheng.com)
+ * @location Nanjing China
+ */
 
 namespace LuckyPHP;
 
@@ -110,20 +110,20 @@ class Client
         if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
             $lang = substr($lang, 0, 5);
-            if (preg_match("/zh-cn/i", $lang)) {
-                $lang = "简体中文";
-            } elseif (preg_match("/zh/i", $lang)) {
-                $lang = "繁体中文";
+            if (preg_match('/zh-cn/i', $lang)) {
+                $lang = '简体中文';
+            } else if (preg_match('/zh/i', $lang)) {
+                $lang = '繁體中文';
             } else {
-                $lang = "English";
+                $lang = 'English';
             }
             return $lang;
         } else {
-            return "Unknown";
+            return 'Unknown';
         }
     }
 
-    public static function isWeixin()
+    public static function isWeChat()
     {
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
         if (strpos($user_agent, 'MicroMessenger') === false) {

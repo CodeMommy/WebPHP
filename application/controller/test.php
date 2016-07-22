@@ -1,12 +1,12 @@
 <?php
 
-// +----------------------------------------------------------------------
-// | @author    Candison November (www.kandisheng.com)
-// | @location  Nanjing China
-// +----------------------------------------------------------------------
+/*
+ * @author   Candison November (www.kandisheng.com)
+ * @location Nanjing China
+ */
 
 use LuckyPHP\Controller;
-use LuckyPHP\View;
+use LuckyPHP\Output;
 use LuckyPHP\Route;
 use LuckyPHP\Session;
 use LuckyPHP\Input;
@@ -23,7 +23,6 @@ use LuckyPHP\Log;
 use LuckyPHP\Mail;
 use LuckyPHP\Cache;
 use LuckyPHP\Redis;
-use LuckyPHP\File;
 
 use Model\Book;
 
@@ -104,7 +103,7 @@ class TestController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        return View::html('index/showPage.html', $data);
+        return Output::template('index/showPage.html', $data);
     }
 
     protected function showJSON()
@@ -112,7 +111,7 @@ class TestController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        return View::json($data);
+        return Output::json($data);
     }
 
     protected function input()
@@ -141,7 +140,7 @@ class TestController extends Controller
         Debug::show(Client::equipment());
         Debug::show(Client::ip());
         Debug::show(Client::language());
-        Debug::show(Client::isWeixin());
+        Debug::show(Client::isWeChat());
     }
 
     protected function validate()
@@ -190,11 +189,11 @@ class TestController extends Controller
     {
         $data = array();
         $data['root'] = Me::root();
-        return View::html('test/upload.html', $data);
+        return Output::template('test/upload.html', $data);
     }
 
     protected function uploadNow()
     {
-        File::upload('file', 'static/upload/');
+        Input::file('file', 'static/upload/');
     }
 }

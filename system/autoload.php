@@ -1,9 +1,9 @@
 <?php
 
-// +----------------------------------------------------------------------
-// | @author    Candison November (www.kandisheng.com)
-// | @location  Nanjing China
-// +----------------------------------------------------------------------
+/*
+ * @author   Candison November (www.kandisheng.com)
+ * @location Nanjing China
+ */
 
 // Autoload
 function autoloadFramework($className)

@@ -1,12 +1,12 @@
 <?php
 
-// +----------------------------------------------------------------------
-// | @author    Candison November (www.kandisheng.com)
-// | @location  Nanjing China
-// +----------------------------------------------------------------------
+/*
+ * @author   Candison November (www.kandisheng.com)
+ * @location Nanjing China
+ */
 
 use LuckyPHP\Controller;
-use LuckyPHP\View;
+use LuckyPHP\Output;
 use LuckyPHP\Me;
 
 class IndexController extends Controller
@@ -22,10 +22,10 @@ class IndexController extends Controller
             $root = Me::root();
             $static = $root . 'static';
             $data['static'] = $static;
-            return View::html('index/index.html', $data);
+            return Output::template('index/index.html', $data);
         } else {
             $data = array();
-            return View::html('index/start.html', $data);
+            return Output::template('index/start.html', $data);
         }
     }
 
