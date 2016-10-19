@@ -7,7 +7,6 @@
 
 use LuckyPHP\Controller;
 use LuckyPHP\Output;
-use LuckyPHP\Route;
 use LuckyPHP\Session;
 use LuckyPHP\Input;
 use LuckyPHP\Debug;
