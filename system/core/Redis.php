@@ -7,7 +7,7 @@
 
 namespace LuckyPHP;
 
-use LuckyPHP\Configure;
+use LuckyPHP\Config;
 use Redis as Re;
 
 class Redis extends Re
@@ -15,8 +15,8 @@ class Redis extends Re
     public function __construct()
     {
         parent::__construct();
-        $redisHost = Configure::get('redis','host');
-        $redisPort = Configure::get('redis','port');
+        $redisHost = Config::get('redis.host');
+        $redisPort = Config::get('redis.port');
         $this->connect($redisHost, $redisPort);
     }
 }

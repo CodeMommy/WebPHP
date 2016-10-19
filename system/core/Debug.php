@@ -7,15 +7,18 @@
 
 namespace LuckyPHP;
 
+use LuckyPHP\Output;
+
 class Debug
 {
     public static function show($data, $isExit = false)
     {
-        echo '<pre>';
+        Output::text('<pre>');
         var_dump($data);
-        echo '</pre>';
+        Output::text('</pre>');
         if ($isExit) {
             exit();
         }
+        return true;
     }
 }

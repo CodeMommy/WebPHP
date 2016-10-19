@@ -12,9 +12,9 @@ use LuckyPHP\Session;
 use LuckyPHP\Input;
 use LuckyPHP\Debug;
 use LuckyPHP\Client;
-use LuckyPHP\Configure;
+use LuckyPHP\Config;
 use LuckyPHP\Convert;
-use LuckyPHP\Validate;
+use LuckyPHP\Is;
 use LuckyPHP\Database;
 use LuckyPHP\Cookie;
 use LuckyPHP\DateTime;
@@ -81,7 +81,7 @@ class TestController extends Controller
 
     protected function redirect()
     {
-        return Route::redirect('http://www.microsoft.com');
+        return Output::redirect('http://www.microsoft.com');
     }
 
     protected function cookie()
@@ -103,7 +103,7 @@ class TestController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        return Output::template('index/showPage.html', $data);
+        return Output::template('index/start.html', $data);
     }
 
     protected function showJSON()
@@ -128,9 +128,9 @@ class TestController extends Controller
         Debug::show($data);
     }
 
-    protected function configure()
+    protected function config()
     {
-        echo Configure::get('database', 'mysql.host');
+        echo Config::get('database.mysql.host');
     }
 
     protected function client()
@@ -143,12 +143,12 @@ class TestController extends Controller
         Debug::show(Client::isWeChat());
     }
 
-    protected function validate()
+    protected function is()
     {
-        Debug::show(Validate::email('demo@demo.com'));
-        Debug::show(Validate::email('demo'));
-        Debug::show(Validate::mobilephone('15555555555'));
-        Debug::show(Validate::mobilephone('1555555555'));
+        Debug::show(Is::email('demo@demo.com'));
+        Debug::show(Is::email('demo'));
+        Debug::show(Is::chinaMobilephoneNumber('15555555555'));
+        Debug::show(Is::chinaMobilephoneNumber('1555555555'));
     }
 
     protected function convert()
@@ -186,13 +186,6 @@ class TestController extends Controller
     }
 
     protected function upload()
-    {
-        $data = array();
-        $data['root'] = Me::root();
-        return Output::template('test/upload.html', $data);
-    }
-
-    protected function uploadNow()
     {
         Input::file('file', 'static/upload/');
     }

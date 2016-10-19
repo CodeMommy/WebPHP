@@ -5,12 +5,12 @@
  * @location Nanjing China
  */
 
-use LuckyPHP\Configure;
+use LuckyPHP\Config;
 
 function autoloadLibrary($className)
 {
     $className = str_replace('\\', '/', $className);
-    $library = Configure::get('library', $className);
+    $library = Config::get('library.' . $className);
     if ($library) {
         require_once(APPLICATION_ROOT . '/library/' . $library);
         return;

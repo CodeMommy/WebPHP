@@ -7,7 +7,7 @@
 
 namespace LuckyPHP;
 
-use LuckyPHP\Configure;
+use LuckyPHP\Config;
 use Doctrine\Common\Cache\ApcCache;
 use Doctrine\Common\Cache\MemcacheCache;
 use Doctrine\Common\Cache\XcacheCache;
@@ -19,15 +19,15 @@ class Cache
 {
     private static function driver()
     {
-        $cacheType = strtolower(Configure::get('cache', 'type'));
+        $cacheType = strtolower(Config::get('cache.type'));
         if ($cacheType == 'apc') {
             $cacheDriver = new ApcCache();
             return $cacheDriver;
         }
         if ($cacheType == 'memcache') {
-            $redisConfigure = Configure::get('cache', 'memcache');
+            $memcacheConfig = Config::get('cache.memcache');
             $memcache = new Memcache();
-            $memcache->connect($redisConfigure['host'], $redisConfigure['port']);
+            $memcache->connect($memcacheConfig['host'], $memcacheConfig['port']);
             $cacheDriver = new MemcacheCache();
             $cacheDriver->setMemcache($memcache);
             return $cacheDriver;
@@ -37,13 +37,14 @@ class Cache
             return $cacheDriver;
         }
         if ($cacheType == 'redis') {
-            $redisConfigure = Configure::get('cache', 'redis');
+            $redisConfig = Config::get('cache.redis');
             $redis = new Redis();
-            $redis->connect($redisConfigure['host'], $redisConfigure['port']);
+            $redis->connect($redisConfig['host'], $redisConfig['port']);
             $cacheDriver = new RedisCache();
             $cacheDriver->setRedis($redis);
             return $cacheDriver;
         }
+        return null;
     }
 
     public static function set($key, $value, $timeout = 0)
@@ -59,9 +60,8 @@ class Cache
         $result = $driver->fetch($key);
         if ($result) {
             return $result;
-        } else {
-            return $default;
         }
+        return $default;
     }
 
     public static function delete($key)

@@ -40,4 +40,10 @@ class Output
         echo $data;
         return true;
     }
+
+    public static function redirect($url)
+    {
+        header('Location:' . $url);
+        return true;
+    }
 }

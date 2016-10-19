@@ -16,5 +16,6 @@ class Server
     {
         define('APPLICATION_ROOT', $path);
         Route::init();
+        return true;
     }
 }

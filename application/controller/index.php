@@ -13,10 +13,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $domainHome = array();
-        array_push($domainHome, 'www.luckyphp.com');
-        array_push($domainHome, 'home.luckyphp.com');
-        $domain = $_SERVER['SERVER_NAME'];
+        $domainHome = array('www.luckyphp.com', 'home.luckyphp.com');
+        $domain = Me::domain();
         if (in_array($domain, $domainHome)) {
             $data = array();
             $root = Me::root();
@@ -28,5 +26,4 @@ class IndexController extends Controller
             return Output::template('index/start.html', $data);
         }
     }
-
 }

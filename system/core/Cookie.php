@@ -13,9 +13,8 @@ class Cookie
     {
         if (isset($_COOKIE[$key])) {
             return $_COOKIE[$key];
-        } else {
-            return $default;
         }
+        return $default;
     }
 
     public static function set($key, $value)
@@ -35,9 +34,8 @@ class Cookie
         $value = self::get($key);
         if ($value == null) {
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     public static function clear()

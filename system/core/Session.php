@@ -19,9 +19,8 @@ class Session
         self::init();
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
-        } else {
-            return $default;
         }
+        return $default;
     }
 
     public static function set($key, $value)
@@ -44,9 +43,8 @@ class Session
         $value = self::get($key);
         if ($value == null) {
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     public static function clear()

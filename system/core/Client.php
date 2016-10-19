@@ -9,79 +9,78 @@ namespace LuckyPHP;
 
 class Client
 {
+    public static function userAgent()
+    {
+        return isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+    }
+
     public static function system()
     {
-        if (!empty($_SERVER['HTTP_USER_AGENT'])) {
-            $OS = strtolower($_SERVER['HTTP_USER_AGENT']);
-            if (preg_match('/win/i', $OS)) {
-                $OS = 'Windows';
-            } elseif (preg_match('/mac/i', $OS)) {
-                $OS = 'MAC';
-            } elseif (preg_match('/linux/i', $OS)) {
-                $OS = 'Linux';
-            } elseif (preg_match('/unix/i', $OS)) {
-                $OS = 'Unix';
-            } elseif (preg_match('/bsd/i', $OS)) {
-                $OS = 'BSD';
-            } elseif (preg_match('/iphone/i', $OS)) {
-                $OS = 'iOS';
-            } elseif (preg_match('/android/i', $OS)) {
-                $OS = 'Android';
-            } elseif (preg_match('/ipad/i', $OS)) {
-                $OS = 'iOS';
-            } else {
-                $OS = 'Other';
-            }
-            return $OS;
-        } else {
-            return "Unknown";
+        $userAgent = strtolower(self::userAgent());
+        if (preg_match('/win/i', $userAgent)) {
+            return 'Windows';
         }
+        if (preg_match('/mac/i', $userAgent)) {
+            return 'MAC';
+        }
+        if (preg_match('/linux/i', $userAgent)) {
+            return 'Linux';
+        }
+        if (preg_match('/unix/i', $userAgent)) {
+            return 'Unix';
+        }
+        if (preg_match('/bsd/i', $userAgent)) {
+            return 'BSD';
+        }
+        if (preg_match('/iphone/i', $userAgent)) {
+            return 'iOS';
+        }
+        if (preg_match('/android/i', $userAgent)) {
+            return 'Android';
+        }
+        if (preg_match('/ipad/i', $userAgent)) {
+            return 'iOS';
+        }
+        return 'Unknown';
     }
 
     public static function browser()
     {
-        if (!empty($_SERVER['HTTP_USER_AGENT'])) {
-            $br = $_SERVER['HTTP_USER_AGENT'];
-            if (preg_match('/MSIE/i', $br)) {
-                $br = 'MSIE';
-            } elseif (preg_match('/Firefox/i', $br)) {
-                $br = 'Firefox';
-            } elseif (preg_match('/Chrome/i', $br)) {
-                $br = 'Chrome';
-            } elseif (preg_match('/Safari/i', $br)) {
-                $br = 'Safari';
-            } elseif (preg_match('/Opera/i', $br)) {
-                $br = 'Opera';
-            } else {
-                $br = 'Other';
-            }
-            return $br;
-        } else {
-            return "Unknown";
+        $userAgent = strtolower(self::userAgent());
+        if (preg_match('/MSIE/i', $userAgent)) {
+            return 'MSIE';
         }
+        if (preg_match('/Firefox/i', $userAgent)) {
+            return 'Firefox';
+        }
+        if (preg_match('/Chrome/i', $userAgent)) {
+            return 'Chrome';
+        }
+        if (preg_match('/Safari/i', $userAgent)) {
+            return 'Safari';
+        }
+        if (preg_match('/Opera/i', $userAgent)) {
+            return 'Opera';
+        }
+        return 'Unknown';
     }
 
     public static function equipment()
     {
-        $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-        $is_pc = (strpos($agent, 'windows nt')) ? true : false;
-        $is_mac = (strpos($agent, 'mac os')) ? true : false;
-        $is_iphone = (strpos($agent, 'iphone')) ? true : false;
-        $is_android = (strpos($agent, 'android')) ? true : false;
-        $is_ipad = (strpos($agent, 'ipad')) ? true : false;
-        if ($is_pc) {
+        $userAgent = strtolower(self::userAgent());
+        if (strpos($userAgent, 'windows nt')) {
             return 'PC';
         }
-        if ($is_mac) {
+        if (strpos($userAgent, 'mac os')) {
             return 'PC';
         }
-        if ($is_iphone) {
+        if (strpos($userAgent, 'iphone')) {
             return 'Mobile';
         }
-        if ($is_android) {
+        if (strpos($userAgent, 'android')) {
             return 'Mobile';
         }
-        if ($is_ipad) {
+        if (strpos($userAgent, 'ipad')) {
             return 'Pad';
         }
         return 'Unknown';
@@ -90,46 +89,46 @@ class Client
     public static function ip()
     {
         if (getenv('HTTP_CLIENT_IP')) {
-            $ip = getenv('HTTP_CLIENT_IP');
-        } elseif (getenv('HTTP_X_FORWARDED_FOR')) {
-            $ip = getenv('HTTP_X_FORWARDED_FOR');
-        } elseif (getenv('HTTP_X_FORWARDED')) {
-            $ip = getenv('HTTP_X_FORWARDED');
-        } elseif (getenv('HTTP_FORWARDED_FOR')) {
-            $ip = getenv('HTTP_FORWARDED_FOR');
-        } elseif (getenv('HTTP_FORWARDED')) {
-            $ip = getenv('HTTP_FORWARDED');
-        } else {
-            $ip = $_SERVER['REMOTE_ADDR'];
+            return getenv('HTTP_CLIENT_IP');
         }
-        return $ip;
+        if (getenv('HTTP_X_FORWARDED_FOR')) {
+            return getenv('HTTP_X_FORWARDED_FOR');
+        }
+        if (getenv('HTTP_X_FORWARDED')) {
+            return getenv('HTTP_X_FORWARDED');
+        }
+        if (getenv('HTTP_FORWARDED_FOR')) {
+            return getenv('HTTP_FORWARDED_FOR');
+        }
+        if (getenv('HTTP_FORWARDED')) {
+            return getenv('HTTP_FORWARDED');
+        }
+        if ($_SERVER['REMOTE_ADDR']) {
+            return $_SERVER['REMOTE_ADDR'];
+        }
+        return '';
     }
 
     public static function language()
     {
-        if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-            $lang = substr($lang, 0, 5);
-            if (preg_match('/zh-cn/i', $lang)) {
-                $lang = '简体中文';
-            } else if (preg_match('/zh/i', $lang)) {
-                $lang = '繁體中文';
-            } else {
-                $lang = 'English';
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 5);
+            if (preg_match('/zh-cn/i', $language)) {
+                return '简体中文';
             }
-            return $lang;
-        } else {
-            return 'Unknown';
+            if (preg_match('/zh/i', $language)) {
+                return '繁體中文';
+            }
         }
+        return 'Unknown';
     }
 
     public static function isWeChat()
     {
-        $user_agent = $_SERVER['HTTP_USER_AGENT'];
-        if (strpos($user_agent, 'MicroMessenger') === false) {
+        $userAgent = strtolower(self::userAgent());
+        if (strpos($userAgent, 'micromessenger') === false) {
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 }

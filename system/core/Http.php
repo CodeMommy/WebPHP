@@ -12,16 +12,16 @@ class Http
 
     public static function get($url)
     {
-        $contents = file_get_contents($url);
-        if (!$contents) {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-            $contents = curl_exec($ch);
-            curl_close($ch);
+        $return = file_get_contents($url);
+        if (!$return) {
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
+            $return = curl_exec($curl);
+            curl_close($curl);
         }
-        return $contents;
+        return $return;
     }
 
     public static function post($url, $data)
@@ -33,9 +33,9 @@ class Http
         curl_setopt($curl, CURLOPT_NOBODY, true);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        $return_str = curl_exec($curl);
+        $return = curl_exec($curl);
         curl_close($curl);
-        return $return_str;
+        return $return;
     }
 
     public static function postJSON($url, $data = null)
@@ -49,9 +49,8 @@ class Http
             curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
         }
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($curl);
+        $return = curl_exec($curl);
         curl_close($curl);
-        return $output;
+        return $return;
     }
-
 }

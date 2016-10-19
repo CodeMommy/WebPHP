@@ -44,18 +44,18 @@ class Route
         return $urlFull;
     }
 
-    private static function routeConfigure()
+    private static function routeConfig()
     {
-        $routeConfigure = array();
-        $routeConfigureAny = Configure::get('route', 'any');
+        $routeConfig = array();
+        $routeConfigureAny = Config::get('route.any');
         if ($routeConfigureAny) {
-            $routeConfigure = array_merge($routeConfigure, $routeConfigureAny);
+            $routeConfig = array_merge($routeConfig, $routeConfigureAny);
         }
-        $routeConfigureCustom = Configure::get('route', strtolower($_SERVER['REQUEST_METHOD']));
+        $routeConfigureCustom = Config::get('route.' . strtolower($_SERVER['REQUEST_METHOD']));
         if ($routeConfigureCustom) {
-            $routeConfigure = array_merge($routeConfigure, $routeConfigureCustom);
+            $routeConfig = array_merge($routeConfig, $routeConfigureCustom);
         }
-        return $routeConfigure;
+        return $routeConfig;
     }
 
     private static function route($route)
@@ -116,7 +116,7 @@ class Route
     private static function map()
     {
         $urlFull = self::urlFull();
-        $routeConfigure = self::routeConfigure();
+        $routeConfigure = self::routeConfig();
         $route = null;
         $route = isset($routeConfigure[$urlFull]) ? $routeConfigure[$urlFull] : $route;
         $route = isset($routeConfigure['/' . $urlFull]) ? $routeConfigure['/' . $urlFull] : $route;
@@ -127,7 +127,7 @@ class Route
 
     public static function symfony()
     {
-        $routeConfigure = self::routeConfigure();
+        $routeConfigure = self::routeConfig();
         $routes = new RouteCollection();
         foreach ($routeConfigure as $key => $value) {
             $keyName = str_replace('/', 'love', $key);
@@ -158,7 +158,7 @@ class Route
 
     public static function init()
     {
-        $routeType = Configure::get('route', 'type');
+        $routeType = Config::get('route.type');
         if ($routeType == 'symfony') {
             self::symfony();
         } else if ($routeType == 'map') {
@@ -166,11 +166,5 @@ class Route
         } else {
             self::pathInfo();
         }
-    }
-
-    public static function redirect($url)
-    {
-        header('Location:' . $url);
-        return true;
     }
 }
