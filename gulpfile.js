@@ -1,5 +1,5 @@
 // Config
-const version = '1.0.10';
+const version = '1.0.12';
 
 // Require
 const del = require('del');

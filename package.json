@@ -1,13 +1,13 @@
 {
   "name": "LuckyPHP",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "dependencies": {
-    "del": "^2.2.0",
+    "del": "2.2.x",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-zip": "^3.0.2",
-    "gulp-git": "^1.6.1",
-    "gulp-bump": "^1.0.0"
+    "gulp-zip": "3.2.x",
+    "gulp-git": "1.6.x",
+    "gulp-bump": "2.4.x"
   },
   "devDependencies": {}
 }
