@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
@@ -9,7 +9,7 @@
 function autoloadFramework($className)
 {
     $className = str_replace('\\', '/', $className);
-    $className = str_replace('CodeMommy/Web', 'core', $className);
+    $className = str_replace('CodeMommy/WebPHP', 'core', $className);
 //    $className = strtolower($className);
     $file = __DIR__ . '/' . $className . '.php';
     if (is_file($file)) {

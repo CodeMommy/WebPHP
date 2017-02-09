@@ -1,14 +1,14 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\Web;
+namespace CodeMommy\WebPHP;
 
-use CodeMommy\Web\Http;
-use CodeMommy\Web\Me;
+use CodeMommy\WebPHP\Http;
+use CodeMommy\WebPHP\Me;
 
 class Wechat
 {

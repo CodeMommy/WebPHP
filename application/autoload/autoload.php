@@ -1,11 +1,11 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
-use CodeMommy\Web\Config;
+use CodeMommy\WebPHP\Config;
 
 function autoloadLibrary($className)
 {

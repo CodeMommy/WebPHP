@@ -1,6 +1,6 @@
 {
-  "name": "CodeMommy Web",
-  "version": "1.0.12",
+  "name": "CodeMommy WebPHP",
+  "version": "1.1.0",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "dependencies": {
     "del": "2.2.x",

@@ -1,11 +1,11 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\Web;
+namespace CodeMommy\WebPHP;
 
 use Smarty;
 
@@ -18,8 +18,8 @@ class Output
         $smarty->setCompileDir(APPLICATION_ROOT . "/cache/smarty_template/"); // 设置编译目录
         $smarty->setCacheDir(APPLICATION_ROOT . "/cache/smarty_cache/"); // 缓存目录
         $smarty->debugging = false; // 缓存方式
-        $smarty->left_delimiter = '{% ';
-        $smarty->right_delimiter = ' %}';
+        $smarty->left_delimiter = '{';
+        $smarty->right_delimiter = '}';
         if ($data) {
             foreach ($data as $key => $value) {
                 $smarty->assign($key, $value);

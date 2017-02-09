@@ -1,17 +1,17 @@
-# CodeMommy Web for PHP V1 开发手册
+# CodeMommy WebPHP V1 开发手册
 
-关于CodeMommy Web for PHP的说明、QA等信息，请访问[官方网站](http://www.codemommy.com/)。
+关于CodeMommy WebPHP的说明、QA等信息，请访问[官方网站](http://www.codemommy.com/)。
 
 ## 一、安装
 
-在PHP5.3版本以上的环境下，安装CodeMommy Web for PHP有两种方式：
+在PHP5.3版本以上的环境下，安装CodeMommy WebPHP有两种方式：
 
 ### Composer安装方式（推荐）
 
-CodeMommy Web for PHP使用Composer进行包管理，此安装方法需要您了解Composer，您只需要执行下面的命令即可。
+CodeMommy WebPHP使用Composer进行包管理，此安装方法需要您了解Composer，您只需要执行下面的命令即可。
 
 ```Linux
-composer create-project codemommy/web
+composer create-project codemommy/webphp
 ```
 
 ### 压缩包安装方式
@@ -24,10 +24,10 @@ composer create-project codemommy/web
 | :---------- | :------------------------------------------------ |
 | application | 项目目录，项目相关的控制器、模板等文件都放在此处            |
 | public      | 网站根目录，您需要把网站的根指向此目录                    |
-| system      | CodeMommy Web for PHP的目录，您不需要对此目录里的文件做任何更改         |
+| system      | CodeMommy WebPHP的目录，您不需要对此目录里的文件做任何更改         |
 | vendor      | Composer生成的包目录，您依然不需要手工更改此目录里的任何文件 |
 
-访问项目public目录，您将看到“Hello World”字样，这说明CodeMommy Web for PHP安装成功。
+访问项目public目录，您将看到“Hello World”字样，这说明CodeMommy WebPHP安装成功。
 
 ## 二、服务器配置
 
@@ -35,7 +35,7 @@ composer create-project codemommy/web
 
 ### Apache
 
-默认情况下，在CodeMommy Web for PHP的public目录，已经包含相应的.htaccess文件。您可以对此文件进行修改。
+默认情况下，在CodeMommy WebPHP的public目录，已经包含相应的.htaccess文件。您可以对此文件进行修改。
 
 ```Apache
 RewriteEngine on

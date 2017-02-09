@@ -1,13 +1,13 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\Web;
+namespace CodeMommy\WebPHP;
 
-use CodeMommy\Web\Config;
+use CodeMommy\WebPHP\Config;
 use Redis as Re;
 
 class Redis extends Re

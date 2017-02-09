@@ -1,13 +1,13 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\Web;
+namespace CodeMommy\WebPHP;
 
-use CodeMommy\Config;
+use CodeMommy\WebPHP\Config;
 use Doctrine\Common\Cache\ApcCache;
 use Doctrine\Common\Cache\MemcacheCache;
 use Doctrine\Common\Cache\XcacheCache;

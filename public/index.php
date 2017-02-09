@@ -12,5 +12,5 @@ foreach ($autoloadFile as $file) {
     }
 }
 // Server Start
-use CodeMommy\Web\Server;
+use CodeMommy\WebPHP\Server;
 Server::start($applicationPath);

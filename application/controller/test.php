@@ -1,27 +1,27 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
-use CodeMommy\Web\Controller;
-use CodeMommy\Web\Output;
-use CodeMommy\Web\Session;
-use CodeMommy\Web\Input;
-use CodeMommy\Web\Debug;
-use CodeMommy\Web\Client;
-use CodeMommy\Web\Config;
-use CodeMommy\Web\Convert;
-use CodeMommy\Web\Is;
-use CodeMommy\Web\Database;
-use CodeMommy\Web\DateTime;
-use CodeMommy\Web\Me;
-use CodeMommy\Web\Log;
-use CodeMommy\Web\Mail;
-use CodeMommy\Web\Cache;
-use CodeMommy\Web\Redis;
-use CodeMommy\Cookie;
+use CodeMommy\WebPHP\Controller;
+use CodeMommy\WebPHP\Output;
+use CodeMommy\WebPHP\Session;
+use CodeMommy\WebPHP\Input;
+use CodeMommy\WebPHP\Debug;
+use CodeMommy\WebPHP\Client;
+use CodeMommy\WebPHP\Config;
+use CodeMommy\WebPHP\Convert;
+use CodeMommy\WebPHP\Is;
+use CodeMommy\WebPHP\Database;
+use CodeMommy\WebPHP\DateTime;
+use CodeMommy\WebPHP\Me;
+use CodeMommy\WebPHP\Log;
+use CodeMommy\WebPHP\Mail;
+use CodeMommy\WebPHP\Cache;
+use CodeMommy\WebPHP\Redis;
+use CodeMommy\CookiePHP\Cookie;
 
 use Model\Book;
 
@@ -31,7 +31,7 @@ class TestController extends Controller
     public function index()
     {
         $action = Input::get('action', '');
-        $string = sprintf('This is a CodeMommy PHP test: %s', $action);
+        $string = sprintf('This is a CodeMommy WebPHP test: %s', $action);
         echo sprintf('<title>%s</title>', $string);
         echo sprintf('<h3>%s</h3>', $string);
         $this->$action();

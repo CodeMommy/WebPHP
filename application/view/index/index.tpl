@@ -28,6 +28,7 @@
             font-weight: bold;
         }
     </style>
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="{$root}favicon.ico">
 </head>
 <body>
 <div class="container">

@@ -1,11 +1,10 @@
 {
-  "name": "codemommy/web",
-  "version": "1.0.12",
+  "name": "codemommy/webphp",
+  "version": "1.1.0",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "keywords": [
     "CodeMommy",
-    "Web",
-    "PHP",
+    "WebPHP",
     "Framework",
     "Fast"
   ],
@@ -24,12 +23,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "CodeMommy\\Web\\": "system/core/"
+      "CodeMommy\\WebPHP\\": "system/core/"
     }
   },
   "require": {
     "php": ">=5.3.0",
-    "codemommy/cookie": "1.0.*",
+    "codemommy/cookiephp": "1.1.*",
     "symfony/http-foundation": "3.0.*",
     "symfony/routing": "3.0.*",
     "illuminate/database": "5.2.*",

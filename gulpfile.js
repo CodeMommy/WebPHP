@@ -1,5 +1,5 @@
 // Config
-const version = '1.0.12';
+const version = '1.1.0';
 
 // Require
 const del = require('del');
@@ -26,7 +26,7 @@ gulp.task('version', function () {
 });
 
 // Task Publish
-var filename = 'CodeMommyWeb-v' + version + '.zip';
+var filename = 'CodeMommyWebPHP-v' + version + '.zip';
 gulp.task('publish_clear', function (cb) {
     return del(['./publish/' + filename], cb);
 });

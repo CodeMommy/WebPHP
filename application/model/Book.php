@@ -1,13 +1,13 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
 namespace Model;
 
-use CodeMommy\Web\Model;
+use CodeMommy\WebPHP\Model;
 
 class Book extends Model
 {

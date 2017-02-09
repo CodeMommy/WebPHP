@@ -1,11 +1,11 @@
 <?php
 
 /**
- * CodeMommy Web for PHP
+ * CodeMommy WebPHP
  * @author  Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\Web;
+namespace CodeMommy\WebPHP;
 
 use Swift_SmtpTransport;
 use Swift_Plugins_Loggers_EchoLogger;
