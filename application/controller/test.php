@@ -5,6 +5,7 @@
  * @author  Candison November <www.kandisheng.com>
  */
 
+use CodeMommy\CookiePHP\Cookie;
 use CodeMommy\WebPHP\Controller;
 use CodeMommy\WebPHP\Output;
 use CodeMommy\WebPHP\Session;
@@ -21,7 +22,6 @@ use CodeMommy\WebPHP\Log;
 use CodeMommy\WebPHP\Mail;
 use CodeMommy\WebPHP\Cache;
 use CodeMommy\WebPHP\Redis;
-use CodeMommy\CookiePHP\Cookie;
 
 use Model\Book;
 
