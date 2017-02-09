@@ -16,7 +16,7 @@ Visit [CodeMommy Website](http://www.codemommy.com) or [Packagist](https://packa
 
 | Download | Documentation | Update |
 | :------- | :------------ | :----- |
-| [V1](https://github.com/CodeMommy/WebPHP/releases/tag/v1.1.0)    | [简体中文](system/documentation/1/SimplifiedChinese.md) | 2017-02-09 |
+| [V1](https://github.com/CodeMommy/WebPHP/releases/tag/1.1.0)    | [简体中文](system/documentation/1/SimplifiedChinese.md) | 2017-02-09 |
 | [Latest](https://github.com/CodeMommy/WebPHP/archive/master.zip) | [简体中文](system/documentation/1/SimplifiedChinese.md) | Now |
 
 ## Author
