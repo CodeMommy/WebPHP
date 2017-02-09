@@ -1,4 +1,4 @@
-# LuckyPHP
+# # CodeMommy Web for PHP
 
 ## Overview
 
@@ -8,7 +8,7 @@
 [![Unstable](https://poser.pugx.org/CodeMommy/Web/v/unstable?format=flat-square)](https://packagist.org/packages/CodeMommy/Web)
 [![composer.lock Available](https://poser.pugx.org/CodeMommy/Web/composerlock?format=flat-square)](https://packagist.org/packages/CodeMommy/Web)
 
-CodeMommy Web for PHP is a light, fast, free and open source PHP framework under [Apache License](LICENSE). It helps you to build a website easily.
+CodeMommy Web for PHP is a light, fast, free and open source PHP framework under [Apache 2.0 License](LICENSE). It helps you to build a website easily.
 
 Visit the [Project Homepage](http://www.CodeMommy.com/) to get more information or QA on the forum.
 
