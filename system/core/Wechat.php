@@ -1,14 +1,14 @@
 <?php
 
-/*
- * @author   Candison November (www.kandisheng.com)
- * @location Nanjing China
+/**
+ * CodeMommy Web for PHP
+ * @author  Candison November <www.kandisheng.com>
  */
 
-namespace LuckyPHP;
+namespace CodeMommy\Web;
 
-use LuckyPHP\Http;
-use LuckyPHP\Me;
+use CodeMommy\Web\Http;
+use CodeMommy\Web\Me;
 
 class Wechat
 {

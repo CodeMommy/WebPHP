@@ -1,26 +1,26 @@
 <?php
 
-/*
- * @author   Candison November (www.kandisheng.com)
- * @location Nanjing China
+/**
+ * CodeMommy Web for PHP
+ * @author  Candison November <www.kandisheng.com>
  */
 
-use LuckyPHP\Controller;
-use LuckyPHP\Output;
-use LuckyPHP\Session;
-use LuckyPHP\Input;
-use LuckyPHP\Debug;
-use LuckyPHP\Client;
-use LuckyPHP\Config;
-use LuckyPHP\Convert;
-use LuckyPHP\Is;
-use LuckyPHP\Database;
-use LuckyPHP\DateTime;
-use LuckyPHP\Me;
-use LuckyPHP\Log;
-use LuckyPHP\Mail;
-use LuckyPHP\Cache;
-use LuckyPHP\Redis;
+use CodeMommy\Web\Controller;
+use CodeMommy\Web\Output;
+use CodeMommy\Web\Session;
+use CodeMommy\Web\Input;
+use CodeMommy\Web\Debug;
+use CodeMommy\Web\Client;
+use CodeMommy\Web\Config;
+use CodeMommy\Web\Convert;
+use CodeMommy\Web\Is;
+use CodeMommy\Web\Database;
+use CodeMommy\Web\DateTime;
+use CodeMommy\Web\Me;
+use CodeMommy\Web\Log;
+use CodeMommy\Web\Mail;
+use CodeMommy\Web\Cache;
+use CodeMommy\Web\Redis;
 use CodeMommy\Cookie;
 
 use Model\Book;
@@ -31,7 +31,7 @@ class TestController extends Controller
     public function index()
     {
         $action = Input::get('action', '');
-        $string = sprintf('This is a LuckyPHP test: %s', $action);
+        $string = sprintf('This is a CodeMommy PHP test: %s', $action);
         echo sprintf('<title>%s</title>', $string);
         echo sprintf('<h3>%s</h3>', $string);
         $this->$action();

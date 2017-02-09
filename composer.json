@@ -1,17 +1,19 @@
 {
-  "name": "shareany/luckyphp",
+  "name": "codemommy/web",
   "version": "1.0.12",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "keywords": [
-    "framework",
-    "luckyphp",
-    "fast"
+    "CodeMommy",
+    "Web",
+    "PHP",
+    "Framework",
+    "Fast"
   ],
   "license": "Apache",
-  "homepage": "http://www.luckyphp.com",
+  "homepage": "http://www.codemommy.com",
   "support": {
-    "issues": "https://github.com/ShareAny/LuckyPHP/issues",
-    "source": "https://github.com/ShareAny/LuckyPHP"
+    "issues": "https://github.com/CodeMommy/WebPHP/issues",
+    "source": "https://github.com/CodeMommy/WebPHP"
   },
   "authors": [
     {
@@ -22,7 +24,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "LuckyPHP\\": "system/core/"
+      "CodeMommy\\Web\\": "system/core/"
     }
   },
   "require": {

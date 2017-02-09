@@ -4,7 +4,7 @@ return array(
     'type'  => 'mysql',
     'mysql' => array(
         'host'      => 'localhost',
-        'database'  => 'luckyphp',
+        'database'  => 'codemommy',
         'username'  => 'root',
         'password'  => '',
         'prefix'    => '',

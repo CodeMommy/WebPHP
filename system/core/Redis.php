@@ -1,13 +1,13 @@
 <?php
 
-/*
- * @author   Candison November (www.kandisheng.com)
- * @location Nanjing China
+/**
+ * CodeMommy Web for PHP
+ * @author  Candison November <www.kandisheng.com>
  */
 
-namespace LuckyPHP;
+namespace CodeMommy\Web;
 
-use LuckyPHP\Config;
+use CodeMommy\Web\Config;
 use Redis as Re;
 
 class Redis extends Re

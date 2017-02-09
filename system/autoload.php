@@ -1,15 +1,15 @@
 <?php
 
-/*
- * @author   Candison November (www.kandisheng.com)
- * @location Nanjing China
+/**
+ * CodeMommy Web for PHP
+ * @author  Candison November <www.kandisheng.com>
  */
 
 // Autoload
 function autoloadFramework($className)
 {
     $className = str_replace('\\', '/', $className);
-    $className = str_replace('LuckyPHP', 'core', $className);
+    $className = str_replace('CodeMommy/Web', 'core', $className);
 //    $className = strtolower($className);
     $file = __DIR__ . '/' . $className . '.php';
     if (is_file($file)) {

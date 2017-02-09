@@ -1,11 +1,11 @@
 <?php
 
-/*
- * @author   Candison November (www.kandisheng.com)
- * @location Nanjing China
+/**
+ * CodeMommy Web for PHP
+ * @author  Candison November <www.kandisheng.com>
  */
 
-use LuckyPHP\Config;
+use CodeMommy\Web\Config;
 
 function autoloadLibrary($className)
 {

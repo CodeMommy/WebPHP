@@ -12,5 +12,5 @@ foreach ($autoloadFile as $file) {
     }
 }
 // Server Start
-use LuckyPHP\Server;
+use CodeMommy\Web\Server;
 Server::start($applicationPath);

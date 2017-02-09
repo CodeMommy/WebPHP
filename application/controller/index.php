@@ -1,13 +1,13 @@
 <?php
 
-/*
- * @author   Candison November (www.kandisheng.com)
- * @location Nanjing China
+/**
+ * CodeMommy Web for PHP
+ * @author  Candison November <www.kandisheng.com>
  */
 
-use LuckyPHP\Controller;
-use LuckyPHP\Output;
-use LuckyPHP\Me;
+use CodeMommy\Web\Controller;
+use CodeMommy\Web\Output;
+use CodeMommy\Web\Me;
 
 class IndexController extends Controller
 {
