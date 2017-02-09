@@ -6,6 +6,7 @@
  */
 
 use CodeMommy\CookiePHP\Cookie;
+use CodeMommy\IsPHP\Is;
 use CodeMommy\WebPHP\Controller;
 use CodeMommy\WebPHP\Output;
 use CodeMommy\WebPHP\Session;
@@ -14,7 +15,6 @@ use CodeMommy\WebPHP\Debug;
 use CodeMommy\WebPHP\Client;
 use CodeMommy\WebPHP\Config;
 use CodeMommy\WebPHP\Convert;
-use CodeMommy\WebPHP\Is;
 use CodeMommy\WebPHP\Database;
 use CodeMommy\WebPHP\DateTime;
 use CodeMommy\WebPHP\Me;
@@ -146,8 +146,8 @@ class TestController extends Controller
     {
         Debug::show(Is::email('demo@demo.com'));
         Debug::show(Is::email('demo'));
-        Debug::show(Is::chinaMobilephoneNumber('15555555555'));
-        Debug::show(Is::chinaMobilephoneNumber('1555555555'));
+        Debug::show(Is::chinaCellPhoneNumber('15555555555'));
+        Debug::show(Is::chinaCellPhoneNumber('1555555555'));
     }
 
     protected function convert()
