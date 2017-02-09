@@ -26,7 +26,7 @@ gulp.task('version', function () {
 });
 
 // Task Publish
-var filename = 'LuckyPHP-v' + version + '.zip';
+var filename = 'CodeMommyWeb-v' + version + '.zip';
 gulp.task('publish_clear', function (cb) {
     return del(['./publish/' + filename], cb);
 });
