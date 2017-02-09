@@ -8,7 +8,7 @@
 [![Unstable](https://poser.pugx.org/CodeMommy/WebPHP/v/unstable?format=flat-square)](https://packagist.org/packages/CodeMommy/WebPHP)
 [![composer.lock Available](https://poser.pugx.org/CodeMommy/WebPHP/composerlock?format=flat-square)](https://packagist.org/packages/CodeMommy/WebPHP)
 
-CodeMommy WebPHP is a light, fast, free and open source PHP framework under [Apache 2.0 License](LICENSE). It helps you to build a website easily.
+> CodeMommy WebPHP is a light, fast, free and open source PHP framework under [Apache 2.0 License](LICENSE). It helps you to build a website easily.
 
 Visit [CodeMommy Website](http://www.codemommy.com) or [Packagist](https://packagist.org/packages/CodeMommy/WebPHP) to get more information.
 
