@@ -15,13 +15,13 @@ use LuckyPHP\Config;
 use LuckyPHP\Convert;
 use LuckyPHP\Is;
 use LuckyPHP\Database;
-use LuckyPHP\Cookie;
 use LuckyPHP\DateTime;
 use LuckyPHP\Me;
 use LuckyPHP\Log;
 use LuckyPHP\Mail;
 use LuckyPHP\Cache;
 use LuckyPHP\Redis;
+use CodeMommy\Cookie;
 
 use Model\Book;
 

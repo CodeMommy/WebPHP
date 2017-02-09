@@ -27,6 +27,7 @@
   },
   "require": {
     "php": ">=5.3.0",
+    "codemommy/cookie": "1.0.*",
     "symfony/http-foundation": "3.0.*",
     "symfony/routing": "3.0.*",
     "illuminate/database": "5.2.*",
