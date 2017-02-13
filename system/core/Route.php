@@ -64,24 +64,33 @@ class Route
             $path = explode('.', $route);
             $actionName = array_pop($path);
             $controllerName = array_pop($path);
-            $pathNew = implode('/', $path);
-            if (!empty($pathNew)) {
-                $pathNew .= '/';
+// 已经autoload，不需要重新require
+//            $pathNew = implode('/', $path);
+//            if (!empty($pathNew)) {
+//                $pathNew .= '/';
+//            }
+//            $file = APPLICATION_ROOT . '/Controller/' . $pathNew . $controllerName . '.php';
+//            if (is_file($file)) {
+//                require_once($file);
+//                $namespace = implode('\\', $path);
+//                if (!empty($namespace)) {
+//                    $namespace .= '\\';
+//                }
+//                $namespace = '\\Controller\\' . $namespace . $controllerName;
+//                $urlArray = new $namespace();
+//                $urlArray->$actionName();
+//                return true;
+//            } else {
+//                return false;
+//            }
+            $namespace = implode('\\', $path);
+            if (!empty($namespace)) {
+                $namespace .= '\\';
             }
-            $file = APPLICATION_ROOT . '/controller/' . $pathNew . $controllerName . '.php';
-            if (is_file($file)) {
-                require_once($file);
-                $namespace = implode('\\', $path);
-                if (!empty($namespace)) {
-                    $namespace .= '\\';
-                }
-                $namespace = '\\Controller\\' . $namespace . $controllerName;
-                $urlArray = new $namespace();
-                $urlArray->$actionName();
-                return true;
-            } else {
-                return false;
-            }
+            $namespace = '\\Controller\\' . $namespace . $controllerName;
+            $urlArray = new $namespace();
+            $urlArray->$actionName();
+            return true;
         }
         return false;
     }
@@ -133,10 +142,14 @@ class Route
         $routeConfigure = self::routeConfig();
         $routes = new RouteCollection();
         foreach ($routeConfigure as $key => $value) {
-            $keyName = str_replace('/', 'love', $key);
-            $keyName = str_replace('{', 'love', $keyName);
-            $keyName = str_replace('}', 'love', $keyName);
-            $keyName = 'route' . $keyName;
+
+//            $keyName = str_replace('/', 'love', $key);
+//            $keyName = str_replace('{', 'love', $keyName);
+//            $keyName = str_replace('}', 'love', $keyName);
+//            $keyName = 'route' . $keyName;
+
+            $keyName = 'route' . $key;
+
             $routeConfigure[$keyName] = $value;
             $routes->add($keyName, new Routes($key));
         }
