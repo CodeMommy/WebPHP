@@ -2,7 +2,7 @@
 
 关于CodeMommy WebPHP的说明、QA等信息，请访问[官方网站](http://www.codemommy.com/)。
 
-## 一、安装
+## 安装
 
 在PHP5.3版本以上的环境下，安装CodeMommy WebPHP有两种方式：
 
@@ -10,7 +10,7 @@
 
 CodeMommy WebPHP使用Composer进行包管理，此安装方法需要您了解Composer，您只需要执行下面的命令即可。
 
-```Linux
+```bash
 composer create-project codemommy/webphp
 ```
 
@@ -22,20 +22,20 @@ composer create-project codemommy/webphp
 
 | 目录         | 功能                                               |
 | :---------- | :------------------------------------------------ |
-| application | 项目目录，项目相关的控制器、模板等文件都放在此处            |
+| application | 项目目录，项目相关的控制器、模板等文件都放在此目录            |
 | public      | 网站根目录，您需要把网站的根指向此目录                    |
-| system      | CodeMommy WebPHP的目录，您不需要对此目录里的文件做任何更改         |
+| system      | 核心目录，您不需要对此目录里的文件做任何更改         |
 | vendor      | Composer生成的包目录，您依然不需要手工更改此目录里的任何文件 |
 
-访问项目public目录，您将看到“Hello World”字样，这说明CodeMommy WebPHP安装成功。
+> 访问项目public目录，您将看到“Hello World”字样，这说明CodeMommy WebPHP安装成功。
 
-## 二、服务器配置
+## 服务器配置
 
-默认情况下，您可以通过类似“[http://www.domain.com/public/index.php/hello](http://www.domain.com/public/index.php/hello)”这样的网址访问，如果您想去掉中间的public和index.php，那么您需要对服务器进行配置。
+默认情况下，您可以通过类似“http://www.domain.com/index.php/hello”这样的URL访问，如果您想去掉URL中间的index.php，那么您需要对服务器进行配置。
 
 ### Apache
 
-默认情况下，在CodeMommy WebPHP的public目录，已经包含相应的.htaccess文件。您可以对此文件进行修改。
+在CodeMommy WebPHP的public目录，已经包含相应的.htaccess文件。您可以对此文件进行修改。
 
 ```Apache
 RewriteEngine on
@@ -44,7 +44,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 ```
 
-### Nginx
+### NGINX
 
 ```Nginx
 location / {
@@ -63,6 +63,12 @@ location ~ \.php {
 }
 ```
 
-## 三、基础
+## 基础
 
-## 四、组件
+使用CodeMommy WebPHP开发，您只需要对public目录和application目录里的文件进行修改。
+
+## 组件
+
+### Cookie
+
+### Is

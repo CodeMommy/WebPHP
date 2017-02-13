@@ -9,7 +9,14 @@ namespace Model;
 
 use CodeMommy\WebPHP\Model;
 
-class Book extends Model
+/**
+ * Class Demo
+ * @package Model
+ */
+class Demo extends Model
 {
-    protected $table = 'book';
+    /**
+     * @var string
+     */
+    protected $table = 'demo';
 }

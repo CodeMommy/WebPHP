@@ -6,9 +6,9 @@ return array(
     // Route Configure
     // any, get, post...
     'get'  => array(
-        '/' => 'IndexController.index'
+        '/' => 'DemoController.demo'
     ),
     'any'  => array(
-        'test/{action}' => 'TestController.index'
+        'test/{action}' => 'DemoController.test'
     )
 );

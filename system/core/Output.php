@@ -7,24 +7,34 @@
 
 namespace CodeMommy\WebPHP;
 
+use CodeMommy\WebPHP\Config;
 use Smarty;
 
 class Output
 {
     public static function template($view, $data = null)
     {
-        $smarty = new Smarty(); // 建立smarty实例对象$smarty
-        $smarty->setTemplateDir(APPLICATION_ROOT . "/view/"); // 设置模板目录
-        $smarty->setCompileDir(APPLICATION_ROOT . "/cache/smarty_template/"); // 设置编译目录
-        $smarty->setCacheDir(APPLICATION_ROOT . "/cache/smarty_cache/"); // 缓存目录
-        $smarty->debugging = false; // 缓存方式
+        $smarty = new Smarty();
+        $smarty->setTemplateDir(APPLICATION_ROOT . '/view/');
+        $smarty->setCompileDir(APPLICATION_ROOT . '/cache/smarty_template/');
+        $smarty->setCacheDir(APPLICATION_ROOT . '/cache/smarty_cache/');
         $smarty->left_delimiter = '{';
         $smarty->right_delimiter = '}';
+        $isDebug = Config::get('application.debug');
+        $smarty->debugging = false;
+        if ($isDebug == true) {
+            $smarty->caching = false;
+            $smarty->clearAllCache();
+            $smarty->clearCompiledTemplate($view);
+        } else {
+            $smarty->caching = true;
+        }
         if ($data) {
             foreach ($data as $key => $value) {
                 $smarty->assign($key, $value);
             }
         }
+        $view .= '.tpl';
         $smarty->display($view);
         return true;
     }

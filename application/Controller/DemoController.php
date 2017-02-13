@@ -5,8 +5,11 @@
  * @author  Candison November <www.kandisheng.com>
  */
 
+namespace Controller;
+
 use CodeMommy\CookiePHP\Cookie;
 use CodeMommy\IsPHP\Is;
+
 use CodeMommy\WebPHP\Controller;
 use CodeMommy\WebPHP\Output;
 use CodeMommy\WebPHP\Session;
@@ -23,18 +26,38 @@ use CodeMommy\WebPHP\Mail;
 use CodeMommy\WebPHP\Cache;
 use CodeMommy\WebPHP\Redis;
 
-use Model\Book;
+use Model\Demo;
 
-class TestController extends Controller
+use HelloWorld;
+
+/**
+ * Class DemoController
+ * @package Controller
+ */
+class DemoController extends Controller
 {
+    /**
+     * Homepage
+     * @return bool
+     */
+    public function demo()
+    {
+        $data = array();
+        $data['root'] = Me::root();
+        return Output::template('demo', $data);
+    }
 
-    public function index()
+    /**
+     * Test
+     * @return mixed
+     */
+    public function test()
     {
         $action = Input::get('action', '');
         $string = sprintf('This is a CodeMommy WebPHP test: %s', $action);
         echo sprintf('<title>%s</title>', $string);
         echo sprintf('<h3>%s</h3>', $string);
-        $this->$action();
+        return $this->$action();
     }
 
     protected function library()
@@ -74,7 +97,7 @@ class TestController extends Controller
 
     protected function model()
     {
-        $result = Book::all();
+        $result = Demo::all();
         Debug::show($result);
     }
 
@@ -160,14 +183,14 @@ class TestController extends Controller
 
     protected function log()
     {
-        $log = new Log('Demo',APPLICATION_ROOT.'/cache/log/log.log');
+        $log = new Log('Demo', APPLICATION_ROOT . '/cache/log/log.log');
         $log->debug('Yes');
     }
 
     protected function mail()
     {
         $mail = new Mail('', 25, '', '');
-        $result = $mail->send('', '', '', '', '','');
+        $result = $mail->send('', '', '', '', '', '');
         Debug::show($result);
     }
 

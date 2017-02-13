@@ -64,16 +64,19 @@ class Route
             $path = explode('.', $route);
             $actionName = array_pop($path);
             $controllerName = array_pop($path);
-            $controllerFileName = substr($controllerName, 0, strlen($controllerName) - 10);
-            $controllerFileName = strtolower($controllerFileName);
-            $pathNew = '';
-            foreach ($path as $value) {
-                $pathNew = $pathNew . $value . '/';
+            $pathNew = implode('/', $path);
+            if (!empty($pathNew)) {
+                $pathNew .= '/';
             }
-            $file = APPLICATION_ROOT . '/controller/' . $pathNew . $controllerFileName . '.php';
+            $file = APPLICATION_ROOT . '/controller/' . $pathNew . $controllerName . '.php';
             if (is_file($file)) {
                 require_once($file);
-                $urlArray = new $controllerName();
+                $namespace = implode('\\', $path);
+                if (!empty($namespace)) {
+                    $namespace .= '\\';
+                }
+                $namespace = '\\Controller\\' . $namespace . $controllerName;
+                $urlArray = new $namespace();
                 $urlArray->$actionName();
                 return true;
             } else {
