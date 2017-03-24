@@ -8,6 +8,7 @@
 namespace Controller;
 
 use CodeMommy\CookiePHP\Cookie;
+use CodeMommy\CachePHP\Cache;
 use CodeMommy\IsPHP\Is;
 
 use CodeMommy\WebPHP\Controller;
@@ -23,8 +24,8 @@ use CodeMommy\WebPHP\DateTime;
 use CodeMommy\WebPHP\Me;
 use CodeMommy\WebPHP\Log;
 use CodeMommy\WebPHP\Mail;
-use CodeMommy\WebPHP\Cache;
-use CodeMommy\WebPHP\Redis;
+//use CodeMommy\WebPHP\Cache;
+//use CodeMommy\WebPHP\Redis;
 
 use Model\Demo;
 
@@ -196,16 +197,18 @@ class DemoController extends Controller
 
     protected function cache()
     {
-        Cache::set('cache', 'test', 10);
-        echo Cache::get('cache');
+        $config = Config::get('cache');
+        $cache = new Cache($config);
+        $cache->writeValue('cache', 'test', 10);
+        echo $cache->readValue('cache');
     }
 
-    protected function redis()
-    {
-        $redis = new Redis();
-        $redis->set('cache', 'test', 10);
-        echo $redis->get('cache');
-    }
+//    protected function redis()
+//    {
+//        $redis = new Redis();
+//        $redis->set('cache', 'test', 10);
+//        echo $redis->get('cache');
+//    }
 
     protected function upload()
     {

@@ -1,6 +1,6 @@
 {
   "name": "codemommy/webphp",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "keywords": [
     "CodeMommy",
@@ -30,7 +30,9 @@
   "require": {
     "php": ">=5.3.0",
     "codemommy/cookiephp": "1.1.*",
+    "codemommy/cachephp": "0.0.*",
     "codemommy/isphp": "0.0.*",
+    "codemommy/autoloadphp": "0.0.*",
     "symfony/http-foundation": "3.0.*",
     "symfony/routing": "3.0.*",
     "illuminate/database": "5.2.*",
@@ -38,7 +40,6 @@
     "smarty/smarty": "3.1.*",
     "nesbot/carbon": "1.22.*",
     "monolog/monolog": "1.17.*",
-    "swiftmailer/swiftmailer": "5.4.*",
-    "doctrine/cache": "1.5.*"
+    "swiftmailer/swiftmailer": "5.4.*"
   }
 }
