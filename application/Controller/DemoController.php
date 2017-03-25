@@ -197,10 +197,8 @@ class DemoController extends Controller
 
     protected function cache()
     {
-        $config = Config::get('cache');
-        $cache = new Cache($config);
-        $cache->writeValue('cache', 'test', 10);
-        echo $cache->readValue('cache');
+        Cache::writeValue('cache', 'test', 10);
+        echo Cache::readValue('cache');
     }
 
 //    protected function redis()

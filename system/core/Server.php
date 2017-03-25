@@ -8,6 +8,8 @@
 namespace CodeMommy\WebPHP;
 
 use CodeMommy\AutoloadPHP\Autoload;
+use CodeMommy\CachePHP\Cache;
+use CodeMommy\WebPHP\Config;
 use CodeMommy\WebPHP\Route;
 
 class Server
@@ -16,7 +18,6 @@ class Server
     public static function start($path)
     {
         define('APPLICATION_ROOT', $path);
-        Autoload::load(APPLICATION_ROOT, '');
         $library = Config::get('library');
         if (is_array($library)) {
             foreach ($library as $key => $value) {
@@ -24,6 +25,8 @@ class Server
                 Autoload::file($file, $key);
             }
         }
+        Autoload::load(APPLICATION_ROOT, '');
+        Cache::setConfig(Config::get('cache'));
         Route::init();
         return true;
     }
