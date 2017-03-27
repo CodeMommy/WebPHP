@@ -9,6 +9,7 @@ namespace Controller;
 
 use CodeMommy\CookiePHP\Cookie;
 use CodeMommy\CachePHP\Cache;
+use CodeMommy\ConfigPHP\Config;
 use CodeMommy\IsPHP\Is;
 
 use CodeMommy\WebPHP\Controller;
@@ -17,13 +18,13 @@ use CodeMommy\WebPHP\Session;
 use CodeMommy\WebPHP\Input;
 use CodeMommy\WebPHP\Debug;
 use CodeMommy\WebPHP\Client;
-use CodeMommy\WebPHP\Config;
 use CodeMommy\WebPHP\Convert;
 use CodeMommy\WebPHP\Database;
 use CodeMommy\WebPHP\DateTime;
 use CodeMommy\WebPHP\Me;
 use CodeMommy\WebPHP\Log;
 use CodeMommy\WebPHP\Mail;
+//use CodeMommy\WebPHP\Config;
 //use CodeMommy\WebPHP\Cache;
 //use CodeMommy\WebPHP\Redis;
 

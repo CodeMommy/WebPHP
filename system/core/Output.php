@@ -7,7 +7,7 @@
 
 namespace CodeMommy\WebPHP;
 
-use CodeMommy\WebPHP\Config;
+use CodeMommy\ConfigPHP\Config;
 use Smarty;
 
 class Output

@@ -1,6 +1,6 @@
 {
   "name": "codemommy/webphp",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "keywords": [
     "CodeMommy",
@@ -31,6 +31,7 @@
     "php": ">=5.3.0",
     "codemommy/cookiephp": "1.1.*",
     "codemommy/cachephp": "0.0.*",
+    "codemommy/configphp": "0.0.*",
     "codemommy/isphp": "0.0.*",
     "codemommy/autoloadphp": "0.0.*",
     "symfony/http-foundation": "3.0.*",

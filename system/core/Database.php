@@ -8,6 +8,7 @@
 namespace CodeMommy\WebPHP;
 
 use Illuminate\Database\Capsule\Manager;
+use CodeMommy\ConfigPHP\Config;
 
 class Database extends Manager
 {

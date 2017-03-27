@@ -9,7 +9,7 @@ namespace CodeMommy\WebPHP;
 
 use CodeMommy\AutoloadPHP\Autoload;
 use CodeMommy\CachePHP\Cache;
-use CodeMommy\WebPHP\Config;
+use CodeMommy\ConfigPHP\Config;
 use CodeMommy\WebPHP\Route;
 
 class Server
@@ -18,6 +18,7 @@ class Server
     public static function start($path)
     {
         define('APPLICATION_ROOT', $path);
+        Config::setRoot(APPLICATION_ROOT . '/config');
         $library = Config::get('library');
         if (is_array($library)) {
             foreach ($library as $key => $value) {
