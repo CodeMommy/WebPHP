@@ -11,22 +11,21 @@ use CodeMommy\CookiePHP\Cookie;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
 use CodeMommy\IsPHP\Is;
+use CodeMommy\RequestPHP\Request;
+use CodeMommy\ResponsePHP\Response;
+use CodeMommy\ClientPHP\Client;
+use CodeMommy\ServerPHP\Server;
+use CodeMommy\SessionPHP\Session;
+use CodeMommy\ConvertPHP\Convert;
+use CodeMommy\ImagePHP\Image;
 
 use CodeMommy\WebPHP\Controller;
 use CodeMommy\WebPHP\Output;
-use CodeMommy\WebPHP\Session;
-use CodeMommy\WebPHP\Input;
 use CodeMommy\WebPHP\Debug;
-use CodeMommy\WebPHP\Client;
-use CodeMommy\WebPHP\Convert;
 use CodeMommy\WebPHP\Database;
 use CodeMommy\WebPHP\DateTime;
-use CodeMommy\WebPHP\Me;
 use CodeMommy\WebPHP\Log;
 use CodeMommy\WebPHP\Mail;
-//use CodeMommy\WebPHP\Config;
-//use CodeMommy\WebPHP\Cache;
-//use CodeMommy\WebPHP\Redis;
 
 use Model\Demo;
 
@@ -45,7 +44,7 @@ class DemoController extends Controller
     public function demo()
     {
         $data = array();
-        $data['root'] = Me::root();
+        $data['root'] = Request::root();
         return Output::template('demo', $data);
     }
 
@@ -55,7 +54,7 @@ class DemoController extends Controller
      */
     public function test()
     {
-        $action = Input::get('action', '');
+        $action = Request::inputGet('action', '');
         $string = sprintf('This is a CodeMommy WebPHP test: %s', $action);
         echo sprintf('<title>%s</title>', $string);
         echo sprintf('<h3>%s</h3>', $string);
@@ -67,14 +66,19 @@ class DemoController extends Controller
         new HelloWorld();
     }
 
-    protected function me()
+    protected function request()
     {
-        echo 'Root: ' . Me::root() . '<br>';
-        echo 'URL: ' . Me::url() . '<br>';
-        echo 'Domain: ' . Me::domain() . '<br>';
-        echo 'Scheme: ' . Me::scheme() . '<br>';
-        echo 'Path: ' . Me::path() . '<br>';
-        echo 'Query: ' . Me::query() . '<br>';
+        echo 'Root: ' . Request::root() . '<br>';
+        echo 'URL: ' . Request::url() . '<br>';
+        echo 'Domain: ' . Request::domain() . '<br>';
+        echo 'Scheme: ' . Request::scheme() . '<br>';
+        echo 'Path: ' . Request::path() . '<br>';
+        echo 'Query: ' . Request::query() . '<br>';
+    }
+
+    protected function server()
+    {
+        Server::information();
     }
 
     protected function time()
@@ -105,7 +109,7 @@ class DemoController extends Controller
 
     protected function redirect()
     {
-        return Output::redirect('http://www.microsoft.com');
+        return Response::redirect('http://www.microsoft.com');
     }
 
     protected function cookie()
@@ -135,12 +139,12 @@ class DemoController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        return Output::json($data);
+        return Response::json($data);
     }
 
     protected function input()
     {
-        echo Input::get('hello', 'default');;
+        echo Request::inputGet('hello', 'default');;
     }
 
     protected function debug()
@@ -211,6 +215,6 @@ class DemoController extends Controller
 
     protected function upload()
     {
-        Input::file('file', 'static/upload/');
+        Request::inputFile('file', 'static/upload/');
     }
 }

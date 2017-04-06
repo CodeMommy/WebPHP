@@ -7,15 +7,11 @@
 
 namespace CodeMommy\WebPHP;
 
-use CodeMommy\WebPHP\Output;
-
 class Debug
 {
-    public static function show($data, $isExit = false)
+    public static function show($data = null, $isExit = false)
     {
-        Output::text('<pre>');
-        var_dump($data);
-        Output::text('</pre>');
+        dump($data);
         if ($isExit) {
             exit();
         }

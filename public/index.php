@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use CodeMommy\WebPHP\Server;
+use CodeMommy\WebPHP\Application;
 
-Server::start(__DIR__ . '/../application');
+Application::start(__DIR__ . '/../application');

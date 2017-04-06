@@ -1,6 +1,6 @@
 {
   "name": "codemommy/webphp",
-  "version": "1.1.4",
+  "version": "0.0.5",
   "description": "PHP Framework of Light and Fast, Free and Open Source.",
   "keywords": [
     "CodeMommy",
@@ -29,18 +29,27 @@
   },
   "require": {
     "php": ">=5.3.0",
-    "codemommy/cookiephp": "1.1.*",
+    "codemommy/autoloadphp": "0.0.*",
+    "codemommy/cookiephp": "0.0.*",
     "codemommy/cachephp": "0.0.*",
     "codemommy/configphp": "0.0.*",
+    "codemommy/clientphp": "0.0.*",
+    "codemommy/curlphp": "0.0.*",
+    "codemommy/convertphp": "0.0.*",
     "codemommy/isphp": "0.0.*",
-    "codemommy/autoloadphp": "0.0.*",
-    "symfony/http-foundation": "3.0.*",
-    "symfony/routing": "3.0.*",
+    "codemommy/imagephp": "0.0.*",
+    "codemommy/requestphp": "0.0.*",
+    "codemommy/responsephp": "0.0.*",
+    "codemommy/serverphp": "0.0.*",
+    "codemommy/sessionphp": "0.0.*",
+    "symfony/http-foundation": "3.2.*",
+    "symfony/routing": "3.2.*",
+    "symfony/var-dumper": "3.2.*",
     "illuminate/database": "5.2.*",
     "illuminate/pagination": "5.2.*",
     "smarty/smarty": "3.1.*",
     "nesbot/carbon": "1.22.*",
-    "monolog/monolog": "1.17.*",
+    "monolog/monolog": "1.22.*",
     "swiftmailer/swiftmailer": "5.4.*"
   }
 }

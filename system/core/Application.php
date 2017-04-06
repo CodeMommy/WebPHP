@@ -12,7 +12,7 @@ use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
 use CodeMommy\WebPHP\Route;
 
-class Server
+class Application
 {
 
     public static function start($path)
