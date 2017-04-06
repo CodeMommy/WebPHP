@@ -24,7 +24,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "CodeMommy\\WebPHP\\": "system/core/"
+      "CodeMommy\\WebPHP\\": "system/"
     }
   },
   "require": {
