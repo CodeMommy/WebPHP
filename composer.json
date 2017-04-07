@@ -1,7 +1,7 @@
 {
   "name": "codemommy/webphp",
   "version": "0.0.5",
-  "description": "PHP Framework of Light and Fast, Free and Open Source.",
+  "description": "Web MVC framework of light and fast",
   "keywords": [
     "CodeMommy",
     "WebPHP",
