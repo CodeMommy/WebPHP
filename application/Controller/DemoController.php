@@ -20,12 +20,12 @@ use CodeMommy\ConvertPHP\Convert;
 use CodeMommy\ImagePHP\Image;
 
 use CodeMommy\WebPHP\Controller;
-use CodeMommy\WebPHP\Output;
 use CodeMommy\WebPHP\Debug;
 use CodeMommy\WebPHP\Database;
 use CodeMommy\WebPHP\DateTime;
 use CodeMommy\WebPHP\Log;
 use CodeMommy\WebPHP\Mail;
+use CodeMommy\WebPHP\View;
 
 use Model\Demo;
 
@@ -45,7 +45,7 @@ class DemoController extends Controller
     {
         $data = array();
         $data['root'] = Request::root();
-        return Output::template('demo', $data);
+        return View::render('demo', $data);
     }
 
     /**
@@ -131,7 +131,7 @@ class DemoController extends Controller
         $data = array();
         $data['hello'] = 'Hello';
         $data['world'] = 'World';
-        return Output::template('index/start.html', $data);
+        return View::render('demo', $data);
     }
 
     protected function showJSON()

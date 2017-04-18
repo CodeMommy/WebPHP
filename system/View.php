@@ -10,9 +10,9 @@ namespace CodeMommy\WebPHP;
 use CodeMommy\ConfigPHP\Config;
 use Smarty;
 
-class Output
+class View
 {
-    public static function template($view, $data = null)
+    public static function render($view, $data = array())
     {
         $smarty = new Smarty();
         $smarty->setTemplateDir(APPLICATION_ROOT . '/view/');
@@ -29,13 +29,13 @@ class Output
         } else {
             $smarty->caching = true;
         }
-        if ($data) {
+        if (is_array($data)) {
             foreach ($data as $key => $value) {
                 $smarty->assign($key, $value);
             }
         }
         $view .= '.tpl';
         $smarty->display($view);
-        return true;
+        return null;
     }
 }

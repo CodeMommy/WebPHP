@@ -12,12 +12,12 @@
 
 Visit [CodeMommy Website](http://www.codemommy.com) or [Packagist](https://packagist.org/packages/CodeMommy/WebPHP) to get more information.
 
-## Download & Documentation
+## Download & Manual
 
-| Download | Documentation | Update |
+| Download | Manual | Update |
 | :------- | :------------ | :----- |
-| [V1](https://github.com/CodeMommy/WebPHP/releases/tag/1.1.0)    | [简体中文](system/documentation/1/SimplifiedChinese.md) | 2017-02-09 |
-| [Latest](https://github.com/CodeMommy/WebPHP/archive/master.zip) | [简体中文](system/documentation/1/SimplifiedChinese.md) | Now |
+| [V1](https://github.com/CodeMommy/WebPHP/releases/tag/1.1.0)    | [简体中文](system/manual/1/SimplifiedChinese.md) | 2017-02-09 |
+| [Latest](https://github.com/CodeMommy/WebPHP/archive/master.zip) | [简体中文](system/manual/1/SimplifiedChinese.md) | Now |
 
 ## Author
 

@@ -90,7 +90,12 @@ class Route
             }
             $namespace = '\\Controller\\' . $namespace . $controllerName;
             $urlArray = new $namespace();
-            $urlArray->$actionName();
+            $result = $urlArray->$actionName();
+            $type = gettype($result);
+            $array = array('string', 'integer', 'double', 'boolean', 'array', 'object');
+            if (in_array($type, $array)) {
+                echo $result;
+            }
             return true;
         }
         return false;
@@ -138,19 +143,16 @@ class Route
         self::route($route);
     }
 
-    public static function symfony()
+    private static function symfony()
     {
         $routeConfigure = self::routeConfig();
         $routes = new RouteCollection();
         foreach ($routeConfigure as $key => $value) {
-
 //            $keyName = str_replace('/', 'love', $key);
 //            $keyName = str_replace('{', 'love', $keyName);
 //            $keyName = str_replace('}', 'love', $keyName);
 //            $keyName = 'route' . $keyName;
-
             $keyName = 'route' . $key;
-
             $routeConfigure[$keyName] = $value;
             $routes->add($keyName, new Routes($key));
         }
