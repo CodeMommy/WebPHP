@@ -7,6 +7,8 @@
 
 namespace CodeMommy\WebPHP;
 
+use Whoops\Run;
+use Whoops\Handler\PrettyPageHandler;
 use CodeMommy\AutoloadPHP\Autoload;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
@@ -19,7 +21,7 @@ class Application
     {
         define('APPLICATION_ROOT', $path);
         Config::setRoot(APPLICATION_ROOT . '/config');
-        // Debug
+        /* Debug Old
         error_reporting(0);
         ini_set('display_errors', 'Off');
         $isDebug = Config::get('application.debug', false);
@@ -30,6 +32,14 @@ class Application
                     Debug::show(error_get_last());
                 }
             });
+        }
+        */
+        // Debug
+        $isDebug = Config::get('application.debug', false);
+        if ($isDebug) {
+            $whoops = new Run();
+            $whoops->pushHandler(new PrettyPageHandler());
+            $whoops->register();
         }
         // Load Library
         $library = Config::get('library', array());
