@@ -8,7 +8,7 @@
 /**
  * @param $path
  */
-function deleteDirectory($path)
+function emptyDirectory($path)
 {
     $directory = dir($path);
     while (($item = $directory->read()) != false) {
@@ -17,7 +17,7 @@ function deleteDirectory($path)
         }
         $file = $directory->path . '/' . $item;
         if (is_dir($file)) {
-            deleteDirectory($file);
+            emptyDirectory($file);
             rmdir($file);
         } else {
             unlink($file);
@@ -34,4 +34,5 @@ unlink('composer.example.json');
 unlink('install.php');
 unlink('gulpfile.js');
 unlink('package.json');
-deleteDirectory('system');
+emptyDirectory('system');
+rmdir('system');

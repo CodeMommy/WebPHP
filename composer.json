@@ -1,6 +1,6 @@
 {
   "name": "codemommy/webphp",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Web MVC framework of light and fast",
   "keywords": [
     "CodeMommy",
@@ -58,7 +58,8 @@
     "monolog/monolog": "1.22.*",
     "swiftmailer/swiftmailer": "5.4.*",
     "filp/whoops": "2.1.*",
-    "hassankhan/config": "0.10.*"
+    "hassankhan/config": "0.10.*",
+    "symfony/yaml": "3.2.*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.*"
