@@ -1,18 +1,16 @@
-#IDE
+# IDE
 /.idea/
 
-#Composer
+# Composer
 /vendor/
-/composer.lock
+composer.lock
 composer.phar
 
-#Cache
-/application/cache/smarty_template/*.php
-/application/cache/smarty_cache/*.php
-/public/static/upload/*
-*.log
+# Runtime
+/application/_runtime/
 
-#Node.js
+# Node.js
 /node_modules/
 
+# Publish
 /publish/

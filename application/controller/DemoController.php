@@ -189,7 +189,7 @@ class DemoController extends Controller
 
     protected function log()
     {
-        $log = new Log('Demo', APPLICATION_ROOT . '/cache/log/log.log');
+        $log = new Log('Demo', APPLICATION_ROOT . '/_runtime/log/log.log');
         $log->debug('Yes');
     }
 

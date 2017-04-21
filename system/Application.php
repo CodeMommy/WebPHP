@@ -19,6 +19,9 @@ class Application
 {
     public static function start($path)
     {
+        if (substr($path, -1) == '/' || substr($path, -1) == '\\') {
+            $path = substr($path, 0, -1);
+        }
         define('APPLICATION_ROOT', $path);
         Config::setRoot(APPLICATION_ROOT . '/config');
         /* Debug Old
@@ -49,6 +52,8 @@ class Application
                 Autoload::file($file, $key);
             }
         }
+        Autoload::load(APPLICATION_ROOT . '/controller', 'Controller');
+        Autoload::load(APPLICATION_ROOT . '/model', 'Model');
         Autoload::load(APPLICATION_ROOT, '');
         Cache::setConfig(Config::get('cache'));
         Route::init();

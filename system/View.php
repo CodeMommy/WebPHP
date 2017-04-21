@@ -16,8 +16,8 @@ class View
     {
         $smarty = new Smarty();
         $smarty->setTemplateDir(APPLICATION_ROOT . '/view/');
-        $smarty->setCompileDir(APPLICATION_ROOT . '/cache/smarty_template/');
-        $smarty->setCacheDir(APPLICATION_ROOT . '/cache/smarty_cache/');
+        $smarty->setCompileDir(APPLICATION_ROOT . '/_runtime/view_template/');
+        $smarty->setCacheDir(APPLICATION_ROOT . '/_runtime/view_cache/');
         $smarty->left_delimiter = '{';
         $smarty->right_delimiter = '}';
         $isDebug = Config::get('application.debug');
