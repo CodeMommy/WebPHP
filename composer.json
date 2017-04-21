@@ -1,6 +1,6 @@
 {
   "name": "codemommy/webphp",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Web MVC framework of light and fast",
   "keywords": [
     "CodeMommy",
@@ -29,7 +29,10 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "php -r \"file_exists('application/environment.yaml') || copy('application/environment.example.yaml', 'application/environment.yaml');\""
+      "php -r \"file_exists('application/environment.yaml') || copy('application/environment.example.yaml', 'application/environment.yaml');\"",
+      "php -r \"unlink('composer.json');\"",
+      "php -r \"copy('composer.example.json', 'composer.json');\"",
+      "composer update"
     ]
   },
   "require": {
