@@ -30,9 +30,9 @@ if (!file_exists('application/environment.yaml')) {
 }
 unlink('composer.json');
 copy('composer.example.json', 'composer.json');
-unlink('composer.example.json');
-unlink('install.php');
-unlink('gulpfile.js');
-unlink('package.json');
 emptyDirectory('system');
 rmdir('system');
+unlink('composer.example.json');
+unlink('gulpfile.js');
+unlink('package.json');
+unlink('install.php');
