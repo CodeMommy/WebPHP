@@ -8,7 +8,9 @@
 namespace CodeMommy\WebPHP;
 
 use Whoops\Run;
+use Whoops\Util\Misc;
 use Whoops\Handler\PrettyPageHandler;
+use Whoops\Handler\JsonResponseHandler;
 use CodeMommy\AutoloadPHP\Autoload;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
@@ -41,7 +43,11 @@ class Application
         $isDebug = Config::get('application.debug', false);
         if ($isDebug) {
             $whoops = new Run();
-            $whoops->pushHandler(new PrettyPageHandler());
+            if (Misc::isAjaxRequest()) {
+                $whoops->pushHandler(new JsonResponseHandler);
+            } else {
+                $whoops->pushHandler(new PrettyPageHandler());
+            }
             $whoops->register();
         }
         // Load Library
