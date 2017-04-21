@@ -1,5 +1,7 @@
 <?php
 
+use CodeMommy\WebPHP\Environment;
+
 return array(
     // Route Type: pathinfo, map or symfony
     'type' => 'symfony',

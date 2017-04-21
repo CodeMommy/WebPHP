@@ -1,5 +1,7 @@
 <?php
 
+use CodeMommy\WebPHP\Environment;
+
 return array(
-    'debug' => true
+    'debug' => Environment::get('application.debug', false)
 );

@@ -2,7 +2,7 @@
 
 /**
  * CodeMommy WebPHP
- * @author  Candison November <www.kandisheng.com>
+ * @author Candison November <www.kandisheng.com>
  */
 
 namespace CodeMommy\WebPHP;
@@ -10,8 +10,15 @@ namespace CodeMommy\WebPHP;
 use Illuminate\Database\Capsule\Manager;
 use CodeMommy\ConfigPHP\Config;
 
+/**
+ * Class Database
+ * @package CodeMommy\WebPHP
+ */
 class Database extends Manager
 {
+    /**
+     * Database constructor.
+     */
     public function __construct()
     {
         parent::__construct();

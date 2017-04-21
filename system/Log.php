@@ -2,7 +2,7 @@
 
 /**
  * CodeMommy WebPHP
- * @author  Candison November <www.kandisheng.com>
+ * @author Candison November <www.kandisheng.com>
  */
 
 namespace CodeMommy\WebPHP;
@@ -10,17 +10,31 @@ namespace CodeMommy\WebPHP;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/**
+ * Class Log
+ * @package CodeMommy\WebPHP
+ */
 class Log
 {
     private $logFile = null;
     private $logName = null;
 
+    /**
+     * Log constructor.
+     *
+     * @param $logName
+     * @param $logFile
+     */
     public function __construct($logName, $logFile)
     {
         $this->logFile = $logFile;
         $this->logName = $logName;
     }
 
+    /**
+     * @param $message
+     * @param array $array
+     */
     public function debug($message, $array = array())
     {
         $log = new Logger($this->logName);
@@ -28,6 +42,10 @@ class Log
         $log->addDebug($message, $array);
     }
 
+    /**
+     * @param $message
+     * @param array $array
+     */
     public function info($message, $array = array())
     {
         $log = new Logger($this->logName);
@@ -35,6 +53,10 @@ class Log
         $log->addInfo($message, $array);
     }
 
+    /**
+     * @param $message
+     * @param array $array
+     */
     public function notice($message, $array = array())
     {
         $log = new Logger($this->logName);
@@ -42,6 +64,10 @@ class Log
         $log->addNotice($message, $array);
     }
 
+    /**
+     * @param $message
+     * @param array $array
+     */
     public function warning($message, $array = array())
     {
         $log = new Logger($this->logName);
@@ -49,6 +75,10 @@ class Log
         $log->addWarning($message, $array);
     }
 
+    /**
+     * @param $message
+     * @param array $array
+     */
     public function error($message, $array = array())
     {
         $log = new Logger($this->logName);
@@ -56,6 +86,10 @@ class Log
         $log->addError($message, $array);
     }
 
+    /**
+     * @param $message
+     * @param array $array
+     */
     public function critical($message, $array = array())
     {
         $log = new Logger($this->logName);
@@ -63,6 +97,10 @@ class Log
         $log->addCritical($message, $array);
     }
 
+    /**
+     * @param $message
+     * @param array $array
+     */
     public function alert($message, $array = array())
     {
         $log = new Logger($this->logName);

@@ -2,7 +2,7 @@
 
 /**
  * CodeMommy WebPHP
- * @author  Candison November <www.kandisheng.com>
+ * @author Candison November <www.kandisheng.com>
  */
 
 namespace CodeMommy\WebPHP;
@@ -14,6 +14,10 @@ use Swift_Message;
 use Swift_Encoding;
 use Swift_Mailer;
 
+/**
+ * Class Mail
+ * @package CodeMommy\WebPHP
+ */
 class Mail
 {
 
@@ -22,6 +26,14 @@ class Mail
     private $username = null;
     private $password = null;
 
+    /**
+     * Mail constructor.
+     *
+     * @param $smtp
+     * @param $port
+     * @param $username
+     * @param $password
+     */
     public function __construct($smtp, $port, $username, $password)
     {
         $this->smtp = $smtp;
@@ -30,6 +42,16 @@ class Mail
         $this->password = $password;
     }
 
+    /**
+     * @param $from
+     * @param $fromName
+     * @param $to
+     * @param $toName
+     * @param $subject
+     * @param $content
+     *
+     * @return int
+     */
     public function send($from, $fromName, $to, $toName, $subject, $content)
     {
         $transport = Swift_SmtpTransport::newInstance($this->smtp, $this->port)

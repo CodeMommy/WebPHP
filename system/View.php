@@ -2,7 +2,7 @@
 
 /**
  * CodeMommy WebPHP
- * @author  Candison November <www.kandisheng.com>
+ * @author Candison November <www.kandisheng.com>
  */
 
 namespace CodeMommy\WebPHP;
@@ -10,8 +10,18 @@ namespace CodeMommy\WebPHP;
 use CodeMommy\ConfigPHP\Config;
 use Smarty;
 
+/**
+ * Class View
+ * @package CodeMommy\WebPHP
+ */
 class View
 {
+    /**
+     * @param $view
+     * @param array $data
+     *
+     * @return null
+     */
     public static function render($view, $data = array())
     {
         $smarty = new Smarty();

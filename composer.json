@@ -1,6 +1,6 @@
 {
   "name": "codemommy/webphp",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Web MVC framework of light and fast",
   "keywords": [
     "CodeMommy",
@@ -27,6 +27,11 @@
       "CodeMommy\\WebPHP\\": "system/"
     }
   },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"file_exists('application/environment.yaml') || copy('application/environment.example.yaml', 'application/environment.yaml');\""
+    ]
+  },
   "require": {
     "php": ">=5.5.9",
     "codemommy/autoloadphp": "0.0.*",
@@ -51,7 +56,8 @@
     "nesbot/carbon": "1.22.*",
     "monolog/monolog": "1.22.*",
     "swiftmailer/swiftmailer": "5.4.*",
-    "filp/whoops": "2.1.*"
+    "filp/whoops": "2.1.*",
+    "hassankhan/config": "0.10.*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.*"

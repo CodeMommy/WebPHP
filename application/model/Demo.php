@@ -2,7 +2,7 @@
 
 /**
  * CodeMommy WebPHP
- * @author  Candison November <www.kandisheng.com>
+ * @author Candison November <www.kandisheng.com>
  */
 
 namespace Model;

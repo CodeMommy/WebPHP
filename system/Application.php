@@ -2,7 +2,7 @@
 
 /**
  * CodeMommy WebPHP
- * @author  Candison November <www.kandisheng.com>
+ * @author Candison November <www.kandisheng.com>
  */
 
 namespace CodeMommy\WebPHP;
@@ -17,8 +17,17 @@ use CodeMommy\ConfigPHP\Config;
 use CodeMommy\WebPHP\Route;
 use CodeMommy\WebPHP\Debug;
 
+/**
+ * Class Application
+ * @package CodeMommy\WebPHP
+ */
 class Application
 {
+    /**
+     * @param $path
+     *
+     * @return bool
+     */
     public static function start($path)
     {
         if (substr($path, -1) == '/' || substr($path, -1) == '\\') {
@@ -34,7 +43,7 @@ class Application
             register_shutdown_function(function () {
                 $error = error_get_last();
                 if (is_array($error)) {
-                    Debug::show(error_get_last());
+                    Debug::show($error);
                 }
             });
         }

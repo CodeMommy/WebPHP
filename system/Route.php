@@ -2,7 +2,7 @@
 
 /**
  * CodeMommy WebPHP
- * @author  Candison November <www.kandisheng.com>
+ * @author Candison November <www.kandisheng.com>
  */
 
 namespace CodeMommy\WebPHP;
@@ -14,8 +14,15 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\HttpFoundation\Request;
 use CodeMommy\ConfigPHP\Config;
 
+/**
+ * Class Route
+ * @package CodeMommy\WebPHP
+ */
 class Route
 {
+    /**
+     * @return bool|string
+     */
     private static function urlFull()
     {
         $filePath = strtolower($_SERVER['SCRIPT_NAME']);
@@ -45,6 +52,9 @@ class Route
         return $urlFull;
     }
 
+    /**
+     * @return array
+     */
     private static function routeConfig()
     {
         $routeConfig = array();
@@ -59,6 +69,11 @@ class Route
         return $routeConfig;
     }
 
+    /**
+     * @param $route
+     *
+     * @return bool
+     */
     private static function route($route)
     {
         if ($route) {
@@ -101,6 +116,9 @@ class Route
         return false;
     }
 
+    /**
+     *
+     */
     private static function pathInfo()
     {
         $urlFull = self::urlFull();
@@ -131,6 +149,9 @@ class Route
         self::route($route);
     }
 
+    /**
+     *
+     */
     private static function map()
     {
         $urlFull = self::urlFull();
@@ -143,6 +164,9 @@ class Route
         self::route($route);
     }
 
+    /**
+     *
+     */
     private static function symfony()
     {
         $routeConfigure = self::routeConfig();
@@ -175,6 +199,9 @@ class Route
         self::route($route);
     }
 
+    /**
+     *
+     */
     public static function init()
     {
         $routeType = Config::get('route.type');
