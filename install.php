@@ -8,21 +8,22 @@
 /**
  * @param $path
  */
-function emptyDirectory($path)
+function deleteDirectory($path)
 {
     $directory = dir($path);
-    while (($item = $directory->read()) != false) {
+    while (($item = $directory->read()) !== false) {
         if ($item == '.' || $item == '..') {
             continue;
         }
         $file = $directory->path . '/' . $item;
         if (is_dir($file)) {
-            emptyDirectory($file);
-            rmdir($file);
+            deleteDirectory($file);
         } else {
             unlink($file);
         }
     }
+    $directory->close();
+    rmdir($path);
 }
 
 if (!file_exists('application/environment.yaml')) {
@@ -30,8 +31,7 @@ if (!file_exists('application/environment.yaml')) {
 }
 unlink('composer.json');
 copy('composer.example.json', 'composer.json');
-emptyDirectory('system');
-rmdir('system');
+deleteDirectory('system');
 unlink('composer.example.json');
 unlink('gulpfile.js');
 unlink('package.json');
