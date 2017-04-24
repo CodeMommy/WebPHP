@@ -26,13 +26,8 @@ function deleteDirectory($path)
     rmdir($path);
 }
 
-if (!file_exists('application/environment.yaml')) {
-    copy('application/environment.example.yaml', 'application/environment.yaml');
-}
-unlink('composer.json');
-copy('composer.example.json', 'composer.json');
-deleteDirectory('system');
-unlink('composer.example.json');
+copy('application/environment.example.yaml', 'application/environment.yaml');
+copy('system/install/composer.example.json', 'composer.json');
 unlink('gulpfile.js');
 unlink('package.json');
-unlink('install.php');
+deleteDirectory('system');

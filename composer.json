@@ -1,6 +1,6 @@
 {
   "name": "codemommy/webphp",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Web MVC framework of light and fast",
   "keywords": [
     "CodeMommy",
@@ -24,12 +24,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "CodeMommy\\WebPHP\\": "system/"
+      "CodeMommy\\WebPHP\\": "system/core/"
     }
   },
   "scripts": {
     "post-create-project-cmd": [
-      "php install.php",
+      "php system/install/install.php",
       "composer update --no-dev"
     ]
   },
