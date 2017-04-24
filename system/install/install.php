@@ -27,7 +27,7 @@ function deleteDirectory($path)
 }
 
 copy('application/environment.example.yaml', 'application/environment.yaml');
-copy('system/install/composer.example.json', 'composer.json');
+file_put_contents('composer.json', '{}');
 unlink('gulpfile.js');
 unlink('package.json');
 deleteDirectory('system');
