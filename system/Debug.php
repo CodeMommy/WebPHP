@@ -21,7 +21,11 @@ class Debug
      */
     public static function show($data = null, $isExit = false)
     {
-        dump($data);
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            var_dump($data);
+        } else {
+            dump($data);
+        }
         if ($isExit) {
             exit();
         }
