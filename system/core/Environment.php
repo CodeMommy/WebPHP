@@ -19,7 +19,7 @@ class Environment
      * @param $key
      * @param null $default
      *
-     * @return mixed|null
+     * @return mixed
      */
     public static function get($key, $default = null)
     {
@@ -27,9 +27,9 @@ class Environment
         if (!is_file($file)) {
             return $default;
         }
-        $config = Config::load(APPLICATION_ROOT . '/environment.yaml');
-        $result = $config->get($key);
-        if ($result == null) {
+        $config = Config::load($file);
+        $result = $config->get($key, $default);
+        if (is_null($result)) {
             return $default;
         }
         return $result;

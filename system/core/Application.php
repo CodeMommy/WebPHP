@@ -30,10 +30,12 @@ class Application
      */
     public static function start($path)
     {
+        // Define Path
         if (substr($path, -1) == '/' || substr($path, -1) == '\\') {
             $path = substr($path, 0, -1);
         }
         define('APPLICATION_ROOT', $path);
+        // Config
         Config::setRoot(APPLICATION_ROOT . '/config');
         /* Debug Old
         error_reporting(0);
@@ -67,11 +69,12 @@ class Application
                 Autoload::file($file, $key);
             }
         }
+        // Other
         Autoload::load(APPLICATION_ROOT . '/controller', 'Controller');
         Autoload::load(APPLICATION_ROOT . '/model', 'Model');
         Autoload::load(APPLICATION_ROOT, '');
         Cache::setConfig(Config::get('cache'));
-        Route::init();
+        Route::start();
         return true;
     }
 }

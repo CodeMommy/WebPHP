@@ -202,7 +202,7 @@ class Route
     /**
      *
      */
-    public static function init()
+    public static function start()
     {
         $routeType = Config::get('route.type');
         if ($routeType == 'symfony') {
