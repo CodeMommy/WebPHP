@@ -4,7 +4,7 @@
 
 ## 安装
 
-在PHP5.3版本以上的环境下，安装CodeMommy WebPHP有两种方式：
+在PHP5.5.9及以上版本的环境下，安装CodeMommy WebPHP有两种方式：
 
 ### Composer安装方式（推荐）
 
@@ -24,7 +24,6 @@ composer create-project codemommy/webphp
 | :---------- | :------------------------------------------------ |
 | application | 项目目录，项目相关的控制器、模板等文件都放在此目录            |
 | public      | 网站根目录，您需要把网站的根指向此目录                    |
-| system      | 核心目录，您不需要对此目录里的文件做任何更改         |
 | vendor      | Composer生成的包目录，您依然不需要手工更改此目录里的任何文件 |
 
 > 访问项目public目录，您将看到“Hello World”字样，这说明CodeMommy WebPHP安装成功。

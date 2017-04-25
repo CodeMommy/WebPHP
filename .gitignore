@@ -1,16 +1,9 @@
 # IDE
 /.idea/
 
-# Node
-/node_modules/
-
-# Publish
-/publish/
-
 # Composer
 /vendor/
 /composer.lock
-/composer.phar
 
 # Environment
 /application/environment.yaml

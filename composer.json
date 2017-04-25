@@ -1,67 +1,68 @@
 {
-  "name": "codemommy/webphp",
-  "version": "0.0.17",
-  "description": "Web MVC framework of light and fast",
-  "keywords": [
-    "CodeMommy",
-    "WebPHP",
-    "PHP",
-    "Framework",
-    "Fast"
-  ],
-  "license": "Apache",
-  "homepage": "http://www.codemommy.com",
-  "support": {
-    "issues": "https://github.com/CodeMommy/WebPHP/issues",
-    "source": "https://github.com/CodeMommy/WebPHP"
-  },
-  "authors": [
-    {
-      "name": "Candison November",
-      "email": "kandisheng@163.com",
-      "homepage": "http://www.kandisheng.com"
+    "name": "codemommy/webphp",
+    "version": "0.0.17",
+    "description": "Web MVC framework of light and fast",
+    "keywords": [
+        "CodeMommy",
+        "WebPHP",
+        "PHP",
+        "Framework",
+        "Fast"
+    ],
+    "license": "Apache",
+    "homepage": "http://www.codemommy.com",
+    "support": {
+        "issues": "https://github.com/CodeMommy/WebPHP/issues",
+        "source": "https://github.com/CodeMommy/WebPHP"
+    },
+    "authors": [
+        {
+            "name": "Candison November",
+            "email": "kandisheng@163.com",
+            "homepage": "http://www.kandisheng.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CodeMommy\\WebPHP\\": "system/core/"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php system/install/install.php",
+            "composer require codemommy/webphp:0.0.*"
+        ]
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "CodeMommy/AutoloadPHP": "0.0.*",
+        "CodeMommy/CookiePHP": "0.0.*",
+        "CodeMommy/CachePHP": "0.0.*",
+        "CodeMommy/ConfigPHP": "0.0.*",
+        "CodeMommy/ClientPHP": "0.0.*",
+        "CodeMommy/CurlPHP": "0.0.*",
+        "CodeMommy/ConvertPHP": "0.0.*",
+        "CodeMommy/IsPHP": "0.0.*",
+        "CodeMommy/ImagePHP": "0.0.*",
+        "CodeMommy/RequestPHP": "0.0.*",
+        "CodeMommy/ResponsePHP": "0.0.*",
+        "CodeMommy/ServerPHP": "0.0.*",
+        "CodeMommy/SessionPHP": "0.0.*",
+        "symfony/http-foundation": "3.2.*",
+        "symfony/routing": "3.2.*",
+        "symfony/var-dumper": "3.2.*",
+        "illuminate/database": "5.2.*",
+        "illuminate/pagination": "5.2.*",
+        "smarty/smarty": "3.1.*",
+        "nesbot/carbon": "1.22.*",
+        "monolog/monolog": "1.22.*",
+        "swiftmailer/swiftmailer": "5.4.*",
+        "filp/whoops": "2.1.*",
+        "hassankhan/config": "0.10.*",
+        "symfony/yaml": "3.2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "symfony/filesystem": "*"
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "CodeMommy\\WebPHP\\": "system/core/"
-    }
-  },
-  "scripts": {
-    "post-create-project-cmd": [
-      "php system/install/install.php",
-      "composer require codemommy/webphp:0.0.*"
-    ]
-  },
-  "require": {
-    "php": ">=5.5.9",
-    "codemommy/autoloadphp": "0.0.*",
-    "codemommy/cookiephp": "0.0.*",
-    "codemommy/cachephp": "0.0.*",
-    "codemommy/configphp": "0.0.*",
-    "codemommy/clientphp": "0.0.*",
-    "codemommy/curlphp": "0.0.*",
-    "codemommy/convertphp": "0.0.*",
-    "codemommy/isphp": "0.0.*",
-    "codemommy/imagephp": "0.0.*",
-    "codemommy/requestphp": "0.0.*",
-    "codemommy/responsephp": "0.0.*",
-    "codemommy/serverphp": "0.0.*",
-    "codemommy/sessionphp": "0.0.*",
-    "symfony/http-foundation": "3.2.*",
-    "symfony/routing": "3.2.*",
-    "symfony/var-dumper": "3.2.*",
-    "illuminate/database": "5.2.*",
-    "illuminate/pagination": "5.2.*",
-    "smarty/smarty": "3.1.*",
-    "nesbot/carbon": "1.22.*",
-    "monolog/monolog": "1.22.*",
-    "swiftmailer/swiftmailer": "5.4.*",
-    "filp/whoops": "2.1.*",
-    "hassankhan/config": "0.10.*",
-    "symfony/yaml": "3.2.*"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "4.*"
-  }
 }
