@@ -62,6 +62,7 @@
         "symfony/yaml": "3.2.*"
     },
     "require-dev": {
+        "CodeMommy/TaskPHP": "*",
         "phpunit/phpunit": "*",
         "symfony/filesystem": "*"
     }
