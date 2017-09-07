@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+namespace Test;
 
 use PHPUnit\Framework\TestCase;
 use CodeMommy\WebPHP\DateTime;

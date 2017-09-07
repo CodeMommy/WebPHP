@@ -70,9 +70,9 @@ class Application
             }
         }
         // Other
-        Autoload::load(APPLICATION_ROOT . '/controller', 'Controller');
-        Autoload::load(APPLICATION_ROOT . '/model', 'Model');
-        Autoload::load(APPLICATION_ROOT, '');
+        Autoload::directory(APPLICATION_ROOT . '/controller', 'Controller');
+        Autoload::directory(APPLICATION_ROOT . '/model', 'Model');
+        Autoload::directory(APPLICATION_ROOT, '');
         Cache::setConfig(Config::get('cache'));
         Route::start();
         return true;
