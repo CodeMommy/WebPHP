@@ -2,11 +2,12 @@
 
 ## Overview
 
-[![License](https://poser.pugx.org/CodeMommy/WebPHP/license?format=flat-square)](LICENSE)
-[![Download](https://poser.pugx.org/CodeMommy/WebPHP/downloads?format=flat-square)](https://packagist.org/packages/CodeMommy/WebPHP)
-[![Stable](https://poser.pugx.org/CodeMommy/WebPHP/version?format=flat-square)](https://packagist.org/packages/CodeMommy/WebPHP)
-[![Unstable](https://poser.pugx.org/CodeMommy/WebPHP/v/unstable?format=flat-square)](https://packagist.org/packages/CodeMommy/WebPHP)
-[![composer.lock Available](https://poser.pugx.org/CodeMommy/WebPHP/composerlock?format=flat-square)](https://packagist.org/packages/CodeMommy/WebPHP)
+[![License](https://poser.pugx.org/CodeMommy/WebPHP/license)](LICENSE)
+[![Download](https://poser.pugx.org/CodeMommy/WebPHP/downloads)](https://packagist.org/packages/CodeMommy/WebPHP)
+[![Stable](https://poser.pugx.org/CodeMommy/WebPHP/version)](https://packagist.org/packages/CodeMommy/WebPHP)
+[![Unstable](https://poser.pugx.org/CodeMommy/WebPHP/v/unstable)](https://packagist.org/packages/CodeMommy/WebPHP)
+[![composer.lock Available](https://poser.pugx.org/CodeMommy/WebPHP/composerlock)](https://packagist.org/packages/CodeMommy/WebPHP)
+[![Build Status](https://travis-ci.org/CodeMommy/WebPHP.svg?branch=master)](https://travis-ci.org/CodeMommy/WebPHP)
 
 > Web MVC framework of light and fast
 

@@ -85,10 +85,12 @@ Task::add('update', 'Update Composer', 'taskUpdate');
 function taskTest()
 {
     $test = Task::getParameter(0);
+    $phpUnitPath = sprintf('%s/vendor/bin/phpunit', __DIR__);
+    $phpUnitPath = str_replace('/', DIRECTORY_SEPARATOR, $phpUnitPath);
     if (empty($test)) {
-        system('phpunit');
+        system($phpUnitPath);
     } else {
-        system(sprintf('cd test && phpunit %sTest --repeat 100', $test));
+        system(sprintf('cd test && "%s" %sTest --repeat 100', $phpUnitPath, $test));
     }
 }
 
