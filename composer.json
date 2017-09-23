@@ -1,6 +1,6 @@
 {
     "name": "codemommy/webphp",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "description": "Web MVC framework of light and fast",
     "keywords": [
         "CodeMommy",
@@ -30,7 +30,8 @@
     "scripts": {
         "post-create-project-cmd": [
             "php system/install/install.php",
-            "composer require codemommy/webphp:0.0.*"
+            "composer require codemommy/webphp:0.0.*",
+            "composer update"
         ]
     },
     "require": {

@@ -28,6 +28,7 @@ function deleteDirectory($path)
 
 copy('application/environment.example.yaml', 'application/environment.yaml');
 file_put_contents('composer.json', '{}');
+unlink('.travis.yml');
 unlink('phpunit.xml');
 unlink('task.php');
 deleteDirectory('system');
