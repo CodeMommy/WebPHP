@@ -32,7 +32,8 @@
             "php system/install/install.php",
             "composer require codemommy/webphp:0.0.*",
             "composer update"
-        ]
+        ],
+        "test": "\"vendor/bin/phpunit\" -v"
     },
     "require": {
         "php": ">=5.5.9",
