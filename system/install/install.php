@@ -31,5 +31,7 @@ file_put_contents('composer.json', '{}');
 unlink('.travis.yml');
 unlink('phpunit.xml');
 unlink('task.php');
+unlink('run.bat');
+unlink('test.bat');
 deleteDirectory('system');
 deleteDirectory('test');

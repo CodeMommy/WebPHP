@@ -7,6 +7,8 @@
 
 # Environment
 /application/environment.yaml
+/test/web/environment.yaml
 
 # Runtime
 /application/_runtime/
+/test/web/_runtime/

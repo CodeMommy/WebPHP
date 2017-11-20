@@ -7,7 +7,10 @@ return array(
     'type' => 'symfony',
     // Route Configure
     // any, get, post...
-    'get' => array(
-        '/' => 'IndexController.index'
+    'get'  => array(
+        '/' => 'DemoController.demo'
+    ),
+    'any'  => array(
+        'test/{action}' => 'DemoController.test'
     )
 );
