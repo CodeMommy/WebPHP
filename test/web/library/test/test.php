@@ -5,8 +5,6 @@
  * @author Candison November <www.kandisheng.com>
  */
 
-namespace Controller;
-
 use CodeMommy\CookiePHP\Cookie;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
@@ -30,44 +28,25 @@ use CodeMommy\WebPHP\Environment;
 
 use Model\Demo;
 
-use HelloWorld;
-
 /**
- * Class DemoController
+ * Class Test
  * @package Controller
  */
-class DemoController extends Controller
+class Test
 {
-    /**
-     * Homepage
-     * @return bool
-     */
-    public function demo()
+    public function view()
     {
         $data = array();
         $data['root'] = Request::root();
-        return View::render('demo', $data);
+        return View::render('test', $data);
     }
 
-    /**
-     * Test
-     * @return mixed
-     */
-    public function test()
-    {
-        $action = Request::inputGet('action', '');
-        $string = sprintf('This is a CodeMommy WebPHP test: %s', $action);
-        echo sprintf('<title>%s</title>', $string);
-        echo sprintf('<h3>%s</h3>', $string);
-        return $this->$action();
-    }
-
-    protected function library()
+    public function library()
     {
         new HelloWorld();
     }
 
-    protected function request()
+    public function request()
     {
         echo 'Root: ' . Request::root() . '<br>';
         echo 'URL: ' . Request::url() . '<br>';
@@ -77,49 +56,49 @@ class DemoController extends Controller
         echo 'Query: ' . Request::query() . '<br>';
     }
 
-    protected function server()
+    public function server()
     {
         Server::information();
     }
 
-    protected function time()
+    public function time()
     {
         $result = DateTime::now()->toDateTimeString();
         Debug::show($result);
     }
 
-    protected function database()
+    public function database()
     {
         $database = new Database();
         $result = $database::table('book')->get();
         Debug::show($result);
     }
 
-    protected function databasePaginate()
+    public function databasePaginate()
     {
         $database = new Database();
         $result = $database::table('book')->paginate(2);
         echo $result->render();
     }
 
-    protected function model()
+    public function model()
     {
         $result = Demo::all();
         Debug::show($result);
     }
 
-    protected function redirect()
+    public function redirect()
     {
         return Response::redirect('http://www.microsoft.com');
     }
 
-    protected function cookie()
+    public function cookie()
     {
         Cookie::set('hello', 'world');
         echo Cookie::get('hello');
     }
 
-    protected function session()
+    public function session()
     {
         echo Session::set('hello', 'world');
         echo Session::get('hello');
@@ -127,7 +106,7 @@ class DemoController extends Controller
         echo Session::clear();
     }
 
-    protected function showPage()
+    public function showPage()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -135,7 +114,7 @@ class DemoController extends Controller
         return View::render('demo', $data);
     }
 
-    protected function showJSON()
+    public function showJSON()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -143,12 +122,12 @@ class DemoController extends Controller
         return Response::json($data);
     }
 
-    protected function input()
+    public function input()
     {
         echo Request::inputGet('hello', 'default');;
     }
 
-    protected function debug()
+    public function debug()
     {
         Debug::show('hello');
         $data = array();
@@ -157,12 +136,12 @@ class DemoController extends Controller
         Debug::show($data);
     }
 
-    protected function config()
+    public function config()
     {
         echo Config::get('database.mysql.host');
     }
 
-    protected function client()
+    public function client()
     {
         Debug::show(Client::system());
         Debug::show(Client::browser());
@@ -172,7 +151,7 @@ class DemoController extends Controller
         Debug::show(Client::isWeChat());
     }
 
-    protected function is()
+    public function is()
     {
         Debug::show(Is::email('demo@demo.com'));
         Debug::show(Is::email('demo'));
@@ -180,7 +159,7 @@ class DemoController extends Controller
         Debug::show(Is::chinaCellPhoneNumber('1555555555'));
     }
 
-    protected function convert()
+    public function convert()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -188,20 +167,20 @@ class DemoController extends Controller
         echo Convert::arrayToJSON($data);
     }
 
-    protected function log()
+    public function log()
     {
         $log = new Log('Demo', APPLICATION_ROOT . '/_runtime/log/log.log');
         $log->debug('Yes');
     }
 
-    protected function mail()
+    public function mail()
     {
         $mail = new Mail('', 25, '', '');
         $result = $mail->send('', '', '', '', '', '');
         Debug::show($result);
     }
 
-    protected function cache()
+    public function cache()
     {
         Cache::writeValue('cache', 'test', 10);
         echo Cache::readValue('cache');
@@ -214,7 +193,7 @@ class DemoController extends Controller
 //        echo $redis->get('cache');
 //    }
 
-    protected function upload()
+    public function upload()
     {
         Request::inputFile('file', 'static/upload/');
     }
