@@ -51,19 +51,21 @@
 <body>
 <div class="container">
     <div class="title">
-        <span class="left">CodeMommy WebPHP Test</span>
-        <label class="right">
-            <select id="menu" onchange="">
-                <option value="/">Home</option>
-                {foreach from=$testList item=test}
-                    {if $test eq $action}
-                        <option value="/{$test}" selected="selected">{$test}</option>
-                    {else}
-                        <option value="/{$test}">{$test}</option>
-                    {/if}
-                {/foreach}
-            </select>
-        </label>
+        <div class="left">CodeMommy WebPHP Test</div>
+        <div class="right">
+            <label>
+                <select id="menu" onchange="">
+                    <option value="/">Home</option>
+                    {foreach from=$testList item=test}
+                        {if $test eq $action}
+                            <option value="/{$test}" selected="selected">{$test}</option>
+                        {else}
+                            <option value="/{$test}">{$test}</option>
+                        {/if}
+                    {/foreach}
+                </select>
+            </label>
+        </div>
         <div class="clear"></div>
     </div>
 </div>
