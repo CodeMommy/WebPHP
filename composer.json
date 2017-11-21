@@ -1,6 +1,6 @@
 {
     "name": "codemommy/webphp",
-    "version": "0.0.20",
+    "version": "0.0.21",
     "description": "Web MVC framework of light and fast",
     "keywords": [
         "CodeMommy",
@@ -27,13 +27,28 @@
             "CodeMommy\\WebPHP\\": "system/core/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeMommy\\WebPHP\\Script\\": "system/script/"
+        }
+    },
     "scripts": {
         "post-create-project-cmd": [
-            "php system/install/install.php",
+            "CodeMommy\\WebPHP\\Script\\Install::start",
             "composer require codemommy/webphp:0.0.*",
             "composer update"
         ],
-        "test": "\"vendor/bin/phpunit\" -v"
+        "test": "\"vendor/bin/phpunit\" -v",
+        "test-web": "CodeMommy\\WebPHP\\Script\\Task::webTest",
+        "update-project": [
+            "php -v",
+            "git pull",
+            "composer self-update",
+            "composer update"
+        ],
+        "update-version": "CodeMommy\\WebPHP\\Script\\Task::updateVersion",
+        "clear": "CodeMommy\\WebPHP\\Script\\Task::clear",
+        "run": "CodeMommy\\WebPHP\\Script\\Task::run"
     },
     "require": {
         "php": ">=5.5.9",
