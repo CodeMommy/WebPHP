@@ -58,9 +58,9 @@
                     <option value="/">Home</option>
                     {foreach from=$testList item=test}
                         {if $test eq $action}
-                            <option value="/{$test}" selected="selected">{$test}</option>
+                            <option value="{$root}{$test}" selected="selected">{$test}</option>
                         {else}
-                            <option value="/{$test}">{$test}</option>
+                            <option value="{$root}{$test}">{$test}</option>
                         {/if}
                     {/foreach}
                 </select>

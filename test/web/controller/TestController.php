@@ -44,6 +44,8 @@ class TestController extends Controller
             $testClass = new Test();
             $testClass->$action();
         }
+        // Render
+        $data['root'] = Request::root();
         return View::render(__FUNCTION__, $data);
     }
 }

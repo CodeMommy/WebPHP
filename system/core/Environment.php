@@ -16,14 +16,22 @@ use Noodlehaus\Config;
 class Environment
 {
     /**
-     * @param $key
+     * Environment constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Get
+     * @param string $key
      * @param null $default
      *
      * @return mixed
      */
-    public static function get($key, $default = null)
+    public static function get($key = '', $default = null)
     {
-        $file = APPLICATION_ROOT . '/environment.yaml';
+        $file = Application::getPath('environment.yaml');
         if (!is_file($file)) {
             return $default;
         }

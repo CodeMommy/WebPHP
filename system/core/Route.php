@@ -21,91 +21,62 @@ use CodeMommy\ConfigPHP\Config;
 class Route
 {
     /**
-     * @return bool|string
+     * Route constructor.
      */
-    private static function urlFull()
+    public function __construct()
     {
-        $filePath = strtolower($_SERVER['SCRIPT_NAME']);
-        $fileURL = strtolower($_SERVER['REQUEST_URI']);
-        // Delete index.php in path
-        $filePathArray = explode('/', $filePath);
-        $fileName = end($filePathArray);
-        $fileDes = strpos($fileURL, $fileName);
-        if ($fileDes === false) {
-            $s1 = substr($filePath, 0, strlen($filePath) - strlen($fileName) - 1);
-            $urlFull = substr($fileURL, strlen($s1));
-        } else {
-            $urlFull = substr($fileURL, strlen($filePath));
-        }
-        // Remove interference of question mark
-        $url = strpos($urlFull, "?");
-        if (!$url === false) {
-            $urlFull = substr($urlFull, 0, $url);
-        }
-        // Route
-        if (substr($urlFull, 0, 1) == '/') {
-            $urlFull = substr($urlFull, 1);
-        }
-        if (substr($urlFull, -1, 1) == '/') {
-            $urlFull = substr($urlFull, 0, strlen($urlFull) - 1);
-        }
-        return $urlFull;
     }
 
     /**
+     * Get Path
+     * @return string
+     */
+    private static function getPath()
+    {
+        $scriptName = strtolower($_SERVER['SCRIPT_NAME']);
+        $requestURI = strtolower($_SERVER['REQUEST_URI']);
+        $url = parse_url($requestURI);
+        $path = $url['path'];
+        if (substr($path, 0, strlen($scriptName)) == $scriptName) {
+            $path = substr($path, strlen($scriptName));
+        }
+        $path = trim($path, '/');
+        return $path;
+    }
+
+    /**
+     * Get Route Config
      * @return array
      */
-    private static function routeConfig()
+    private static function getRouteConfig()
     {
         $routeConfig = array();
-        $routeConfigureAny = Config::get('route.any');
-        if ($routeConfigureAny) {
-            $routeConfig = array_merge($routeConfig, $routeConfigureAny);
-        }
-        $routeConfigureCustom = Config::get('route.' . strtolower($_SERVER['REQUEST_METHOD']));
-        if ($routeConfigureCustom) {
-            $routeConfig = array_merge($routeConfig, $routeConfigureCustom);
-        }
+        $routeConfigureAny = Config::get('route.any', array());
+        $routeConfig = array_merge($routeConfig, $routeConfigureAny);
+        $routeConfigureCustom = Config::get('route.' . strtolower($_SERVER['REQUEST_METHOD']), array());
+        $routeConfig = array_merge($routeConfig, $routeConfigureCustom);
         return $routeConfig;
     }
 
     /**
-     * @param $route
+     * Route
+     * @param string $route
      *
      * @return bool
      */
-    private static function route($route)
+    private static function route($route = '')
     {
         if ($route) {
             $path = explode('.', $route);
             $actionName = array_pop($path);
             $controllerName = array_pop($path);
-// 已经autoload，不需要重新require
-//            $pathNew = implode('/', $path);
-//            if (!empty($pathNew)) {
-//                $pathNew .= '/';
-//            }
-//            $file = APPLICATION_ROOT . '/Controller/' . $pathNew . $controllerName . '.php';
-//            if (is_file($file)) {
-//                require_once($file);
-//                $namespace = implode('\\', $path);
-//                if (!empty($namespace)) {
-//                    $namespace .= '\\';
-//                }
-//                $namespace = '\\Controller\\' . $namespace . $controllerName;
-//                $urlArray = new $namespace();
-//                $urlArray->$actionName();
-//                return true;
-//            } else {
-//                return false;
-//            }
             $namespace = implode('\\', $path);
             if (!empty($namespace)) {
                 $namespace .= '\\';
             }
             $namespace = '\\Controller\\' . $namespace . $controllerName;
-            $urlArray = new $namespace();
-            $result = $urlArray->$actionName();
+            $class = new $namespace();
+            $result = $class->$actionName();
             $type = gettype($result);
             $array = array('string', 'integer', 'double', 'boolean', 'array', 'object');
             if (in_array($type, $array)) {
@@ -117,14 +88,15 @@ class Route
     }
 
     /**
-     *
+     * Path Info
+     * @return bool
      */
     private static function pathInfo()
     {
-        $urlFull = self::urlFull();
-        $urlFull = '/' . $urlFull;
+        $path = self::getPath();
+        $path = '/' . $path;
         // Set Controller and Action
-        $urlArray = explode('/', $urlFull);
+        $urlArray = explode('/', $path);
         $controllerName = 'index';
         if (!empty($urlArray[1])) {
             $controllerName = $urlArray[1];
@@ -139,49 +111,43 @@ class Route
         foreach ($urlArray as $key => $value) {
             if (!in_array($key, $urlList)) {
                 if ($key % 2 == 0) {
-                    if (!empty($value)) {
-                        $_GET[$urlArray[$key - 1]] = $value;
-                    }
+                    $_GET[$urlArray[$key - 1]] = empty($value) ? '' : $value;
                 }
             }
         }
         $route = $controllerName . 'Controller.' . $actionName;
-        self::route($route);
+        return self::route($route);
     }
 
     /**
-     *
+     * Map
+     * @return bool
      */
     private static function map()
     {
-        $urlFull = self::urlFull();
-        $routeConfigure = self::routeConfig();
-        $route = null;
-        $route = isset($routeConfigure[$urlFull]) ? $routeConfigure[$urlFull] : $route;
-        $route = isset($routeConfigure['/' . $urlFull]) ? $routeConfigure['/' . $urlFull] : $route;
-        $route = isset($routeConfigure[$urlFull . '/']) ? $routeConfigure[$urlFull . '/'] : $route;
-        $route = isset($routeConfigure['/' . $urlFull . '/']) ? $routeConfigure['/' . $urlFull . '/'] : $route;
-        self::route($route);
+        $path = self::getPath();
+        $routeConfigure = self::getRouteConfig();
+        foreach ($routeConfigure as $key => $value) {
+            if ($path == trim($key, '/')) {
+                return self::route($value);
+            }
+        }
+        return self::route('');
     }
 
     /**
-     *
+     * Symfony
+     * @return bool
      */
     private static function symfony()
     {
-        $routeConfigure = self::routeConfig();
+        $routeConfigure = self::getRouteConfig();
         $routes = new RouteCollection();
         foreach ($routeConfigure as $key => $value) {
-//            $keyName = str_replace('/', 'love', $key);
-//            $keyName = str_replace('{', 'love', $keyName);
-//            $keyName = str_replace('}', 'love', $keyName);
-//            $keyName = 'route' . $keyName;
-            $keyName = 'route' . $key;
-            $routeConfigure[$keyName] = $value;
-            $routes->add($keyName, new Routes($key));
+            $routes->add($key, new Routes($key));
         }
         $requestURI = $_SERVER['REQUEST_URI'];
-        $_SERVER['REQUEST_URI'] = '/' . self::urlFull();
+        $_SERVER['REQUEST_URI'] = '/' . self::getPath();
         $request = Request::createFromGlobals();
         $_SERVER['REQUEST_URI'] = $requestURI;
         $context = new RequestContext();
@@ -196,11 +162,12 @@ class Route
         }
         $route = $attributes['_route'];
         $route = $routeConfigure[$route];
-        self::route($route);
+        return self::route($route);
     }
 
     /**
-     *
+     * Start
+     * @return bool|void
      */
     public static function start()
     {

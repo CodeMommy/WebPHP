@@ -16,6 +16,13 @@ use Symfony\Component\Filesystem\Filesystem;
 class Task
 {
     /**
+     * Task constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * Update Version
      */
     public static function updateVersion()

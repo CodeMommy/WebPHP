@@ -17,17 +17,25 @@ use Smarty;
 class View
 {
     /**
-     * @param $view
+     * View constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Render
+     * @param string $view
      * @param array $data
      *
      * @return null
      */
-    public static function render($view, $data = array())
+    public static function render($view = '', $data = array())
     {
         $smarty = new Smarty();
-        $smarty->setTemplateDir(APPLICATION_ROOT . '/view/');
-        $smarty->setCompileDir(APPLICATION_ROOT . '/_runtime/view_template/');
-        $smarty->setCacheDir(APPLICATION_ROOT . '/_runtime/view_cache/');
+        $smarty->setTemplateDir(Application::getPath('view'));
+        $smarty->setCompileDir(Application::getPath('_runtime/view_template'));
+        $smarty->setCacheDir(Application::getPath('_runtime/view_cache'));
         $smarty->left_delimiter = '{';
         $smarty->right_delimiter = '}';
         $isDebug = Config::get('application.debug');

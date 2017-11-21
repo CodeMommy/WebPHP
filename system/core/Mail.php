@@ -21,8 +21,8 @@ use Swift_Mailer;
 class Mail
 {
 
-    private $smtp     = null;
-    private $port     = null;
+    private $smtp = null;
+    private $port = null;
     private $username = null;
     private $password = null;
 
@@ -43,6 +43,7 @@ class Mail
     }
 
     /**
+     * Send
      * @param $from
      * @param $fromName
      * @param $to

@@ -7,6 +7,8 @@
 
 namespace CodeMommy\WebPHP;
 
+use Whoops\Util\Misc;
+
 /**
  * Class Debug
  * @package CodeMommy\WebPHP
@@ -14,6 +16,14 @@ namespace CodeMommy\WebPHP;
 class Debug
 {
     /**
+     * Debug constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Show
      * @param null $data
      * @param bool $isExit
      *
@@ -21,7 +31,7 @@ class Debug
      */
     public static function show($data = null, $isExit = false)
     {
-        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        if (Misc::isAjaxRequest()) {
             var_dump($data);
         } else {
             dump($data);

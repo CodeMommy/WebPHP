@@ -32,6 +32,7 @@ class Log
     }
 
     /**
+     * Debug
      * @param $message
      * @param array $array
      */
@@ -43,6 +44,7 @@ class Log
     }
 
     /**
+     * Info
      * @param $message
      * @param array $array
      */
@@ -54,6 +56,7 @@ class Log
     }
 
     /**
+     * Notice
      * @param $message
      * @param array $array
      */
@@ -65,6 +68,7 @@ class Log
     }
 
     /**
+     * Warning
      * @param $message
      * @param array $array
      */
@@ -76,6 +80,7 @@ class Log
     }
 
     /**
+     * Error
      * @param $message
      * @param array $array
      */
@@ -87,6 +92,7 @@ class Log
     }
 
     /**
+     * Critical
      * @param $message
      * @param array $array
      */
@@ -98,6 +104,7 @@ class Log
     }
 
     /**
+     * Alert
      * @param $message
      * @param array $array
      */

@@ -14,8 +14,6 @@ use Whoops\Handler\JsonResponseHandler;
 use CodeMommy\AutoloadPHP\Autoload;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
-use CodeMommy\WebPHP\Route;
-use CodeMommy\WebPHP\Debug;
 
 /**
  * Class Application
@@ -24,6 +22,27 @@ use CodeMommy\WebPHP\Debug;
 class Application
 {
     /**
+     * Application constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Get Path
+     * @param string $path
+     * @return string
+     */
+    public static function getPath($path = '')
+    {
+        $path = ltrim($path, '/\\');
+        $path = sprintf('%s%s%s', APPLICATION_ROOT, DIRECTORY_SEPARATOR, $path);
+        $path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
+        return $path;
+    }
+
+    /**
+     * Start
      * @param $path
      *
      * @return bool
@@ -31,25 +50,11 @@ class Application
     public static function start($path)
     {
         // Define Path
-        if (substr($path, -1) == '/' || substr($path, -1) == '\\') {
-            $path = substr($path, 0, -1);
-        }
+        $path = rtrim($path, '/\\');
+        $path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
         define('APPLICATION_ROOT', $path);
         // Config
-        Config::setRoot(APPLICATION_ROOT . '/config');
-        /* Debug Old
-        error_reporting(0);
-        ini_set('display_errors', 'Off');
-        $isDebug = Config::get('application.debug', false);
-        if ($isDebug) {
-            register_shutdown_function(function () {
-                $error = error_get_last();
-                if (is_array($error)) {
-                    Debug::show($error);
-                }
-            });
-        }
-        */
+        Config::setRoot(self::getPath('config'));
         // Debug
         $isDebug = Config::get('application.debug', false);
         if ($isDebug) {
@@ -65,14 +70,14 @@ class Application
         $library = Config::get('library', array());
         if (is_array($library)) {
             foreach ($library as $key => $value) {
-                $file = APPLICATION_ROOT . '/library/' . $value;
+                $file = self::getPath('library/' . $value);
                 Autoload::file($file, $key);
             }
         }
         // Other
-        Autoload::directory(APPLICATION_ROOT . '/controller', 'Controller');
-        Autoload::directory(APPLICATION_ROOT . '/model', 'Model');
-        Autoload::directory(APPLICATION_ROOT, '');
+        Autoload::directory(self::getPath('controller'), 'Controller');
+        Autoload::directory(self::getPath('model'), 'Model');
+        Autoload::directory(self::getPath(''), '');
         Cache::setConfig(Config::get('cache'));
         Route::start();
         return true;

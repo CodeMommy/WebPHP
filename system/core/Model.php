@@ -8,7 +8,6 @@
 namespace CodeMommy\WebPHP;
 
 use Illuminate\Database\Eloquent\Model as M;
-use CodeMommy\WebPHP\Database;
 
 /**
  * Class Model

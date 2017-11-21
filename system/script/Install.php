@@ -11,6 +11,13 @@
 class Install
 {
     /**
+     * Install constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * Delete Directory
      * @param string $path
      */
