@@ -34,11 +34,21 @@ class Route
     private static function getPath()
     {
         $scriptName = strtolower($_SERVER['SCRIPT_NAME']);
+        $scriptName = str_replace(array('/', '\\'), '/', $scriptName);
         $requestURI = strtolower($_SERVER['REQUEST_URI']);
         $url = parse_url($requestURI);
         $path = $url['path'];
         if (substr($path, 0, strlen($scriptName)) == $scriptName) {
             $path = substr($path, strlen($scriptName));
+        } else {
+            $pathRoot = explode('/', $scriptName);
+            array_pop($pathRoot);
+            array_shift($pathRoot);
+            $pathRoot = implode('/', $pathRoot);
+            $pathRoot = sprintf('/%s', $pathRoot);
+            if (substr($path, 0, strlen($pathRoot)) == $pathRoot) {
+                $path = substr($path, strlen($pathRoot));
+            }
         }
         $path = trim($path, '/');
         return $path;

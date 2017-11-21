@@ -55,7 +55,7 @@
         <div class="right">
             <label>
                 <select id="menu" onchange="">
-                    <option value="/">Home</option>
+                    <option value="{$root}">Home</option>
                     {foreach from=$testList item=test}
                         {if $test eq $action}
                             <option value="{$root}{$test}" selected="selected">{$test}</option>

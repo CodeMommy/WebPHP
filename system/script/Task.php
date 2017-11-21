@@ -42,9 +42,9 @@ class Task
     }
 
     /**
-     * Clear
+     * Clean
      */
-    public static function clear()
+    public static function clean()
     {
         $removeList = array(
             'application/_runtime',
@@ -54,7 +54,7 @@ class Task
         foreach ($removeList as $value) {
             $fileSystem->remove($value);
         }
-        echo(sprintf('Clear Finished.'));
+        echo(sprintf('Clean Finished.'));
     }
 
     /**

@@ -10,7 +10,7 @@
         "Framework",
         "Fast"
     ],
-    "license": "Apache-2.0",
+    "license": "Apache",
     "homepage": "http://www.codemommy.com",
     "support": {
         "issues": "https://github.com/CodeMommy/WebPHP/issues",
@@ -47,7 +47,7 @@
             "composer update"
         ],
         "update-version": "CodeMommy\\WebPHP\\Script\\Task::updateVersion",
-        "clear": "CodeMommy\\WebPHP\\Script\\Task::clear",
+        "clean": "CodeMommy\\WebPHP\\Script\\Task::clean",
         "run": "CodeMommy\\WebPHP\\Script\\Task::run"
     },
     "require": {
@@ -65,21 +65,21 @@
         "CodeMommy/ResponsePHP": "0.0.*",
         "CodeMommy/ServerPHP": "0.0.*",
         "CodeMommy/SessionPHP": "0.0.*",
-        "symfony/http-foundation": "3.2.*",
-        "symfony/routing": "3.2.*",
-        "symfony/var-dumper": "3.2.*",
-        "illuminate/database": "5.2.*",
+        "symfony/http-foundation": "3.3.*",
+        "symfony/var-dumper": "3.3.*",
+        "symfony/routing": "3.3.*",
+        "symfony/yaml": "3.3.*",
         "illuminate/pagination": "5.2.*",
-        "smarty/smarty": "3.1.*",
-        "nesbot/carbon": "1.22.*",
-        "monolog/monolog": "1.22.*",
+        "illuminate/database": "5.2.*",
         "swiftmailer/swiftmailer": "5.4.*",
-        "filp/whoops": "2.1.*",
-        "hassankhan/config": "0.10.*",
-        "symfony/yaml": "3.2.*"
+        "hassankhan/config": "0.11.*",
+        "monolog/monolog": "1.23.*",
+        "nesbot/carbon": "1.22.*",
+        "smarty/smarty": "3.1.*",
+        "filp/whoops": "2.1.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
-        "symfony/filesystem": "*"
+        "symfony/filesystem": "*",
+        "phpunit/phpunit": "*"
     }
 }
