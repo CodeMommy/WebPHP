@@ -67,3 +67,5 @@ class Install
         }
     }
 }
+
+Install::start();

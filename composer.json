@@ -1,6 +1,6 @@
 {
     "name": "codemommy/webphp",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "description": "Web MVC framework of light and fast",
     "keywords": [
         "CodeMommy",
@@ -34,7 +34,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "CodeMommy\\WebPHP\\Script\\Install::start",
+            "php system/script/Install.php",
             "composer require codemommy/webphp:0.0.*",
             "composer update"
         ],
@@ -79,7 +79,6 @@
         "symfony/yaml": "3.2.*"
     },
     "require-dev": {
-        "CodeMommy/TaskPHP": "*",
         "phpunit/phpunit": "*",
         "symfony/filesystem": "*"
     }
