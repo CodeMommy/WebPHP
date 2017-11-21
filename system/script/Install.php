@@ -5,11 +5,8 @@
  * @author Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\WebPHP\Script;
-
 /**
  * Class Install
- * @package CodeMommy\WebPHP\Script
  */
 class Install
 {
