@@ -8,12 +8,6 @@ indent_size=4
 insert_final_newline=false
 trim_trailing_whitespace=false
 
-[*.php]
-indent_size=4
-insert_final_newline=true
-trim_trailing_whitespace=true
-
-[*.tpl]
-indent_size=4
+[*.{php,tpl}]
 insert_final_newline=true
 trim_trailing_whitespace=true

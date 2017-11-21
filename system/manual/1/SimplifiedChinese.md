@@ -11,7 +11,7 @@
 CodeMommy WebPHP使用Composer进行包管理，此安装方法需要您了解Composer，您只需要执行下面的命令即可。
 
 ```bash
-composer create-project codemommy/webphp
+composer create-project codemommy/webphp --no-dev
 ```
 
 ### 压缩包安装方式
