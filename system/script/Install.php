@@ -54,8 +54,6 @@ class Install
      */
     public static function start()
     {
-        copy('application/environment.example.yaml', 'application/environment.yaml');
-        file_put_contents('composer.json', '{}');
         $removeList = array(
             'system',
             'test',
@@ -65,6 +63,22 @@ class Install
         foreach ($removeList as $file) {
             self::remove($file);
         }
+        copy('application/environment.example.yaml', 'application/environment.yaml');
+        // Composer
+        $file = 'composer.json';
+        $composer = file_get_contents($file);
+        $composer = json_decode($composer, true);
+        $version = $composer['version'];
+        $version = explode('.', $version);
+        $versionComposer = sprintf('%s.%s.*', $version[0], $version[1]);
+        $data = array(
+            'require' => array(
+                'codemommy/webphp' => $versionComposer
+            )
+        );
+        $composerJSON = json_encode($data, JSON_PRETTY_PRINT);
+        $composerJSON = str_replace('\\', '', $composerJSON);
+        file_put_contents('composer.json', $composerJSON);
     }
 }
 

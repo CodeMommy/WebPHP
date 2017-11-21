@@ -34,7 +34,6 @@ class Task
         echo(sprintf('Updated version to %s.', $version));
     }
 
-
     /**
      * Clear
      */
@@ -51,7 +50,6 @@ class Task
         echo(sprintf('Clear Finished.'));
     }
 
-
     /**
      * Run
      */
@@ -60,7 +58,6 @@ class Task
         echo(sprintf('Visit http://localhost%s', PHP_EOL));
         system(sprintf('php -S 0.0.0.0:80 -t public'));
     }
-
 
     /**
      * Web Test
