@@ -60,6 +60,8 @@ class Install
     {
         $removeList = array(
             'demo',
+            'manual',
+            'script',
             'system',
             'test',
             '.travis.yml',
