@@ -67,9 +67,9 @@ class Task
     }
 
     /**
-     * Web Test
+     * Demo
      */
-    public static function webTest()
+    public static function demo()
     {
         echo(sprintf('Visit http://localhost%s', PHP_EOL));
         system(sprintf('php -S 0.0.0.0:80 -t demo/public'));
