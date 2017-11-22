@@ -39,9 +39,9 @@
             "composer update"
         ],
         "environment": [
-            "php -m",
+            "composer -V",
             "php -v",
-            "composer -V"
+            "php -m"
         ],
         "update-project": [
             "git pull",
