@@ -48,7 +48,7 @@ class Task
     {
         $removeList = array(
             'application/_runtime',
-            'test/web/_runtime'
+            'demo/_runtime'
         );
         $fileSystem = new Filesystem();
         foreach ($removeList as $value) {
@@ -72,6 +72,6 @@ class Task
     public static function webTest()
     {
         echo(sprintf('Visit http://localhost%s', PHP_EOL));
-        system(sprintf('php -S 0.0.0.0:80 -t test/web/public'));
+        system(sprintf('php -S 0.0.0.0:80 -t demo/public'));
     }
 }

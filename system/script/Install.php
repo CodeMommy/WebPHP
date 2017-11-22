@@ -59,6 +59,7 @@ class Install
     public static function start()
     {
         $removeList = array(
+            'demo',
             'system',
             'test',
             '.travis.yml',
