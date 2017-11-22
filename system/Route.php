@@ -27,32 +27,32 @@ class Route
     {
     }
 
-    /**
-     * Get Path
-     * @return string
-     */
-    private static function getPath()
-    {
-        $scriptName = strtolower($_SERVER['SCRIPT_NAME']);
-        $scriptName = str_replace(array('/', '\\'), '/', $scriptName);
-        $requestURI = strtolower($_SERVER['REQUEST_URI']);
-        $url = parse_url($requestURI);
-        $path = $url['path'];
-        if (substr($path, 0, strlen($scriptName)) == $scriptName) {
-            $path = substr($path, strlen($scriptName));
-        } else {
-            $pathRoot = explode('/', $scriptName);
-            array_pop($pathRoot);
-            array_shift($pathRoot);
-            $pathRoot = implode('/', $pathRoot);
-            $pathRoot = sprintf('/%s', $pathRoot);
-            if (substr($path, 0, strlen($pathRoot)) == $pathRoot) {
-                $path = substr($path, strlen($pathRoot));
-            }
-        }
-        $path = trim($path, '/');
-        return $path;
-    }
+//    /**
+//     * Get Path
+//     * @return string
+//     */
+//    private static function getPath()
+//    {
+//        $scriptName = $_SERVER['SCRIPT_NAME'];
+//        $scriptName = str_replace(array('/', '\\'), '/', $scriptName);
+//        $requestURI = $_SERVER['REQUEST_URI'];
+//        $url = parse_url($requestURI);
+//        $path = $url['path'];
+//        if (substr($path, 0, strlen($scriptName)) == $scriptName) {
+//            $path = substr($path, strlen($scriptName));
+//        } else {
+//            $pathRoot = explode('/', $scriptName);
+//            array_pop($pathRoot);
+//            array_shift($pathRoot);
+//            $pathRoot = implode('/', $pathRoot);
+//            $pathRoot = sprintf('/%s', $pathRoot);
+//            if (substr($path, 0, strlen($pathRoot)) == $pathRoot) {
+//                $path = substr($path, strlen($pathRoot));
+//            }
+//        }
+//        $path = trim($path, '/');
+//        return $path;
+//    }
 
     /**
      * Get Route Config
@@ -60,11 +60,9 @@ class Route
      */
     private static function getRouteConfig()
     {
-        $routeConfig = array();
         $routeConfigureAny = Config::get('route.any', array());
-        $routeConfig = array_merge($routeConfig, $routeConfigureAny);
         $routeConfigureCustom = Config::get('route.' . strtolower($_SERVER['REQUEST_METHOD']), array());
-        $routeConfig = array_merge($routeConfig, $routeConfigureCustom);
+        $routeConfig = array_merge($routeConfigureAny, $routeConfigureCustom);
         return $routeConfig;
     }
 
@@ -103,10 +101,12 @@ class Route
      */
     private static function pathInfo()
     {
-        $path = self::getPath();
-        $path = '/' . $path;
+//        $pathInfo = self::getPath();
+//        $pathInfo = '/' . $pathInfo;
+        $request = Request::createFromGlobals();
+        $pathInfo = $request->getPathInfo();
         // Set Controller and Action
-        $urlArray = explode('/', $path);
+        $urlArray = explode('/', $pathInfo);
         $controllerName = 'index';
         if (!empty($urlArray[1])) {
             $controllerName = $urlArray[1];
@@ -135,10 +135,13 @@ class Route
      */
     private static function map()
     {
-        $path = self::getPath();
+//        $pathInfo = self::getPath();
+        $request = Request::createFromGlobals();
+        $pathInfo = $request->getPathInfo();
+        $pathInfo = trim($pathInfo, '/');
         $routeConfigure = self::getRouteConfig();
         foreach ($routeConfigure as $key => $value) {
-            if ($path == trim($key, '/')) {
+            if ($pathInfo == trim($key, '/')) {
                 return self::route($value);
             }
         }
@@ -156,10 +159,10 @@ class Route
         foreach ($routeConfigure as $key => $value) {
             $routes->add($key, new Routes($key));
         }
-        $requestURI = $_SERVER['REQUEST_URI'];
-        $_SERVER['REQUEST_URI'] = '/' . self::getPath();
+//        $requestURI = $_SERVER['REQUEST_URI'];
+//        $_SERVER['REQUEST_URI'] = '/' . self::getPath();
         $request = Request::createFromGlobals();
-        $_SERVER['REQUEST_URI'] = $requestURI;
+//        $_SERVER['REQUEST_URI'] = $requestURI;
         $context = new RequestContext();
         $context->fromRequest($request);
         $matcher = new UrlMatcher($routes, $context);
