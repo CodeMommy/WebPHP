@@ -22,10 +22,10 @@ class Log
     /**
      * Log constructor.
      *
-     * @param $logName
-     * @param $logFile
+     * @param string $logName
+     * @param string $logFile
      */
-    public function __construct($logName, $logFile)
+    public function __construct($logName = '', $logFile = '')
     {
         $this->logFile = $logFile;
         $this->logName = $logName;
@@ -33,10 +33,10 @@ class Log
 
     /**
      * Debug
-     * @param $message
+     * @param string $message
      * @param array $array
      */
-    public function debug($message, $array = array())
+    public function debug($message = '', $array = array())
     {
         $log = new Logger($this->logName);
         $log->pushHandler(new StreamHandler($this->logFile, Logger::DEBUG));
@@ -45,10 +45,10 @@ class Log
 
     /**
      * Info
-     * @param $message
+     * @param string $message
      * @param array $array
      */
-    public function info($message, $array = array())
+    public function info($message = '', $array = array())
     {
         $log = new Logger($this->logName);
         $log->pushHandler(new StreamHandler($this->logFile, Logger::INFO));
@@ -57,10 +57,10 @@ class Log
 
     /**
      * Notice
-     * @param $message
+     * @param string $message
      * @param array $array
      */
-    public function notice($message, $array = array())
+    public function notice($message = '', $array = array())
     {
         $log = new Logger($this->logName);
         $log->pushHandler(new StreamHandler($this->logFile, Logger::NOTICE));
@@ -69,10 +69,10 @@ class Log
 
     /**
      * Warning
-     * @param $message
+     * @param string $message
      * @param array $array
      */
-    public function warning($message, $array = array())
+    public function warning($message = '', $array = array())
     {
         $log = new Logger($this->logName);
         $log->pushHandler(new StreamHandler($this->logFile, Logger::WARNING));
@@ -81,10 +81,10 @@ class Log
 
     /**
      * Error
-     * @param $message
+     * @param string $message
      * @param array $array
      */
-    public function error($message, $array = array())
+    public function error($message = '', $array = array())
     {
         $log = new Logger($this->logName);
         $log->pushHandler(new StreamHandler($this->logFile, Logger::ERROR));
@@ -93,10 +93,10 @@ class Log
 
     /**
      * Critical
-     * @param $message
+     * @param string $message
      * @param array $array
      */
-    public function critical($message, $array = array())
+    public function critical($message = '', $array = array())
     {
         $log = new Logger($this->logName);
         $log->pushHandler(new StreamHandler($this->logFile, Logger::CRITICAL));
@@ -105,10 +105,10 @@ class Log
 
     /**
      * Alert
-     * @param $message
+     * @param string $message
      * @param array $array
      */
-    public function alert($message, $array = array())
+    public function alert($message = '', $array = array())
     {
         $log = new Logger($this->logName);
         $log->pushHandler(new StreamHandler($this->logFile, Logger::ALERT));

@@ -67,12 +67,12 @@ class Route
     }
 
     /**
-     * Route
+     * Render
      * @param string $route
      *
      * @return bool
      */
-    private static function route($route = '')
+    private static function render($route = '')
     {
         if ($route) {
             $path = explode('.', $route);
@@ -96,10 +96,10 @@ class Route
     }
 
     /**
-     * Path Info
+     * Type Path Info
      * @return bool
      */
-    private static function pathInfo()
+    private static function typePathInfo()
     {
 //        $pathInfo = self::getPath();
 //        $pathInfo = '/' . $pathInfo;
@@ -126,14 +126,14 @@ class Route
             }
         }
         $route = $controllerName . 'Controller.' . $actionName;
-        return self::route($route);
+        return self::render($route);
     }
 
     /**
-     * Map
+     * Type Map
      * @return bool
      */
-    private static function map()
+    private static function typeMap()
     {
 //        $pathInfo = self::getPath();
         $request = Request::createFromGlobals();
@@ -142,17 +142,17 @@ class Route
         $routeConfigure = self::getRouteConfig();
         foreach ($routeConfigure as $key => $value) {
             if ($pathInfo == trim($key, '/')) {
-                return self::route($value);
+                return self::render($value);
             }
         }
-        return self::route('');
+        return self::render('');
     }
 
     /**
-     * Symfony
+     * Type Symfony
      * @return bool
      */
-    private static function symfony()
+    private static function typeSymfony()
     {
         $routeConfigure = self::getRouteConfig();
         $routes = new RouteCollection();
@@ -175,7 +175,7 @@ class Route
         }
         $route = $attributes['_route'];
         $route = $routeConfigure[$route];
-        return self::route($route);
+        return self::render($route);
     }
 
     /**
@@ -186,11 +186,11 @@ class Route
     {
         $routeType = Config::get('route.type');
         if ($routeType == 'symfony') {
-            self::symfony();
+            self::typeSymfony();
         } else if ($routeType == 'map') {
-            self::map();
+            self::typeMap();
         } else {
-            self::pathInfo();
+            self::typePathInfo();
         }
     }
 }

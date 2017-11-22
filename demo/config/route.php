@@ -8,7 +8,7 @@ return array(
     // Route Configure
     // any, get, post...
     'any' => array(
-        '{action}' => 'TestController.index',
-        '' => 'TestController.index'
+        '{action}' => 'DemoController.index',
+        '' => 'DemoController.index'
     )
 );

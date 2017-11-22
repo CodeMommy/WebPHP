@@ -17,6 +17,18 @@
             background-color: #ddd;
         }
 
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
         .container {
             position: fixed;
             top: 0;
@@ -35,32 +47,28 @@
             border: none;
         }
 
-        .left {
-            float: left;
-        }
-
-        .right {
-            float: right;
-        }
-
-        .clear {
-            clear: both;
+        .title a {
+            color: #fff;
+            text-decoration: none;
+            background-color: #008cd6;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="title">
-        <div class="left">CodeMommy WebPHP Test</div>
+        <div class="left">
+            <a href="{$root}">CodeMommy WebPHP Demo</a>
+        </div>
         <div class="right">
             <label>
                 <select id="menu" onchange="">
                     <option value="{$root}">Home</option>
-                    {foreach from=$testList item=test}
-                        {if $test eq $action}
-                            <option value="{$root}{$test}" selected="selected">{$test}</option>
+                    {foreach from=$demoList item=demo}
+                        {if $demo eq $action}
+                            <option value="{$root}{$demo}" selected="selected">{$demo}</option>
                         {else}
-                            <option value="{$root}{$test}">{$test}</option>
+                            <option value="{$root}{$demo}">{$demo}</option>
                         {/if}
                     {/foreach}
                 </select>

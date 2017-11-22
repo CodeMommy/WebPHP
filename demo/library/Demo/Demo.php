@@ -5,6 +5,8 @@
  * @author Candison November <www.kandisheng.com>
  */
 
+namespace Library;
+
 use CodeMommy\CookiePHP\Cookie;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
@@ -16,7 +18,7 @@ use CodeMommy\ServerPHP\Server;
 use CodeMommy\SessionPHP\Session;
 use CodeMommy\ConvertPHP\Convert;
 use CodeMommy\ImagePHP\Image;
-
+use CodeMommy\WebPHP\Application;
 use CodeMommy\WebPHP\Controller;
 use CodeMommy\WebPHP\Debug;
 use CodeMommy\WebPHP\Database;
@@ -25,80 +27,95 @@ use CodeMommy\WebPHP\Log;
 use CodeMommy\WebPHP\Mail;
 use CodeMommy\WebPHP\View;
 use CodeMommy\WebPHP\Environment;
-
-use Model\Demo;
+use Model\Demo as ModelDemo;
+use Library\HelloWorld;
 
 /**
- * Class Test
- * @package Controller
+ * Class Demo
+ * @package Library
  */
-class Test
+class Demo
 {
-    public function view()
+    /**
+     * Render Page
+     */
+    public static function renderPage()
     {
         $data = array();
-        $data['root'] = Request::root();
-        return View::render('test', $data);
+        $data['title'] = 'Hello World';
+        return View::render('demo', $data);
     }
 
-    public function library()
+    /**
+     * Load Library
+     */
+    public static function loadLibrary()
     {
-        new HelloWorld();
+        HelloWorld::show();
     }
 
-    public function request()
+    /**
+     * Request Information
+     */
+    public static function requestInformation()
     {
-        echo 'Root: ' . Request::root() . '<br>';
-        echo 'URL: ' . Request::url() . '<br>';
-        echo 'Domain: ' . Request::domain() . '<br>';
-        echo 'Scheme: ' . Request::scheme() . '<br>';
-        echo 'Path: ' . Request::path() . '<br>';
-        echo 'Query: ' . Request::query() . '<br>';
+        Debug::show(sprintf('Root: %s', Request::root()));
+        Debug::show(sprintf('URL: %s', Request::url()));
+        Debug::show(sprintf('Domain: %s', Request::domain()));
+        Debug::show(sprintf('Scheme: %s', Request::scheme()));
+        Debug::show(sprintf('Path: %s', Request::path()));
+        Debug::show(sprintf('Query: %s', Request::query()));
     }
 
-    public function server()
+    /**
+     * Server Information
+     */
+    public static function serverInformation()
     {
         Server::information();
     }
 
-    public function time()
+    /**
+     * Time
+     */
+    public static function time()
     {
         $result = DateTime::now()->toDateTimeString();
         Debug::show($result);
     }
 
-    public function database()
+    public static function database()
     {
         $database = new Database();
         $result = $database::table('book')->get();
         Debug::show($result);
     }
 
-    public function databasePaginate()
+    public static function databasePaginate()
     {
         $database = new Database();
         $result = $database::table('book')->paginate(2);
         echo $result->render();
     }
 
-    public function model()
+    public static function model()
     {
-        $result = Demo::all();
+        $result = ModelDemo::all();
         Debug::show($result);
     }
 
-    public function redirect()
+    public static function redirect()
     {
         return Response::redirect('http://www.microsoft.com');
     }
 
-    public function cookie()
+    public static function cookie()
     {
         Cookie::set('hello', 'world');
         echo Cookie::get('hello');
     }
 
-    public function session()
+    public static function session()
     {
         echo Session::set('hello', 'world');
         echo Session::get('hello');
@@ -106,15 +123,7 @@ class Test
         echo Session::clear();
     }
 
-    public function showPage()
-    {
-        $data = array();
-        $data['hello'] = 'Hello';
-        $data['world'] = 'World';
-        return View::render('demo', $data);
-    }
-
-    public function showJSON()
+    public static function showJSON()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -122,12 +131,12 @@ class Test
         return Response::json($data);
     }
 
-    public function input()
+    public static function input()
     {
         echo Request::inputGet('hello', 'default');;
     }
 
-    public function debug()
+    public static function debug()
     {
         Debug::show('hello');
         $data = array();
@@ -136,12 +145,12 @@ class Test
         Debug::show($data);
     }
 
-    public function config()
+    public static function config()
     {
         echo Config::get('database.mysql.host');
     }
 
-    public function client()
+    public static function client()
     {
         Debug::show(Client::system());
         Debug::show(Client::browser());
@@ -151,7 +160,7 @@ class Test
         Debug::show(Client::isWeChat());
     }
 
-    public function is()
+    public static function is()
     {
         Debug::show(Is::email('demo@demo.com'));
         Debug::show(Is::email('demo'));
@@ -159,7 +168,7 @@ class Test
         Debug::show(Is::chinaCellPhoneNumber('1555555555'));
     }
 
-    public function convert()
+    public static function convert()
     {
         $data = array();
         $data['hello'] = 'Hello';
@@ -167,33 +176,35 @@ class Test
         echo Convert::arrayToJSON($data);
     }
 
-    public function log()
+    /**
+     * Log
+     */
+    public static function log()
     {
-        $log = new Log('Demo', APPLICATION_ROOT . '/_runtime/log/log.log');
-        $log->debug('Yes');
+        $log = new Log('Demo', Application::getPath('_runtime/log/log.log'));
+        $log->debug('Debug', array('Debug'));
+        $log->info('Info', array('Info'));
+        $log->notice('Notice', array('Notice'));
+        $log->warning('Warning', array('Warning'));
+        $log->error('Error', array('Error'));
+        $log->critical('Critical', array('Critical'));
+        $log->alert('Alert', array('Alert'));
     }
 
-    public function mail()
+    public static function mail()
     {
         $mail = new Mail('', 25, '', '');
         $result = $mail->send('', '', '', '', '', '');
         Debug::show($result);
     }
 
-    public function cache()
+    public static function cache()
     {
         Cache::writeValue('cache', 'test', 10);
         echo Cache::readValue('cache');
     }
 
-//    protected function redis()
-//    {
-//        $redis = new Redis();
-//        $redis->set('cache', 'test', 10);
-//        echo $redis->get('cache');
-//    }
-
-    public function upload()
+    public static function upload()
     {
         Request::inputFile('file', 'static/upload/');
     }

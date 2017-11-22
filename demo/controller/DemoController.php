@@ -10,13 +10,13 @@ namespace Controller;
 use CodeMommy\RequestPHP\Request;
 use CodeMommy\WebPHP\Controller;
 use CodeMommy\WebPHP\View;
-use Test;
+use Library\Demo;
 
 /**
- * Class TestController
+ * Class DemoController
  * @package Controller
  */
-class TestController extends Controller
+class DemoController extends Controller
 {
     /**
      * Index
@@ -25,24 +25,23 @@ class TestController extends Controller
     public function index()
     {
         $data = array();
-        // Test List
-        $test = get_class_methods('Test');
-        sort($test);
-        $noTest = array();
-        foreach ($test as $key => $value) {
-            if (in_array($value, $noTest)) {
-                unset($test[$key]);
+        // Demo List
+        $demoMethods = get_class_methods('Library\Demo');
+        sort($demoMethods);
+        $notShow = array();
+        foreach ($demoMethods as $key => $value) {
+            if (in_array($value, $notShow)) {
+                unset($demoMethods[$key]);
             }
         }
-        $data['testList'] = $test;
+        $data['demoList'] = $demoMethods;
         // Title
-        $data['title'] = 'CodeMommy WebPHP Test';
+        $data['title'] = 'CodeMommy WebPHP Demo';
         $action = Request::inputGet('action', '');
         $data['action'] = $action;
         if (!empty($action)) {
             $data['title'] = sprintf('%s: %s', $data['title'], $action);
-            $testClass = new Test();
-            $testClass->$action();
+            Demo::$action();
         }
         // Render
         $data['root'] = Request::root();

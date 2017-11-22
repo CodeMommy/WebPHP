@@ -3,6 +3,6 @@
 use CodeMommy\WebPHP\Environment;
 
 return array(
-    'HelloWorld' => 'hello/hello.php',
-    'Test' => 'test/test.php'
+    'Library\HelloWorld' => 'HelloWorld/HelloWorld.php',
+    'Library\Demo' => 'Demo/Demo.php'
 );
