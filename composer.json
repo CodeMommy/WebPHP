@@ -38,13 +38,17 @@
             "php script/Install.php",
             "composer update"
         ],
-        "test": "\"vendor/bin/phpunit\" -v",
-        "update-project": [
+        "environment": [
+            "php -m",
             "php -v",
+            "composer -V"
+        ],
+        "update-project": [
             "git pull",
             "composer self-update",
             "composer update"
         ],
+        "test": "\"vendor/bin/phpunit\" -v",
         "update-version": "CodeMommy\\WebPHP\\Script\\Task::updateVersion",
         "clean": "CodeMommy\\WebPHP\\Script\\Task::clean",
         "demo": "CodeMommy\\WebPHP\\Script\\Task::demo",
