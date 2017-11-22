@@ -31,7 +31,7 @@ class Environment
      */
     public static function get($key = '', $default = null)
     {
-        $file = Application::getPath('environment.yaml');
+        $file = Application::getPath('config/environment.yaml');
         if (!is_file($file)) {
             return $default;
         }

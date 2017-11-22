@@ -67,10 +67,10 @@ class Install
         foreach ($removeList as $file) {
             self::remove($file);
         }
-        copy('application/environment.example.yaml', 'application/environment.yaml');
+        copy('application/config/environment.example.yaml', 'application/config/environment.yaml');
         // Composer
-        $file = 'composer.json';
-        $composer = file_get_contents($file);
+        $composerFile = 'composer.json';
+        $composer = file_get_contents($composerFile);
         $composer = json_decode($composer, true);
         $version = $composer['version'];
         $version = explode('.', $version);
@@ -82,7 +82,7 @@ class Install
         );
         $composerJSON = json_encode($data, JSON_PRETTY_PRINT);
         $composerJSON = str_replace('\\', '', $composerJSON);
-        file_put_contents('composer.json', $composerJSON);
+        file_put_contents($composerFile, $composerJSON);
     }
 }
 

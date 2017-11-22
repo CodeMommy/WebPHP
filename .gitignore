@@ -6,8 +6,8 @@
 /composer.lock
 
 # Environment
-/application/environment.yaml
-/test/web/environment.yaml
+/application/config/environment.yaml
+/test/web/config/environment.yaml
 
 # Runtime
 /application/_runtime/
