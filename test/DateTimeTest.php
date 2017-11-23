@@ -27,6 +27,15 @@ class DateTimeTest extends TestCase
     }
 
     /**
+     * Test Construct
+     */
+    public function testConstruct()
+    {
+        new DateTime();
+        $this->assertEquals(true, true);
+    }
+
+    /**
      * Test Time
      */
     public function testTime()
