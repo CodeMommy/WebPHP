@@ -48,7 +48,10 @@
             "composer self-update",
             "composer update"
         ],
-        "test": "\"vendor/bin/phpunit\" -v",
+        "test": [
+            "CodeMommy\\WebPHP\\Script\\Task::cleanReport",
+            "\"vendor/bin/phpunit\" -v"
+        ],
         "update-version": "CodeMommy\\WebPHP\\Script\\Task::updateVersion",
         "clean": "CodeMommy\\WebPHP\\Script\\Task::clean",
         "demo": "CodeMommy\\WebPHP\\Script\\Task::demo",

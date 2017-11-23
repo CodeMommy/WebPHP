@@ -12,3 +12,6 @@
 # Runtime
 /application/_runtime/
 /demo/_runtime/
+
+# Report
+/.report

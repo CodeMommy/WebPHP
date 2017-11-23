@@ -39,6 +39,7 @@ class Task
         $composer = str_replace('\\/', '/', $composer);
         file_put_contents($file, $composer);
         echo(sprintf('Updated version to %s.', $version));
+        echo(PHP_EOL);
     }
 
     /**
@@ -48,13 +49,31 @@ class Task
     {
         $removeList = array(
             'application/_runtime',
-            'demo/_runtime'
+            'demo/_runtime',
+            '.report'
         );
         $fileSystem = new Filesystem();
         foreach ($removeList as $value) {
             $fileSystem->remove($value);
         }
         echo(sprintf('Clean Finished.'));
+        echo(PHP_EOL);
+    }
+
+    /**
+     * Clean Report
+     */
+    public static function cleanReport()
+    {
+        $removeList = array(
+            '.report'
+        );
+        $fileSystem = new Filesystem();
+        foreach ($removeList as $value) {
+            $fileSystem->remove($value);
+        }
+        echo(sprintf('Clean Report Finished.'));
+        echo(PHP_EOL);
     }
 
     /**
@@ -62,7 +81,8 @@ class Task
      */
     public static function run()
     {
-        echo(sprintf('Visit http://localhost%s', PHP_EOL));
+        echo(sprintf('Visit http://localhost'));
+        echo(PHP_EOL);
         system(sprintf('php -S 0.0.0.0:80 -t public'));
     }
 
@@ -71,7 +91,8 @@ class Task
      */
     public static function demo()
     {
-        echo(sprintf('Visit http://localhost%s', PHP_EOL));
+        echo(sprintf('Visit http://localhost'));
+        echo(PHP_EOL);
         system(sprintf('php -S 0.0.0.0:80 -t demo/public'));
     }
 }
