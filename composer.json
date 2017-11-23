@@ -80,7 +80,6 @@
         "illuminate/pagination": "5.2.*",
         "illuminate/database": "5.2.*",
         "swiftmailer/swiftmailer": "5.4.*",
-        "hassankhan/config": "0.11.*",
         "monolog/monolog": "1.23.*",
         "nesbot/carbon": "1.22.*",
         "smarty/smarty": "3.1.*",

@@ -7,7 +7,7 @@
 
 namespace CodeMommy\WebPHP;
 
-use Noodlehaus\Config;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class Environment
@@ -15,6 +15,8 @@ use Noodlehaus\Config;
  */
 class Environment
 {
+    private static $list = array();
+
     /**
      * Environment constructor.
      */
@@ -35,11 +37,19 @@ class Environment
         if (!is_file($file)) {
             return $default;
         }
-        $config = Config::load($file);
-        $result = $config->get($key, $default);
-        if (is_null($result)) {
-            return $default;
+        if (isset(self::$list[$key])) {
+            return self::$list[$key];
         }
-        return $result;
+        $config = Yaml::parse(file_get_contents($file));
+        $keys = explode('.', $key);
+        $count = count($keys);
+        for ($index = 0; $index < $count; $index++) {
+            if (!isset($config[$keys[$index]])) {
+                return $default;
+            }
+            $config = $config[$keys[$index]];
+        }
+        self::$list[$key] = $config;
+        return $config;
     }
 }

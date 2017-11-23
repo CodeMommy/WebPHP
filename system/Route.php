@@ -27,33 +27,6 @@ class Route
     {
     }
 
-//    /**
-//     * Get Path
-//     * @return string
-//     */
-//    private static function getPath()
-//    {
-//        $scriptName = $_SERVER['SCRIPT_NAME'];
-//        $scriptName = str_replace(array('/', '\\'), '/', $scriptName);
-//        $requestURI = $_SERVER['REQUEST_URI'];
-//        $url = parse_url($requestURI);
-//        $path = $url['path'];
-//        if (substr($path, 0, strlen($scriptName)) == $scriptName) {
-//            $path = substr($path, strlen($scriptName));
-//        } else {
-//            $pathRoot = explode('/', $scriptName);
-//            array_pop($pathRoot);
-//            array_shift($pathRoot);
-//            $pathRoot = implode('/', $pathRoot);
-//            $pathRoot = sprintf('/%s', $pathRoot);
-//            if (substr($path, 0, strlen($pathRoot)) == $pathRoot) {
-//                $path = substr($path, strlen($pathRoot));
-//            }
-//        }
-//        $path = trim($path, '/');
-//        return $path;
-//    }
-
     /**
      * Get Route Config
      * @return array
@@ -101,8 +74,6 @@ class Route
      */
     private static function typePathInfo()
     {
-//        $pathInfo = self::getPath();
-//        $pathInfo = '/' . $pathInfo;
         $request = Request::createFromGlobals();
         $pathInfo = $request->getPathInfo();
         // Set Controller and Action
@@ -135,7 +106,6 @@ class Route
      */
     private static function typeMap()
     {
-//        $pathInfo = self::getPath();
         $request = Request::createFromGlobals();
         $pathInfo = $request->getPathInfo();
         $pathInfo = trim($pathInfo, '/');
@@ -159,10 +129,7 @@ class Route
         foreach ($routeConfigure as $key => $value) {
             $routes->add($key, new Routes($key));
         }
-//        $requestURI = $_SERVER['REQUEST_URI'];
-//        $_SERVER['REQUEST_URI'] = '/' . self::getPath();
         $request = Request::createFromGlobals();
-//        $_SERVER['REQUEST_URI'] = $requestURI;
         $context = new RequestContext();
         $context->fromRequest($request);
         $matcher = new UrlMatcher($routes, $context);
