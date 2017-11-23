@@ -22,13 +22,13 @@ class EnvironmentTest extends TestCase
      * Environment File
      * @var string
      */
-    private $environmentFile = __DIR__ . '/environment.yaml';
+    private $environmentFile = '';
 
     /**
      * Environment File Not Exist
      * @var string
      */
-    private $environmentFileNotExist = __DIR__ . '/environment.no.yaml';
+    private $environmentFileNotExist = '';
 
     /**
      * EnvironmentTest constructor.
@@ -36,6 +36,8 @@ class EnvironmentTest extends TestCase
     public function __construct()
     {
         parent::__construct();
+        $this->environmentFile = sprintf('%s/environment.yaml', __DIR__);
+        $this->environmentFileNotExist = sprintf('%s/environment.no.yaml', __DIR__);
     }
 
     /**
