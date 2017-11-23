@@ -50,7 +50,8 @@
         ],
         "test": [
             "CodeMommy\\WebPHP\\Script\\Task::cleanReport",
-            "\"vendor/bin/phpunit\" -v"
+            "\"vendor/bin/phpunit\" -v",
+            "start .report/index.html"
         ],
         "update-version": "CodeMommy\\WebPHP\\Script\\Task::updateVersion",
         "clean": "CodeMommy\\WebPHP\\Script\\Task::clean",

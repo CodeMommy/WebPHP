@@ -23,6 +23,25 @@ class Task
     }
 
     /**
+     * Print Line
+     * @param string $text
+     * @param string $type
+     */
+    private static function printLine($text = '', $type = 'normal')
+    {
+        $colorList = array(
+            'normal' => '0',
+            'information' => '1;34',
+            'success' => '1;32',
+            'warning' => '1;33',
+            'error' => '1;31'
+        );
+        $color = isset($colorList[$type]) ? $colorList[$type] : $colorList['normal'];
+        $string = sprintf('%s[%sm%s%s[0m%s', chr(27), $color, $text, chr(27), PHP_EOL);
+        echo($string);
+    }
+
+    /**
      * Update Version
      */
     public static function updateVersion()
@@ -38,8 +57,7 @@ class Task
         $composer = json_encode($composer, JSON_PRETTY_PRINT);
         $composer = str_replace('\\/', '/', $composer);
         file_put_contents($file, $composer);
-        echo(sprintf('Updated version to %s.', $version));
-        echo(PHP_EOL);
+        self::printLine(sprintf('Updated version to %s.', $version), 'success');
     }
 
     /**
@@ -56,8 +74,7 @@ class Task
         foreach ($removeList as $value) {
             $fileSystem->remove($value);
         }
-        echo(sprintf('Clean Finished.'));
-        echo(PHP_EOL);
+        self::printLine('Clean Finished.', 'success');
     }
 
     /**
@@ -72,8 +89,7 @@ class Task
         foreach ($removeList as $value) {
             $fileSystem->remove($value);
         }
-        echo(sprintf('Clean Report Finished.'));
-        echo(PHP_EOL);
+        self::printLine('Clean Report Finished.', 'success');
     }
 
     /**
@@ -81,8 +97,7 @@ class Task
      */
     public static function run()
     {
-        echo(sprintf('Visit http://localhost'));
-        echo(PHP_EOL);
+        self::printLine('Visit http://localhost', 'information');
         system(sprintf('php -S 0.0.0.0:80 -t public'));
     }
 
@@ -91,8 +106,7 @@ class Task
      */
     public static function demo()
     {
-        echo(sprintf('Visit http://localhost'));
-        echo(PHP_EOL);
+        self::printLine('Visit http://localhost', 'information');
         system(sprintf('php -S 0.0.0.0:80 -t demo/public'));
     }
 }
