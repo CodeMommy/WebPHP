@@ -10,7 +10,6 @@
             <directory suffix=".php">./system</directory>
             <exclude>
                 <file>./system/Application.php</file>
-                <file>./system/Controller.php</file>
                 <file>./system/Database.php</file>
                 <file>./system/Debug.php</file>
                 <file>./system/Log.php</file>
