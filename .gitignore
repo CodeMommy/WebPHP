@@ -13,5 +13,6 @@
 /application/_runtime/
 /demo/_runtime/
 
-# Report
+# Test
 /.report
+/test/environment.yaml

@@ -13,7 +13,6 @@
                 <file>./system/Controller.php</file>
                 <file>./system/Database.php</file>
                 <file>./system/Debug.php</file>
-                <file>./system/Environment.php</file>
                 <file>./system/Log.php</file>
                 <file>./system/Mail.php</file>
                 <file>./system/Model.php</file>

@@ -15,13 +15,34 @@ use Symfony\Component\Yaml\Yaml;
  */
 class Environment
 {
+    /**
+     * List
+     * @var array
+     */
     private static $list = array();
+
+    /**
+     * File
+     * @var string
+     */
+    private static $file = '';
 
     /**
      * Environment constructor.
      */
     public function __construct()
     {
+    }
+
+    /**
+     * Set File
+     * @param string $file
+     * @return bool
+     */
+    public static function setFile($file = '')
+    {
+        self::$file = $file;
+        return true;
     }
 
     /**
@@ -33,14 +54,13 @@ class Environment
      */
     public static function get($key = '', $default = null)
     {
-        $file = Application::getPath('config/environment.yaml');
-        if (!is_file($file)) {
-            return $default;
-        }
         if (isset(self::$list[$key])) {
             return self::$list[$key];
         }
-        $config = Yaml::parse(file_get_contents($file));
+        if (!is_file(self::$file)) {
+            return $default;
+        }
+        $config = Yaml::parse(file_get_contents(self::$file));
         $keys = explode('.', $key);
         $count = count($keys);
         for ($index = 0; $index < $count; $index++) {

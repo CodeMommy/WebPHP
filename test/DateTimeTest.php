@@ -19,6 +19,14 @@ use CodeMommy\WebPHP\DateTime;
 class DateTimeTest extends TestCase
 {
     /**
+     * DateTimeTest constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
      * Test Time
      */
     public function testTime()
