@@ -181,7 +181,7 @@ class Demo
      */
     public static function log()
     {
-        $log = new Log('Demo', Application::getPath('_runtime/log/log.log'));
+        $log = new Log('Demo', Application::getRunTimePath('log/demo.log'));
         $log->debug('Debug', array('Debug'));
         $log->info('Info', array('Info'));
         $log->notice('Notice', array('Notice'));

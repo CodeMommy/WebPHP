@@ -98,6 +98,7 @@ class Task
     public static function run()
     {
         self::printLine('Visit http://localhost', 'information');
+        system(sprintf('start http://localhost'));
         system(sprintf('php -S 0.0.0.0:80 -t public'));
     }
 
@@ -107,6 +108,7 @@ class Task
     public static function demo()
     {
         self::printLine('Visit http://localhost', 'information');
+        system(sprintf('start http://localhost'));
         system(sprintf('php -S 0.0.0.0:80 -t demo/public'));
     }
 }

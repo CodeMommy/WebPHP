@@ -48,6 +48,19 @@ class Application
     }
 
     /**
+     * Get Run Time Path
+     * @param string $path
+     * @return string
+     */
+    public static function getRunTimePath($path = '')
+    {
+        $runTimePath = '_runtime';
+        $path = ltrim($path, '/\\');
+        $path = sprintf('%s%s%s', $runTimePath, DIRECTORY_SEPARATOR, $path);
+        return self::getPath($path);
+    }
+
+    /**
      * Start
      * @param string $applicationRoot
      *
