@@ -24,7 +24,7 @@ Visit [CodeMommy Website](http://www.codemommy.com) or [Packagist](https://packa
 
 | Author            | Identity | Social |
 | :---------------- | :------- | :----- |
-| Candison November | Creator  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
+| Candison November | Founder  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
 
 ## Link
 
