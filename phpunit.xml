@@ -12,7 +12,6 @@
                 <file>./system/Application.php</file>
                 <file>./system/Mail.php</file>
                 <file>./system/Route.php</file>
-                <file>./system/View.php</file>
             </exclude>
         </whitelist>
     </filter>

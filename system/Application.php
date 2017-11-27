@@ -12,6 +12,7 @@ use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
 use CodeMommy\DatabasePHP\Database;
 use CodeMommy\DebugPHP\Debug;
+use CodeMommy\ViewPHP\View;
 
 /**
  * Class Application
@@ -89,6 +90,11 @@ class Application
         $databaseConfig = Config::get('database.' . $databaseType);
         $databaseConfig['driver'] = $databaseType;
         Database::setConfig($databaseConfig);
+        // View
+        View::setDebug(Config::get('application.debug', false));
+        View::setPath(self::getPath('view'));
+        View::setCompilePath(self::getRunTimePath('view_template'));
+        View::setCachePath(self::getRunTimePath('view_cache'));
         // Other
         Autoload::directory(self::getPath('controller'), 'Controller');
         Autoload::directory(self::getPath('model'), 'Model');

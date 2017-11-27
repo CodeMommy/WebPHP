@@ -7,8 +7,8 @@
 
 namespace Controller;
 
+use CodeMommy\ViewPHP\View;
 use CodeMommy\WebPHP\Controller;
-use CodeMommy\WebPHP\View;
 
 /**
  * Class IndexController
