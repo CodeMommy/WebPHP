@@ -10,10 +10,10 @@ namespace Model;
 use CodeMommy\DatabasePHP\Model;
 
 /**
- * Class Demo
+ * Class ModelDemo
  * @package Model
  */
-class Demo extends Model
+class ModelDemo extends Model
 {
     /**
      * @var string

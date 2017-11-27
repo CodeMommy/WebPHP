@@ -68,6 +68,7 @@
         "CodeMommy/CookiePHP": "0.0.*",
         "CodeMommy/CurlPHP": "0.0.*",
         "CodeMommy/DatabasePHP": "0.0.*",
+        "CodeMommy/DateTimePHP": "0.0.*",
         "CodeMommy/DebugPHP": "0.0.*",
         "CodeMommy/FilePHP": "0.0.*",
         "CodeMommy/ImagePHP": "0.0.*",
@@ -81,8 +82,7 @@
         "CodeMommy/ViewPHP": "0.0.*",
         "symfony/http-foundation": "3.3.*",
         "symfony/routing": "3.3.*",
-        "symfony/yaml": "3.3.*",
-        "nesbot/carbon": "1.22.*"
+        "symfony/yaml": "3.3.*"
     },
     "require-dev": {
         "symfony/filesystem": "*",

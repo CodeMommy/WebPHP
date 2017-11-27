@@ -77,6 +77,10 @@ class Application
         // Debug
         $isDebug = Config::get('application.debug', false);
         $isDebug ? Debug::on() : Debug::off();
+        // Autoload
+        Autoload::directory(self::getPath('controller'), 'Controller');
+        Autoload::directory(self::getPath('model'), 'Model');
+        Autoload::directory(self::getPath(''), '');
         // Load Library
         $library = Config::get('library', array());
         if (is_array($library)) {
@@ -91,16 +95,14 @@ class Application
         $databaseConfig['driver'] = $databaseType;
         Database::setConfig($databaseConfig);
         // View
-        View::setDebug(Config::get('application.debug', false));
+        View::setDebug($isDebug);
         View::setPath(self::getPath('view'));
         View::setCompilePath(self::getRunTimePath('view_template'));
         View::setCachePath(self::getRunTimePath('view_cache'));
         // Other
-        Autoload::directory(self::getPath('controller'), 'Controller');
-        Autoload::directory(self::getPath('model'), 'Model');
-        Autoload::directory(self::getPath(''), '');
         Cache::setConfig(Config::get('cache'));
         Route::start();
+        // Return
         return true;
     }
 }
