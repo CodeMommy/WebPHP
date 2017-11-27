@@ -11,8 +11,6 @@
             <exclude>
                 <file>./system/Application.php</file>
                 <file>./system/Database.php</file>
-                <file>./system/Debug.php</file>
-                <file>./system/Log.php</file>
                 <file>./system/Mail.php</file>
                 <file>./system/Model.php</file>
                 <file>./system/Route.php</file>

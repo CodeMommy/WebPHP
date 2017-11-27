@@ -70,6 +70,7 @@
         "CodeMommy/DebugPHP": "0.0.*",
         "CodeMommy/IsPHP": "0.0.*",
         "CodeMommy/ImagePHP": "0.0.*",
+        "CodeMommy/LogPHP": "0.0.*",
         "CodeMommy/RequestPHP": "0.0.*",
         "CodeMommy/ResponsePHP": "0.0.*",
         "CodeMommy/ServerPHP": "0.0.*",
@@ -80,7 +81,6 @@
         "illuminate/pagination": "5.2.*",
         "illuminate/database": "5.2.*",
         "swiftmailer/swiftmailer": "5.4.*",
-        "monolog/monolog": "1.23.*",
         "nesbot/carbon": "1.22.*",
         "smarty/smarty": "3.1.*"
     },
