@@ -7,13 +7,10 @@
 
 namespace CodeMommy\WebPHP;
 
-use Whoops\Run;
-use Whoops\Util\Misc;
-use Whoops\Handler\PrettyPageHandler;
-use Whoops\Handler\JsonResponseHandler;
 use CodeMommy\AutoloadPHP\Autoload;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
+use CodeMommy\DebugPHP\Debug;
 
 /**
  * Class Application
@@ -77,15 +74,7 @@ class Application
         Config::setRoot(self::getPath('config'));
         // Debug
         $isDebug = Config::get('application.debug', false);
-        if ($isDebug) {
-            $whoops = new Run();
-            if (Misc::isAjaxRequest()) {
-                $whoops->pushHandler(new JsonResponseHandler());
-            } else {
-                $whoops->pushHandler(new PrettyPageHandler());
-            }
-            $whoops->register();
-        }
+        $isDebug ? Debug::on() : Debug::off();
         // Load Library
         $library = Config::get('library', array());
         if (is_array($library)) {
