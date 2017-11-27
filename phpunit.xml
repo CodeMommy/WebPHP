@@ -10,7 +10,6 @@
             <directory suffix=".php">./system</directory>
             <exclude>
                 <file>./system/Application.php</file>
-                <file>./system/Mail.php</file>
                 <file>./system/Route.php</file>
             </exclude>
         </whitelist>

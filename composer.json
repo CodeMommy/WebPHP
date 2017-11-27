@@ -73,6 +73,7 @@
         "CodeMommy/ImagePHP": "0.0.*",
         "CodeMommy/IsPHP": "0.0.*",
         "CodeMommy/LogPHP": "0.0.*",
+        "CodeMommy/MailPHP": "0.0.*",
         "CodeMommy/RequestPHP": "0.0.*",
         "CodeMommy/ResponsePHP": "0.0.*",
         "CodeMommy/ServerPHP": "0.0.*",
@@ -81,7 +82,6 @@
         "symfony/http-foundation": "3.3.*",
         "symfony/routing": "3.3.*",
         "symfony/yaml": "3.3.*",
-        "swiftmailer/swiftmailer": "5.4.*",
         "nesbot/carbon": "1.22.*"
     },
     "require-dev": {
