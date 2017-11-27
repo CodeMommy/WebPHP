@@ -10,6 +10,7 @@ namespace Library;
 use CodeMommy\CookiePHP\Cookie;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
+use CodeMommy\DatabasePHP\Database;
 use CodeMommy\DebugPHP\Debug;
 use CodeMommy\IsPHP\Is;
 use CodeMommy\RequestPHP\Request;
@@ -22,7 +23,6 @@ use CodeMommy\ImagePHP\Image;
 use CodeMommy\LogPHP\Log;
 use CodeMommy\WebPHP\Application;
 use CodeMommy\WebPHP\Controller;
-use CodeMommy\WebPHP\Database;
 use CodeMommy\WebPHP\DateTime;
 use CodeMommy\WebPHP\Mail;
 use CodeMommy\WebPHP\View;
@@ -86,15 +86,13 @@ class Demo
 
     public static function database()
     {
-        $database = new Database();
-        $result = $database::table('book')->get();
+        $result = Database::instance()::table('book')->get();
         Debug::show($result);
     }
 
     public static function databasePaginate()
     {
-        $database = new Database();
-        $result = $database::table('book')->paginate(2);
+        $result = Database::instance()::table('book')->paginate(2);
         echo $result->render();
     }
 

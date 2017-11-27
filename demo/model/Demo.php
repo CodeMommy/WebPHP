@@ -7,7 +7,7 @@
 
 namespace Model;
 
-use CodeMommy\WebPHP\Model;
+use CodeMommy\DatabasePHP\Model;
 
 /**
  * Class Demo

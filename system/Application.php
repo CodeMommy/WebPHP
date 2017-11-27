@@ -10,6 +10,7 @@ namespace CodeMommy\WebPHP;
 use CodeMommy\AutoloadPHP\Autoload;
 use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
+use CodeMommy\DatabasePHP\Database;
 use CodeMommy\DebugPHP\Debug;
 
 /**
@@ -83,6 +84,11 @@ class Application
                 Autoload::file($file, $key);
             }
         }
+        // Database
+        $databaseType = Config::get('database.type');
+        $databaseConfig = Config::get('database.' . $databaseType);
+        $databaseConfig['driver'] = $databaseType;
+        Database::setConfig($databaseConfig);
         // Other
         Autoload::directory(self::getPath('controller'), 'Controller');
         Autoload::directory(self::getPath('model'), 'Model');
