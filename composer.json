@@ -10,7 +10,7 @@
         "Framework",
         "Fast"
     ],
-    "license": "Apache",
+    "license": "Apache 2.0",
     "homepage": "http://www.codemommy.com",
     "support": {
         "issues": "https://github.com/CodeMommy/WebPHP/issues",
@@ -49,14 +49,14 @@
             "composer update"
         ],
         "test": [
-            "CodeMommy\\WebPHP\\Script\\Task::cleanReport",
+            "CodeMommy\\WebPHP\\Script\\Command::cleanReport",
             "\"vendor/bin/phpunit\" -v",
             "start .report/index.html"
         ],
-        "update-version": "CodeMommy\\WebPHP\\Script\\Task::updateVersion",
-        "clean": "CodeMommy\\WebPHP\\Script\\Task::clean",
-        "demo": "CodeMommy\\WebPHP\\Script\\Task::demo",
-        "run": "CodeMommy\\WebPHP\\Script\\Task::run"
+        "update-version": "CodeMommy\\WebPHP\\Script\\Command::updateVersion",
+        "clean": "CodeMommy\\WebPHP\\Script\\Command::clean",
+        "demo": "CodeMommy\\WebPHP\\Script\\Command::demo",
+        "run": "CodeMommy\\WebPHP\\Script\\Command::run"
     },
     "require": {
         "php": ">=5.5.9",
@@ -85,7 +85,7 @@
         "symfony/yaml": "3.3.*"
     },
     "require-dev": {
-        "symfony/filesystem": "*",
+        "CodeMommy/TaskPHP": "*",
         "phpunit/phpunit": "*"
     }
 }
