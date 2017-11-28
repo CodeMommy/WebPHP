@@ -94,6 +94,7 @@ class Application
         $databaseConfig = Config::get('database.' . $databaseType);
         $databaseConfig['driver'] = $databaseType;
         Database::setConfig($databaseConfig);
+        Database::instance();
         // View
         View::setDebug($isDebug);
         View::setPath(self::getPath('view'));

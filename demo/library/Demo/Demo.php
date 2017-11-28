@@ -94,13 +94,13 @@ class Demo
 
     public static function database()
     {
-        $result = Database::instance()::table('book')->get();
+        $result = Database::table('book')->get();
         Debug::show($result);
     }
 
     public static function databasePaginate()
     {
-        $result = Database::instance()::table('book')->paginate(2);
+        $result = Database::table('book')->paginate(2);
         echo $result->render();
     }
 
