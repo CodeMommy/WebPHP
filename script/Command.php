@@ -26,16 +26,6 @@ class Command
     }
 
     /**
-     * Update Version
-     */
-    public static function updateVersion()
-    {
-        $file = 'composer.json';
-        $newVersion = Composer::updateVersion($file);
-        Console::printLine(sprintf('Updated version to %s.', $newVersion), 'success');
-    }
-
-    /**
      * Clean
      */
     public static function clean()

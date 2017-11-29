@@ -1,17 +1,17 @@
 {
     "name": "codemommy/webphp",
-    "version": "0.0.29",
     "type": "project",
+    "license": "Apache-2.0",
+    "homepage": "http://www.codemommy.com",
     "description": "Web MVC framework of light and fast",
     "keywords": [
         "CodeMommy",
         "WebPHP",
+        "Web",
         "PHP",
         "Framework",
         "Fast"
     ],
-    "license": "Apache 2.0",
-    "homepage": "http://www.codemommy.com",
     "support": {
         "issues": "https://github.com/CodeMommy/WebPHP/issues",
         "source": "https://github.com/CodeMommy/WebPHP"
@@ -19,6 +19,7 @@
     "authors": [
         {
             "name": "Candison November",
+            "role": "Founder",
             "email": "kandisheng@163.com",
             "homepage": "http://www.kandisheng.com"
         }
@@ -32,31 +33,6 @@
         "psr-4": {
             "CodeMommy\\WebPHP\\Script\\": "script/"
         }
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "php script/Install.php",
-            "composer update"
-        ],
-        "environment": [
-            "composer -V",
-            "php -v",
-            "php -m"
-        ],
-        "update-project": [
-            "git pull",
-            "composer self-update",
-            "composer update"
-        ],
-        "test": [
-            "CodeMommy\\WebPHP\\Script\\Command::cleanReport",
-            "\"vendor/bin/phpunit\" -v",
-            "start .report/index.html"
-        ],
-        "update-version": "CodeMommy\\WebPHP\\Script\\Command::updateVersion",
-        "clean": "CodeMommy\\WebPHP\\Script\\Command::clean",
-        "demo": "CodeMommy\\WebPHP\\Script\\Command::demo",
-        "run": "CodeMommy\\WebPHP\\Script\\Command::run"
     },
     "require": {
         "php": ">=5.5.9",
@@ -87,5 +63,29 @@
     "require-dev": {
         "CodeMommy/TaskPHP": "*",
         "phpunit/phpunit": "*"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php script/Install.php",
+            "composer update"
+        ],
+        "environment": [
+            "composer -V",
+            "php -v",
+            "php -m"
+        ],
+        "update-project": [
+            "git pull",
+            "composer self-update",
+            "composer update"
+        ],
+        "test": [
+            "CodeMommy\\WebPHP\\Script\\Command::cleanReport",
+            "\"vendor/bin/phpunit\" -v",
+            "start .report/index.html"
+        ],
+        "clean": "CodeMommy\\WebPHP\\Script\\Command::clean",
+        "demo": "CodeMommy\\WebPHP\\Script\\Command::demo",
+        "run": "CodeMommy\\WebPHP\\Script\\Command::run"
     }
 }
