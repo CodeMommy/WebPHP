@@ -65,7 +65,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "php script/Install.php",
+            "php script/Install.php 0.0.*",
             "composer update"
         ],
         "environment": [

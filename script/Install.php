@@ -74,21 +74,7 @@ class Install
         // Copy
         copy('application/config/environment.example.yaml', 'application/config/environment.yaml');
         // Composer
-        $composerLockFile = 'composer.lock';
-        $composer = file_get_contents($composerLockFile);
-        $composer = json_decode($composer, true);
-        $package = isset($composer['packages']) ? $composer['packages'] : array();
-        $version = '';
-        foreach ($package as $value) {
-            if (strtolower($value['name']) == 'codemommy/webphp') {
-                $version = $value['version'];
-            }
-        }
-        $versionComposer = '*';
-        if (!empty($version)) {
-            $version = explode('.', $version);
-            $versionComposer = sprintf('%s.%s.*', $version[0], $version[1]);
-        }
+        $versionComposer = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '*';
         $data = array(
             'require' => array(
                 'codemommy/webphp' => $versionComposer
