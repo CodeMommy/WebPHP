@@ -8,10 +8,6 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./system</directory>
-            <exclude>
-                <file>./system/Application.php</file>
-                <file>./system/Route.php</file>
-            </exclude>
         </whitelist>
     </filter>
     <logging>

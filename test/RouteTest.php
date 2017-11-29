@@ -10,16 +10,16 @@ declare(strict_types=1);
 namespace Test;
 
 use PHPUnit\Framework\TestCase;
-use CodeMommy\WebPHP\Controller;
+use CodeMommy\WebPHP\Route;
 
 /**
- * Class ControllerTest
+ * Class RouteTest
  * @package Test
  */
-class ControllerTest extends TestCase
+class RouteTest extends TestCase
 {
     /**
-     * ControllerTest constructor.
+     * RouteTest constructor.
      */
     public function __construct()
     {
@@ -31,7 +31,7 @@ class ControllerTest extends TestCase
      */
     public function testConstruct()
     {
-        new Controller();
+        new Route();
         $this->assertEquals(true, true);
     }
 }

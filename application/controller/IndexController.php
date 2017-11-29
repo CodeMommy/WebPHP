@@ -8,13 +8,12 @@
 namespace Controller;
 
 use CodeMommy\ViewPHP\View;
-use CodeMommy\WebPHP\Controller;
 
 /**
  * Class IndexController
  * @package Controller
  */
-class IndexController extends Controller
+class IndexController
 {
     /**
      * Index

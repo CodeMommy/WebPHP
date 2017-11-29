@@ -9,14 +9,13 @@ namespace Controller;
 
 use CodeMommy\RequestPHP\Request;
 use CodeMommy\ViewPHP\View;
-use CodeMommy\WebPHP\Controller;
 use Library\Demo;
 
 /**
  * Class DemoController
  * @package Controller
  */
-class DemoController extends Controller
+class DemoController
 {
     /**
      * Index
