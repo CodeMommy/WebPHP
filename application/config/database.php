@@ -1,16 +1,16 @@
 <?php
 
-use CodeMommy\WebPHP\Environment;
+use CodeMommy\ConfigPHP\Config;
 
 return array(
     'type'  => 'mysql',
     'mysql' => array(
-        'host'      => Environment::get('database.mysql.host', 'localhost'),
-        'database'  => Environment::get('database.mysql.database', ''),
-        'username'  => Environment::get('database.mysql.username', ''),
-        'password'  => Environment::get('database.mysql.password', ''),
-        'prefix'    => Environment::get('database.mysql.prefix', ''),
-        'collation' => Environment::get('database.mysql.collation', 'utf8_unicode_ci'),
-        'charset'   => Environment::get('database.mysql.charset', 'utf8')
+        'host'      => Config::get('environment.database.mysql.host', 'localhost'),
+        'database'  => Config::get('environment.database.mysql.database', ''),
+        'username'  => Config::get('environment.database.mysql.username', ''),
+        'password'  => Config::get('environment.database.mysql.password', ''),
+        'prefix'    => Config::get('environment.database.mysql.prefix', ''),
+        'collation' => Config::get('environment.database.mysql.collation', 'utf8_unicode_ci'),
+        'charset'   => Config::get('environment.database.mysql.charset', 'utf8')
     )
 );

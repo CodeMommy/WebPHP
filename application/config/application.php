@@ -1,7 +1,7 @@
 <?php
 
-use CodeMommy\WebPHP\Environment;
+use CodeMommy\ConfigPHP\Config;
 
 return array(
-    'debug' => Environment::get('application.debug', false)
+    'debug' => Config::get('environment.application.debug', false)
 );

@@ -9,7 +9,6 @@ namespace CodeMommy\WebPHP\Script;
 
 use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\FileSystem;
-use CodeMommy\TaskPHP\Composer;
 use CodeMommy\TaskPHP\PHP;
 
 /**
