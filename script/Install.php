@@ -58,6 +58,7 @@ class Install
      */
     public static function start()
     {
+        // Remove
         $removeList = array(
             'demo',
             'manual',
@@ -70,14 +71,24 @@ class Install
         foreach ($removeList as $file) {
             self::remove($file);
         }
+        // Copy
         copy('application/config/environment.example.yaml', 'application/config/environment.yaml');
         // Composer
-        $composerFile = 'composer.json';
-        $composer = file_get_contents($composerFile);
+        $composerLockFile = 'composer.lock';
+        $composer = file_get_contents($composerLockFile);
         $composer = json_decode($composer, true);
-        $version = $composer['version'];
-        $version = explode('.', $version);
-        $versionComposer = sprintf('%s.%s.*', $version[0], $version[1]);
+        $package = isset($composer['packages']) ? $composer['packages'] : array();
+        $version = '';
+        foreach ($package as $value) {
+            if (strtolower($value['name']) == 'codemommy/webphp') {
+                $version = $value['version'];
+            }
+        }
+        $versionComposer = '*';
+        if (!empty($version)) {
+            $version = explode('.', $version);
+            $versionComposer = sprintf('%s.%s.*', $version[0], $version[1]);
+        }
         $data = array(
             'require' => array(
                 'codemommy/webphp' => $versionComposer
@@ -85,6 +96,7 @@ class Install
         );
         $composerJSON = json_encode($data, JSON_PRETTY_PRINT);
         $composerJSON = str_replace('\\', '', $composerJSON);
+        $composerFile = 'composer.json';
         file_put_contents($composerFile, $composerJSON);
     }
 }
