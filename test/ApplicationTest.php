@@ -40,7 +40,6 @@ class ApplicationTest extends TestCase
      */
     public function testStart()
     {
-        $_SERVER['REQUEST_METHOD'] = 'get';
         Application::start('./demo');
         $this->assertEquals(true, true);
     }

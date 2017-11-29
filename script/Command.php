@@ -8,6 +8,7 @@
 namespace CodeMommy\WebPHP\Script;
 
 use CodeMommy\TaskPHP\Console;
+use CodeMommy\TaskPHP\Composer;
 use CodeMommy\TaskPHP\FileSystem;
 use CodeMommy\TaskPHP\PHP;
 
@@ -22,6 +23,16 @@ class Command
      */
     public function __construct()
     {
+    }
+
+    /**
+     * Update Version
+     */
+    public static function updateVersion()
+    {
+        $file = 'composer.json';
+        $newVersion = Composer::updateVersion($file);
+        Console::printLine(sprintf('Updated version to %s.', $newVersion), 'success');
     }
 
     /**

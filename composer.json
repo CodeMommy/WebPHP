@@ -1,5 +1,6 @@
 {
     "name": "codemommy/webphp",
+    "version": "0.0.30",
     "type": "project",
     "license": "Apache-2.0",
     "homepage": "http://www.codemommy.com",
@@ -85,6 +86,7 @@
         ],
         "clean": "CodeMommy\\WebPHP\\Script\\Command::clean",
         "demo": "CodeMommy\\WebPHP\\Script\\Command::demo",
-        "run": "CodeMommy\\WebPHP\\Script\\Command::run"
+        "run": "CodeMommy\\WebPHP\\Script\\Command::run",
+        "update-version": "CodeMommy\\WebPHP\\Script\\Command::updateVersion"
     }
 }

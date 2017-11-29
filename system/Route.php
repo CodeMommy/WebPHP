@@ -33,8 +33,9 @@ class Route
      */
     private static function getRouteConfig()
     {
+        $requestMethod = isset($_SERVER['REQUEST_METHOD']) ? strtolower($_SERVER['REQUEST_METHOD']) : '';
         $routeConfigureAny = Config::get('route.any', array());
-        $routeConfigureCustom = Config::get('route.' . strtolower($_SERVER['REQUEST_METHOD']), array());
+        $routeConfigureCustom = Config::get('route.' . $requestMethod, array());
         $routeConfig = array_merge($routeConfigureAny, $routeConfigureCustom);
         return $routeConfig;
     }
