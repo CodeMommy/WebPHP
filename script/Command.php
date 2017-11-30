@@ -31,7 +31,7 @@ class Command
     {
         $removeList = array(
             'application/_runtime',
-            'demo/_runtime',
+            'test/case/_runtime',
             '.report'
         );
         $result = FileSystem::remove($removeList);
@@ -73,6 +73,6 @@ class Command
     public static function demo()
     {
         Console::printLine('Visit http://localhost', 'information');
-        PHP::run('demo/public');
+        PHP::run('test/case/public');
     }
 }

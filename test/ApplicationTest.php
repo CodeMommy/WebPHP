@@ -40,7 +40,10 @@ class ApplicationTest extends TestCase
      */
     public function testStart()
     {
-        Application::start('./demo');
+        $casePath = './test/case';
+        $caseConfigPath = $casePath . '/config/';
+        copy($caseConfigPath . 'route_symfony.php', $caseConfigPath . 'route.php');
+        Application::start($casePath);
         $this->assertEquals(true, true);
     }
 }

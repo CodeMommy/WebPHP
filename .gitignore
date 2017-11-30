@@ -7,11 +7,11 @@
 
 # Environment
 /application/config/environment.yaml
-/demo/config/environment.yaml
+/test/case/config/environment.yaml
 
 # Runtime
-/application/_runtime/
-/demo/_runtime/
+/application/_runtime
+/test/case/_runtime
 
 # Test
 /.report

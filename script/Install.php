@@ -60,7 +60,6 @@ class Install
     {
         // Remove
         $removeList = array(
-            'demo',
             'manual',
             'script',
             'system',

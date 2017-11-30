@@ -12,16 +12,25 @@ use CodeMommy\ViewPHP\View;
 use Library\Demo;
 
 /**
- * Class DemoController
+ * Class IndexController
  * @package Controller
  */
-class DemoController
+class IndexController
 {
     /**
      * Index
-     * @return mixed
+     * @return string
      */
     public function index()
+    {
+        return 'index';
+    }
+
+    /**
+     * Demo
+     * @return mixed
+     */
+    public function demo()
     {
         $data = array();
         // Demo List
@@ -44,6 +53,6 @@ class DemoController
         }
         // Render
         $data['root'] = Request::root();
-        return View::render(__FUNCTION__, $data);
+        return View::render('index', $data);
     }
 }

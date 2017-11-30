@@ -72,6 +72,7 @@ class Application
         $applicationRoot = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $applicationRoot);
         self::$applicationRoot = $applicationRoot;
         // Config
+        Config::clearCache();
         Config::addDirectory(self::getPath('config'));
         // Debug
         $isDebug = Config::get('application.debug', false);
