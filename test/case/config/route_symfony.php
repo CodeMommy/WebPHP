@@ -6,8 +6,9 @@ return array(
     // Route Configure
     // any, get, post...
     'any' => array(
-        'test/symfony' => 'TestController.symfony',
         '' => 'DemoController.index',
-        '{action}' => 'DemoController.index'
+        '{action}' => 'DemoController.index',
+        'test/symfony/{name}' => 'TestController.symfony',
+        'test/home' => 'Home.HomeController.index'
     )
 );

@@ -45,7 +45,7 @@ class RouteTest extends TestCase
     public function testConstruct()
     {
         new Route();
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     /**
@@ -64,10 +64,11 @@ class RouteTest extends TestCase
      */
     public function testStartPathInfo()
     {
+        $name = 'pathinfo';
         copy($this->caseConfigPath . 'route_pathinfo.php', $this->caseConfigPath . 'route.php');
-        $_SERVER['REQUEST_URI'] = '/test/pathinfo';
+        $_SERVER['REQUEST_URI'] = sprintf('/test/pathinfo/name/%s', $name);
         Application::start($this->casePath);
-        $this->expectOutputString('pathinfo');
+        $this->expectOutputString($name);
     }
 
     /**
@@ -75,9 +76,32 @@ class RouteTest extends TestCase
      */
     public function testStartSymfony()
     {
+        $name = 'symfony';
         copy($this->caseConfigPath . 'route_symfony.php', $this->caseConfigPath . 'route.php');
-        $_SERVER['REQUEST_URI'] = '/test/symfony';
+        $_SERVER['REQUEST_URI'] = sprintf('/test/symfony/%s', $name);
         Application::start($this->casePath);
-        $this->expectOutputString('symfony');
+        $this->expectOutputString($name);
+    }
+
+    /**
+     * Test Start Symfony Namespace
+     */
+    public function testStartSymfonyNamespace()
+    {
+        copy($this->caseConfigPath . 'route_symfony.php', $this->caseConfigPath . 'route.php');
+        $_SERVER['REQUEST_URI'] = '/test/home';
+        Application::start($this->casePath);
+        $this->expectOutputString('index');
+    }
+
+    /**
+     * Test Start Map Empty
+     */
+    public function testStartMapEmpty()
+    {
+        copy($this->caseConfigPath . 'route_map.php', $this->caseConfigPath . 'route.php');
+        $_SERVER['REQUEST_URI'] = '/test/mapEmpty';
+        Application::start($this->casePath);
+        $this->expectOutputString('');
     }
 }

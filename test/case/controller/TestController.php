@@ -26,7 +26,7 @@ class TestController
      */
     public function pathInfo()
     {
-        return 'pathinfo';
+        return isset($_GET['name']) ? $_GET['name'] : null;
     }
 
     /**
@@ -44,6 +44,6 @@ class TestController
      */
     public function symfony()
     {
-        return 'symfony';
+        return isset($_GET['name']) ? $_GET['name'] : null;
     }
 }

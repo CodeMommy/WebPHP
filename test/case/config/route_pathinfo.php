@@ -5,6 +5,5 @@ return array(
     'type' => 'pathinfo',
     // Route Configure
     // any, get, post...
-    'any' => array(
-    )
+    'any' => array()
 );

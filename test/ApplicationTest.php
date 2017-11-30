@@ -44,7 +44,7 @@ class ApplicationTest extends TestCase
     public function testConstruct()
     {
         new Application();
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     /**
@@ -52,9 +52,10 @@ class ApplicationTest extends TestCase
      */
     public function testStart()
     {
+        $name = 'symfony';
         copy($this->caseConfigPath . 'route_symfony.php', $this->caseConfigPath . 'route.php');
-        $_SERVER['REQUEST_URI'] = '/test/symfony';
+        $_SERVER['REQUEST_URI'] = sprintf('/test/symfony/%s', $name);
         Application::start($this->casePath);
-        $this->expectOutputString('symfony');
+        $this->expectOutputString($name);
     }
 }
