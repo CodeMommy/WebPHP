@@ -72,6 +72,7 @@ class Command
      */
     public static function demo()
     {
+        copy('test/case/config/route_symfony.php', 'test/case/config/route.php');
         Console::printLine('Visit http://localhost', 'information');
         PHP::run('test/case/public');
     }

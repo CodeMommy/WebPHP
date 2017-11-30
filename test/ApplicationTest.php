@@ -19,11 +19,23 @@ use CodeMommy\WebPHP\Application;
 class ApplicationTest extends TestCase
 {
     /**
+     * @var string
+     */
+    private $casePath = '';
+
+    /**
+     * @var string
+     */
+    private $caseConfigPath = '';
+
+    /**
      * ApplicationTest constructor.
      */
     public function __construct()
     {
         parent::__construct();
+        $this->casePath = './test/case';
+        $this->caseConfigPath = $this->casePath . '/config/';
     }
 
     /**
@@ -40,10 +52,9 @@ class ApplicationTest extends TestCase
      */
     public function testStart()
     {
-        $casePath = './test/case';
-        $caseConfigPath = $casePath . '/config/';
-        copy($caseConfigPath . 'route_symfony.php', $caseConfigPath . 'route.php');
-        Application::start($casePath);
-        $this->assertEquals(true, true);
+        copy($this->caseConfigPath . 'route_symfony.php', $this->caseConfigPath . 'route.php');
+        $_SERVER['REQUEST_URI'] = '/test/symfony';
+        Application::start($this->casePath);
+        $this->expectOutputString('symfony');
     }
 }

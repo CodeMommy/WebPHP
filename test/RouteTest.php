@@ -20,11 +20,23 @@ use CodeMommy\WebPHP\Application;
 class RouteTest extends TestCase
 {
     /**
+     * @var string
+     */
+    private $casePath = '';
+
+    /**
+     * @var string
+     */
+    private $caseConfigPath = '';
+
+    /**
      * RouteTest constructor.
      */
     public function __construct()
     {
         parent::__construct();
+        $this->casePath = './test/case';
+        $this->caseConfigPath = $this->casePath . '/config/';
     }
 
     /**
@@ -37,18 +49,35 @@ class RouteTest extends TestCase
     }
 
     /**
-     * Test Start
+     * Test Start Map
      */
-    public function testStart()
+    public function testStartMap()
     {
-        $casePath = './test/case';
-        $caseConfigPath = $casePath . '/config/';
-        copy($caseConfigPath . 'route_map.php', $caseConfigPath . 'route.php');
-        Application::start($casePath);
-        copy($caseConfigPath . 'route_pathinfo.php', $caseConfigPath . 'route.php');
-        Application::start($casePath);
-        copy($caseConfigPath . 'route_symfony.php', $caseConfigPath . 'route.php');
-        Application::start($casePath);
-        $this->assertEquals(true, true);
+        copy($this->caseConfigPath . 'route_map.php', $this->caseConfigPath . 'route.php');
+        $_SERVER['REQUEST_URI'] = '/test/map';
+        Application::start($this->casePath);
+        $this->expectOutputString('map');
+    }
+
+    /**
+     * Test Start PathInfo
+     */
+    public function testStartPathInfo()
+    {
+        copy($this->caseConfigPath . 'route_pathinfo.php', $this->caseConfigPath . 'route.php');
+        $_SERVER['REQUEST_URI'] = '/test/pathinfo';
+        Application::start($this->casePath);
+        $this->expectOutputString('pathinfo');
+    }
+
+    /**
+     * Test Start Symfony
+     */
+    public function testStartSymfony()
+    {
+        copy($this->caseConfigPath . 'route_symfony.php', $this->caseConfigPath . 'route.php');
+        $_SERVER['REQUEST_URI'] = '/test/symfony';
+        Application::start($this->casePath);
+        $this->expectOutputString('symfony');
     }
 }

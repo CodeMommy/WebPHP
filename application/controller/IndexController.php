@@ -16,6 +16,13 @@ use CodeMommy\ViewPHP\View;
 class IndexController
 {
     /**
+     * IndexController constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * Index
      * @return bool
      */

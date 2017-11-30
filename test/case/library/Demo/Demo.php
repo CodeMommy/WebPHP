@@ -32,8 +32,6 @@ use CodeMommy\SessionPHP\Session;
 use CodeMommy\ViewPHP\View;
 
 use CodeMommy\WebPHP\Application;
-use CodeMommy\WebPHP\Controller;
-use CodeMommy\WebPHP\Environment;
 use CodeMommy\WebPHP\Route;
 
 use Model\ModelDemo;

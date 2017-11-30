@@ -1,17 +1,18 @@
 # IDE
-/.idea/
+/.idea
 
 # Composer
-/vendor/
+/vendor
 /composer.lock
 
 # Environment
 /application/config/environment.yaml
-/test/case/config/environment.yaml
 
 # Runtime
 /application/_runtime
-/test/case/_runtime
 
 # Test
 /.report
+/test/case/_runtime
+/test/case/config/route.php
+/test/case/config/environment.yaml
