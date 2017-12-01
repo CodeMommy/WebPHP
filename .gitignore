@@ -5,10 +5,8 @@
 /vendor
 /composer.lock
 
-# Environment
+# Application
 /application/config/environment.yaml
-
-# Runtime
 /application/_runtime
 
 # Test

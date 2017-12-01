@@ -1,6 +1,6 @@
 # CodeMommy WebPHP
 
-## Overview
+> Web MVC framework of light and fast
 
 [![License](https://poser.pugx.org/CodeMommy/WebPHP/license)](LICENSE)
 [![Download](https://poser.pugx.org/CodeMommy/WebPHP/downloads)](https://packagist.org/packages/CodeMommy/WebPHP)
@@ -9,28 +9,20 @@
 [![composer.lock Available](https://poser.pugx.org/CodeMommy/WebPHP/composerlock)](https://packagist.org/packages/CodeMommy/WebPHP)
 [![Build Status](https://travis-ci.org/CodeMommy/WebPHP.svg?branch=master)](https://travis-ci.org/CodeMommy/WebPHP)
 
-> Web MVC framework of light and fast
+## Manual
 
-Visit [CodeMommy Website](http://www.codemommy.com) or [Packagist](https://packagist.org/packages/CodeMommy/WebPHP) to get more information.
+- [Version 1.0 简体中文](manual/1.0_SimplifiedChinese.md)
 
-## Download & Manual
+## Contributor
 
-| Download | Manual | Update |
-| :------- | :------------ | :----- |
-| [V1](https://github.com/CodeMommy/WebPHP/releases/tag/0.0.29)    | [简体中文](manual/V1_SimplifiedChinese.md) | 2017-11-22 |
-| [Latest](https://github.com/CodeMommy/WebPHP/archive/master.zip) | [简体中文](manual/V1_SimplifiedChinese.md) | Now |
+- [Candison November](http://www.kandisheng.com) - Founder
 
-## Author
+## Information
 
-| Author            | Identity | Social |
-| :---------------- | :------- | :----- |
-| Candison November | Founder  | [Website](http://www.kandisheng.com/) [Github](https://github.com/KanDisheng) |
-
-## Link
-
-[Website](http://www.CodeMommy.com) - [GitHub](https://github.com/CodeMommy/WebPHP) - [Packagist](https://packagist.org/packages/CodeMommy/WebPHP) - [OSChina](http://www.oschina.net/p/luckyphp) - [OpenOpen](http://www.open-open.com/lib/view/open1450851176558.html)
-
-## More
-
+- [Homepage](http://www.CodeMommy.com)
 - [Feedback](https://github.com/CodeMommy/WebPHP/issues)
-- [About CodeMommy](https://github.com/CodeMommy/CodeMommy)
+- [About](https://github.com/CodeMommy/CodeMommy)
+- [GitHub](https://github.com/CodeMommy/WebPHP)
+- [Packagist](https://packagist.org/packages/CodeMommy/WebPHP)
+- [OSChina](http://www.oschina.net/p/luckyphp)
+- [OpenOpen](http://www.open-open.com/lib/view/open1450851176558.html)
