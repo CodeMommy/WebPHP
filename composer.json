@@ -56,8 +56,8 @@
         "CodeMommy/ServerPHP": "0.0.*",
         "CodeMommy/SessionPHP": "0.0.*",
         "CodeMommy/ViewPHP": "0.0.*",
-        "symfony/http-foundation": "3.3.*",
-        "symfony/routing": "3.3.*"
+        "symfony/http-foundation": "3.4.*",
+        "symfony/routing": "3.4.*"
     },
     "require-dev": {
         "CodeMommy/TaskPHP": "*",
