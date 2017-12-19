@@ -79,12 +79,12 @@
             "composer update"
         ],
         "test": [
-            "CodeMommy\\WebPHP\\Script\\Command::cleanReport",
+            "CodeMommy\\WebPHP\\Script\\CleanReport::start",
             "\"vendor/bin/phpunit\" -v",
             "start .report/index.html"
         ],
-        "clean": "CodeMommy\\WebPHP\\Script\\Command::clean",
-        "demo": "CodeMommy\\WebPHP\\Script\\Command::demo",
-        "run": "CodeMommy\\WebPHP\\Script\\Command::run"
+        "clean": "CodeMommy\\WebPHP\\Script\\Clean::start",
+        "demo": "CodeMommy\\WebPHP\\Script\\Demo::start",
+        "run": "CodeMommy\\WebPHP\\Script\\Run::start"
     }
 }
