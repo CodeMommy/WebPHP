@@ -78,11 +78,7 @@
             "composer self-update",
             "composer update"
         ],
-        "test": [
-            "CodeMommy\\WebPHP\\Script\\CleanReport::start",
-            "\"vendor/bin/phpunit\" -v",
-            "start .report/index.html"
-        ],
+        "test": "CodeMommy\\WebPHP\\Script\\Test::start",
         "clean": "CodeMommy\\WebPHP\\Script\\Clean::start",
         "demo": "CodeMommy\\WebPHP\\Script\\Demo::start",
         "run": "CodeMommy\\WebPHP\\Script\\Run::start"

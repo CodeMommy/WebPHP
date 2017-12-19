@@ -11,13 +11,13 @@ use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\FileSystem;
 
 /**
- * Class CleanReport
+ * Class Test
  * @package CodeMommy\WebPHP\Script
  */
-class CleanReport
+class Test
 {
     /**
-     * CleanReport constructor.
+     * Test constructor.
      */
     public function __construct()
     {
@@ -35,7 +35,14 @@ class CleanReport
         if ($result) {
             Console::printLine('Clean Report Finished.', 'success');
         } else {
-            Console::printLine('Error.', 'error');
+            Console::printLine('Clean Report Error.', 'error');
+        }
+        system('"vendor/bin/phpunit" -v');
+        $reportFile = '.report/index.html';
+        if (is_file($reportFile)) {
+            system(sprintf('start %s', $reportFile));
+        } else {
+            Console::printLine('No Report.', 'information');
         }
     }
 }
