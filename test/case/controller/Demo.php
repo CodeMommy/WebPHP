@@ -9,16 +9,16 @@ namespace Controller;
 
 use CodeMommy\RequestPHP\Request;
 use CodeMommy\ViewPHP\View;
-use Library\Demo;
+use Library\DemoList;
 
 /**
- * Class DemoController
+ * Class Demo
  * @package Controller
  */
-class DemoController
+class Demo
 {
     /**
-     * DemoController constructor.
+     * Demo constructor.
      */
     public function __construct()
     {
@@ -32,7 +32,7 @@ class DemoController
     {
         $data = array();
         // Demo List
-        $demoMethods = get_class_methods('Library\Demo');
+        $demoMethods = get_class_methods('Library\DemoList');
         sort($demoMethods);
         $notShow = array();
         foreach ($demoMethods as $key => $value) {
@@ -47,7 +47,7 @@ class DemoController
         $data['action'] = $action;
         if (!empty($action)) {
             $data['title'] = sprintf('%s: %s', $data['title'], $action);
-            Demo::$action();
+            DemoList::$action();
         }
         // Render
         $data['root'] = Request::root();

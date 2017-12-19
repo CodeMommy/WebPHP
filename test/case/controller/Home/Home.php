@@ -8,13 +8,13 @@
 namespace Controller\Home;
 
 /**
- * Class HomeController
+ * Class Home
  * @package Controller
  */
-class HomeController
+class Home
 {
     /**
-     * HomeController constructor.
+     * Home constructor.
      */
     public function __construct()
     {

@@ -6,6 +6,6 @@ return array(
     // Route Configure
     // any, get, post...
     'any' => array(
-        'test/map' => 'TestController.map'
+        'test/map' => 'Test.map'
     )
 );

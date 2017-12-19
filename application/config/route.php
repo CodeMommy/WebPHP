@@ -6,6 +6,6 @@ return array(
     // Route Configure
     // any, get, post...
     'get' => array(
-        '/' => 'IndexController.index'
+        '/' => 'Index.index'
     )
 );

@@ -34,13 +34,13 @@ use CodeMommy\ViewPHP\View;
 use CodeMommy\WebPHP\Application;
 use CodeMommy\WebPHP\Route;
 
-use Model\ModelDemo;
+use Model\Demo;
 
 /**
- * Class Demo
+ * Class DemoList
  * @package Library
  */
-class Demo
+class DemoList
 {
     /**
      * Render Page
@@ -104,7 +104,7 @@ class Demo
 
     public static function model()
     {
-        $result = ModelDemo::all();
+        $result = Demo::all();
         Debug::show($result);
     }
 

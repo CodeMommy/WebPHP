@@ -97,7 +97,7 @@ class Route
                 }
             }
         }
-        $route = $controllerName . 'Controller.' . $actionName;
+        $route = $controllerName . '.' . $actionName;
         return self::render($route);
     }
 

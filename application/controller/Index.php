@@ -10,13 +10,13 @@ namespace Controller;
 use CodeMommy\ViewPHP\View;
 
 /**
- * Class IndexController
+ * Class Index
  * @package Controller
  */
-class IndexController
+class Index
 {
     /**
-     * IndexController constructor.
+     * Index constructor.
      */
     public function __construct()
     {

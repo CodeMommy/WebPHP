@@ -8,13 +8,13 @@
 namespace Controller;
 
 /**
- * Class TestController
+ * Class Test
  * @package Controller
  */
-class TestController
+class Test
 {
     /**
-     * TestController constructor.
+     * Test constructor.
      */
     public function __construct()
     {

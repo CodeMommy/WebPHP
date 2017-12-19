@@ -2,5 +2,5 @@
 
 return array(
     'Library\HelloWorld' => 'HelloWorld/HelloWorld.php',
-    'Library\Demo' => 'Demo/Demo.php'
+    'Library\DemoList' => 'DemoList/DemoList.php'
 );
