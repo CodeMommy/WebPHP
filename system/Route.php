@@ -18,7 +18,7 @@ use CodeMommy\ConfigPHP\Config;
  * Class Route
  * @package CodeMommy\WebPHP
  */
-class Route
+class Route implements RouteInterface
 {
     /**
      * Route constructor.

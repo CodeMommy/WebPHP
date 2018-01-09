@@ -18,7 +18,7 @@ use CodeMommy\ViewPHP\View;
  * Class Application
  * @package CodeMommy\WebPHP
  */
-class Application
+class Application implements ApplicationInterface
 {
     /**
      * Application Root
