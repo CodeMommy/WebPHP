@@ -53,11 +53,10 @@
         "CodeMommy/MailPHP": "0.0.*",
         "CodeMommy/RequestPHP": "0.0.*",
         "CodeMommy/ResponsePHP": "0.0.*",
+        "CodeMommy/RoutePHP": "0.0.*",
         "CodeMommy/ServerPHP": "0.0.*",
         "CodeMommy/SessionPHP": "0.0.*",
-        "CodeMommy/ViewPHP": "0.0.*",
-        "symfony/http-foundation": "3.4.*",
-        "symfony/routing": "3.4.*"
+        "CodeMommy/ViewPHP": "0.0.*"
     },
     "require-dev": {
         "CodeMommy/TaskPHP": "*",

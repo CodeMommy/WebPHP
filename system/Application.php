@@ -12,6 +12,7 @@ use CodeMommy\CachePHP\Cache;
 use CodeMommy\ConfigPHP\Config;
 use CodeMommy\DatabasePHP\Database;
 use CodeMommy\DebugPHP\Debug;
+use CodeMommy\RoutePHP\Route;
 use CodeMommy\ViewPHP\View;
 
 /**
@@ -102,7 +103,11 @@ class Application implements ApplicationInterface
         View::setCachePath(self::getRunTimePath('view_cache'));
         // Other
         Cache::setConfig(Config::get('cache'));
-        Route::start();
+        // Route
+        $route = new Route();
+        $route->setNamespaceRoot('\\Controller');
+        $route->setConfig(Config::get('route'));
+        $route->start();
         // Return
         return true;
     }
