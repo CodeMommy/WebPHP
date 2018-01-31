@@ -11,13 +11,13 @@ use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\FileSystem;
 
 /**
- * Class Test
+ * Class PHPUnit
  * @package CodeMommy\WebPHP\Script
  */
-class Test
+class PHPUnit
 {
     /**
-     * Test constructor.
+     * PHPUnit constructor.
      */
     public function __construct()
     {
