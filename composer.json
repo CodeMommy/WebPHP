@@ -56,7 +56,8 @@
         "CodeMommy/RoutePHP": "0.0.*",
         "CodeMommy/ServerPHP": "0.0.*",
         "CodeMommy/SessionPHP": "0.0.*",
-        "CodeMommy/ViewPHP": "0.0.*"
+        "CodeMommy/ViewPHP": "0.0.*",
+        "symfony/yaml": "2.8.*"
     },
     "require-dev": {
         "CodeMommy/TaskPHP": "*",
