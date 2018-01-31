@@ -14,6 +14,7 @@ use CodeMommy\DatabasePHP\Database;
 use CodeMommy\DebugPHP\Debug;
 use CodeMommy\RoutePHP\Route;
 use CodeMommy\RoutePHP\RouteType;
+use CodeMommy\RoutePHP\RouteMethod;
 use CodeMommy\ViewPHP\View;
 
 /**
@@ -110,8 +111,8 @@ class Application implements ApplicationInterface
         $route->setType(Config::get('route.type', RouteType::NORMAL));
         $routeRule = Config::get('route.rule', array());
         foreach ($routeRule as $valueRouteRule) {
-            $routeRuleMethod = isset($valueRouteRule[2]) ? $valueRouteRule[2] : 'any';
-            $route->addRule($routeRuleMethod, $valueRouteRule[0], $valueRouteRule[1]);
+            $routeRuleMethod = isset($valueRouteRule[2]) ? $valueRouteRule[2] : RouteMethod::ANY;
+            $route->addRule($valueRouteRule[0], $valueRouteRule[1], $routeRuleMethod);
         }
         $route->start();
         // Return
