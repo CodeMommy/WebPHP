@@ -52,7 +52,7 @@ class ApplicationTest extends TestCase
      */
     public function testStart()
     {
-        $name = 'symfony';
+        $name = strval(rand(1, 100));
         copy($this->caseConfigPath . 'route_symfony.php', $this->caseConfigPath . 'route.php');
         $_SERVER['REQUEST_URI'] = sprintf('/test/symfony/%s', $name);
         Application::start($this->casePath);

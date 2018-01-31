@@ -1,9 +1,10 @@
 <?php
 
+use CodeMommy\RoutePHP\RouteType;
+
 return array(
-    // Route Type: pathinfo, map or symfony
-    'type' => 'pathinfo',
+    // Route Type: normal, pathinfo, map or symfony
+    'type' => RouteType::PATHINFO,
     // Route Configure
-    // any, get, post...
-    'any' => array()
+    'rule' => array()
 );

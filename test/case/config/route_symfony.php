@@ -1,14 +1,15 @@
 <?php
 
+use CodeMommy\RoutePHP\RouteType;
+
 return array(
-    // Route Type: pathinfo, map or symfony
-    'type' => 'symfony',
+    // Route Type: normal, pathinfo, map or symfony
+    'type' => RouteType::SYMFONY,
     // Route Configure
-    // any, get, post...
-    'any' => array(
-        '' => 'Demo.index',
-        '{action}' => 'Demo.index',
-        'test/symfony/{name}' => 'Test.symfony',
-        'test/home' => 'Home.Home.index'
+    'rule' => array(
+        array('', 'Demo.index', 'any'),
+        array('{action}', 'Demo.index', 'any'),
+        array('test/symfony/{name}', 'Test.symfony', 'any'),
+        array('test/home', 'Home.Home.index', 'any')
     )
 );
