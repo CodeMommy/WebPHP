@@ -65,7 +65,6 @@ class Application implements ApplicationInterface
     /**
      * Start
      * @param string $applicationRoot
-     *
      * @return bool
      */
     public static function start($applicationRoot = '')
@@ -107,7 +106,7 @@ class Application implements ApplicationInterface
         Cache::setConfig(Config::get('cache'));
         // Route
         $route = new Route();
-        $route->setNamespaceRoot('\\Controller');
+        $route->setNamespaceRoot('Controller');
         $route->setType(Config::get('route.type', RouteType::NORMAL));
         $routeRule = Config::get('route.rule', array());
         foreach ($routeRule as $valueRouteRule) {
