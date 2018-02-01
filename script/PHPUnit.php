@@ -59,7 +59,8 @@ class PHPUnit
     {
         $reportPath = sprintf('%s%s%s', self::getBasePath(), DIRECTORY_SEPARATOR, time());
         $reportFile = sprintf('%s%sindex.html', $reportPath, DIRECTORY_SEPARATOR);
-        $command = sprintf('"vendor/bin/phpunit" -v --coverage-html="%s"', $reportPath);
+        $cloverFile = sprintf('%s%sclover.xml', $reportPath, DIRECTORY_SEPARATOR);
+        $command = sprintf('"vendor/bin/phpunit" -v --coverage-html="%s" --coverage-clover="%s"', $reportPath, $cloverFile);
         system($command);
         if (is_file($reportFile)) {
             system(sprintf('start %s', $reportFile));

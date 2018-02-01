@@ -63,7 +63,8 @@
         "CodeMommy/TaskPHP": "*",
         "phpunit/phpunit": "*",
         "phpmd/phpmd": "*",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "satooshi/php-coveralls": "*"
     },
     "scripts": {
         "post-create-project-cmd": [

@@ -1,0 +1,2 @@
+coverage_clover: .report/clover/clover.xml
+json_path: .report/clover/coveralls.json

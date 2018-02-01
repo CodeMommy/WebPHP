@@ -6,6 +6,7 @@
 [![Unstable](https://poser.pugx.org/CodeMommy/WebPHP/v/unstable)](https://packagist.org/packages/CodeMommy/WebPHP)
 [![composer.lock Available](https://poser.pugx.org/CodeMommy/WebPHP/composerlock)](https://packagist.org/packages/CodeMommy/WebPHP)
 [![Build Status](https://travis-ci.org/CodeMommy/WebPHP.svg?branch=master)](https://travis-ci.org/CodeMommy/WebPHP)
+[![Coverage Status](https://coveralls.io/repos/github/CodeMommy/WebPHP/badge.svg?branch=master)](https://coveralls.io/github/CodeMommy/WebPHP?branch=master)
 
 > Web MVC framework of light and fast
 
