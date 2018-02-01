@@ -9,8 +9,8 @@
 /application/config/environment.yaml
 /application/_runtime
 
-# Test
-/.report
+# Workbench
+/workbench
 /test/case/_runtime
 /test/case/config/route.php
 /test/case/config/environment.yaml

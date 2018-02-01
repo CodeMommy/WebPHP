@@ -16,7 +16,19 @@ use CodeMommy\TaskPHP\FileSystem;
  */
 class PHPUnit
 {
-    const BASE_PATH_NAME = 'PHPUnit';
+    const BASE_PATH_NAME = 'CodeMommy';
+
+    /**
+     * Base Path
+     * @var string
+     */
+    private static $basePath = '';
+
+    /**
+     * Workbench Path
+     * @var string
+     */
+    private static $workbenchPath = '';
 
     /**
      * PHPUnit constructor.
@@ -31,7 +43,22 @@ class PHPUnit
      */
     private static function getBasePath()
     {
-        return sprintf('%s%s%s', sys_get_temp_dir(), DIRECTORY_SEPARATOR, self::BASE_PATH_NAME);
+        if (empty(self::$basePath)) {
+            self::$basePath = sprintf('%s%s%s', sys_get_temp_dir(), DIRECTORY_SEPARATOR, self::BASE_PATH_NAME);
+        }
+        return self::$basePath;
+    }
+
+    /**
+     * Get Workbench Path
+     * @return string
+     */
+    private static function getWorkbenchPath()
+    {
+        if (empty(self::$workbenchPath)) {
+            self::$workbenchPath = sprintf('%s%s%s%s', self::getBasePath(), DIRECTORY_SEPARATOR, time(), rand(100, 999));
+        }
+        return self::$workbenchPath;
     }
 
     /**
@@ -57,15 +84,16 @@ class PHPUnit
      */
     public static function start()
     {
-        $reportPath = sprintf('%s%s%s', self::getBasePath(), DIRECTORY_SEPARATOR, time());
-        $reportFile = sprintf('%s%sindex.html', $reportPath, DIRECTORY_SEPARATOR);
-        $cloverFile = sprintf('%s%sclover.xml', $reportPath, DIRECTORY_SEPARATOR);
-        $command = sprintf('"vendor/bin/phpunit" -v --coverage-html="%s" --coverage-clover="%s"', $reportPath, $cloverFile);
+        $coveragePath = sprintf('%s%sCodeCoverageReport', self::getWorkbenchPath(), DIRECTORY_SEPARATOR);
+        $coveragePathHTML = sprintf('%s%sHTML', $coveragePath, DIRECTORY_SEPARATOR);
+        $coverageFileHTML = sprintf('%s%sindex.html', $coveragePathHTML, DIRECTORY_SEPARATOR);
+        $coverageFileClover = sprintf('%s%sClover%sclover.xml', $coveragePath, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR);
+        $command = sprintf('"vendor/bin/phpunit" -v --coverage-html="%s" --coverage-clover="%s"', $coveragePathHTML, $coverageFileClover);
         system($command);
-        if (is_file($reportFile)) {
-            system(sprintf('start %s', $reportFile));
+        if (is_file($coverageFileHTML)) {
+            system(sprintf('start %s', $coverageFileHTML));
             return;
         }
-        Console::printLine('No Report.', 'information');
+        Console::printLine('No PHPUnit Report.', 'information');
     }
 }

@@ -32,7 +32,7 @@ class Clean
         $removeList = array(
             'application/_runtime',
             'test/case/_runtime',
-            '.report'
+            'workbench'
         );
         $result = FileSystem::remove($removeList);
         if ($result) {
