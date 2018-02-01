@@ -137,7 +137,7 @@ class DemoList
 
     public static function input()
     {
-        echo Request::inputGet('hello', 'default');;
+        echo Request::inputGet('hello', 'default');
     }
 
     public static function debug()
