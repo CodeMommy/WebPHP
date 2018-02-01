@@ -26,13 +26,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "CodeMommy\\WebPHP\\": "system/"
+            "CodeMommy\\WebPHP\\": "system"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeMommy\\WebPHP\\Test\\": "test/",
-            "CodeMommy\\WebPHP\\Script\\": "script/"
+            "CodeMommy\\WebPHP\\Test\\": "test",
+            "CodeMommy\\WebPHP\\Script\\": "script"
         }
     },
     "require": {
