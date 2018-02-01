@@ -28,8 +28,8 @@ class Demo
      */
     public static function start()
     {
-        copy('test/case/config/route_symfony.php', 'test/case/config/route.php');
+        copy('test_case/config/route_symfony.php', 'test_case/config/route.php');
         Console::printLine('Visit http://localhost', 'information');
-        PHP::run('test/case/public');
+        PHP::run('test_case/public');
     }
 }

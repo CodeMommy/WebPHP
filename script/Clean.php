@@ -31,7 +31,7 @@ class Clean
         PHPUnit::clean();
         $removeList = array(
             'application/_runtime',
-            'test/case/_runtime',
+            'test_case/_runtime',
             'workbench'
         );
         $result = FileSystem::remove($removeList);
