@@ -1,0 +1,20 @@
+application:
+  debug: true
+
+cache:
+  redis:
+    server: localhost
+    port: 6379
+    password:
+    database: 0
+    prefix:
+
+database:
+  mysql:
+    host: localhost
+    database:
+    username:
+    password:
+    prefix:
+    collation:
+    charset:

@@ -64,7 +64,10 @@ class Install
             'script',
             'system',
             'test',
+            'test_case',
+            '.coveralls.yml',
             '.travis.yml',
+            'autoload.php',
             'phpunit.xml'
         );
         foreach ($removeList as $file) {

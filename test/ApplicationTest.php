@@ -7,35 +7,22 @@
 
 declare(strict_types=1);
 
-namespace Test;
+namespace CodeMommy\WebPHP\Test;
 
-use PHPUnit\Framework\TestCase;
 use CodeMommy\WebPHP\Application;
 
 /**
  * Class ApplicationTest
- * @package Test
+ * @package CodeMommy\WebPHP\Test
  */
-class ApplicationTest extends TestCase
+class ApplicationTest extends BaseTest
 {
-    /**
-     * @var string
-     */
-    private $casePath = '';
-
-    /**
-     * @var string
-     */
-    private $caseConfigPath = '';
-
     /**
      * ApplicationTest constructor.
      */
     public function __construct()
     {
         parent::__construct();
-        $this->casePath = './test/case';
-        $this->caseConfigPath = $this->casePath . '/config/';
     }
 
     /**
@@ -53,9 +40,9 @@ class ApplicationTest extends TestCase
     public function testStart()
     {
         $name = strval(rand(1, 100));
-        copy($this->caseConfigPath . 'route_symfony.php', $this->caseConfigPath . 'route.php');
+        copy($this->getTestCasePath('config/route_symfony.php'), $this->getTestCasePath('config/route.php'));
         $_SERVER['REQUEST_URI'] = sprintf('/test/symfony/%s', $name);
-        Application::start($this->casePath);
+        Application::start($this->getTestCasePath());
         $this->expectOutputString($name);
     }
 }
