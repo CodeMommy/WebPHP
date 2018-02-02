@@ -10,7 +10,6 @@ return array(
     'rule' => array(
         array('', 'Demo.index', RouteMethod::ANY),
         array('{action}', 'Demo.index', RouteMethod::ANY),
-        array('test/symfony/{name}', 'Test.symfony', RouteMethod::ANY),
-        array('test/home', 'Home.Home.index', RouteMethod::ANY)
+        array('test/symfony/{name}', 'Test.symfony', RouteMethod::ANY)
     )
 );

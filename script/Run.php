@@ -28,6 +28,7 @@ class Run
      */
     public static function start()
     {
+        Clean::start();
         Console::printLine('Visit http://localhost', 'information');
         PHP::run('public');
     }

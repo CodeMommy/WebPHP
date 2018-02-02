@@ -28,7 +28,7 @@ class Demo
      */
     public static function start()
     {
-        copy('test_case/config/route_symfony.php', 'test_case/config/route.php');
+        Clean::start();
         Console::printLine('Visit http://localhost', 'information');
         PHP::run('test_case/public');
     }

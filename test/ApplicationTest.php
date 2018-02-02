@@ -43,7 +43,6 @@ class ApplicationTest extends BaseTest
     public function testStart()
     {
         $name = strval(rand(1, 100));
-        copy($this->getTestCasePath('config/route_symfony.php'), $this->getTestCasePath('config/route.php'));
         $_SERVER['REQUEST_URI'] = sprintf('/test/symfony/%s', $name);
         Application::start($this->getTestCasePath());
         $this->expectOutputString($name);

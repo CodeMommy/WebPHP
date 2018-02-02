@@ -21,24 +21,6 @@ class Test
     }
 
     /**
-     * PathInfo
-     * @return string
-     */
-    public function pathInfo()
-    {
-        return isset($_GET['name']) ? $_GET['name'] : null;
-    }
-
-    /**
-     * Map
-     * @return string
-     */
-    public function map()
-    {
-        return 'map';
-    }
-
-    /**
      * Symfony
      * @return string
      */

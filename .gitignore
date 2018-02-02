@@ -12,5 +12,4 @@
 # Workbench
 /workbench
 /test_case/_runtime
-/test_case/config/route.php
 /test_case/config/environment.yaml
