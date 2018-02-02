@@ -61,7 +61,7 @@
         "symfony/yaml": "2.8.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "<7.0.0",
+        "phpunit/phpunit": "*",
         "phpmd/phpmd": "*",
         "squizlabs/php_codesniffer": "*",
         "satooshi/php-coveralls": "*",
