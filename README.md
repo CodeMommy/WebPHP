@@ -1,5 +1,6 @@
 # CodeMommy WebPHP
 
+[![Minimum PHP Version](https://img.shields.io/badge/php->=5.5-8892BF.svg)](https://php.net)
 [![License](https://poser.pugx.org/CodeMommy/WebPHP/license)](LICENSE)
 [![Download](https://poser.pugx.org/CodeMommy/WebPHP/downloads)](https://packagist.org/packages/CodeMommy/WebPHP)
 [![Stable](https://poser.pugx.org/CodeMommy/WebPHP/version)](https://packagist.org/packages/CodeMommy/WebPHP)
