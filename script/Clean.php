@@ -37,8 +37,8 @@ class Clean
         $result = FileSystem::remove($removeList);
         if ($result) {
             Console::printLine('Clean Finished.', 'success');
-        } else {
-            Console::printLine('Error.', 'error');
+            return;
         }
+        Console::printLine('Clean Error.', 'error');
     }
 }

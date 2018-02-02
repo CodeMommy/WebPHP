@@ -88,7 +88,10 @@
             "composer phpcs",
             "composer phpmd"
         ],
-        "phpmd": "\"vendor/bin/phpmd\" autoload.php,system,application,public,script,test,test_case text cleancode,codesize,controversial,design,naming,unusedcode",
+        "phpmd": [
+            "CodeMommy\\WebPHP\\Script\\RemoveRule::start",
+            "\"vendor/bin/phpmd\" autoload.php,system,application,public,script,test,test_case text cleancode,codesize,controversial,design,naming,unusedcode"
+        ],
         "phpcs": "\"vendor/bin/phpcs\" autoload.php system application public script test test_case --standard=PSR2",
         "phpcbf": "\"vendor/bin/phpcbf\" autoload.php system application public script test test_case --standard=PSR2",
         "phpunit": "CodeMommy\\WebPHP\\Script\\PHPUnit::start",

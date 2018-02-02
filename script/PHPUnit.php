@@ -56,7 +56,13 @@ class PHPUnit
     private static function getWorkbenchPath()
     {
         if (empty(self::$workbenchPath)) {
-            self::$workbenchPath = sprintf('%s%s%s%s', self::getBasePath(), DIRECTORY_SEPARATOR, time(), rand(100, 999));
+            self::$workbenchPath = sprintf(
+                '%s%s%s%s',
+                self::getBasePath(),
+                DIRECTORY_SEPARATOR,
+                time(),
+                rand(100, 999)
+            );
         }
         return self::$workbenchPath;
     }
@@ -87,8 +93,17 @@ class PHPUnit
         $coveragePath = sprintf('%s%sCodeCoverageReport', self::getWorkbenchPath(), DIRECTORY_SEPARATOR);
         $coveragePathHTML = sprintf('%s%sHTML', $coveragePath, DIRECTORY_SEPARATOR);
         $coverageFileHTML = sprintf('%s%sindex.html', $coveragePathHTML, DIRECTORY_SEPARATOR);
-        $coverageFileClover = sprintf('%s%sClover%sclover.xml', $coveragePath, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR);
-        $command = sprintf('"vendor/bin/phpunit" -v --coverage-html="%s" --coverage-clover="%s"', $coveragePathHTML, $coverageFileClover);
+        $coverageFileClover = sprintf(
+            '%s%sClover%sclover.xml',
+            $coveragePath,
+            DIRECTORY_SEPARATOR,
+            DIRECTORY_SEPARATOR
+        );
+        $command = sprintf(
+            '"vendor/bin/phpunit" -v --coverage-html="%s" --coverage-clover="%s"',
+            $coveragePathHTML,
+            $coverageFileClover
+        );
         system($command);
         if (is_file($coverageFileHTML)) {
             system(sprintf('start %s', $coverageFileHTML));
