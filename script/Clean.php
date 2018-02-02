@@ -35,10 +35,10 @@ class Clean
         );
         $result = FileSystem::remove($removeList);
         if ($result) {
-            Console::printLine('Clean Finished.', 'success');
+            Console::printLine('Clean Workbench Finished.', 'success');
             return;
         }
-        Console::printLine('Clean Error.', 'error');
+        Console::printLine('Clean Workbench Error.', 'error');
         return;
     }
 
