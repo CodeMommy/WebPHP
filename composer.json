@@ -89,20 +89,20 @@
             "composer phpmd"
         ],
         "phpmd": [
-            "CodeMommy\\WebPHP\\Script\\Clean::start",
+            "CodeMommy\\WebPHP\\Script\\Clean::workbench",
             "CodeMommy\\WebPHP\\Script\\RemoveRule::start",
             "\"vendor/bin/phpmd\" autoload.php,system,application,public,script,test,test_case text cleancode,codesize,controversial,design,naming,unusedcode"
         ],
         "phpcs": [
-            "CodeMommy\\WebPHP\\Script\\Clean::start",
+            "CodeMommy\\WebPHP\\Script\\Clean::workbench",
             "\"vendor/bin/phpcs\" autoload.php system application public script test test_case --standard=PSR2"
         ],
         "phpcbf": [
-            "CodeMommy\\WebPHP\\Script\\Clean::start",
+            "CodeMommy\\WebPHP\\Script\\Clean::workbench",
             "\"vendor/bin/phpcbf\" autoload.php system application public script test test_case --standard=PSR2"
         ],
         "phpunit": "CodeMommy\\WebPHP\\Script\\PHPUnit::start",
-        "clean": "CodeMommy\\WebPHP\\Script\\Clean::start",
+        "clean": "CodeMommy\\WebPHP\\Script\\Clean::all",
         "demo": "CodeMommy\\WebPHP\\Script\\Demo::start",
         "run": "CodeMommy\\WebPHP\\Script\\Run::start"
     }

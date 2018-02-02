@@ -24,11 +24,10 @@ class Clean
     }
 
     /**
-     * Start
+     * Workbench
      */
-    public static function start()
+    public static function workbench()
     {
-        PHPUnit::clean();
         $removeList = array(
             'application/_runtime',
             'test_case/_runtime',
@@ -41,5 +40,22 @@ class Clean
         }
         Console::printLine('Clean Error.', 'error');
         return;
+    }
+
+    /**
+     * PHPUnit
+     */
+    public static function phpUnit()
+    {
+        PHPUnit::clean();
+    }
+
+    /**
+     * All
+     */
+    public static function all()
+    {
+        self::workbench();
+        self::phpUnit();
     }
 }
