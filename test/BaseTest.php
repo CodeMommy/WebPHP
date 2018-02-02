@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace CodeMommy\WebPHP\Test;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -51,6 +52,7 @@ class BaseTest extends TestCase
 
     /**
      * Test
+     * @throws Exception
      */
     public function test()
     {

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace CodeMommy\WebPHP\Test;
 
+use Exception;
 use CodeMommy\WebPHP\Application;
 
 /**
@@ -27,6 +28,7 @@ class ApplicationTest extends BaseTest
 
     /**
      * Test Construct
+     * @throws Exception
      */
     public function testConstruct()
     {
@@ -36,6 +38,7 @@ class ApplicationTest extends BaseTest
 
     /**
      * Test Start
+     * @throws Exception
      */
     public function testStart()
     {
