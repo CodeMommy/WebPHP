@@ -7,6 +7,7 @@
 
 namespace CodeMommy\Script;
 
+use CodeMommy\DevelopPHP\PHPUnit;
 use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\FileSystem;
 
