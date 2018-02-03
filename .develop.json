@@ -1,0 +1,34 @@
+{
+    "Clean.Workbench": [
+        "application/_runtime",
+        "test_case/_runtime",
+        "workbench"
+    ],
+    "PHPCodeBeautifierAndFixer.File": [
+        "autoload.php",
+        "system",
+        "application",
+        "public",
+        "script",
+        "test",
+        "test_case"
+    ],
+    "PHPCodeSniffer.File": [
+        "autoload.php",
+        "system",
+        "application",
+        "public",
+        "script",
+        "test",
+        "test_case"
+    ],
+    "PHPMessDetector.File": [
+        "autoload.php",
+        "system",
+        "application",
+        "public",
+        "script",
+        "test",
+        "test_case"
+    ]
+}
