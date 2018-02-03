@@ -66,6 +66,7 @@ class Install
             'test',
             'test_case',
             '.coveralls.yml',
+            '.develop.json',
             '.travis.yml',
             'autoload.php',
             'phpunit.xml'
