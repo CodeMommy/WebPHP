@@ -7,16 +7,17 @@
 
 declare(strict_types=1);
 
-namespace CodeMommy\WebPHP\Test;
+namespace CodeMommy\Test;
 
 use Exception;
+use CodeMommy\DevelopPHP\PHPUnitBase;
 use CodeMommy\WebPHP\Application;
 
 /**
  * Class ApplicationTest
- * @package CodeMommy\WebPHP\Test
+ * @package CodeMommy\Test
  */
-class ApplicationTest extends BaseTest
+class ApplicationTest extends PHPUnitBase
 {
     /**
      * ApplicationTest constructor.

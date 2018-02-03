@@ -31,8 +31,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeMommy\\WebPHP\\Test\\": "test",
-            "CodeMommy\\WebPHP\\Script\\": "script"
+            "CodeMommy\\Test\\": "test",
+            "CodeMommy\\Script\\": "script"
         }
     },
     "require": {
@@ -61,27 +61,15 @@
         "symfony/yaml": "2.8.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
-        "phpmd/phpmd": "*",
-        "squizlabs/php_codesniffer": "*",
-        "satooshi/php-coveralls": "*",
-        "CodeMommy/TaskPHP": "*"
+        "CodeMommy/DevelopPHP": "dev-master"
     },
     "scripts": {
         "post-create-project-cmd": [
             "php script/Install.php 0.0.*",
             "composer update"
         ],
-        "environment": [
-            "composer -V",
-            "php -v",
-            "php -m"
-        ],
-        "update-project": [
-            "git pull",
-            "composer self-update",
-            "composer update"
-        ],
+        "environment": "CodeMommy\\DevelopPHP\\Environment::start",
+        "update-project": "CodeMommy\\DevelopPHP\\UpdateProject::start",
         "test": [
             "composer phpunit",
             "composer phpcbf",
@@ -89,21 +77,21 @@
             "composer phpmd"
         ],
         "phpmd": [
-            "CodeMommy\\WebPHP\\Script\\Clean::workbench",
-            "CodeMommy\\WebPHP\\Script\\RemoveRule::start",
+            "CodeMommy\\Script\\Clean::workbench",
+            "CodeMommy\\Script\\RemoveRule::start",
             "\"vendor/bin/phpmd\" autoload.php,system,application,public,script,test,test_case text cleancode,codesize,controversial,design,naming,unusedcode"
         ],
         "phpcs": [
-            "CodeMommy\\WebPHP\\Script\\Clean::workbench",
+            "CodeMommy\\Script\\Clean::workbench",
             "\"vendor/bin/phpcs\" autoload.php system application public script test test_case --standard=PSR2"
         ],
         "phpcbf": [
-            "CodeMommy\\WebPHP\\Script\\Clean::workbench",
+            "CodeMommy\\Script\\Clean::workbench",
             "\"vendor/bin/phpcbf\" autoload.php system application public script test test_case --standard=PSR2"
         ],
-        "phpunit": "CodeMommy\\WebPHP\\Script\\PHPUnit::start",
-        "clean": "CodeMommy\\WebPHP\\Script\\Clean::all",
-        "demo": "CodeMommy\\WebPHP\\Script\\Demo::start",
-        "run": "CodeMommy\\WebPHP\\Script\\Run::start"
+        "phpunit": "CodeMommy\\DevelopPHP\\PHPUnit::start",
+        "clean": "CodeMommy\\Script\\Clean::all",
+        "demo": "CodeMommy\\Script\\Demo::start",
+        "run": "CodeMommy\\Script\\Run::start"
     }
 }

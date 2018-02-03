@@ -5,14 +5,14 @@
  * @author Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\WebPHP\Script;
+namespace CodeMommy\Script;
 
 use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\PHP;
 
 /**
  * Class Run
- * @package CodeMommy\WebPHP\Script
+ * @package CodeMommy\Script
  */
 class Run
 {

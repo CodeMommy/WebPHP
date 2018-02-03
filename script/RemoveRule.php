@@ -5,13 +5,13 @@
  * @author Candison November <www.kandisheng.com>
  */
 
-namespace CodeMommy\WebPHP\Script;
+namespace CodeMommy\Script;
 
 use DOMDocument;
 
 /**
  * Class RemoveRule
- * @package CodeMommy\WebPHP\Script;
+ * @package CodeMommy\Script;
  */
 class RemoveRule
 {
