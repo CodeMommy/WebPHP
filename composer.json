@@ -68,29 +68,29 @@
             "php script/Install.php 0.0.*",
             "composer update"
         ],
-        "environment": "CodeMommy\\DevelopPHP\\Environment::start",
         "update-project": "CodeMommy\\DevelopPHP\\UpdateProject::start",
-        "test": [
-            "composer phpunit",
-            "composer phpcbf",
-            "composer phpcs",
-            "composer phpmd"
+        "environment": "CodeMommy\\DevelopPHP\\Environment::start",
+        "clean": "CodeMommy\\Script\\Clean::all",
+        "phpunit": "CodeMommy\\DevelopPHP\\PHPUnit::start",
+        "phpcbf": [
+            "CodeMommy\\Script\\Clean::workbench",
+            "\"vendor/bin/phpcbf\" autoload.php system application public script test test_case --standard=PSR2"
+        ],
+        "phpcs": [
+            "CodeMommy\\Script\\Clean::workbench",
+            "\"vendor/bin/phpcs\" autoload.php system application public script test test_case --standard=PSR2"
         ],
         "phpmd": [
             "CodeMommy\\Script\\Clean::workbench",
             "CodeMommy\\Script\\RemoveRule::start",
             "\"vendor/bin/phpmd\" autoload.php,system,application,public,script,test,test_case text cleancode,codesize,controversial,design,naming,unusedcode"
         ],
-        "phpcs": [
-            "CodeMommy\\Script\\Clean::workbench",
-            "\"vendor/bin/phpcs\" autoload.php system application public script test test_case --standard=PSR2"
+        "test": [
+            "composer phpunit",
+            "composer phpcbf",
+            "composer phpcs",
+            "composer phpmd"
         ],
-        "phpcbf": [
-            "CodeMommy\\Script\\Clean::workbench",
-            "\"vendor/bin/phpcbf\" autoload.php system application public script test test_case --standard=PSR2"
-        ],
-        "phpunit": "CodeMommy\\DevelopPHP\\PHPUnit::start",
-        "clean": "CodeMommy\\Script\\Clean::all",
         "demo": "CodeMommy\\Script\\Demo::start",
         "run": "CodeMommy\\Script\\Run::start"
     }
