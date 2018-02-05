@@ -68,7 +68,7 @@
         "CodeMommy/DevelopPHP": "dev-master"
     },
     "scripts": {
-        "post-create-project-cmd": "CodeMommy\\Script\\Install::start",
+        "post-create-project-cmd": "php -r \"require_once('script/Install.php');\\CodeMommy\\Script\\Install::start('0.0.*');\"",
         "demo": "CodeMommy\\Script\\Demo::start",
         "run": "CodeMommy\\Script\\Run::start",
         "update-project": "CodeMommy\\DevelopPHP\\UpdateProject::start",

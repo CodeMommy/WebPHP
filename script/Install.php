@@ -57,8 +57,9 @@ class Install
 
     /**
      * Start
+     * @param $versionComposer
      */
-    public static function start()
+    public static function start($versionComposer = '*')
     {
         // Remove
         $removeList = array(
@@ -80,7 +81,6 @@ class Install
         copy('application/config/environment.example.yaml', 'application/config/environment.yaml');
         // Composer
 //        $versionComposer = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '*';
-        $versionComposer = '0.0.*';
         $data = array(
             'require' => array(
                 'codemommy/webphp' => $versionComposer
