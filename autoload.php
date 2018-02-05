@@ -9,9 +9,9 @@ require_once('system/library/Autoload.php');
 use CodeMommy\WebPHP\Library\Autoload;
 
 $autoloaDirectory = array(
-    'system' => 'CodeMommy\\WebPHP',
+    'system/library' => 'CodeMommy\\WebPHP\\Library\\',
     'system/interface' => 'CodeMommy\\WebPHP',
-    'system/library' => 'CodeMommy\\WebPHP\\Library\\'
+    'system' => 'CodeMommy\\WebPHP'
 );
 
 Autoload::directory($autoloaDirectory);
