@@ -26,7 +26,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "CodeMommy\\WebPHP\\": "system"
+            "CodeMommy\\WebPHP\\Library\\": "system/library",
+            "CodeMommy\\WebPHP\\": [
+                "system/interface",
+                "system"
+            ]
         }
     },
     "autoload-dev": {

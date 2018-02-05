@@ -3,12 +3,14 @@
     <testsuites>
         <testsuite name="CodeMommy WebPHP">
             <directory suffix="Test.php">./test</directory>
-            <exclude>./test_case</exclude>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./system</directory>
+            <exclude>
+                <file>./system/library/Autoload.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <logging>
