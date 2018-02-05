@@ -9,6 +9,7 @@ namespace CodeMommy\Script;
 
 use CodeMommy\TaskPHP\Console;
 use CodeMommy\TaskPHP\PHP;
+use CodeMommy\DevelopPHP\Clean;
 
 /**
  * Class Run

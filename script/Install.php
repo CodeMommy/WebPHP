@@ -5,6 +5,8 @@
  * @author Candison November <www.kandisheng.com>
  */
 
+namespace CodeMommy\Script;
+
 /**
  * Class Install
  */
@@ -31,9 +33,9 @@ class Install
             $file = $directory->path . '/' . $item;
             if (is_dir($file)) {
                 self::deleteDirectory($file);
-            } else {
-                unlink($file);
+                continue;
             }
+            unlink($file);
         }
         $directory->close();
         rmdir($path);
@@ -77,7 +79,8 @@ class Install
         // Copy
         copy('application/config/environment.example.yaml', 'application/config/environment.yaml');
         // Composer
-        $versionComposer = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '*';
+//        $versionComposer = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '*';
+        $versionComposer = '0.0.*';
         $data = array(
             'require' => array(
                 'codemommy/webphp' => $versionComposer
@@ -87,7 +90,8 @@ class Install
         $composerJSON = str_replace('\\', '', $composerJSON);
         $composerFile = 'composer.json';
         file_put_contents($composerFile, $composerJSON);
+        system('composer update');
     }
 }
 
-Install::start();
+//Install::start();

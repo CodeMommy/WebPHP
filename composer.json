@@ -68,10 +68,7 @@
         "CodeMommy/DevelopPHP": "dev-master"
     },
     "scripts": {
-        "post-create-project-cmd": [
-            "php script/Install.php 0.0.*",
-            "composer update"
-        ],
+        "post-create-project-cmd": "CodeMommy\\Script\\Install::start",
         "demo": "CodeMommy\\Script\\Demo::start",
         "run": "CodeMommy\\Script\\Run::start",
         "update-project": "CodeMommy\\DevelopPHP\\UpdateProject::start",
