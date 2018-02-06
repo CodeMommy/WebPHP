@@ -57,9 +57,9 @@ class Install
 
     /**
      * Start
-     * @param $versionComposer
+     * @param $version
      */
-    public static function start($versionComposer = '*')
+    public static function start($version = '*')
     {
         // Remove
         $removeList = array(
@@ -80,18 +80,21 @@ class Install
         // Copy
         copy('application/config/environment.example.yaml', 'application/config/environment.yaml');
         // Composer
-//        $versionComposer = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '*';
+        $composerFile = 'composer.json';
+        $composerData = file_get_contents($composerFile);
+        $composerData = json_decode($composerData, true);
+        $packageName = isset($composerData['name']) ? $composerData['name'] : 'codemommy/webphp';
         $data = array(
             'require' => array(
-                'codemommy/webphp' => $versionComposer
+                $packageName => $version
             )
         );
         $composerJSON = json_encode($data, JSON_PRETTY_PRINT);
         $composerJSON = str_replace('\\', '', $composerJSON);
-        $composerFile = 'composer.json';
         file_put_contents($composerFile, $composerJSON);
-        system('composer update');
+        system('composer update', $returnCode);
+        if (intval($returnCode) == 0) {
+            echo(sprintf('CodeMommy WebPHP has been installed successfully'));
+        }
     }
 }
-
-//Install::start();
