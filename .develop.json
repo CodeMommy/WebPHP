@@ -6,6 +6,17 @@
             "workbench"
         ]
     },
+    "PHPDepend": {
+        "File": [
+            "autoload.php",
+            "system",
+            "application",
+            "public",
+            "script",
+            "test",
+            "test_case"
+        ]
+    },
     "PHPCodeBeautifierAndFixer": {
         "File": [
             "autoload.php",
