@@ -9,7 +9,7 @@ return array(
     // Route Configure
     'rule' => array(
         array('', 'Demo.index', RouteMethod::ANY),
-        array('{action}', 'Demo.index', RouteMethod::ANY),
+        array('{controller}/{action}', 'Demo.index', RouteMethod::ANY),
         array('test/symfony/{name}', 'Test.symfony', RouteMethod::ANY)
     )
 );

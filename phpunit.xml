@@ -8,6 +8,7 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./system</directory>
+            <directory suffix=".php">./test_case/library/Demo</directory>
             <exclude>
                 <directory suffix=".php">./system/interface</directory>
                 <file>./system/library/Autoload.php</file>

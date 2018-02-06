@@ -5,11 +5,11 @@
  * @author Candison November <www.kandisheng.com>
  */
 
-namespace Library;
+namespace Library\HelloWorld;
 
 /**
  * Class HelloWorld
- * @package Library
+ * @package Library\HelloWorld
  */
 class HelloWorld
 {
@@ -25,6 +25,6 @@ class HelloWorld
      */
     public static function show()
     {
-        echo 'Hello World';
+        echo 'Load Library';
     }
 }
