@@ -9,12 +9,10 @@ php:
   - 7.2
   - nightly
   - hhvm
-  - hhvm-nightly
 matrix:
   allow_failures:
     - php: nightly
     - php: hhvm
-    - php: hhvm-nightly
 before_install:
   - echo "Start"
 install:
