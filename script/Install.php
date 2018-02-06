@@ -57,9 +57,9 @@ class Install
 
     /**
      * Start
-     * @param $version
+     * @param $packageVersion
      */
-    public static function start($version = '*')
+    public static function start($packageVersion = '*')
     {
         // Remove
         $removeList = array(
@@ -87,25 +87,25 @@ class Install
         $packageName = strtolower($packageName);
         $data = array(
             'require' => array(
-                $packageName => $version
+                $packageName => $packageVersion
             )
         );
         $composerJSON = json_encode($data, JSON_PRETTY_PRINT);
         $composerJSON = str_replace('\\', '', $composerJSON);
         file_put_contents($composerFile, $composerJSON);
         system('composer update', $returnCode);
-        $installedVersion = $version;
-        $composerLockFile = 'composer.lock';
-        $composerLockContent = file_get_contents($composerLockFile);
-        $composerLockArray = json_decode($composerLockContent, true);
-        $packages = isset($composerLockArray['packages']) ? $composerLockArray['packages'] : array();
-        foreach ($packages as $package) {
-            if (strtolower($package['name']) == $packageName) {
-                $installedVersion = $package['version'];
-                break;
-            }
-        }
         if (intval($returnCode) == 0) {
+            $installedVersion = $packageVersion;
+            $composerLockFile = 'composer.lock';
+            $composerLockContent = file_get_contents($composerLockFile);
+            $composerLockArray = json_decode($composerLockContent, true);
+            $packages = isset($composerLockArray['packages']) ? $composerLockArray['packages'] : array();
+            foreach ($packages as $package) {
+                if (strtolower($package['name']) == $packageName) {
+                    $installedVersion = $package['version'];
+                    break;
+                }
+            }
             echo(sprintf('CodeMommy WebPHP %s has been installed successfully', $installedVersion));
         }
     }
