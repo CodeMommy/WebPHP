@@ -84,6 +84,7 @@ class Install
         $composerData = file_get_contents($composerFile);
         $composerData = json_decode($composerData, true);
         $packageName = isset($composerData['name']) ? $composerData['name'] : 'codemommy/webphp';
+        $packageName = strtolower($packageName);
         $data = array(
             'require' => array(
                 $packageName => $version
@@ -93,8 +94,19 @@ class Install
         $composerJSON = str_replace('\\', '', $composerJSON);
         file_put_contents($composerFile, $composerJSON);
         system('composer update', $returnCode);
+        $installedVersion = $version;
+        $composerLockFile = 'composer.lock';
+        $composerLockContent = file_get_contents($composerLockFile);
+        $composerLockArray = json_decode($composerLockContent, true);
+        $packages = isset($composerLockArray['packages']) ? $composerLockArray['packages'] : array();
+        foreach ($packages as $package) {
+            if (strtolower($package['name']) == $packageName) {
+                $installedVersion = $package['version'];
+                break;
+            }
+        }
         if (intval($returnCode) == 0) {
-            echo(sprintf('CodeMommy WebPHP has been installed successfully'));
+            echo(sprintf('CodeMommy WebPHP %s has been installed successfully', $installedVersion));
         }
     }
 }
