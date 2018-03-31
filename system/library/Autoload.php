@@ -22,11 +22,11 @@ class Autoload
 
     /**
      * Directory
-     * @param array $autoloaDirectory
+     * @param array $autoloadDirectory
      */
-    public static function directory($autoloaDirectory = array())
+    public static function directory($autoloadDirectory = array())
     {
-        foreach ($autoloaDirectory as $directory => $namespaceRoot) {
+        foreach ($autoloadDirectory as $directory => $namespaceRoot) {
             $directory = sprintf('%s%s%s', __DIR__, DIRECTORY_SEPARATOR, $directory);
             spl_autoload_register(function ($className) use ($directory, $namespaceRoot) {
                 $directory = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $directory);
